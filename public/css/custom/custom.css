@@ -1,0 +1,265 @@
+/*================================================================================
+	Item Name: Materialize - Material Design Admin Template
+	Version: 5.0
+	Author: PIXINVENT
+	Author URL: https://themeforest.net/user/pixinvent/portfolio
+================================================================================
+
+NOTE:
+------
+PLACE HERE YOUR OWN CSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
+WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
+.logoutactive {
+    color: #fff !important;
+    background-color: #002F6C !important;
+}
+
+.defaultbtn,
+.defaultbtn:hover,
+.defaultbtn:active,
+.defaultbtn:focus {
+    text-decoration: none;
+    color: #fff;
+    background-color: #002F6C;
+    text-align: center;
+    letter-spacing: 0.5px;
+    transition: background-color 0.2s ease-out;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    display: inline-block;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 2rem;
+    /* text-transform: uppercase; */
+    vertical-align: middle;
+    -webkit-tap-highlight-color: transparent;
+
+}
+
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.loginbtndisplay {
+    position: relative;
+}
+
+#login-page .min-hig {
+    padding: 20px 0 45px 0;
+}
+
+#login-page .login-form {
+    margin-top: 4px;
+    width: 66%;
+    margin: auto;
+    padding-top: 18px;
+}
+
+#login-page .apj-ml-2p5 {
+    margin-left: 1% !important;
+}
+
+.loginseparator {
+    margin: 6px;
+}
+
+#login-page .login-form .login-btn {
+    width: 100%;
+}
+
+#login-page .login-form .mt--6 {
+    margin-top: 0px;
+    margin-bottom: -14px;
+}
+
+.loginbtndisplay p {
+    margin: 15px;
+    font-size: 24px;
+    color: #0f0f0f;
+    font-weight: bold;
+}
+
+.btnlogout,
+.btnlogout:hover,
+.btnlogout:active,
+.btnlogout:focus {
+    border: none;
+    background: none;
+    color: #fff !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.loginbtndisplay a {
+    width: 66%;
+}
+
+.h-100 {
+    height: 80%;
+}
+
+.passw p {
+    margin: 0px;
+    font-weight: bold;
+    ;
+}
+
+.passw ul li {
+    font-size: 12px;
+    padding-left: 15px;
+}
+
+.layout-min-height {
+    min-height: 300px;
+    margin-top: 15px;
+    ;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.menu-link-li {
+/*     background: #002F6C !important;
+    margin: 0px 5px 10px 5px !important; */
+}
+
+.menu-link-li a {
+    color: #0f0f0f;
+}
+
+.jpi-main-heading h2 {
+    font-size: 1.25rem;
+    color: #0f0f0f;
+    font-weight: bold;
+    margin-bottom: -4px;
+}
+
+.apj-get-started-btn,
+.apj-intro-close-btn,
+.apj-edit-btn {
+    background: #005dab;
+}
+
+.apj-save-btn {
+    background: #ffffff;
+    color: #0f0f0f;
+    border: 2px solid #005dab;
+}
+
+.apj-save-btn:hover,
+.apj-save-btn:focus {
+    color: #ffffff;
+    background: #005dab;
+}
+
+.apj-cancel-btn {
+    background: #0f0f0f;
+}
+
+.apj-cancel-btn:hover {
+    background: #000000;
+}
+
+#accsett {
+    display: flex;
+}
+
+#accsett h4 {
+    margin-right: 40px;
+}
+
+.registered-tag {
+    margin-top: -0px;
+}
+
+.registered-tag span.registered {
+    background: #e2e2e2;
+    border-radius: 10px;
+    padding: 2px 20px;
+    display: flex;
+    color: #00ab34;
+    font-size: 12px;
+}
+
+.registered-tag span.notregistered {
+    background: #e2e2e2;
+    border-radius: 10px;
+    padding: 2px 20px;
+    display: flex;
+    color: #ab0000;
+    font-size: 12px;
+}
+
+.registered-tag span.notregistered img {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.regit-icon {
+    width: 18px;
+    margin-right: 8px;
+}
+
+#apj-acctxt-border {
+    border-top: 1px solid rgba(160, 160, 160, .2);
+    margin: 20px -24px 20px -24px;
+}
+
+.jpi-main-heading {
+    padding: 5px 0;
+}
+
+.account-settings-section h4,
+.transaction-settings-section h4 {
+    font-weight: bold !important;
+    color: #0f0f0f;
+}
+
+#intro .carousel.carousel-slider .carousel-item p {
+    font-size: 14px;
+    color: #0f0f0f;
+}
+
+.terms_and_condition {
+    overflow-y: scroll;
+    height: 100px;
+    resize: none; /* Remove this if you want the user to resize the textarea */
+}
+@media only screen and (min-width: 993px) {
+    .navbar .sideNav-lock .header-search-wrapper {
+        font-size: 1.375rem;
+        line-height: 58px;
+    }
+    nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
+        height: 80px;
+        line-height: 80px;
+    }
+    .profile-button .avatar-status {
+        line-height: 64px;
+    }
+}
+
+@media only screen and (min-width : 993px) and (max-width : 1199px) {
+    .loginbtndisplay a {
+        width: 80%;
+    }
+
+    #login-page .login-form {
+        width: 80%;
+    }
+}
+@media only screen and (min-width: 993px) {
+#main .jpi-main-heading{
+    padding-top: 44px;
+}
+}

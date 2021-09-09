@@ -1,0 +1,22 @@
+{
+  "menu": [
+  
+    {
+      "url": "/",
+      "name": "Emp Dashboard",
+      "i18n": "Emp Dashboard",
+      "class": "menulink waves-effect waves-cyan",
+      "icon": "",
+      "slug": "Dashboard"
+      
+    },{
+      "url": "/",
+      "name": "Link 1",
+      "i18n": "Link 1",
+      "class": "menulink waves-effect waves-cyan",
+      "icon": "",
+      "slug": "Link 1"
+     
+    }
+  ]
+}

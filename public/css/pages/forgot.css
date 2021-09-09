@@ -1,0 +1,40 @@
+/*----------------------------------------
+    Login Page
+------------------------------------------*/
+.forgot-bg {
+    background: -webkit-linear-gradient(to right,#0E5D98 0,#002F6C 100%);
+    background: linear-gradient(to right, #0E5D98 0,#002F6C 100%);
+}
+
+.login-pattern {
+    background-image: url(/images/login_pattern.svg);
+    position: fixed;
+    background-position: center;
+    background-repeat: repeat;
+    background-position: 50% -122.1px;
+    top: 0;
+    bottom: 0;
+    opacity: .08;
+    left: 0;
+    right: 0;
+}
+
+#forgot-password {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+#forgot-password .card-panel.border-radius-6.forgot-card {
+    margin-left: 0 !important;
+}
+
+#forgot-password h5,#forgot-password p{
+color: #0f0f0f;
+}
+#forgot-password .login-btn{
+    width: 50%;
+}
+#forgot-password .login-form{
+    padding-bottom: 18px;
+}
