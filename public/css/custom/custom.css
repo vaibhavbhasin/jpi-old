@@ -304,6 +304,7 @@ text-align: left;
     /* height: 32px;
     line-height: 32px; */
     padding: 0 1rem;
+    pointer-events: none;
 }
 #regit-icon-new:hover{
 background-color: #00922d;
@@ -313,6 +314,7 @@ background-color: #00922d;
 /*     height: 32px;
     line-height: 32px; */
     padding: 0 1rem;
+    pointer-events: none;
 }
 #non-regit-icon-new:hover{
     background-color: #ab0000;
