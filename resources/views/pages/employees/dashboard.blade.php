@@ -148,7 +148,9 @@
                                                 </tr>
                                             @empty
                                                 <tr>
-                                                    <td colspan="4" style="padding-left: 20px;">-- No Such Data --</td>
+                                                    <td colspan="4" style="padding-left: 20px;text-align: center">-- No
+                                                        Data --
+                                                    </td>
                                                 </tr>
                                             @endforelse
                                             </tfoot>
