@@ -72,8 +72,14 @@
                                                     <label for="city">City</label>
                                                 </div>
                                                 <div class="input-field col s6">
-                                                    <input id="state" name="state" type="text" class="validate"
-                                                           value="{{$employee_details['state'] ?? ''}}" disabled>
+{{--                                                    <input id="state" name="state" type="text" class="validate"--}}
+{{--                                                           value="{{$employee_details['state'] ?? ''}}" disabled>--}}
+                                                    <select id="state-pop-update" class="select2 selectstate browser-default" class="validate" name="state" disabled>
+                                                        <option value="">Select State</option>
+                                                        @foreach(\App\Helpers\Helper::states() as $state)
+                                                            <option value="{{$state}}" {{$employee_details['state'] ? 'selected' : ''}}>{{$state}}</option>
+                                                        @endforeach
+                                                    </select>
                                                     <label for="state">State</label>
                                                 </div>
                                             </div>
@@ -244,13 +250,10 @@
                                                 <label for="state-pop">State</label> -->
                                                     <select id="state-pop" class="select2 selectstate browser-default"
                                                             class="validate">
-                                                        <option value="state">State</option>
-                                                        <option value="rectangle">Rectangle</option>
-                                                        <option value="rombo">Rombo</option>
-                                                        <option value="romboid">Romboid</option>
-                                                        <option value="trapeze">Trapeze</option>
-                                                        <option value="traible">Triangle</option>
-                                                        <option value="polygon">Polygon</option>
+                                                        <option value="">Select State</option>
+                                                        @foreach(\App\Helpers\Helper::states() as $state)
+                                                            <option value="{{$state}}">{{$state}}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>
@@ -540,7 +543,7 @@
             $("#edit_details_btn").click(function () {
                 /* $('#employee_details_form').show(); */
                 $('#edit_details_btn').hide();
-                $("#employee_details_form input").attr("disabled", false);
+                $("#employee_details_form input,select").attr("disabled", false);
 
                 $('#edit_details_cancel_btn').show();
                 $('#edit_details_save_btn').show();
