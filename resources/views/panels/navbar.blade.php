@@ -4,7 +4,7 @@
     class="{{$configData['navbarMainClass']}} @if($configData['isNavbarDark']=== true) {{'navbar-dark'}} @elseif($configData['isNavbarDark']=== false) {{'navbar-light'}} @elseif(!empty($configData['navbarBgColor'])) {{$configData['navbarBgColor']}} @else {{$configData['navbarMainColor']}} @endif">
     <div class="nav-wrapper">
       <div class="header-search-wrapper hide-on-med-and-down">
-        Celluar Payment System
+      Phone Reimbursement System
       </div>
       <ul class="navbar-list right">
         <!-- <li class="dropdown-language">

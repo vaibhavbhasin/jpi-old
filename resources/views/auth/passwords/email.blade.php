@@ -34,7 +34,7 @@
           <p class="ml-4">You can reset your password</p>
         </div>
       </div>
-      <div class="row">
+      <div class="row wmauto">
         <div class="input-field col s12">
           <i class="material-icons prefix pt-2">person_outline</i>
           <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"
@@ -53,7 +53,9 @@
 			<button type="submit" class="defaultbtn login-btn">Reset Password</button>
 		  </div>
 		<div class='text-center mt-2'>
-            <a href="{{route('login')}}" class="defaultbtn login-btn">Back to Login</a>
+            <a href="{{ route('password.request') }}" class="login-btn forgot-pasw-text">
+            Back to Login
+           </a>
 		  </div>
         </div>
       </div>

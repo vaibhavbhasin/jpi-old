@@ -104,7 +104,7 @@
                                     <div id="apj-acctxt-border"></div>
                                 </div>
                                 <!-- Page Length Options -->
-                                <div class="row">
+                                <div class="row" id="data-table-starts">
                                     <div class="col s12">
                                         <table id="data-table-simple" class="display">
                                             <thead>

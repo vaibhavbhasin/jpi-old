@@ -23,8 +23,8 @@
                                 <div id="apj-acctxt-border"></div>
                             </div>
                             <!-- Page Length Options -->
-                            <div class="row">
-                                <div class="col s12">
+                            <div class="row" id="data-table-starts">
+                                <div class="col s12 p0">
                                     <table id="data-table-simple" class="display">
                                         <thead>
                                             <tr>

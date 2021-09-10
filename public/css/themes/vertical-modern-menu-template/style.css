@@ -6966,7 +6966,8 @@ nav.display-none.search-sm .nav-wrapper form .input-field i {
 }
 .sidenav li a.active {
     background: linear-gradient(45deg,#0e5d98 0,#002F6C 100%);
-  box-shadow: 3px 3px 20px 0 rgba(12, 87, 147, 0.5);
+  /* box-shadow: 3px 3px 20px 0 rgba(12, 87, 147, 0.5); */
+  box-shadow: 0 2px 2px 0 rgb(12 87 147 / 14%), 0 3px 1px -2px rgb(12 87 147 / 12%), 0 1px 5px 0 rgb(12 87 147 / 20%);
   color: #fff;
   margin: 0;
 }

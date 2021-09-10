@@ -20,6 +20,7 @@ $(document).ready(function(){
 		}else{
 			$(this).addClass('show');
 			$('.login-form').show(700);
+			$('#userform').hide(400);
 		}
 	});
 	$("#loginbtn").click(function(){
@@ -526,3 +527,26 @@ $( document ).ready(function() {
 		}
 	});
 });
+
+
+$('#img-modal #zip-pop').keyup(function () {
+	if (/\D/g.test(this.value))
+	{
+		// Filter non-digits from input value.
+		this.value = this.value.replace(/\D/g, '');
+	}
+});
+
+
+
+  $(function() {
+	$("#register-page input#email").on("click", function(e) {
+		$("#register-page .emailaddress-hint").addClass('br-bt');
+	  e.stopPropagation()
+	});
+	$(document).on("click", function(e) {
+	  if ($(e.target).is("#register-page .emailaddress-hint") === false) {
+		$("#register-page .emailaddress-hint").removeClass("br-bt");
+	  }
+	});
+  });

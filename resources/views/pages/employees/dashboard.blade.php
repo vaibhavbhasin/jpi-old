@@ -20,10 +20,12 @@
                                         <h4 class="card-title">Account Settings</h4>
                                         <div class="registered-tag">
                                             @if(@$employee_details['is_active'] == '1')
-                                            <span class="registered"><img src="{{asset('images/registered-icon.svg')}}" alt="" class="regit-icon"> Registered</span>
+                                            <!-- <span class="registered"><img src="{{asset('images/registered-icon.svg')}}" alt="" class="regit-icon"> Registered</span> -->
+                                            <button type="button" class="waves-effect apj-edit-btn btn " id="regit-icon-new">Complete</button>
                                             <!-- remove class 'hide' -->
                                             @else
-                                            <span class="notregistered"><img src="{{asset('images/not-registered.svg')}}" alt="" class="regit-icon"> Not Registered</span>
+                                            <!-- <span class="notregistered"><img src="{{asset('images/not-registered.svg')}}" alt="" class="regit-icon"> No Registered</span> -->
+                                            <button type="button" class="waves-effect apj-edit-btn btn " id="non-regit-icon-new">Incomplete</button>
                                             @endif
                                         </div>
                                     </div>
@@ -103,8 +105,8 @@
                                 <div id="apj-acctxt-border"></div>
                             </div>
                             <!-- Page Length Options -->
-                            <div class="row">
-                                <div class="col s12">
+                            <div class="row" id="data-table-starts">
+                                <div class="col s12 p0">
                                     <table id="data-table-simple" class="display">
                                         <thead>
                                             <tr>
@@ -207,13 +209,22 @@
                                                 <label for="city-pop">City</label>
                                             </div>
                                             <div class="input-field col s6">
-                                                <input id="state-pop" type="text" class="validate" value="{{$employee_details['state'] ?? ''}}">
-                                                <label for="state-pop">State</label>
+                                               <!--  <input id="state-pop" type="text" class="validate" value="{{$employee_details['state'] ?? ''}}">
+                                                <label for="state-pop">State</label> -->
+                                                <select id="state-pop" class="select2 selectstate browser-default" class="validate">
+                                                    <option value="state">State</option>
+                                                    <option value="rectangle">Rectangle</option>
+                                                    <option value="rombo">Rombo</option>
+                                                    <option value="romboid">Romboid</option>
+                                                    <option value="trapeze">Trapeze</option>
+                                                    <option value="traible">Triangle</option>
+                                                    <option value="polygon">Polygon</option>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="input-field col s12">
-                                                <input id="zip-pop" type="text" class="validate" value="{{$employee_details['zip'] ?? ''}}">
+                                                <input id="zip-pop" type="text" class="validate" value="{{$employee_details['zip'] ?? ''}}"  maxlength="5">
                                                 <label for="zip-pop">Zip</label>
                                             </div>
                                         </div>
@@ -263,8 +274,17 @@
 @endsection
 
 @section('customjs')
+<link rel="stylesheet" href="https://pixinvent.com/materialize-material-design-admin-template/app-assets/vendors/select2/select2.min.css" type="text/css">
+<link rel="stylesheet" href="https://pixinvent.com/materialize-material-design-admin-template/app-assets/vendors/select2/select2-materialize.css" type="text/css">
+<script src="https://pixinvent.com/materialize-material-design-admin-template/app-assets/vendors/select2/select2.full.min.js"></script>
 <script src="https://cdn.dwolla.com/1/dwolla.js"></script>
 <script type="text/javascript">
+// Basic Select2 select
+$(".selectstate").select2({
+    placeholder: "Select a state",
+    dropdownAutoWidth: true,
+    width: '100%'
+});
     function callDwollaBankPopup(iavToken) {
       var iavToken = iavToken;
       

@@ -13,7 +13,7 @@
 @section('content')
 <div class="login-pattern"></div>
 <div id="register-page" class="row">
-  <div class="col s12 m6 l4 z-depth-4 card-panel border-radius-6 register-card bg-opacity-8">
+  <div class="col s12 m6 l4 z-depth-4 card-panel border-radius-6 register-card bg-opacity-1">
     <form class="login-form" method="POST" action="{{ route('employeeregister') }}">
       @csrf
       <div class="row">
@@ -24,7 +24,7 @@
       <div class="row margin">
         <div class="col s12">
         <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col m6 s12">
           <i class="material-icons prefix pt-2">person_outline</i>
           <input id="firstname" type="text" class="@error('firstname') is-invalid @enderror" name="firstname" value="{{ old('firstname') }}"
              autocomplete="firstname" >
@@ -35,7 +35,7 @@
           </small>
           @enderror
         </div>
-        <div class="input-field col s6">
+        <div class="input-field col m6 s12">
         <i class="material-icons prefix pt-2">person_outline</i>
           <input id="lastname" type="text" class="@error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}"
              autocomplete="lastname" >
@@ -58,6 +58,9 @@
           <i class="material-icons prefix pt-2">mail_outline</i>
           <input id="email" type="email" class="@error('email') is-invalid @enderror" name="email"
             value="{{ old('email') }}"  autocomplete="email">
+            <button type="button" class="button button-secondary emailaddress-hint">
+						@jpi.com
+					</button>
           <label for="email">Email</label>
           @error('email')
           <small class="red-text ml-7" role="alert">
@@ -298,7 +301,7 @@
       </div>
       <div class="row">
         <div class="input-field col s12 mt--6">
-          <p class="margin center-align medium-small"><a href="{{ route('employeeLoginForm')}}">Already have an account? Login</a></p>
+          <p class="margin center-align medium-small"><a href="{{ route('employeeLoginForm')}}" class="forgot-pasw-text">Already have an account? Login</a></p>
         </div>
       </div>
     </form>

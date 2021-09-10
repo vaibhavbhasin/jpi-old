@@ -78,11 +78,32 @@ button[disabled]{
 
 .loginbtndisplay p {
     margin: 15px;
-    font-size: 24px;
+    font-size: 22px;
     color: #0f0f0f;
     font-weight: bold;
 }
+.bg-opacity-1{
+    background-color: #fff;
+}
 
+#userform.btn-light-new-bg-bt {
+    background-color: #cedbe7;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 10%), 0 3px 1px -2px rgb(0 0 0 / 0%), 0 1px 5px 0 rgb(255 255 255 / 8%);
+    color: #002F6C !important;
+}
+.defaultbtn:hover{
+    background-color: #001b3e;
+}
+.wmauto{
+    width: 96%;
+    margin: auto !important;
+}
+.forgot-pasw-text{
+    color:#616161;
+}
+#userform.btn-light-cyan:hover, #userform.btn-light-cyan:focus, #userform.btn-light-cyan.hover {
+    color: #fff !important;
+}
 .btnlogout,
 .btnlogout:hover,
 .btnlogout:active,
@@ -176,7 +197,7 @@ button[disabled]{
 }
 
 .registered-tag {
-    margin-top: -0px;
+    margin-top: -1px;
 }
 
 .registered-tag span.registered {
@@ -225,11 +246,79 @@ button[disabled]{
     color: #0f0f0f;
 }
 
+#data-table-simple tbody td {
+    padding: 8px 16px;
+}
+#main .section-data-tables #data-table-starts .dataTables_wrapper .dataTables_info {
+    margin-left: 15px;
+}
 #intro .carousel.carousel-slider .carousel-item p {
-    font-size: 14px;
+    font-size: 15px;
     color: #0f0f0f;
 }
+#intro .carousel.carousel-slider .select2-selection__rendered {
+text-align: left;
+}
+#intro .carousel.carousel-slider .select2-results__option {
+    padding: 0.4rem 0.8rem;
+}
+/* #main .section-data-tables #data-table-starts .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    color: #fff!important;
+    border: 1px solid #3f51b5;
+    background: #3f51b5;
+    box-shadow: none;
+    height: 30px;
+    vertical-align: top;
+    border-radius: 2px;
+}
+ */
+ #register-page input#email{
+    width: calc(100% - 7.4rem);
+ }
+#register-page .emailaddress-hint{
+    background: 0 0;
+    border: 1px solid transparent;
+    border-bottom: 1px solid #9e9e9e;
+    box-shadow: none;
+    font-size: 14px;
+    line-height: 2;
+    width: 2.5rem;
+    height: 2.5rem;
+    min-width: 64px;
+    min-height: 46px;
+    margin: 0 20px 0 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+ }
+ #register-page .emailaddress-hint.br-bt{
+    border-bottom: 1px solid #002F6C;
+    box-shadow: 0 1px 0 0 #002f6c;
+    transition: box-shadow 0.3s, border 0.2s;
 
+ }
+#regit-icon-new{
+    background-color:#00ab34;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 1rem;
+}
+#regit-icon-new:hover{
+background-color: #00922d;
+}
+#non-regit-icon-new{
+    background-color:#ab0000;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 1rem;
+}
+#non-regit-icon-new:hover{
+    background-color: #ab0000;
+}
+#data-table-starts .p0{
+    padding-right:0 ;
+    padding-left:0 ;
+}
 .terms_and_condition {
     overflow-y: scroll;
     height: 100px;
@@ -249,6 +338,11 @@ button[disabled]{
     }
 }
 
+@media only screen and (min-width : 991px) and (max-width : 1199px) {
+    #register-page .emailaddress-hint{
+        min-height: 44px;
+     }
+}
 @media only screen and (min-width : 993px) and (max-width : 1199px) {
     .loginbtndisplay a {
         width: 80%;
@@ -262,4 +356,10 @@ button[disabled]{
 #main .jpi-main-heading{
     padding-top: 44px;
 }
+}
+
+@media only screen and (min-width : 320px) and (max-width : 992px) {
+    #register-page .emailaddress-hint{
+        min-height: 43px;
+     }
 }

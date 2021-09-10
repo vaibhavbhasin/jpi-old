@@ -13,13 +13,13 @@
 @section('content')
 <div class="login-pattern"></div>
 <div id="login-page" class="row">
-  <div class="col s12 m6 l4 z-depth-4 card-panel border-radius-6 login-card bg-opacity-8 min-hig">
+  <div class="col s12 m6 l4 z-depth-4 card-panel border-radius-6 login-card bg-opacity-1 min-hig">
 	<div class='loginbtndisplay text-center'>
 		<p>LOGIN</p>
 		<div class='text-center'>
 			<a href="{{route('employeeLoginForm')}}" class='defaultbtn'>Employee Login</a>
 			<div class='loginseparator'>or</div>
-			<a href="javascript:void(0)" id='userform' class='btn btn btn-light-cyan'>External Login</a>
+			<a href="javascript:void(0)" id='userform' class='btn btn btn-light-cyan btn-light-new-bg-bt'>External Login</a>
 		</div>
 
 	</div>
@@ -81,7 +81,7 @@
         </div> -->
         <div class="input-field col s12 mt--6">
           <p class="margin center-align medium-small">
-            <a href="{{ route('password.request') }}" class="login-btn">
+            <a href="{{ route('password.request') }}" class="login-btn forgot-pasw-text">
             Forgot password?
            </a>
           </p>
