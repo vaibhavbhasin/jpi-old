@@ -5932,11 +5932,11 @@ background: linear-gradient(45deg,#0e5d98 0,#002F6C 100%) !important;
   color: #00bcd4 !important;
 }
 .btn-light-cyan:hover, .btn-light-cyan:focus, .btn-light-cyan.hover {
-  background-color: #26c6da !important;
+  background-color: #002f6c !important;
   color: #fff !important;
 }
 .btn-light-cyan:active, .btn-light-cyan.active {
-  background-color: #00acc1 !important;
+  background-color: #002f6c !important;
   color: #fff !important;
 }
 
