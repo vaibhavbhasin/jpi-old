@@ -568,12 +568,12 @@
                     },
                     success: function () {
                         toastr.success('Your details has been successfully updated!');
+                        $("#edit_details_cancel_btn").click();
                     },
                     error: function () {
                         toastr.error('Some Error occured! Please enter all the details carefully!');
                     }
                 };
-
 
                 $(this).ajaxSubmit(options);
 
