@@ -300,7 +300,8 @@
                                 <p class="intro-step-text mt-5 animated fadeInUp">You are now fully registered to start
                                     receiving reimburstment payments that are disbursed at the end of every month. </p>
                                 <p class="intro-step-text mt-5 animated fadeInUp">
-                                    <button type="button" class="waves-effect apj-intro-close-btn modal-close btn ">
+                                    <button type="button" class="waves-effect apj-intro-close-btn modal-close btn "
+                                            onclick="location.reload()">
                                         Click to close
                                     </button>
                                 </p>
