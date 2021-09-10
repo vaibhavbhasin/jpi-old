@@ -10,7 +10,7 @@
 </head>
 <body>
 <div id="iavContainer"
-     style="background: black;display: block;position: fixed;z-index: 100000;top: 5%;width: 70%;right: 20%;left: 20%; overflow-y: scroll;"></div>
+     style="background: #fff;display: block;position: fixed;z-index: 100000;top: 5%;width: 70%;right: 20%;left: 20%; overflow-y: scroll;"></div>
 <script>
     function callDwollaBankPopup() {
         var iavToken = "{{$token}}";
@@ -28,16 +28,17 @@
             console.log('Error: ' + JSON.stringify(err) + ' -- Response: ' + JSON.stringify(res));
             if (err) {
                 toastr.error('Some errors occured!');
-            } else if (res._links['funding-source']['href'])
-            {
+            } else if (res._links['funding-source']['href']) {
+                console.log(res._links['funding-source']['href']);
                 submitBankFundingSource(res._links['funding-source']['href']);
                 location.reload();
             }
         });
     }
-    async function submitBankFundingSource(fundingSource){
+
+    async function submitBankFundingSource(fundingSource) {
         $.ajax({
-            url:"{{ route('employees.index') }}/{{Auth::user()->id}}",
+            url: "{{ route('employees.index') }}/{{Auth::user()->id}}",
             method:"PUT",
             data:{
                 '_token': "{{ csrf_token() }}",

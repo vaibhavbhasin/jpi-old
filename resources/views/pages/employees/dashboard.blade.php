@@ -141,10 +141,10 @@
                                             <tbody>
                                             @forelse($achTransfers as $i => $transaction)
                                                 <tr>
-                                                    <td>{{$transaction->created}}</td>
+                                                    <td>{{date('m-d-Y',strtotime($transaction->created))}}</td>
                                                     <td>${{$transaction->amount->value}}</td>
                                                     <td>{{$transaction->id}}</td>
-                                                    <td>{{$transaction->status}}</td>
+                                                    <td>{{ucfirst($transaction->status)}}</td>
                                                 </tr>
                                             @empty
                                                 <tr>
@@ -315,7 +315,7 @@
         </div>
     </div>
     <div id="iavContainer"
-         style="background: black;display: block;position: fixed;z-index: 100000;top: 5%;width: 70%;right: 20%;left: 20%; overflow-y: scroll;"></div>
+         style="background: #fff;display: block;position: fixed;z-index: 100000;top: 5%;width: 70%;right: 20%;left: 20%; overflow-y: scroll;"></div>
 @endsection
 
 @section('customjs')
@@ -554,7 +554,7 @@
 
             });
             $("#edit_details_cancel_btn").click(function () {
-                $("#employee_details_form input").attr("disabled", true);
+                $("#employee_details_form input,#employee_details_form select").attr("disabled", true);
                 /*  $('#employee_details_form').hide(); */
                 $('#edit_details_btn').show();
                 $('#edit_details_cancel_btn').hide();
