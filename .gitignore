@@ -6,6 +6,7 @@
 /public/json
 /storage/*.key
 /vendor
+/.idea
 /materialize-shell-scripts
 .env
 .env.backup
