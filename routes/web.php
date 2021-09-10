@@ -1,14 +1,13 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PageController;
-use App\Http\Controllers\LoginController;
-use app\Http\Controllers\ProfileController;
-use App\Http\Controllers\LanguageController;
-use App\Http\Controllers\ManageusersController;
-use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ManageusersController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,7 +65,8 @@ Route::get('ach/login','App\Http\Controllers\Auth\EmployeeLoginController@showLo
 Route::get('ach/register', 'App\Http\Controllers\Auth\EmployeeRegisterController@showRegistrationForm')->name('employeeRegistrationForm');
 Route::post('employeelogin','App\Http\Controllers\Auth\EmployeeLoginController@authenticate')->name('employeelogin');
 Route::post('employeelogout','App\Http\Controllers\Auth\EmployeeLoginController@logout')->name('employeelogout');
-Route::post('employeeregister','App\Http\Controllers\Auth\EmployeeRegisterController@register')->name('employeeregister');
+Route::post('employeeregister', 'App\Http\Controllers\Auth\EmployeeRegisterController@register')->name('employeeregister');
+Route::get('check-email-unique', 'App\Http\Controllers\Auth\EmployeeRegisterController@checkEmailUnique')->name('checkEmailUnique');
 
 //Admin Login
 // Route::get('admin','App\Http\Controllers\Auth\AdminLoginController@showLoginForm');

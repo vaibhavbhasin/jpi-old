@@ -14,7 +14,7 @@ $(document).ready(function () {
     $("#user_profile_modal").modal();
     $("#user_funding_source_modal").modal();
     $("#jpiModel").modal({
-        onOpenEnd: function(e,trigger) {
+        onOpenEnd: function (e, trigger) {
             let loadUrl = $(trigger).data('load-url');
             let title = $(trigger).data('modal-title');
             $(e).find('.modal-title').html(title);
@@ -254,73 +254,23 @@ $(document).ready(function () {
             }
         });
     });
-
-
-    $("#jpiModel").on('show.bs.modal', function (e) {
-
-    });
     /*
     * Validate Register Profile
     */
-    $("#register_user").click(function () {
-        var firstname = $.trim($("#firstname").val());
+    $(document).on('click', '#register_user_next,#register_user', function () {
+        let firstname = $.trim($("#firstname").val());
         $("#firstname").val(firstname);
         if (!firstname) {
             toastr.error("Enter Firstname.");
             return false;
         }
-        var lastname = $.trim($("#lastname").val());
+        let lastname = $.trim($("#lastname").val());
         $("#lastname").val(lastname);
         if (!lastname) {
             toastr.error("Enter Lastname.");
             return false;
         }
-        // var address1= $.trim($("#address1").val());
-        // $("#address1").val(address1);
-        // if(!address1){
-        // 	toastr.error("Enter Address 1.");
-        // 	return false;
-        // }
-        // var address2= $.trim($("#address2").val());
-        // $("#address2").val(address2);
-        // if(!address2){
-        // 	toastr.error("Enter Address 2.");
-        // 	return false;
-        // }
-        // var city= $.trim($("#city").val());
-        // $("#city").val(city);
-        // if(!city){
-        // 	toastr.error("Enter City.");
-        // 	return false;
-        // }
-        // var state= $.trim($("#state").val());
-        // $("#state").val(state);
-        // if(!state){
-        // 	toastr.error("Enter State.");
-        // 	return false;
-        // }
-        // var zip= $.trim($("#zip").val());
-        // $("#zip").val(zip);
-        // if(!zip){
-        // 	toastr.error("Enter Zip.");
-        // 	return false;
-        // }
-
-        // var bank_account= $.trim($("#bank_account").val());
-        // $("#bank_account").val(bank_account);
-        // if(!bank_account){
-        // 	toastr.error("Enter Bank Account No.");
-        // 	return false;
-        // }
-
-        // var bankname= $.trim($("#bankname").val());
-        // $("#bankname").val(bankname);
-        // if(!bankname){
-        // 	toastr.error("Enter Bank Name.");
-        // 	return false;
-        // }
-
-        var email = $.trim($("#email").val());
+        let email = $.trim($("#email").val());
         $("#email").val(email);
         if (!email) {
             toastr.error("Enter Email.");
@@ -335,13 +285,10 @@ $(document).ready(function () {
         }
         let password = $.trim($("#password").val());
         $("#password").val(password);
-        if (password == '') {
+        if (password === '') {
             toastr.error("Enter Password.");
             return false;
         }
-
-        password_length = password.length;
-
         if (password.length < 8) {
             // $("#character_length").removeClass('ctick').addClass('ccross');
             password_is_valid = false;
@@ -382,23 +329,42 @@ $(document).ready(function () {
             return false;
         }
 
-        var password_confirm = $.trim($("#password-confirm").val());
+        let password_confirm = $.trim($("#password-confirm").val());
         $("#password-confirm").val(password_confirm);
         if (!password_confirm) {
             toastr.error("Enter Confirm Password.");
             return false;
         }
 
-        if (password_confirm != password) {
+        if (password_confirm !== password) {
             toastr.error("Password not matched.");
             return false;
         }
+        let registration_step = $("#registration_step").val();
+        if (registration_step === 2) {
+            if ($("#term_checkbox").is(":not(:checked)")) {
+                toastr.error("Please agree with terms and conditions");
+                return false;
+            }
+        }
 
-        if ($("#term_checkbox").is(":not(:checked)")) {
-            toastr.error("Please agree with terms and conditions");
+        if (registration_step === '1') {
+            $.get("/check-email-unique", {email: email}, function (res) {
+                if (res.status) {
+                    $("#top_heading").text('Please read through the privacy policy in order to complete registration');
+                    $("#registration_step").val('2');
+                    $("#register_user_next").hide();
+                    $("#register_user").show();
+                    $(".employee_details_row").hide();
+                    $("#terms_row").show();
+                } else {
+                    toastr.error(res.msg);
+                }
+            });
             return false;
         }
     });
+
     /*
     * Validate Add new User Profile
     */
@@ -598,7 +564,7 @@ $(document).ready(function () {
     $('#terms').scroll(function () {
         if ($(this).scrollTop() == $(this)[0].scrollHeight - $(this).height()) {
             $('#register_user').removeAttr('disabled');
-            $('#terms_condition').show();
+            // $('#terms_condition').show();
         }
     });
 });

@@ -321,7 +321,7 @@ background-color: #00922d;
 }
 .terms_and_condition {
     overflow-y: scroll;
-    height: 100px;
+    height: 400px;
     resize: none; /* Remove this if you want the user to resize the textarea */
 }
 @media only screen and (min-width: 993px) {
