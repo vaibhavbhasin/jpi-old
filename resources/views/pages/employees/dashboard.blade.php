@@ -341,7 +341,8 @@
             dwolla.iav.start(iavToken, {
                 container: 'iavContainer',
                 stylesheets: [
-                    'https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext'
+                    'https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext',
+                    "{{asset('css/custom/dwolla_style.css')}}"
                 ],
                 microDeposits: 'false',
                 //   fallbackToMicroDeposits: (fallbackToMicroDeposits.value === 'true')

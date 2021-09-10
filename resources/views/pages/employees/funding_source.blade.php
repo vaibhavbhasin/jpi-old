@@ -9,7 +9,8 @@
     <script src="https://cdn.dwolla.com/1/dwolla.js"></script>
 </head>
 <body>
-<div id="iavContainer" style="background: black;display: block;position: fixed;z-index: 100000;top: 5%;width: 70%;right: 20%;left: 20%; overflow-y: scroll;"></div>
+<div id="iavContainer"
+     style="background: black;display: block;position: fixed;z-index: 100000;top: 5%;width: 70%;right: 20%;left: 20%; overflow-y: scroll;"></div>
 <script>
     function callDwollaBankPopup() {
         var iavToken = "{{$token}}";
@@ -17,17 +18,17 @@
         dwolla.iav.start(iavToken, {
             container: 'iavContainer',
             stylesheets: [
-                'https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext'
+                'https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext',
+                "{{asset('css/custom/dwolla_style.css')}}"
             ],
             microDeposits: 'false',
             //   fallbackToMicroDeposits: (fallbackToMicroDeposits.value === 'true')
             fallbackToMicroDeposits: ('true')
-        }, function(err, res) {
+        }, function (err, res) {
             console.log('Error: ' + JSON.stringify(err) + ' -- Response: ' + JSON.stringify(res));
-            if(err){
+            if (err) {
                 toastr.error('Some errors occured!');
-            }
-            else if(res._links['funding-source']['href'])
+            } else if (res._links['funding-source']['href'])
             {
                 submitBankFundingSource(res._links['funding-source']['href']);
                 location.reload();
