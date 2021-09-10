@@ -172,6 +172,8 @@ button[disabled]{
     background: #ffffff;
     color: #0f0f0f;
     border: 2px solid #005dab;
+    height: 36px;
+    line-height: 34px;
 }
 
 .apj-save-btn:hover,
@@ -299,8 +301,8 @@ text-align: left;
  }
 #regit-icon-new{
     background-color:#00ab34;
-    height: 32px;
-    line-height: 32px;
+    /* height: 32px;
+    line-height: 32px; */
     padding: 0 1rem;
 }
 #regit-icon-new:hover{
@@ -308,8 +310,8 @@ background-color: #00922d;
 }
 #non-regit-icon-new{
     background-color:#ab0000;
-    height: 32px;
-    line-height: 32px;
+/*     height: 32px;
+    line-height: 32px; */
     padding: 0 1rem;
 }
 #non-regit-icon-new:hover{
