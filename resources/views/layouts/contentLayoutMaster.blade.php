@@ -170,17 +170,18 @@ $configData = Helper::applClasses();
       </form>
       </div>
     </div>
-
-    <!-- Model -->
-    <div class="modal" id="jpiModel">
+    <div id="jpiModal" class="modal" tabindex="0" data-keyboard="false" data-backdrop="static">
         <div class="modal-content">
-            <h5 class="modal-title">Update Profile</h5>
-            <div class="modal-body">
-                <p class="text-center"> Please wait..</p>
+            <p class="modal-header right modal-close">
+                <span class="right"><i class="material-icons right-align">clear</i></span>
+            </p>
+            <div class="row">
+                <div class="col s12" id="modalBody">
+                    <p class="text-center"> Please wait..</p>
+                </div>
             </div>
         </div>
     </div>
-    <!-- Model -->
 
     {{-- vendor and page scripts --}}
     @include('panels.scripts')

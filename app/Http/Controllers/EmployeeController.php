@@ -200,12 +200,25 @@ class EmployeeController extends Controller
 
     public function UpdateFundingSource(Request $request, User $employee)
     {
+        $customer_id =$employee->dwolla->ach_customer_id;
         $ach = new AchPayment;
         $ach->generateAchAPIToken();
         $dwolla_api_env_url = config('services.dwolla.env_url');
         $apiClient = new DwollaSwagger\ApiClient($dwolla_api_env_url);
+        if ($request->isMethod('PUT')){
+            $fundingSourceApi =new DwollaSwagger\FundingsourcesApi($apiClient);
+            $fundingSource = $fundingSourceApi->createCustomerFundingSource([
+                "routingNumber" => $request->input('routingNumber'),
+                "accountNumber" => $request->input('accountNumber'),
+                "bankAccountType" => $request->input('bankAccountType'),
+                "name" => $request->input('name')
+            ], "https://api-sandbox.dwolla.com/customers/".$customer_id);
+            $account = $fundingSource->id('');
+            dd($fundingSource);
+        }
         $customersApi = new DwollaSwagger\CustomersApi($apiClient);
-        $fsToken = $customersApi->getCustomerIavToken("{$dwolla_api_env_url}/customers/{$employee->dwolla->ach_customer_id}");
-        return view('pages.employees.funding_source', ['token' => $fsToken->token]);
+//        $fsToken = $customersApi->createFundingSourcesTokenForCustomer("{$dwolla_api_env_url}/customers/{$customer_id}");
+        $fsToken = $customersApi->getCustomerIavToken("{$dwolla_api_env_url}/customers/{$customer_id}");
+        return view('pages.employees.funding_source', ['token' => $fsToken->token,'employee'=>$employee]);
     }
 }

@@ -122,7 +122,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#jpiModel" title="Funding Source" data-modal-title="Funding Source" data-load-url="{{ route('employees.updateFunding',auth()->id()) }}"
+                    <a href="#jpiModal" title="Add Bank info" data-modal-title="Funding Source" data-load-url="{{ route('employees.updateFunding',auth()->id()) }}"
                        class="grey-text text-darken-1 modal-trigger">
                         <i class="material-icons">account_balance</i>
                         Bank info
