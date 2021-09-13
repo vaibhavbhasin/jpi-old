@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\MessageBag;
 
 class EmployeeLoginController extends Controller
 {
@@ -53,7 +55,7 @@ class EmployeeLoginController extends Controller
     /**
      * Handle an authentication attempt.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param Request $request
      *
      * @return Response
      */
@@ -67,20 +69,20 @@ class EmployeeLoginController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            // Authentication passed...
-            if(Auth::user()->hasRole('employee'))
+            if (Auth::user()->hasRole('employee')) {
                 return redirect()->intended('ach');
-            else    
-            {
+            } else {
                 Auth::logout();
                 return redirect()->back();
             }
+        } else {
+            $errors = new MessageBag(['password' => ['Email and/or password invalid.']]);
+            return Redirect::back()->withErrors($errors);
         }
-
-        return redirect()->back();
     }
-	
-	public function logout() {
+
+    public function logout()
+    {
         Auth::logout();
         return redirect('/ach/login');
     }

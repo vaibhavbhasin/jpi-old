@@ -14,27 +14,28 @@
 <div class="login-pattern"></div>
 <div id="login-page" class="row">
   <div class="col s12 m6 l4 z-depth-4 card-panel border-radius-6 login-card bg-opacity-8 min-hig">
-	<div class='loginbtndisplay text-center'>
-		<p>LOGIN</p>
-		<div class='text-center'>
-			<a href="#" target='_blank' class='defaultbtn'>Employee Register</a>
-			<div class='loginseparator'>or</div>
-			<a href="javascript:void(0)" id='userform' class='btn btn btn-light-cyan'>Employee Login</a>
-		</div>
+      <div class='loginbtndisplay text-center'>
+          <p>LOGIN</p>
+          <div class='text-center'>
+              <a href="#" target='_blank' class='defaultbtn'>Employee Register</a>
+              <div class='loginseparator'>or</div>
+              <a href="javascript:void(0)" id='userform' class='btn btn btn-light-cyan'>Employee Login</a>
+          </div>
 
-	</div>
+      </div>
 
-    <form class="login-form" method="POST" action="{{ route('adminlogin') }}" style='display:none;'>
+      <form class="login-form" method="POST" action="{{ route('adminlogin') }}"
+            style="display:@error('password') block @else none @enderror">
       @csrf
       <!--<div class="row">
         <div class="input-field col s12">
           <h5 class="ml-4">{{ __('Sign in') }}</h5>
         </div>
       </div>-->
-	  <div class="row margin">
-        <div class="input-field col s12">
-          <i class="material-icons prefix pt-2">person_outline</i>
-          <input id="email" type="email" class=" @error('email') is-invalid @enderror" name="email"
+          <div class="row margin">
+              <div class="input-field col s12">
+                  <i class="material-icons prefix pt-2">person_outline</i>
+                  <input id="email" type="email" class=" @error('email') is-invalid @enderror" name="email"
             value="{{ old('email') }}"  autocomplete="email">
           <label for="email" class="center-align">{{ __('Username') }}</label>
           @error('email')

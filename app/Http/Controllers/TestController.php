@@ -77,15 +77,15 @@ class TestController extends Controller
         $accountsApi = new DwollaSwagger\FundingsourcesApi($apiClient);
         $customerApi = new DwollaSwagger\CustomersApi($apiClient);
 //        $accountUrl = "{$dwolla_api_env_url}/accounts/67b3cbab-cb01-4ed8-b90b-12c9cbeb5722/funding-sources";
-//        $account = $accountsApi->id('9e122518-09d1-43f6-a52f-330eba1a232e');
-//        $caccount = $accountsApi->getCustomerFundingSources('c3e0c1fa-486a-480b-a89a-cfdf1b2fba1a');
-//        dump($account->id);
-//        dump($account->name);
-//        dump($account->status);
-//        dump($account->bank_name);
-//        dump($account->bank_account_type);
-//        dump($caccount);
-//        dd($account);
+        $account = $accountsApi->id('9e122518-09d1-43f6-a52f-330eba1a232e');
+        $caccount = $accountsApi->getCustomerFundingSources('c3e0c1fa-486a-480b-a89a-cfdf1b2fba1a');
+        dump($account->id);
+        dump($account->name);
+        dump($account->status);
+        dump($account->bank_name);
+        dump($account->bank_account_type);
+        dump($caccount);
+        dd($account);
         $customer = $customerApi->getCustomer('c3e0c1fa-486a-480b-a89a-cfdf1b2fba1a');
         dd($customer);
 //fc0246d4-3e75-46c2-bf9f-a93a1b93d1b3
