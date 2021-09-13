@@ -10,11 +10,14 @@ class Dwolla extends Model
     use HasFactory;
 
     protected $fillable = [
-                            'user_id',
-                            'ach_customer_id',
-                            'funding_source_id',
-                            'funding_source',
-                            'is_verified',
-                            'is_active',
-                        ];
+        'user_id',
+        'ach_customer_id',
+        'funding_source_id',
+        'funding_source',
+        'is_verified',
+        'is_active',
+        'bank_name',
+        'bank_type',
+        'account_name',
+    ];
 }

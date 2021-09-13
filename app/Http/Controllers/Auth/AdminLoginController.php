@@ -65,7 +65,7 @@ class AdminLoginController extends Controller
         if (Auth::attempt($credentials)) {
             return redirect()->intended('dashboard');
         } else {
-            $errors = new MessageBag(['password' => ['Email and/or password invalid.']]);
+            $errors = new MessageBag(['password' => ['Invalid credentials']]);
             return Redirect::back()->withErrors($errors);
         }
     }

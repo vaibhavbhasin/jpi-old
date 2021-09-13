@@ -2,15 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\AchPayment;
-use Auth;
-use Illuminate\Http\Request;
-use App\Models\User;
 use App\Models\Dwolla;
+use App\Models\User;
+use Auth;
+use DwollaSwagger;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
-
-use DwollaSwagger;
 
 class EmployeeController extends Controller
 {
@@ -26,7 +24,7 @@ class EmployeeController extends Controller
         ];
         //Pageheader set true for breadcrumbsqq
         $pageConfigs = ['pageHeader' => true];
-        $employee_details = User::findOrFail(Auth::user()->id);
+        $employee_details = User::with('dwolla')->findOrFail(Auth::user()->id);
         $ach = new AchPayment;
         $achTransfers = $ach->getCustomerTransfers(Auth::user()->id);
         return view('pages.employees.dashboard', [
@@ -103,33 +101,10 @@ class EmployeeController extends Controller
             }
         } elseif ($request['from'] == 'bank_update') {
             $ach = new AchPayment;
-
-            // $data = $this->validate($request,[
-            //     'bank_account'=> 'required',
-            //     'routing'=> 'required',
-            //     'bank_nickname' => 'required'
-            // ]);
-
-            // $achrequest = new \Illuminate\Http\Request();
-
-            // $achrequest->request->add([
-            //                         // 'bank_account' => $data['bank_account'],
-            //                         // 'routing' => $data['routing'],
-            //                         // 'bank_nickname' => $data['bank_nickname']
-            //                     ]);
-
             $output = $ach->verifyAchCustomerBank();
-            // dd($output);
-
-            // if($request->ajax()){
-            //     return response()->json(['msg' => 'success']);
-            // }
-            // return response()->json($ach->verifyAchCustomerBank($achrequest));
             return response()->json($output);
-
         } elseif ($request['from'] == 'bank_funding_source') {
             if ($request['fundingSource']) {
-
                 $fundingSource = explode('/', $request['fundingSource']);
                 $fundingSourceId = end($fundingSource);
                 $ach = new AchPayment;
@@ -138,16 +113,19 @@ class EmployeeController extends Controller
                 $apiClient = new DwollaSwagger\ApiClient($dwolla_api_env_url);
                 $accountsApi = new DwollaSwagger\FundingsourcesApi($apiClient);
                 $account = $accountsApi->id($fundingSourceId);
-                $is_verified = $account->status == 'verified';
-                $dwolla = Dwolla::where([
+                $is_verified = $account->status === 'verified';
+                Dwolla::where([
                     'user_id' => Auth::user()->id,
                 ])->first()->update([
                     'funding_source' => $request['fundingSource'],
-                    'funding_source_id' => $account->id, 'is_verified' => $is_verified
+                    'funding_source_id' => $account->id,
+                    'bank_name' => $account->bank_name,
+                    'bank_type' => $account->bank_account_type,
+                    'account_name' => $account->name,
+                    'is_verified' => $is_verified
                 ]);
                 User::where('id', Auth::user()->id)->first()->update(['is_active' => 1]);
             }
-
             return response()->json(['msg' => 'success']);
         } else {
             $this->validate($request, [
@@ -213,8 +191,6 @@ class EmployeeController extends Controller
                 "bankAccountType" => $request->input('bankAccountType'),
                 "name" => $request->input('name')
             ], "https://api-sandbox.dwolla.com/customers/".$customer_id);
-            $account = $fundingSource->id('');
-            dd($fundingSource);
         }
         $customersApi = new DwollaSwagger\CustomersApi($apiClient);
 //        $fsToken = $customersApi->createFundingSourcesTokenForCustomer("{$dwolla_api_env_url}/customers/{$customer_id}");
