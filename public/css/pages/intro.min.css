@@ -31,6 +31,16 @@
     margin-right: -12px;
 }
 
+#jpiAddFundingSourceModal .modal-close span i.material-icons {
+    font-size: 18px;
+    position: relative;
+    top: -26px;
+    margin-right: -12px;
+}
+#iavContainerAddFirstFundingSource{
+    margin-top: -50px;
+}
+
 #intro .modal .modal-content .carousel.carousel-slider {
     height: 100% !important
 }
