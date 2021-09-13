@@ -556,6 +556,9 @@ function allowOnlyChracter(event) {
 - Valid Email
 */
 function validEmail(email) {
+    if (!email.includes('@')) {
+        email = email + "@jpi.com";
+    }
     var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     return regex.test(email);
 }

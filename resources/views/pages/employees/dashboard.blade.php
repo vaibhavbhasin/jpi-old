@@ -366,7 +366,7 @@
         }
     </script>
     <script>
-        async function submitBankDetails(callback) {\
+        async function submitBankDetails(callback) {
             $.ajax({
                 url: "{{ route('employees.index') }}/{{Auth::user()->id}}",
                 method: "PUT",
