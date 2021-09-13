@@ -187,8 +187,7 @@
     <div id="intro">
         <div class="row">
             <div class="col s12">
-                <div id="img-modal" class="intromodal modal white" tabindex="0" data-keyboard="false"
-                     data-backdrop="static">
+                <div id="img-modal" class="intromodal modal white" tabindex="0" data-keyboard="false" data-backdrop="static">
                     <div class="modal-content">
                         <p class="modal-header right modal-close">
                             <span class="right"><i class="material-icons right-align">clear</i></span>
@@ -292,8 +291,18 @@
             </div>
         </div>
     </div>
-    <div id="iavContainer"
-         style="background: #fff;display: block;position: fixed;z-index: 100000;top: 5%;width: 70%;right: 20%;left: 20%; overflow-y: scroll;"></div>
+    <div id="jpiAddFundingSourceModal" class="modal" tabindex="0" data-keyboard="false" data-backdrop="static">
+        <div class="modal-content">
+            <p class="modal-header right modal-close">
+                <span class="right"><i class="material-icons right-align">clear</i></span>
+            </p>
+            <div class="row">
+                <div class="col s12" id="modalBody">
+                    <div id="iavContainerAddFirstFundingSource"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 @section('customjs')
     <link rel="stylesheet"
@@ -316,7 +325,7 @@
         function callDwollaBankPopup(iavToken) {
             dwolla.configure('sandbox');
             dwolla.iav.start(iavToken, {
-                container: 'iavContainer',
+                container: 'iavContainerAddFirstFundingSource',
                 stylesheets: [
                     'https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext',
                     "{{asset('css/custom/dwolla_style.css')}}"
@@ -376,12 +385,12 @@
                 },
                 success: function (data) {
                     if (data.fsToken) {
+                        $("#jpiAddFundingSourceModal").modal("open");
                         callDwollaBankPopup(data.fsToken);
                     }
                 }
             });
         }
-
     </script>
     <script>
         async function submitBankFundingSource(fundingSource) {
@@ -397,7 +406,6 @@
                     $(".intromodal").modal("open");
                     $(".intro-carousel").carousel("next");
                     $('#iavContainer').hide();
-                    location.reload();
                 }
             });
         }

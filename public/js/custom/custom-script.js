@@ -13,12 +13,15 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR CUSTOM SCRIPT I
 $(document).ready(function () {
     $("#user_profile_modal").modal();
     $("#user_funding_source_modal").modal();
-    $("#jpiModel").modal({
+    $("#jpiAddFundingSourceModal").modal();
+    $("#jpiModal").modal({
         onOpenEnd: function (e, trigger) {
             let loadUrl = $(trigger).data('load-url');
-            let title = $(trigger).data('modal-title');
-            $(e).find('.modal-title').html(title);
-            $(e).find('.modal-body').load(loadUrl);
+            // let title = $(trigger).data('modal-title');
+            // $(e).find('.modal-title').html(title);
+            $(e).find('#modalBody').load(loadUrl);
+            console.log("JPI Modal Open");
+            console.log("JPI Modal Open");
         }
     });
 
@@ -279,6 +282,9 @@ $(document).ready(function () {
         if (email) {
             if (!email.includes('@')) {
                 email = email + "@jpi.com";
+            } else {
+                toastr.error("Domain name is not allowed.");
+                return false;
             }
             $("#email_save").val(email);
             let check = validEmail(email);

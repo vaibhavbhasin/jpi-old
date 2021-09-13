@@ -352,6 +352,7 @@ button[disabled] {
 }
 
 .select2-container--default.select2-container--disabled .select2-selection--single {
+    color: rgba(0, 0, 0, 0.42) !important;
     background-color: #fff !important;
     cursor: default;
 }
@@ -367,7 +368,12 @@ button[disabled] {
 .select2-container--disabled .select2-selection--single {
     border-bottom: 1px dotted rgba(0, 0, 0, 0.42) !important;
 }
-
+.modal .modal-close span i.material-icons {
+    font-size: 18px;
+    position: relative;
+    top: -26px;
+    margin-right: -8px;
+}
 @media only screen and (min-width: 993px) {
     .navbar .sideNav-lock .header-search-wrapper {
         font-size: 1.375rem;
