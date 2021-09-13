@@ -13,6 +13,7 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR CUSTOM SCRIPT I
 $(document).ready(function () {
     $("#user_profile_modal").modal();
     $("#user_funding_source_modal").modal();
+    $("#jpiAddFundingSourceModal").modal();
     $("#jpiModal").modal({
         onOpenEnd: function (e, trigger) {
             let loadUrl = $(trigger).data('load-url');
