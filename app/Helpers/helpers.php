@@ -27,7 +27,7 @@ class Helper
             'isFooterDark' => null,
             'isFooterFixed' => false,
             'templateTitle' => '',
-            'defaultLanguage'=>'en',
+            'defaultLanguage' => 'en',
             'largeScreenLogo' => 'images/logo/materialize-logo-color.png',
             'smallScreenLogo' => 'images/logo/materialize-logo.png',
             'direction' => env('MIX_CONTENT_DIRECTION', 'ltr'),
@@ -45,10 +45,10 @@ class Helper
             'isNavbarFixed' => array(true, false),
             'isMenuDark' => array(null, true, false),
             'isMenuCollapsed' => array(true, false),
-            'activeMenuType' => array('sidenav-active-rounded'=>'sidenav-active-rounded','sidenav-active-square'=>'sidenav-active-square', 'sidenav-active-fullwidth'=>'sidenav-active-fullwidth'),
+            'activeMenuType' => array('sidenav-active-rounded' => 'sidenav-active-rounded', 'sidenav-active-square' => 'sidenav-active-square', 'sidenav-active-fullwidth' => 'sidenav-active-fullwidth'),
             'isFooterDark' => array(null, true, false),
             'isFooterFixed' => array(false, true),
-            'defaultLanguage'=>array('en'=>'en','fr'=>'fr','de'=>'de','pt'=>'pt'),
+            'defaultLanguage' => array('en' => 'en', 'fr' => 'fr', 'de' => 'de', 'pt' => 'pt'),
             'direction' => array('ltr', 'rtl'),
         ];
 
@@ -183,17 +183,18 @@ class Helper
             'templateTitle' => $data['templateTitle'],
             'largeScreenLogo' => $data['largeScreenLogo'],
             'smallScreenLogo' => $data['smallScreenLogo'],
-            'defaultLanguage'=>$allOptions['defaultLanguage'][$data['defaultLanguage']],
+            'defaultLanguage' => $allOptions['defaultLanguage'][$data['defaultLanguage']],
             'mainFooterClass' => $mainFooterClass[$data['mainLayoutType']],
             'mainFooterColor' => $mainFooterColor[$data['mainLayoutType']],
             'direction' => $data['direction'],
         ];
-         // set default language if session hasn't locale value the set default language
-         if(!session()->has('locale')){
+        // set default language if session hasn't locale value the set default language
+        if (!session()->has('locale')) {
             app()->setLocale($layoutClasses['defaultLanguage']);
         }
         return $layoutClasses;
     }
+
     // updatesPageConfig function override all configuration of custom.php file as page requirements.
     public static function updatePageConfig($pageConfigs)
     {
@@ -204,6 +205,73 @@ class Helper
                     Config::set('custom.' . $demo . '.' . $config, $val);
                 }
             }
+        }
+    }
+
+    public static function states($key = null)
+    {
+        $states = [
+            "AA" => "AA",
+            "AE" => "AE",
+            "AP" => "AP",
+            "AK" => "AK",
+            "AL" => "AL",
+            "AR" => "AR",
+            "AZ" => "AZ",
+            "CA" => "CA",
+            "CO" => "CO",
+            "CT" => "CT",
+            "DC" => "DC",
+            "DE" => "DE",
+            "FL" => "FL",
+            "GA" => "GA",
+            "GU" => "GU",
+            "HI" => "HI",
+            "IA" => "IA",
+            "ID" => "ID",
+            "IL" => "IL",
+            "IN" => "IN",
+            "KS" => "KS",
+            "KY" => "KY",
+            "LA" => "LA",
+            "MA" => "MA",
+            "MD" => "MD",
+            "ME" => "ME",
+            "MI" => "MI",
+            "MN" => "MN",
+            "MO" => "MO",
+            "MS" => "MS",
+            "MT" => "MT",
+            "NC" => "NC",
+            "ND" => "ND",
+            "NE" => "NE",
+            "NH" => "NH",
+            "NJ" => "NJ",
+            "NM" => "NM",
+            "NV" => "NV",
+            "NY" => "NY",
+            "OH" => "OH",
+            "OK" => "OK",
+            "OR" => "OR",
+            "PA" => "PA",
+            "PR" => "PR",
+            "RI" => "RI",
+            "SC" => "SC",
+            "SD" => "SD",
+            "TN" => "TN",
+            "TX" => "TX",
+            "UT" => "UT",
+            "VA" => "VA",
+            "VI" => "VI",
+            "VT" => "VT",
+            "WA" => "WA",
+            "WI" => "WI",
+            "WV" => "WV",
+        ];
+        if ($key == null) {
+            return $states;
+        } else {
+            return $states[$key] ?? 'unknown';
         }
     }
 }

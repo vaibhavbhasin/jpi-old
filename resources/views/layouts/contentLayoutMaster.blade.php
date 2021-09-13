@@ -8,40 +8,23 @@
 // confiData variable layoutClasses array in Helper.php file.
 $configData = Helper::applClasses();
 @endphp
-<!--
-Template Name: Materialize - Material Design Admin Template
-Author: PixInvent
-Website: http://www.pixinvent.com/
-Contact: hello@pixinvent.com
-Follow: www.twitter.com/pixinvents
-Like: www.facebook.com/pixinvents
-Purchase: https://themeforest.net/item/materialize-material-design-admin-template/11446068?ref=pixinvent
-Renew Support: https://themeforest.net/item/materialize-material-design-admin-template/11446068?ref=pixinvent
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
-
--->
 <html class="loading"
   lang="@if(session()->has('locale')){{session()->get('locale')}}@else{{$configData['defaultLanguage']}}@endif"
   data-textdirection="{{ env('MIX_CONTENT_DIRECTION') === 'rtl' ? 'rtl' : 'ltr' }}">
-<!-- BEGIN: Head-->
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
   <meta name="csrf-token" content="{{ csrf_token() }}">
-
   <title>@yield('title') | JPI</title>
   <link rel="apple-touch-icon" href="../../images/jpi_logo.png">
   <link rel="shortcut icon" type="image/x-icon" href="../../images/jpi_logo.png">
-
   {{-- Include core + vendor Styles --}}
   @include('panels.styles')
-
 </head>
 <!-- END: Head-->
 <!-- User Profile Modal  -->
-<?php 
+<?php
 // echo "<pre>"; print_r($configData);
 ?>
 
@@ -93,7 +76,7 @@ License: You must have a valid license purchased only from themeforest(the above
           @enderror
         </div>
       </div>
-	    
+
 
       <div class="row margin">
         <div class="input-field col s6">
@@ -108,7 +91,7 @@ License: You must have a valid license purchased only from themeforest(the above
           @enderror
         </div>
       </div>
-      
+
       <div class="row margin">
         <div class="input-field col s6">
           <i class="material-icons prefix pt-2">lock_outline</i>
@@ -142,18 +125,63 @@ License: You must have a valid license purchased only from themeforest(the above
           </div>
         </div>
       </div>
-      
+
       <div class="row">
         <div class="input-field col s12">
           <div class='text-center'>
-			<button type="button" class="defaultbtn" id='updateprofilebtn' data-url="{{route('employees.update',['employee'=> \Auth::user()->id])}}">Update</button>
+			<button type="button" class="defaultbtn" id='updateprofilebtn' data-url="{{route('employees.update',['employee'=> Auth::user()->id])}}">Update</button>
 		  </div>
         </div>
       </div>
-      
+
       </form>
       </div>
     </div>
+    <div id="user_funding_source_modal" class="modal">
+      <div class="modal-content">
+      <h5>Funding Source</h5>
+      <hr>
+      <form id="updateFundingSource" >
+      @csrf
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix pt-2">person_outline</i>
+            <input id="bank_account" type="text" class="validate" name="bank_account">
+            <label for="bank_account">Bank Account#</label>
+        </div>
+        <div class="input-field col s12">
+          <i class="material-icons prefix pt-2">person_outline</i>
+            <input id="routing" type="text" class="validate" name="routing">
+            <label for="routing">Routing#</label>
+        </div>
+          <div class="input-field col s12">
+              <i class="material-icons prefix pt-2">person_outline</i>
+              <input id="bank_nickname" type="text" class="validate" name="bank_nickname">
+              <label for="bank_nickname">Bank nickname</label>
+          </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <div class='text-center'>
+			<button type="button" class="defaultbtn" id='updateFundingSourceBtn' data-url="{{route('employees.updateFunding',['employee'=> Auth::user()->id])}}">Update</button>
+		  </div>
+        </div>
+      </div>
+      </form>
+      </div>
+    </div>
+
+    <!-- Model -->
+    <div class="modal" id="jpiModel">
+        <div class="modal-content">
+            <h5 class="modal-title">Update Profile</h5>
+            <div class="modal-body">
+                <p class="text-center"> Please wait..</p>
+            </div>
+        </div>
+    </div>
+    <!-- Model -->
+
     {{-- vendor and page scripts --}}
     @include('panels.scripts')
     <link rel="stylesheet" type="text/css" href="{{asset('css/pages/intro.min.css')}}">
@@ -164,7 +192,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- datatable js -->
     <script src="{{asset('js/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('js/dataTables.responsive.min.js')}}"></script>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js" integrity="sha384-qlmct0AOBiA2VPZkMY3+2WqkHtIQ9lSdAsAn5RUJD/3vA5MKDgSGcdmIv4ycVxyn" crossorigin="anonymous"></script>
     @yield('customjs')
     {{-- <script>
@@ -184,19 +212,19 @@ License: You must have a valid license purchased only from themeforest(the above
                         toastr.error('Some Error occured! Please enter all the details carefully!');
                     }
                 };
-                
-                
+
+
                 $(this).ajaxSubmit(options);
-                
+
 
             });
     </script> --}}
-    
+
   </body>
   @endif
 @else
 {{-- if mainLaoutType is empty or not set then its print below line  --}}
 <h1>{{'mainLayoutType Option is empty in config custom.php file.'}}</h1>
 @endif
-  
+
 </html>

@@ -27,13 +27,14 @@
 #intro .modal .modal-close span i.material-icons {
     font-size: 18px;
     position: relative;
-    top: -26px;
-    margin-right: -8px;
+    top: -35px;
+    margin-right: -17px;
 }
 
 #intro .modal .modal-content .carousel.carousel-slider {
     height: 100% !important
 }
+
 #select2-container .select2-results__option {
     padding: 0.4rem 0.8rem !important;
 }
@@ -48,6 +49,7 @@
     border-radius: 6px;
     padding: 0 1.7rem 0 2rem;
 }
+
 #intro .modal .modal-content .carousel.carousel-slider .carousel-fixed-item .middle-indicator-text.moveNextCarousel:hover {
     background: #005dab;
     color: #ffffff;
@@ -59,6 +61,7 @@
     border-radius: 6px;
     padding: 0 2rem 0 1.7rem;
 }
+
 #intro .modal .modal-content .carousel.carousel-slider .carousel-fixed-item .middle-indicator-text.movePrevCarousel:hover {
     background: #0f0f0f;
     color: #ffffff;
@@ -118,13 +121,13 @@
     display: none;
 }
 
-@media (min-width:992px) {
+@media (min-width: 992px) {
     #intro .modal {
         width: 40%;
     }
 }
 
-@media (min-width:1024px) and (max-width:1439px) {
+@media (min-width: 1024px) and (max-width: 1439px) {
     #intro .modal.open {
         width: 45% !important;
     }
@@ -134,13 +137,13 @@
     }
 }
 
-@media (max-width:768px) {
+@media (max-width: 768px) {
     #intro .modal.open {
         height: 60%
     }
 }
 
-@media (max-width:540px) {
+@media (max-width: 540px) {
     #intro .modal {
         width: 80%;
         height: 100% !important;
@@ -156,7 +159,7 @@
     }
 }
 
-@media (width:375px) and (height:667px) {
+@media (width: 375px) and (height: 667px) {
     #intro .modal .modal-content .carousel.carousel-slider .carousel-item img.responsive-img {
         width: 100px
     }

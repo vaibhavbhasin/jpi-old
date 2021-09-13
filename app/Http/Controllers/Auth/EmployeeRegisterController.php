@@ -3,12 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Providers\RouteServiceProvider;
+use Auth;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class EmployeeRegisterController extends Controller
 {
@@ -45,7 +46,7 @@ class EmployeeRegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
@@ -61,19 +62,19 @@ class EmployeeRegisterController extends Controller
             // 'bank_account' => ['required', 'integer'],
             // 'bankname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'regex:/(.*)@(jpi)\.com/i', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'], 
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
 
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
-     * @return \App\Models\User
+     * @param array $data
+     * @return User
      */
     protected function create(array $data)
     {
-        $user =  User::create([
+        $user = User::create([
             'firstname' => $data['firstname'],
             'lastname' => $data['lastname'],
             'email' => $data['email'],
@@ -88,7 +89,7 @@ class EmployeeRegisterController extends Controller
         ]);
 
         $user->assignRole('employee');
-        \Auth::login($user);
+        Auth::login($user);
         //return redirect()->route('employeedashboard');
 
         return $user;
@@ -103,4 +104,16 @@ class EmployeeRegisterController extends Controller
             'pageConfigs' => $pageConfigs
         ]);
     }
+
+    public function checkEmailUnique(): JsonResponse
+    {
+        return User::where('email', request()->email)->exists() ? response()->json([
+            'msg' => 'Email has already been taken.',
+            'status' => false
+        ]) : response()->json([
+            'msg' => '',
+            'status' => true
+        ]);
+    }
+
 }
