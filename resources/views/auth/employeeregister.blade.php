@@ -56,17 +56,18 @@
         <div class="row margin employee_details_row">
             <div class="input-field col s12">
                 <i class="material-icons prefix pt-2">mail_outline</i>
-                <input id="email" type="email" class="@error('email') is-invalid @enderror" name="email"
-            value="{{ old('email') }}"  autocomplete="email">
-            <button type="button" class="button button-secondary emailaddress-hint">
-						@jpi.com
-					</button>
-          <label for="email">Email</label>
-          @error('email')
-          <small class="red-text ml-7" role="alert">
-            {{ $message }}
-          </small>
-          @enderror
+                <input id="email_save" type="hidden" name="email" value="{{ old('email') }}">
+                <input id="email" type="text" class="@error('email') is-invalid @enderror" value="{{ old('email') }}"
+                       autocomplete="email">
+                <button type="button" class="button button-secondary emailaddress-hint">
+                    @jpi.com
+                </button>
+                <label for="email">Email</label>
+                @error('email')
+                <small class="red-text ml-7" role="alert">
+                    {{ $message }}
+                </small>
+                @enderror
             </div>
         </div>
         <div class="row margin employee_details_row">

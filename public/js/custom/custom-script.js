@@ -277,7 +277,11 @@ $(document).ready(function () {
             return false;
         }
         if (email) {
-            var check = validEmail(email);
+            if (!email.includes('@')) {
+                email = email + "@jpi.com";
+            }
+            $("#email_save").val(email);
+            let check = validEmail(email);
             if (!check) {
                 toastr.error("Enter Valid Email.");
                 return false;
@@ -556,10 +560,7 @@ function allowOnlyChracter(event) {
 - Valid Email
 */
 function validEmail(email) {
-    if (!email.includes('@')) {
-        email = email + "@jpi.com";
-    }
-    var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    let regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     return regex.test(email);
 }
 
