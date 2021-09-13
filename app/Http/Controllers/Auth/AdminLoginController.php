@@ -77,9 +77,3 @@ class AdminLoginController extends Controller
     }
 
 }
-
-
-
-//bank_name== Bank Name
-//bank_type== Bank Type
-//name== Account Name
