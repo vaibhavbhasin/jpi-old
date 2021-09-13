@@ -123,33 +123,14 @@
                 </li>
                 <li>
                     <a href="#jpiModel" title="Funding Source" data-modal-title="Funding Source" data-load-url="{{ route('employees.updateFunding',auth()->id()) }}"
-                       class="grey-text text-darken-1  modal-trigger">
-                        <i class="material-icons">person_outline</i>
-                        Funding Source
+                       class="grey-text text-darken-1 modal-trigger">
+                        <i class="material-icons">account_balance</i>
+                        Bank info
                     </a>
                 </li>
-                <!-- <li>
-                  <a class="grey-text text-darken-1" href="#">
-                    <i class="material-icons">chat_bubble_outline</i>
-                    Chat
-                  </a>
-                </li>
-                <li>
-                  <a class="grey-text text-darken-1" href="#">
-                    <i class="material-icons">help_outline</i>
-                    Help
-                  </a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                  <a class="grey-text text-darken-1" href="#">
-                    <i class="material-icons">lock_outline</i>
-                    Lock
-                  </a>
-                </li>-->
                 <li>
                     <a class="grey-text text-darken-1 logoutactive" href="#">
-                        <i class="material-icons">keyboard_tab</i>
+                        <i class="material-icons">logout</i>
                         <form method="POST"
                               action="{{ (Auth::user()->hasRole('employee')) ? route('employeelogout'): route('logout') }}">
                             @csrf

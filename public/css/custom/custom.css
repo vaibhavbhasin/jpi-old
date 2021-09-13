@@ -356,6 +356,14 @@ button[disabled] {
     cursor: default;
 }
 
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: rgba(0, 0, 0, 0.42) !important;
+}
+
+.select2-container--disabled .select2-selection--single {
+    border-bottom: 1px dotted rgba(0, 0, 0, 0.42) !important;
+}
+
 @media only screen and (min-width: 993px) {
     .navbar .sideNav-lock .header-search-wrapper {
         font-size: 1.375rem;

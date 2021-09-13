@@ -72,12 +72,15 @@
                                                     <label for="city">City</label>
                                                 </div>
                                                 <div class="input-field col s6">
-{{--                                                    <input id="state" name="state" type="text" class="validate"--}}
-{{--                                                           value="{{$employee_details['state'] ?? ''}}" disabled>--}}
-                                                    <select id="state-pop-update" class="select2 selectstate browser-default" class="validate" name="state" disabled>
+                                                    {{--                                                    <input id="state" name="state" type="text" class="validate"--}}
+                                                    {{--                                                           value="{{$employee_details['state'] ?? ''}}" disabled>--}}
+                                                    <select id="state-pop-update"
+                                                            class="select2 selectstate browser-default" class="validate"
+                                                            name="state" disabled>
                                                         <option value="">Select State</option>
                                                         @foreach(\App\Helpers\Helper::states() as $state)
-                                                            <option value="{{$state}}" {{$employee_details['state'] ? 'selected' : ''}}>{{$state}}</option>
+                                                            <option
+                                                                value="{{$state}}" {{$employee_details['state']==$state ? 'selected' : ''}}>{{$state}}</option>
                                                         @endforeach
                                                     </select>
                                                     <label for="state">State</label>
@@ -254,7 +257,8 @@
                                                             class="validate">
                                                         <option value="">Select State</option>
                                                         @foreach(\App\Helpers\Helper::states() as $state)
-                                                            <option value="{{$state}}">{{$state}}</option>
+                                                            <option
+                                                                value="{{$state}}" {{$employee_details['state'] == $state ? 'selected' : ''}}>{{$state}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -270,37 +274,11 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- <div class="carousel-item slide-3">
-                                <h5 class="intro-step-title mt-0 center">Enter Your Banking Details</h5>
-                                <div class="row">
-                                    <div class="col s12">
-                                        <form class="">
-                                            <div class="row">
-                                                <div class="input-field col s12">
-                                                    <input id="bankaccount-pop" type="text" class="validate">
-                                                    <label for="bankaccount-pop">Bank Account#</label>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="input-field col s12">
-                                                    <input id="routing-pop" type="text" class="validate">
-                                                    <label for="routing-pop">Routing#</label>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="input-field col s12">
-                                                    <input id="banknickname-pop" type="text" class="validate">
-                                                    <label for="banknickname-pop">Bank nickname</label>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div> --}}
                             <div class="carousel-item slide-4">
                                 <h5 class="intro-step-title mt-7 center animated fadeInUp">Congratulations</h5>
                                 <p class="intro-step-text mt-5 animated fadeInUp">You are now fully registered to start
-                                    receiving reimburstment payments that are disbursed at the end of every month. </p>
+                                    receiving reimbursement's payments that are disbursed at the end of every
+                                    month. </p>
                                 <p class="intro-step-text mt-5 animated fadeInUp">
                                     <button type="button" class="waves-effect apj-intro-close-btn modal-close btn "
                                             onclick="location.reload()">
@@ -317,7 +295,6 @@
     <div id="iavContainer"
          style="background: #fff;display: block;position: fixed;z-index: 100000;top: 5%;width: 70%;right: 20%;left: 20%; overflow-y: scroll;"></div>
 @endsection
-
 @section('customjs')
     <link rel="stylesheet"
           href="https://pixinvent.com/materialize-material-design-admin-template/app-assets/vendors/select2/select2.min.css"
@@ -337,8 +314,6 @@
         });
 
         function callDwollaBankPopup(iavToken) {
-            var iavToken = iavToken;
-
             dwolla.configure('sandbox');
             dwolla.iav.start(iavToken, {
                 container: 'iavContainer',
@@ -346,24 +321,24 @@
                     'https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext',
                     "{{asset('css/custom/dwolla_style.css')}}"
                 ],
-                microDeposits: 'false',
-                //   fallbackToMicroDeposits: (fallbackToMicroDeposits.value === 'true')
-                fallbackToMicroDeposits: ('true')
+                microDeposits: false,
+                fallbackToMicroDeposits: true,
+                backButton: true,
+                subscriber: ({currentPage, error}) => {
+                    console.log("currentPage:", currentPage, "error:", JSON.stringify(error));
+                },
             }, function (err, res) {
-
                 console.log('Error: ' + JSON.stringify(err) + ' -- Response: ' + JSON.stringify(res));
                 if (err) {
                     toastr.error('Some errors occured!');
                 } else if (res._links['funding-source']['href']) {
                     submitBankFundingSource(res._links['funding-source']['href']);
-                    // location.reload();
                 }
             });
         }
     </script>
     <script>
         async function submitDetails(callback) {
-
             var data = validateAndCollectData();
             if (data) {
                 $.ajax({
@@ -379,12 +354,10 @@
                     },
 
                     success: function (data) {
-                        // $(".intro-carousel").carousel("next");
                         if (data) {
                             $(".intromodal").modal("close");
-                            var status = submitBankDetails();
-
-                            toastr.success('The detail has been submitted successfully');
+                            submitBankDetails();
+                            toastr.success('Submitted successfully');
                         }
                     }
 
@@ -393,38 +366,25 @@
         }
     </script>
     <script>
-        async function submitBankDetails(callback) {
-
-            // var data  = validateAndCollectBankData();
-            // if(data){
+        async function submitBankDetails(callback) {\
             $.ajax({
                 url: "{{ route('employees.index') }}/{{Auth::user()->id}}",
                 method: "PUT",
                 data: {
                     '_token': "{{ csrf_token() }}",
                     'from': 'bank_update',
-                    // 'bank_account': data.bank_account,
-                    // 'routing': data.routing,
-                    // 'bank_nickname': data.bank_nickname,
                 },
-
                 success: function (data) {
-                    console.log(data);
-                    if (data.fsToken)
+                    if (data.fsToken) {
                         callDwollaBankPopup(data.fsToken);
-
-                    // $(".intro-carousel").carousel("next");
-                    // toastr.success('The bank details has been added successfully');
+                    }
                 }
-
             });
-            // }
         }
 
     </script>
     <script>
         async function submitBankFundingSource(fundingSource) {
-
             $.ajax({
                 url: "{{ route('employees.index') }}/{{Auth::user()->id}}",
                 method: "PUT",
@@ -433,14 +393,12 @@
                     'from': 'bank_funding_source',
                     'fundingSource': fundingSource,
                 },
-
                 success: function (data) {
                     $(".intromodal").modal("open");
                     $(".intro-carousel").carousel("next");
                     $('#iavContainer').hide();
-                    // toastr.success('The bank details has been added successfully');
+                    location.reload();
                 }
-
             });
         }
 
@@ -570,11 +528,11 @@
                         '_method': "PUT"
                     },
                     success: function () {
-                        toastr.success('Your details has been successfully updated!');
+                        toastr.success('Submitted successfully!');
                         $("#edit_details_cancel_btn").click();
                     },
                     error: function () {
-                        toastr.error('Some Error occured! Please enter all the details carefully!');
+                        toastr.error('Some Error occurred! Please enter all the details carefully!');
                     }
                 };
 
