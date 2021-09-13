@@ -168,10 +168,13 @@ button[disabled] {
 
 .apj-get-started-btn,
 .apj-intro-close-btn,
-.apj-edit-btn {
+.apj-edit-btn,.update-funding-source {
     background: #005dab;
 }
 
+.update-funding-source{
+    margin-top: 10px;
+}
 .apj-save-btn {
     background: #ffffff;
     color: #0f0f0f;

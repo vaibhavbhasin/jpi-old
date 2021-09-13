@@ -95,27 +95,28 @@
                                             </div>
                                             <button type="submit" style="display: none;">Save</button>
                                         </div>
+                                        </form>
                                         <div class="col s6">
                                             <div class="row">
                                                 <div class="input-field col s12">
-                                                    <input id="bankaccount" type="text" class="validate" disabled>
-                                                    <label for="bankaccount">Bank Account#</label>
+                                                    <input id="bankaccount" type="text" class="validate" disabled value="xxxx-xxx-852">
+                                                    <label for="bankaccount">Bank Account</label>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="input-field col s12">
-                                                    <input id="routing" type="text" class="validate" disabled>
-                                                    <label for="routing">Routing#</label>
+                                                    <input id="routing" type="text" class="validate" disabled value="xxxx-xxx-852">
+                                                    <label for="routing">Routing</label>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="input-field col s12">
-                                                    <input id="banknickname" type="text" class="validate" disabled>
-                                                    <label for="banknickname">Bank nickname</label>
+                                                <button type="button" class="waves-effect update-funding-source btn"
+                                                    id="">Update Funding Source
+                                                </button>
                                                 </div>
                                             </div>
                                         </div>
-                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -292,7 +293,7 @@
         </div>
     </div>
     <div id="jpiAddFundingSourceModal" class="modal" tabindex="0" data-keyboard="false" data-backdrop="static">
-        <div class="modal-content">
+        <div class="white modal-content">
             <p class="modal-header right modal-close">
                 <span class="right"><i class="material-icons right-align">clear</i></span>
             </p>
