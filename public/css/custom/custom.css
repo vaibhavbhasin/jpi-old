@@ -392,9 +392,9 @@ button[disabled] {
 */
 #main .section-data-tables #data-table-starts .dataTables_wrapper #page-length-option_paginate .paginate_button.current, #main .section-data-tables #data-table-starts .dataTables_wrapper #page-length-option_paginate .paginate_button.current:hover, #main .section-data-tables #data-table-starts .dataTables_wrapper #page-length-option_paginate .paginate_button:hover, #main .section-data-tables #data-table-starts .dataTables_wrapper .dataTables_paginate .paginate_button.current, #main .section-data-tables #data-table-starts .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
     color: #fff!important;
-    border: 1px solid #3f51b5;
+    border: 1px solid #005dab;
     border-radius: 2px;
-    background: #3f51b5;
+    background: #005dab;
     box-shadow: none;
 }
 #main .section-data-tables #data-table-starts .dataTables_wrapper .dataTables_paginate .previous.disabled:hover,#main .section-data-tables #data-table-starts .dataTables_wrapper .dataTables_paginate .next.disabled:hover {
