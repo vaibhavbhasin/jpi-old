@@ -172,7 +172,7 @@ button[disabled] {
     background: #005dab;
 }
 
-.update-funding-source{
+.update-funding-source, #edit_details_cancel_btn, #edit_details_save_btn, #edit_details_btn{
     margin-top: 10px;
 }
 .apj-save-btn {
@@ -376,6 +376,11 @@ button[disabled] {
     position: relative;
     top: -26px;
     margin-right: -8px;
+}
+@media only screen and (max-width: 1398px) {
+.md-width-adj{
+    width: 100% !important;
+}
 }
 @media only screen and (min-width: 993px) {
     .navbar .sideNav-lock .header-search-wrapper {

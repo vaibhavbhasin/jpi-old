@@ -35,17 +35,7 @@
                                             </div>
                                         </div>
                                         <div class="col s12 m6 l4 text-right">
-                                            <!-- remove class 'hide' -->
-                                            <button type="button" class="waves-effect apj-cancel-btn btn"
-                                                    id="edit_details_cancel_btn" style="display: none;">Cancel
-                                            </button>
-                                            <!-- remove class 'hide' -->
-                                            <button type="button" class="waves-effect apj-save-btn btn"
-                                                    id="edit_details_save_btn" style="display: none;">Save
-                                            </button>
-                                            <button type="button" class="waves-effect apj-edit-btn btn "
-                                                    id="edit_details_btn">Edit
-                                            </button>
+
                                         </div>
                                     </div>
                                     <div id="apj-acctxt-border"></div>
@@ -87,10 +77,23 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="input-field col s12">
+                                                <div class="input-field col s6 md-width-adj">
                                                     <input id="zip" name="zip" type="text" class="validate"
                                                            value="{{$employee_details['zip'] ?? ''}}" disabled>
                                                     <label for="zip">Zip</label>
+                                                </div>
+                                                <div class="input-field col s6">
+                                                    <!-- remove class 'hide' -->
+                                            <button type="button" class="waves-effect apj-cancel-btn btn"
+                                                    id="edit_details_cancel_btn" style="display: none;">Cancel
+                                            </button>
+                                            <!-- remove class 'hide' -->
+                                            <button type="button" class="waves-effect apj-save-btn btn"
+                                                    id="edit_details_save_btn" style="display: none;">Save
+                                            </button>
+                                            <button type="button" class="waves-effect apj-edit-btn btn "
+                                                    id="edit_details_btn">Edit
+                                            </button>
                                                 </div>
                                             </div>
                                             <button type="submit" style="display: none;">Save</button>
@@ -112,7 +115,7 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="input-field col s6">
+                                            <div class="input-field col s6 md-width-adj">
                                                 <input id="bank_type" type="text" class="validate" disabled
                                                        value="{{ucfirst(@$employee_details->dwolla->bank_type)}}">
                                                 <label for="bank_type">Account Type</label>
