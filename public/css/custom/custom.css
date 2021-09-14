@@ -172,7 +172,7 @@ button[disabled] {
     background: #005dab;
 }
 
-.update-funding-source{
+.update-funding-source, #edit_details_cancel_btn, #edit_details_save_btn, #edit_details_btn{
     margin-top: 10px;
 }
 .apj-save-btn {
@@ -376,6 +376,61 @@ button[disabled] {
     position: relative;
     top: -26px;
     margin-right: -8px;
+}
+/* #main .section-data-tables #data-table-starts .dataTables_wrapper .dataTables_paginate .paginate_button.current{
+    display: inline-block;
+    background-color: #3f51b5;
+    border: 1px solid #3f51b5;
+}
+#main .section-data-tables #data-table-starts .dataTables_wrapper .dataTables_paginate .paginate_button:hover{
+    color: #444 !important;
+    border: 1px solid transparent;
+    background: no-repeat;
+    border-radius: 0;
+    box-shadow: none;
+}
+*/
+#main .section-data-tables #data-table-starts .dataTables_wrapper #page-length-option_paginate .paginate_button.current, #main .section-data-tables #data-table-starts .dataTables_wrapper #page-length-option_paginate .paginate_button.current:hover, #main .section-data-tables #data-table-starts .dataTables_wrapper #page-length-option_paginate .paginate_button:hover, #main .section-data-tables #data-table-starts .dataTables_wrapper .dataTables_paginate .paginate_button.current, #main .section-data-tables #data-table-starts .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
+    color: #fff!important;
+    border: 1px solid #3f51b5;
+    border-radius: 2px;
+    background: #3f51b5;
+    box-shadow: none;
+}
+#main .section-data-tables #data-table-starts .dataTables_wrapper .dataTables_paginate .previous.disabled:hover,#main .section-data-tables #data-table-starts .dataTables_wrapper .dataTables_paginate .next.disabled:hover {
+    color: #666!important;
+    border: 1px solid #ffffff;
+    border-radius: 2px;
+    background: #ffffff;
+    box-shadow: none;
+}
+#main .section-data-tables #data-table-starts .dataTables_wrapper .dataTables_paginate .previous:hover ,#main .section-data-tables #data-table-starts .dataTables_wrapper .dataTables_paginate .next:hover {
+    color: #444!important;
+    border: 1px solid #ffffff;
+    border-radius: 2px;
+    background: #ffffff;
+    box-shadow: none;
+}
+#main .section-data-tables #data-table-starts .dataTables_wrapper .dataTables_paginate .paginate_button:hover{
+    color: #444!important;
+    border: 1px solid #ffffff;
+    border-radius: 2px;
+    background: #ffffff;
+    box-shadow: none;
+}
+#main .section-data-tables #data-table-starts .dataTables_wrapper .dataTables_paginate .previous.disabled.waves-effect:hover ,#main .section-data-tables #data-table-starts .dataTables_wrapper .dataTables_paginate .next.disabled.waves-effect:hover,#main .section-data-tables #data-table-starts .dataTables_wrapper .dataTables_paginate .previous.disabled.waves-effect ,#main .section-data-tables #data-table-starts .dataTables_wrapper .dataTables_paginate .next.disabled.waves-effect{
+    pointer-events: none;
+    z-index: 1;
+    transition: none;
+}
+#main .section-data-tables #data-table-starts  .dataTables_wrapper i.material-icons {
+    font-size: 2rem;
+    padding-top: 5px;
+}
+@media only screen and (max-width: 1398px) {
+.md-width-adj{
+    width: 100% !important;
+}
 }
 @media only screen and (min-width: 993px) {
     .navbar .sideNav-lock .header-search-wrapper {

@@ -112,9 +112,18 @@
 <script>
     $(function() {
         $("#data-table-simple").DataTable({
-            responsive: !0,
-            "ordering": false
-        });
+responsive: !0,
+"ordering": false,
+drawCallback: function () {
+    $( ".paginate_button" ).addClass( "waves-effect" );
+},
+"language": {
+    "paginate": {
+      "previous": "<i class=\"material-icons\">chevron_left</i>",
+      "next": "<i class=\"material-icons\">chevron_right</i>",
+    }
+  },
+});
     });
     $(window).on("load", function() {
         $(".btn-prev").addClass("hide");
