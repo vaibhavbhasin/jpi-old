@@ -100,21 +100,21 @@
                                         <div class="row">
                                             <div class="input-field col s12">
                                                 <input id="bank_name" type="text" class="validate" disabled
-                                                       value="{{$employee_details->dwolla->bank_name}}">
+                                                       value="{{@$employee_details->dwolla->bank_name}}">
                                                 <label for="bank_name">Bank name</label>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="input-field col s12">
                                                 <input id="bank_type" type="text" class="validate" disabled
-                                                       value="{{$employee_details->dwolla->account_name}}">
+                                                       value="{{@$employee_details->dwolla->account_name}}">
                                                 <label for="bank_type">Account Name</label>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="input-field col s6">
                                                 <input id="bank_type" type="text" class="validate" disabled
-                                                       value="{{ucfirst($employee_details->dwolla->bank_type)}}">
+                                                       value="{{ucfirst(@$employee_details->dwolla->bank_type)}}">
                                                 <label for="bank_type">Account Type</label>
                                             </div>
                                             <div class="input-field col 6">

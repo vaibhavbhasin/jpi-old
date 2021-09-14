@@ -115,16 +115,16 @@ class EmployeeController extends Controller
                 $account = $accountsApi->id($fundingSourceId);
                 $is_verified = $account->status === 'verified';
                 Dwolla::where([
-                    'user_id' => Auth::user()->id,
-                ])->first()->update([
-                    'funding_source' => $request['fundingSource'],
+                    'user_id' => auth()->id(),
+                ])->update([
+                    'funding_source' => $account->_links['self']->href,
                     'funding_source_id' => $account->id,
                     'bank_name' => $account->bank_name,
                     'bank_type' => $account->bank_account_type,
                     'account_name' => $account->name,
                     'is_verified' => $is_verified
                 ]);
-                User::where('id', Auth::user()->id)->first()->update(['is_active' => 1]);
+                User::where('id', auth()->id())->update(['is_active' => 1]);
             }
             return response()->json(['msg' => 'success']);
         } else {
@@ -178,12 +178,12 @@ class EmployeeController extends Controller
 
     public function UpdateFundingSource(Request $request, User $employee)
     {
-        $customer_id =$employee->dwolla->ach_customer_id;
+        $customer_id = $employee->dwolla->ach_customer_id;
         $ach = new AchPayment;
         $ach->generateAchAPIToken();
         $dwolla_api_env_url = config('services.dwolla.env_url');
         $apiClient = new DwollaSwagger\ApiClient($dwolla_api_env_url);
-        if ($request->isMethod('PUT')){
+        /*if ($request->isMethod('PUT')){
             $fundingSourceApi =new DwollaSwagger\FundingsourcesApi($apiClient);
             $fundingSource = $fundingSourceApi->createCustomerFundingSource([
                 "routingNumber" => $request->input('routingNumber'),
@@ -191,10 +191,14 @@ class EmployeeController extends Controller
                 "bankAccountType" => $request->input('bankAccountType'),
                 "name" => $request->input('name')
             ], "https://api-sandbox.dwolla.com/customers/".$customer_id);
-        }
+        }*/
         $customersApi = new DwollaSwagger\CustomersApi($apiClient);
 //        $fsToken = $customersApi->createFundingSourcesTokenForCustomer("{$dwolla_api_env_url}/customers/{$customer_id}");
         $fsToken = $customersApi->getCustomerIavToken("{$dwolla_api_env_url}/customers/{$customer_id}");
-        return view('pages.employees.funding_source', ['token' => $fsToken->token,'employee'=>$employee]);
+        if ($fsToken->token && !empty($employee->dwolla->funding_source_id)) {
+            $fundingSourceApi = new DwollaSwagger\FundingsourcesApi($apiClient);
+            $fundingSourceApi->softDelete(['removed' => true], "{$dwolla_api_env_url}/funding-sources/{$employee->dwolla->funding_source_id}");
+        }
+        return view('pages.employees.funding_source', ['token' => $fsToken->token, 'employee' => $employee]);
     }
 }

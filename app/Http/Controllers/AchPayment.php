@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\Dwolla;
@@ -54,17 +55,17 @@ class AchPayment extends Controller
             $dwolla_api_env_url = config('services.dwolla.env_url');
             $apiClient = new DwollaSwagger\ApiClient($dwolla_api_env_url);
             $customersApi = new DwollaSwagger\CustomersApi($apiClient);
-            $customers = $customersApi->_list(1,0,null, null, null ,$data['achEmail']);
+            $customers = $customersApi->_list(1, 0, null, null, null, $data['achEmail']);
             //  dd($customers);
-            if( $customers->total ){
+            if ($customers->total) {
                 $ach_customer_id = $customers->_embedded->{'customers'}[0]->id;
                 $customers->_embedded->{'customers'}[0]->email;
                 $customersApi->updateCustomer([
                     'firstName' => $data['achFirstName'],
                     'lastName' => $data['achLastName'],
                     'ipAddress' => $_SERVER['REMOTE_ADDR']
-                ],$ach_customer_id);
-            }else{
+                ], $ach_customer_id);
+            } else {
                 $customer = $customersApi->create([
                     'firstName' => $data['achFirstName'],
                     'lastName' => $data['achLastName'],
@@ -73,7 +74,7 @@ class AchPayment extends Controller
                     'ipAddress' => $_SERVER['REMOTE_ADDR']
                 ]);
 
-                $customers = $customersApi->_list(1,0,null, null, null ,$data['achEmail']);
+                $customers = $customersApi->_list(1, 0, null, null, null, $data['achEmail']);
                 $ach_customer_id = $customers->_embedded->{'customers'}[0]->id;
             }
             //print_r($customers);
@@ -110,6 +111,22 @@ class AchPayment extends Controller
             $customer_fund_source = $fundingsourcesApi->getCustomerFundingSources($ach_customer_id);
             if (isset($customer_fund_source->_embedded->{'funding-sources'}[0]->id)) {
                 $fund_sources = $customer_fund_source->_embedded->{'funding-sources'};
+                $dwolla = Dwolla::where('user_id', auth()->id())->first();
+                if (empty($dwolla->funding_source_id)) {
+                    $account = $fundingsourcesApi->id($fund_sources[0]->id);
+                    $is_verified = $account->status === 'verified';
+                    Dwolla::where([
+                        'user_id' => auth()->id(),
+                    ])->update([
+                        'funding_source' => $account->_links['self']->href,
+                        'funding_source_id' => $account->id,
+                        'bank_name' => $account->bank_name,
+                        'bank_type' => $account->bank_account_type,
+                        'account_name' => $account->name,
+                        'is_verified' => $is_verified
+                    ]);
+                    User::where('id', auth()->id())->update(['is_active' => 1]);
+                }
                 return ['fund_sources' => $fund_sources, 'fsToken' => ''];
             } else {
                 $fsToken = $customersApi->getCustomerIavToken($dwolla_api_env_url . "/customers/" . $ach_customer_id);
@@ -121,11 +138,13 @@ class AchPayment extends Controller
 
     }
 
-    public function achPaymentProcess(){
+    public function achPaymentProcess()
+    {
         return view('achPaymentProcess');
     }
 
-    public function achPaymentSubmit(Request $request){
+    public function achPaymentSubmit(Request $request)
+    {
 
         $rules = array(
             'paymentAmount' => 'required|integer',
@@ -168,7 +187,7 @@ class AchPayment extends Controller
 
             $fundingSources = $fundingsourcesApi->getAccountFundingSources($accountUrl, $removed = false);
 
-            if( isset( $customer_fund_source->_embedded->{'funding-sources'}[0]->id ) && isset($fundingSources->_embedded->{'funding-sources'}[0]->id)){
+            if (isset($customer_fund_source->_embedded->{'funding-sources'}[0]->id) && isset($fundingSources->_embedded->{'funding-sources'}[0]->id)) {
                 $fund_sources = $customer_fund_source->_embedded->{'funding-sources'};
                 $source_fund = $fundingSources->_embedded->{'funding-sources'};
 
@@ -189,20 +208,20 @@ class AchPayment extends Controller
                 $transferApi = new DwollaSwagger\TransfersApi($apiClient);
                 $transferUrl = $transferApi->create($transfer_request);
 
-                if($transferUrl != ''){
+                if ($transferUrl != '') {
                     $transferData = $transferApi->byId($transferUrl);
 
                     // save $transferData->id to database and send email notification;
                     return $transferData->id;
-                    Session::flash('success', "Bill payment has successfully completed. Transaction ID: " .$transferData->id);
+                    Session::flash('success', "Bill payment has successfully completed. Transaction ID: " . $transferData->id);
                     return Redirect::to('ach-payment-process');
-                }else{
+                } else {
                     return 'failed';
                     $this->payment_failed_email($user);
                     Session::flash('error', "Bill payment has failed. Please try again.");
                     return Redirect::to('ach-payment-process');
                 }
-            }else{
+            } else {
                 return 'failed';
                 $this->payment_failed_email($user);
                 Session::flash('error', "Your bank account not verified.");
@@ -211,7 +230,8 @@ class AchPayment extends Controller
         }
     }
 
-    public function getCustomerTransfers($id){
+    public function getCustomerTransfers($id)
+    {
 
         $dwolla = Dwolla::where('user_id', $id)->first();
 
@@ -235,19 +255,20 @@ class AchPayment extends Controller
 
     }
 
-    public function generateAchAPIToken(){
+    public function generateAchAPIToken()
+    {
         $dwolla_api_key = config('services.dwolla.key');
         $dwolla_api_secret = config('services.dwolla.secret');
         $dwolla_api_env_url = config('services.dwolla.env_url');
-        $basic_credentials = base64_encode($dwolla_api_key.':'.$dwolla_api_secret);
-        $ch = curl_init($dwolla_api_env_url.'/token');
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Basic '.$basic_credentials, 'Content-Type: application/x-www-form-urlencoded;charset=UTF-8'));
+        $basic_credentials = base64_encode($dwolla_api_key . ':' . $dwolla_api_secret);
+        $ch = curl_init($dwolla_api_env_url . '/token');
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Basic ' . $basic_credentials, 'Content-Type: application/x-www-form-urlencoded;charset=UTF-8'));
         curl_setopt($ch, CURLOPT_POSTFIELDS, 'grant_type=client_credentials');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch,CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         $data = json_decode(curl_exec($ch));
 
-        $token= $data->access_token;
+        $token = $data->access_token;
         DwollaSwagger\Configuration::$access_token = $token;
         curl_close($ch);
     }
@@ -259,10 +280,10 @@ class AchPayment extends Controller
         $apiClient = new DwollaSwagger\ApiClient($dwolla_api_env_url);
         $fundingsourcesApi = new DwollaSwagger\FundingsourcesApi($apiClient);
         $response = $fundingsourcesApi->update([
-            'name'=>$data['bank_nickname'],
-            'accountNumber'=>$data['bank_account'],
-            'routingNumber'=>$data['routing'],
-        ],$employee->dwolla->funding_source_id);
+            'name' => $data['bank_nickname'],
+            'accountNumber' => $data['bank_account'],
+            'routingNumber' => $data['routing'],
+        ], $employee->dwolla->funding_source_id);
         $customerUrl = "{$dwolla_api_env_url}/funding-sources/{$employee->ach_customer_id}";
     }
 }
