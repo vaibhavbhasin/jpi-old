@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\MessageBag;
 
 class AdminLoginController extends Controller
 {
@@ -53,21 +55,23 @@ class AdminLoginController extends Controller
     /**
      * Handle an authentication attempt.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param Request $request
      *
      * @return Response
      */
     public function authenticate(Request $request)
     {
         $credentials = $request->only('email', 'password');
-
         if (Auth::attempt($credentials)) {
-            // Authentication passed...
             return redirect()->intended('dashboard');
+        } else {
+            $errors = new MessageBag(['password' => ['Invalid credentials']]);
+            return Redirect::back()->withErrors($errors);
         }
     }
-	
-	public function logout() {
+
+    public function logout()
+    {
         Auth::logout();
         return redirect('/login');
     }

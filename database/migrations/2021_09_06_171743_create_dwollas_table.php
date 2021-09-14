@@ -15,18 +15,13 @@ class CreateDwollasTable extends Migration
     {
         Schema::create('dwollas', function (Blueprint $table) {
             $table->id();
-
             $table->bigInteger('user_id')->unsigned();
-            
             $table->string('ach_customer_id')->nullable();
             $table->string('funding_source_id')->nullable();
             $table->string('funding_source')->nullable();
-
             $table->boolean('is_verified')->default(0);
             $table->boolean('is_active')->default(1);
-            
             $table->timestamps();
-
             $table->foreign('user_id')->references('id')->on('users');
         });
     }

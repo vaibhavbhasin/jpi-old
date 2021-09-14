@@ -95,28 +95,38 @@
                                             </div>
                                             <button type="submit" style="display: none;">Save</button>
                                         </div>
-                                        </form>
-                                        <div class="col s6">
-                                            <div class="row">
-                                                <div class="input-field col s12">
-                                                    <input id="bankaccount" type="text" class="validate" disabled value="xxxx-xxx-852">
-                                                    <label for="bankaccount">Bank Account</label>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="input-field col s12">
-                                                    <input id="routing" type="text" class="validate" disabled value="xxxx-xxx-852">
-                                                    <label for="routing">Routing</label>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="input-field col s12">
-                                                <button type="button" class="waves-effect update-funding-source btn"
-                                                    id="">Update Funding Source
-                                                </button>
-                                                </div>
+                                    </form>
+                                    <div class="col s6">
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input id="bank_name" type="text" class="validate" disabled
+                                                       value="{{@$employee_details->dwolla->bank_name}}">
+                                                <label for="bank_name">Bank name</label>
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input id="bank_type" type="text" class="validate" disabled
+                                                       value="{{@$employee_details->dwolla->account_name}}">
+                                                <label for="bank_type">Account Name</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s6">
+                                                <input id="bank_type" type="text" class="validate" disabled
+                                                       value="{{ucfirst(@$employee_details->dwolla->bank_type)}}">
+                                                <label for="bank_type">Account Type</label>
+                                            </div>
+                                            <div class="input-field col 6">
+                                                <a href="#jpiModal"
+                                                   data-load-url="{{ route('employees.updateFunding',auth()->id()) }}"
+                                                   class="waves-effect update-funding-source btn modal-trigger"
+                                                   id="updateFundingSource">
+                                                    Update Funding Source
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -314,7 +324,7 @@
           type="text/css">
     <script
         src="https://pixinvent.com/materialize-material-design-admin-template/app-assets/vendors/select2/select2.full.min.js"></script>
-    <script src="https://cdn.dwolla.com/1/dwolla.js"></script>
+    <script src="//cdn.dwolla.com/1/dwolla.js"></script>
     <script type="text/javascript">
         // Basic Select2 select
         $(".selectstate").select2({

@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -51,13 +51,10 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             // Authentication passed...
-            if(\Auth::user()->hasRole('admin'))
-            {
+            if (\Auth::user()->hasRole('admin')) {
                 return redirect()->intended('admin');
 
-            }
-            else    
-            {
+            } else {
                 Auth::logout();
                 return redirect()->back();
             }
@@ -75,8 +72,8 @@ class LoginController extends Controller
             'pageConfigs' => $pageConfigs
         ]);
     }
-	
-	public function logout() {
+
+    public function logout() {
         Auth::logout();
         return redirect('/admin/login');
     }
