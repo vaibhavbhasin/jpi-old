@@ -289,7 +289,7 @@ $(document).ready(function () {
             $("#email_save").val(email);
             let check = validEmail(email);
             if (!check) {
-                toastr.error("Enter Valid Email.");
+                toastr.error("Your email is incorrect. Please enter only the first part of your JPI email address that is before @jpi.com.");
                 return false;
             }
         }
@@ -335,7 +335,7 @@ $(document).ready(function () {
             password_is_valid = true;
         }
         if (!password_is_valid) {
-            toastr.error("Password should be as per requirement.");
+            toastr.error("Your password does not meet the requirements. Please review the requirements and try again.");
             return false;
         }
 
@@ -347,7 +347,7 @@ $(document).ready(function () {
         }
 
         if (password_confirm !== password) {
-            toastr.error("Password not matched.");
+            toastr.error("Your passwords do not match. Please re-enter your passwords and try again.");
             return false;
         }
         let registration_step = $("#registration_step").val();
