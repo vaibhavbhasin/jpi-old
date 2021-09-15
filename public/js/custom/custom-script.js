@@ -283,7 +283,7 @@ $(document).ready(function () {
             if (!email.includes('@')) {
                 email = email + "@jpi.com";
             } else {
-                toastr.error("Domain name is not allowed.");
+                toastr.error("Your email is incorrect. Please enter only the first part of your JPI email address that is before @jpi.com.");
                 return false;
             }
             $("#email_save").val(email);

@@ -44,49 +44,53 @@
           <small class="red-text ml-7" role="alert">
             {{ $message }}
           </small>
-          @enderror
-        </div>
-        </div>
-      </div>
-      </div>
-      <div class="row margin">
-        <div class="col s12">
-      </div>
-      </div>
-
-      <div class="row margin">
-        <div class="input-field col s12">
-          <i class="material-icons prefix pt-2">mail_outline</i>
-          <input id="email" type="email" class="@error('email') is-invalid @enderror" name="email"
-            value="{{ old('email') }}"  autocomplete="email">
-          <label for="email">Email</label>
-          @error('email')
-          <small class="red-text ml-7" role="alert">
-            {{ $message }}
-          </small>
-          @enderror
-        </div>
-      </div>
-
-      <div class="row margin">
-          <div class="input-field col s12">
-            <i class="material-icons prefix pt-2">lock_outline</i>
-            <input id="password" type="password" class="@error('password') is-invalid @enderror" name="password"
-              autocomplete="new-password">
-            <label for="password">Password</label>
-            @error('password')
-            <small class="red-text ml-7" role="alert">
-              {{ $message }}
-            </small>
             @enderror
+        </div>
+        </div>
+        </div>
       </div>
-      </div>
-      <div class="row margin">
-        <div class="col s12">
-        <div class="passw">
-            <p> Password Requirements: </p>
-            <ul>
-              <li>Must contain at least 8 characters (12+ recommended )</li>
+        <div class="row margin">
+            <div class="col s12">
+            </div>
+        </div>
+
+        <div class="row margin">
+            <div class="input-field col s12">
+                <i class="material-icons prefix pt-2">mail_outline</i>
+                <input id="email_save" type="hidden" name="email" value="{{ old('email') }}">
+                <input id="email" type="text" class="@error('email') is-invalid @enderror" value="{{ old('email') }}"
+                       autocomplete="email">
+                <button type="button" class="button button-secondary emailaddress-hint">
+                    @jpi.com
+                </button>
+                <label for="email">Email</label>
+                @error('email')
+                <small class="red-text ml-7" role="alert">
+                    {{ $message }}
+                </small>
+                @enderror
+            </div>
+        </div>
+
+        <div class="row margin">
+            <div class="input-field col s12">
+                <i class="material-icons prefix pt-2">lock_outline</i>
+                <input id="password" type="password" class="@error('password') is-invalid @enderror" name="password"
+                       autocomplete="new-password">
+                <label for="password">Password</label>
+                @error('password')
+                <small class="red-text ml-7" role="alert">
+                    {{ $message }}
+                </small>
+                @enderror
+            </div>
+        </div>
+        <div class="row margin">
+            <div class="col s12">
+                <div class="passw">
+                    <p> Password Requirements: </p>
+                    <ul>
+                        <li>Must contain at least 8 characters (12+ recommended )</li>
               <li>Must contain at least one uppercase letter</li>
               <li>Must contain at least one lowercase letter</li>
               <li>Must contain at least one number</li>

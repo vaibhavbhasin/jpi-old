@@ -18,6 +18,9 @@ class CreateDwollasTable extends Migration
             $table->bigInteger('user_id')->unsigned();
             $table->string('ach_customer_id')->nullable();
             $table->string('funding_source_id')->nullable();
+            $table->string('bank_name')->nullable();
+            $table->string('bank_type')->nullable();
+            $table->string('account_name')->nullable();
             $table->string('funding_source')->nullable();
             $table->boolean('is_verified')->default(0);
             $table->boolean('is_active')->default(1);

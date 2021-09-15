@@ -21,22 +21,17 @@ use Illuminate\Support\Facades\Route;
 */
 // Page Route
 
-
+Route::get('php-info', function () {
+    return phpinfo();
+});
 Route::get('clear_cache', function () {
     Artisan::call('config:clear');
     Artisan::call('cache:clear');
-
     dd("Cache is cleared");
-
 });
 
-Route::get('run_migration', function () {
-
-    Artisan::call('migrate');
-    Artisan::call('add:roles');
-
-    dd("migration done");
-
+Route::get('db-migrate', function () {
+    return Artisan::call('migrate');
 });
 Route::get('test', 'App\Http\Controllers\TestController@Index');
 Route::get('/', 'App\Http\Controllers\HomeController@Index');
@@ -54,17 +49,17 @@ Route::get('/page-collapse', [PageController::class, 'collapsePage']);
 
 // locale route
 Route::get('lang/{locale}', [LanguageController::class, 'swap']);
-Route::group(['prefix' => 'admin'], function() {
+Route::group(['prefix' => 'admin'], function () {
     Auth::routes(['verify' => true]);
 });
 
-Route::post('login','App\Http\Controllers\Auth\LoginController@authenticate')->name('login');
+Route::post('login', 'App\Http\Controllers\Auth\LoginController@authenticate')->name('login');
 
 //Employee Login
-Route::get('ach/login','App\Http\Controllers\Auth\EmployeeLoginController@showLoginForm')->name('employeeLoginForm');
+Route::get('ach/login', 'App\Http\Controllers\Auth\EmployeeLoginController@showLoginForm')->name('employeeLoginForm');
 Route::get('ach/register', 'App\Http\Controllers\Auth\EmployeeRegisterController@showRegistrationForm')->name('employeeRegistrationForm');
-Route::post('employeelogin','App\Http\Controllers\Auth\EmployeeLoginController@authenticate')->name('employeelogin');
-Route::post('employeelogout','App\Http\Controllers\Auth\EmployeeLoginController@logout')->name('employeelogout');
+Route::post('employeelogin', 'App\Http\Controllers\Auth\EmployeeLoginController@authenticate')->name('employeelogin');
+Route::post('employeelogout', 'App\Http\Controllers\Auth\EmployeeLoginController@logout')->name('employeelogout');
 Route::post('employeeregister', 'App\Http\Controllers\Auth\EmployeeRegisterController@register')->name('employeeregister');
 Route::get('check-email-unique', 'App\Http\Controllers\Auth\EmployeeRegisterController@checkEmailUnique')->name('checkEmailUnique');
 
@@ -73,17 +68,17 @@ Route::get('check-email-unique', 'App\Http\Controllers\Auth\EmployeeRegisterCont
 // Route::post('adminlogin','App\Http\Controllers\Auth\AdminLoginController@authenticate')->name('adminlogin');
 
 //Employee Routes
-Route::get('ach',[EmployeeController::class, 'index'])->middleware(['checkemployee'])->name('employeedashboard');
-Route::middleware(['role:employee'])->group(function() {
-    Route::resource('employees',EmployeeController::class);
-    Route::match(['GET','PUT'],'employee-update-funding-source/{employee}',[EmployeeController::class, 'UpdateFundingSource'])->name('employees.updateFunding');
+Route::get('ach', [EmployeeController::class, 'index'])->middleware(['checkemployee'])->name('employeedashboard');
+Route::middleware(['role:employee'])->group(function () {
+    Route::resource('employees', EmployeeController::class);
+    Route::match(['GET', 'PUT'], 'employee-update-funding-source/{employee}', [EmployeeController::class, 'UpdateFundingSource'])->name('employees.updateFunding');
 });
 
 //Admin Routes
-Route::get('admin',[AdminController::class, 'index'])->middleware(['admin_role']);
-Route::middleware(['role:admin'])->group(function() {
+Route::get('admin', [AdminController::class, 'index'])->middleware(['admin_role']);
+Route::middleware(['role:admin'])->group(function () {
     Route::get('admin/manage-users', [UserController::class, 'index']);
-    Route::resource('users',UserController::class);
+    Route::resource('users', UserController::class);
 
     Route::get('admin/do-ach-payment', [AdminController::class, 'create']);
 });
