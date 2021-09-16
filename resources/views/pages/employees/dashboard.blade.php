@@ -204,6 +204,7 @@
                 <div id="img-modal" class="intromodal modal white" tabindex="0" data-keyboard="false"
                      data-backdrop="static">
                     <div class="modal-content">
+                        <div class="modal-loader"><img src="{{asset('images/loading.gif')}}" alt="" class="regit-icon"></div>
                         <p class="modal-header right modal-close">
                             <span class="right"><i class="material-icons right-align">clear</i></span>
                         </p>
@@ -308,6 +309,7 @@
     </div>
     <div id="jpiAddFundingSourceModal" class="modal" tabindex="0" data-keyboard="false" data-backdrop="static">
         <div class="white modal-content">
+            <div class="modal-loader"><img src="{{asset('images/loading.gif')}}" alt="" class="regit-icon"></div>
             <p class="modal-header right modal-close">
                 <span class="right"><i class="material-icons right-align">clear</i></span>
             </p>
