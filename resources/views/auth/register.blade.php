@@ -24,7 +24,7 @@
       <div class="row margin">
         <div class="col s12">
         <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col s6 padding_kl">
           <i class="material-icons prefix pt-2">person_outline</i>
           <input id="firstname" type="text" class="@error('firstname') is-invalid @enderror" name="firstname" value="{{ old('firstname') }}"
              autocomplete="firstname" >
@@ -35,7 +35,7 @@
           </small>
           @enderror
         </div>
-        <div class="input-field col s6">
+        <div class="input-field col s6 padding_kl">
           <i class="material-icons prefix pt-2">person_outline</i>
           <input id="lastname" type="text" class="@error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}"
              autocomplete="lastname" >
