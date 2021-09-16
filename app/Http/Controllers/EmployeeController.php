@@ -87,9 +87,9 @@ class EmployeeController extends Controller
     {
         if ($request['from'] == 'profile_update') {
             $this->validate($request, [
-                'firstname' => 'required',
-                'lastname' => 'required',
-                'password_confirm' => 'same:password'
+                'firstname' => ['required', 'alpha', 'max:255'],
+                'lastname' => ['required', 'alpha', 'max:255'],
+                'password_confirm' => ['same:password']
             ]);
 
             $data = [

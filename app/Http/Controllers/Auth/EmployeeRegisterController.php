@@ -52,8 +52,8 @@ class EmployeeRegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'firstname' => ['required', 'string', 'max:255'],
-            'lastname' => ['required', 'string', 'max:255'],
+            'firstname' => ['required', 'alpha', 'max:255'],
+            'lastname' => ['required', 'alpha', 'max:255'],
             // 'address1' => ['required', 'string', 'max:255'],
             // 'address2' => ['required', 'string', 'max:255'],
             // 'city' => ['required', 'string', 'max:255'],
@@ -90,7 +90,7 @@ class EmployeeRegisterController extends Controller
 
         $user->assignRole('employee');
         Auth::login($user);
-        //return redirect()->route('employeedashboard');
+        //return redirect()->route('employee.dashboard');
 
         return $user;
     }

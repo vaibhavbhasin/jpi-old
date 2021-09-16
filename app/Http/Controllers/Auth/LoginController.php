@@ -52,8 +52,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             // Authentication passed...
             if (\Auth::user()->hasRole('admin')) {
-                return redirect()->intended('admin');
-
+                return redirect()->route('admin.dashboard');
             } else {
                 Auth::logout();
                 return redirect()->back();
@@ -75,7 +74,7 @@ class LoginController extends Controller
 
     public function logout() {
         Auth::logout();
-        return redirect('/admin/login');
+        return redirect()->route('admin.login');
     }
 
 }

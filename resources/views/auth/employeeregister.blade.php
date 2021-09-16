@@ -6,45 +6,47 @@
 
 {{-- page style --}}
 @section('page-style')
-<link rel="stylesheet" type="text/css" href="{{asset('css/pages/register.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/pages/register.css')}}">
 @endsection
 
 {{-- page content --}}
 @section('content')
-<div class="login-pattern"></div>
-<div id="register-page" class="row">
-  <div class="col s12 m6 l4 z-depth-4 card-panel border-radius-6 register-card bg-opacity-1">
-    <form class="login-form" id="registerform" method="POST" action="{{ route('employeeregister') }}">
-      @csrf
-      <div class="row">
-          <div class="input-field col s12">
-              <h5 class="ml-4" id="top_heading">Register</h5>
-          </div>
-      </div>
-        <div class="row margin employee_details_row">
-            <div class="col s12">
+    <div class="login-pattern"></div>
+    <div id="register-page" class="row">
+        <div class="col s12 m6 l4 z-depth-4 card-panel border-radius-6 register-card bg-opacity-1">
+            <form class="login-form" id="registerform" method="POST" action="{{ route('employee.register') }}">
+                @csrf
                 <div class="row">
-                    <div class="input-field col m6 s12 padding_kl">
-                        <i class="material-icons prefix pt-2">person_outline</i>
-                        <input id="firstname" type="text" class="@error('firstname') is-invalid @enderror" name="firstname" value="{{ old('firstname') }}"
-             autocomplete="firstname" >
-          <label for="firstname" class="center-align">Firstname</label>
-          @error('firstname')
-          <small class="red-text ml-7" role="alert">
-            {{ $message }}
-          </small>
-          @enderror
-        </div>
-        <div class="input-field col m6 s12 padding_kl">
-        <i class="material-icons prefix pt-2">person_outline</i>
-          <input id="lastname" type="text" class="@error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}"
-             autocomplete="lastname" >
-          <label for="lastname" class="center-align">Lastname</label>
-          @error('lastname')
-          <small class="red-text ml-7" role="alert">
-            {{ $message }}
-          </small>
-          @enderror
+                    <div class="input-field col s12">
+                        <h5 class="ml-4" id="top_heading">Register</h5>
+                    </div>
+                </div>
+                <div class="row margin employee_details_row">
+                    <div class="col s12">
+                        <div class="row">
+                            <div class="input-field col m6 s12 padding_kl">
+                                <i class="material-icons prefix pt-2">person_outline</i>
+                                <input id="firstname" type="text" class="@error('firstname') is-invalid @enderror"
+                                       name="firstname" value="{{ old('firstname') }}"
+                                       autocomplete="firstname">
+                                <label for="firstname" class="center-align">Firstname</label>
+                                @error('firstname')
+                                <small class="red-text ml-7" role="alert">
+                                    {{ $message }}
+                                </small>
+                                @enderror
+                            </div>
+                            <div class="input-field col m6 s12 padding_kl">
+                                <i class="material-icons prefix pt-2">person_outline</i>
+                                <input id="lastname" type="text" class="@error('lastname') is-invalid @enderror"
+                                       name="lastname" value="{{ old('lastname') }}"
+                                       autocomplete="lastname">
+                                <label for="lastname" class="center-align">Lastname</label>
+                                @error('lastname')
+                                <small class="red-text ml-7" role="alert">
+                                    {{ $message }}
+                                </small>
+                                @enderror
         </div>
                 </div>
             </div>
@@ -639,12 +641,14 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="input-field col s12 mt--6">
-                <p class="margin center-align medium-small"><a href="{{ route('employeeLoginForm')}}" class="forgot-pasw-text">Already have an account? Login</a></p>
+                <div class="row">
+                    <div class="input-field col s12 mt--6">
+                        <p class="margin center-align medium-small"><a href="{{ route('employee.login.show')}}"
+                                                                       class="forgot-pasw-text">Already have an account?
+                                Login</a></p>
+                    </div>
+                </div>
+            </form>
         </div>
-      </div>
-    </form>
-  </div>
-</div>
+    </div>
 @endsection

@@ -125,7 +125,7 @@
                     <a class="grey-text text-darken-1 logoutactive" href="#">
                         <i class="material-icons"><img src="{{asset('images/icon/logout_black_24dp.svg')}}" alt=""></i>
                         <form method="POST"
-                              action="{{ (Auth::user()->hasRole('employee')) ? route('employeelogout'): route('logout') }}">
+                              action="{{ (Auth::user()->hasRole('employee')) ? route('employee.logout'): route('admin.logout') }}">
                             @csrf
                             <button type="submit" class="btnlogout"> Logout</button>
                         </form>

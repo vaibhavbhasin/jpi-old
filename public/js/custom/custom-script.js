@@ -260,7 +260,7 @@ $(document).ready(function () {
     /*
     * Validate Register Profile
     */
-	
+
 	function email_check()
 	{
 		 let email = $.trim($("#email").val());
@@ -303,64 +303,56 @@ $(document).ready(function () {
 					$(".emailaddress-hint").removeClass('br-bt');
 			}
         }
-		
+
 		let registration_step = $("#registration_step").val();
 		if(registration_step == 1)
 		{
 			$.get("/check-email-unique", {email: email}, function (res) {
                 if (res.status) {
-                    
-					$("#email").removeClass('register_input_red');
-					$(".emailaddress-hint").removeClass('register_input_red');
-					$(".emailaddress-hint").removeClass('br-bt');
+
+                    $("#email").removeClass('register_input_red');
+                    $(".emailaddress-hint").removeClass('register_input_red');
+                    $(".emailaddress-hint").removeClass('br-bt');
                 } else {
-					$("#email").addClass('register_input_red');
-					$(".emailaddress-hint").addClass('register_input_red');
+                    $("#email").addClass('register_input_red');
+                    $(".emailaddress-hint").addClass('register_input_red');
                     toastr.error(res.msg);
                 }
             });
             return false;
-		}
-	}
-	
-	
-	
-	function lastname_check()
-	{
-		var lastname = $.trim($("#lastname").val());
-		if (!lastname) {
-			$("#lastname").addClass('register_input_red');
-			$("#new_lastname").focus();
-			toastr.error("Enter Lastname.");
-			return false;
-		}
-		else
-		{
-			$("#lastname").removeClass('register_input_red');
-		}
-	}
-	
-	
-	function firstname_check()
-	{
-		var firstname = $.trim($("#firstname").val());
-		if (!firstname) {
-			$("#firstname").addClass('register_input_red');
-			$("#new_firstname").focus();
-			toastr.error("Enter Firstname.");
-			return false;
-		}
-		else
-		{
-			$("#firstname").removeClass('register_input_red');
-		}
-	}
-	
-	function password_check()
-	{
-		let password = $.trim($("#password").val());
+        }
+    }
+
+
+    function lastname_check() {
+        var lastname = $.trim($("#lastname").val());
+        if (!lastname) {
+            $("#lastname").addClass('register_input_red');
+            $("#new_lastname").focus();
+            toastr.error("Enter Lastname.");
+            return false;
+        } else {
+            $("#lastname").removeClass('register_input_red');
+        }
+    }
+
+
+    function firstname_check() {
+        var firstname = $.trim($("#firstname").val());
+        if (!firstname) {
+            $("#firstname").addClass('register_input_red');
+            $("#new_firstname").focus();
+            toastr.error("Enter Firstname.");
+            return false;
+        } else {
+            $("#firstname").removeClass('register_input_red');
+        }
+    }
+
+    function password_check() {
+        let password = $.trim($("#password").val());
         $("#password").val(password);
-       
+
         if (password.length < 8) {
              $("#character_length").removeClass('ctick').addClass('ccross');
             password_is_valid = false;
@@ -424,38 +416,37 @@ $(document).ready(function () {
 			$("#password-confirm").addClass('register_input_red');
             toastr.error("Your passwords do not match. Please re-enter your passwords and try again.");
             return false;
+        } else {
+            $("#password-confirm").removeClass('register_input_red');
         }
-		else
-		{
-			$("#password-confirm").removeClass('register_input_red');
-		}
-	}
-	$(document).on('focusout', '#registerform #email', function () {
-		email_check();
-	});
-	$(document).on('focusout', '#lastname', function () {
-		lastname_check();
-	});
-	$(document).on('focusout', '#firstname', function () {
-		firstname_check();
-	});
-	$(document).on('focusout', '#password', function () {
-		password_check();
-	});
-	$(document).on('focusout', '#password-confirm', function () {
-		confirmpassword_check();
-	});
-	
-	
-	$(document).on('keyup', '#password', function () {
-		 let password = $.trim($("#password").val());
+    }
+
+    $(document).on('focusout', '#registerform #email', function () {
+        email_check();
+    });
+    $(document).on('focusout', '#lastname', function () {
+        lastname_check();
+    });
+    $(document).on('focusout', '#firstname', function () {
+        firstname_check();
+    });
+    $(document).on('focusout', '#password', function () {
+        password_check();
+    });
+    $(document).on('focusout', '#password-confirm', function () {
+        confirmpassword_check();
+    });
+
+
+    $(document).on('keyup', '#password', function () {
+        let password = $.trim($("#password").val());
         $("#password").val(password);
-       
+
         if (password.length < 8) {
-             $("#character_length").removeClass('ctick').addClass('ccross');
+            $("#character_length").removeClass('ctick').addClass('ccross');
             password_is_valid = false;
         } else {
-             $("#character_length").removeClass('ccross').addClass('ctick');
+            $("#character_length").removeClass('ccross').addClass('ctick');
             password_is_valid = true;
         }
         if (!password.match(/[A-Z]/)) {
@@ -487,8 +478,8 @@ $(document).ready(function () {
             password_is_valid = true;
         }
 	});
-	
-	
+
+
     $(document).on('click', '#register_user_next,#register_user', function () {
         let firstname = $.trim($("#firstname").val());
         $("#firstname").val(firstname);
@@ -496,10 +487,18 @@ $(document).ready(function () {
             toastr.error("Enter Firstname.");
             return false;
         }
+        if (!validOnlyAlpha(firstname)) {
+            toastr.error("The firstname may only contain letters.");
+            return false;
+        }
         let lastname = $.trim($("#lastname").val());
         $("#lastname").val(lastname);
         if (!lastname) {
             toastr.error("Enter Lastname.");
+            return false;
+        }
+        if (!validOnlyAlpha(lastname)) {
+            toastr.error("The lastname may only contain letters.");
             return false;
         }
         let email = $.trim($("#email").val());
@@ -797,6 +796,11 @@ function allowOnlyChracter(event) {
 function validEmail(email) {
     let regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     return regex.test(email);
+}
+
+function validOnlyAlpha(string) {
+    let regex = /^[a-zA-Z]+$/;
+    return regex.test(string);
 }
 
 $(document).ready(function () {

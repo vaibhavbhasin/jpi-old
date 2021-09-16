@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Providers\RouteServiceProvider;
+use Auth;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -50,8 +51,8 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'firstname' => ['required', 'string', 'max:255'],
-            'lastname' => ['required', 'string', 'max:255'],
+            'firstname' => ['required', 'alpha', 'max:255'],
+            'lastname' => ['required', 'alpha', 'max:255'],
             // 'address1' => ['required', 'string', 'max:255'],
             // 'address2' => ['required', 'string', 'max:255'],
             // 'city' => ['required', 'string', 'max:255'],
@@ -60,15 +61,15 @@ class RegisterController extends Controller
             // 'bank_account' => ['required', 'integer'],
             // 'bankname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'], 
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
 
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
-     * @return \App\Models\User
+     * @param array $data
+     * @return User
      */
     protected function create(array $data)
     {
@@ -87,7 +88,7 @@ class RegisterController extends Controller
         ]);
 
         $user->assignRole('admin');
-        \Auth::login($user);
+        Auth::login($user);
 
         return $user;
     }

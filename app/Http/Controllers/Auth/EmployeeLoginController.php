@@ -70,7 +70,7 @@ class EmployeeLoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             if (Auth::user()->hasRole('employee')) {
-                return redirect()->intended('ach');
+                return redirect()->route('employee.dashboard');
             } else {
                 Auth::logout();
                 return redirect()->back();
@@ -84,7 +84,7 @@ class EmployeeLoginController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect('/ach/login');
+        return redirect()->route('employee.login.show');
     }
 
 }
