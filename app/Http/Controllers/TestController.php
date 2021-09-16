@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Dwolla;
 use DwollaSwagger;
 
 class TestController extends Controller
@@ -10,8 +11,40 @@ class TestController extends Controller
         $ach = new AchPayment;
         $ach->generateAchAPIToken();
         $dwolla_api_env_url = config('services.dwolla.env_url');
+        $fund_id = config('services.dwolla.fund_id');
         $apiClient = new DwollaSwagger\ApiClient($dwolla_api_env_url);
+        $users = Dwolla::orderBy('id', 'desc')->get();
+        $rootApi = new DwollaSwagger\RootApi($apiClient);
+        $customersApi = new DwollaSwagger\CustomersApi($apiClient);
+        foreach ($users as $user) {
+            $ach_customer_id = $user->ach_customer_id;
+            $fundingSourcesApi = new DwollaSwagger\FundingsourcesApi($apiClient);
+            $accountUrl = $rootApi->root()->_links["account"]->href;
+            $customer_fund_source = $fundingSourcesApi->getCustomerFundingSources($ach_customer_id);
 
+            $transfer_request = array(
+                '_links' =>
+                    array(
+                        'source' =>
+                            array(
+                                'href' => "{$dwolla_api_env_url}/funding-sources/{$fund_id}",
+                            ),
+                        'destination' =>
+                            array(
+                                'href' => "{$dwolla_api_env_url}/funding-sources/{$ach_customer_id}",
+                            ),
+                    ),
+                'amount' =>
+                    array(
+                        'currency' => 'USD',
+                        'value' => '75.00',
+                    )
+            );
+            dd($transfer_request);
+        }
+
+
+        die();
         $fundingsourcesApi = new DwollaSwagger\FundingsourcesApi($apiClient);
         /*
         $response = $fundingsourcesApi->id('d7750c0e-58c1-46b4-9f4c-1c41c5946f04');
