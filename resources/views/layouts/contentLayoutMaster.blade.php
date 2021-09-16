@@ -171,7 +171,7 @@ $configData = Helper::applClasses();
       </div>
     </div>
     <div id="jpiModal" class="modal" tabindex="0" data-keyboard="false" data-backdrop="static">
-        <div class="modal-content">
+        <div class="white modal-content">
             <p class="modal-header right modal-close">
                 <span class="right"><i class="material-icons right-align">clear</i></span>
             </p>
