@@ -12,7 +12,7 @@
 <div id="iavContainerUpdate"></div>
 <script>
     function callDwollaBankPopup() {
-        dwolla.configure('sandbox');
+        dwolla.configure('{{config('services.dwolla.api_env')}}');
         dwolla.iav.start("{{$token}}", {
             container: 'iavContainerUpdate',
             stylesheets: [

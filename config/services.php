@@ -29,12 +29,13 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
-    
+
     'dwolla' => [
         'key' => env('ACH_API_KEY'),
         'secret' => env('ACH_API_SECRET'),
         'env_url' => env('ACH_API_ENV'),
-        'fund_id' => env('ACH_API_FUND_ID')
+        'fund_id' => env('ACH_API_FUND_ID'),
+        'api_env' => env('ACH_API_STATUS')
     ]
 
 ];

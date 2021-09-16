@@ -1,41 +1,40 @@
 {
   "menu": [
-  
-    {
-      "url": "ach",
-      "name": "Dashboard",
-      "i18n": "Dashboard",
-      "class": "menulink waves-effect waves-cyan",
-      "icon": "",
-      "slug": "ach",
-      "role": "employee"
-    },
-    {
-      "url": "admin",
-      "name": "Dashboard",
-      "i18n": "Dashboard",
-      "class": "menulink waves-effect waves-cyan",
-      "icon": "",
-      "slug": "admin",
-      "role": "admin"
-    },
-    {
-      "url": "admin/manage-users",
-      "name": "ACH User",
-      "i18n": "ACH User",
-      "class": "menulink waves-effect waves-cyan",
-      "icon": "",
-      "slug": "ACH User",
-      "role": "admin"
-    },
-    {
-      "url": "/",
-      "name": "Link 1",
-      "i18n": "Link 1",
-      "class": "menulink waves-effect waves-cyan",
-      "icon": "",
-      "slug": "Link 1",
-      "role": "2"
-    }
+      {
+          "url": "reimbursement/employee",
+          "name": "Dashboard",
+          "i18n": "Dashboard",
+          "class": "menulink waves-effect waves-cyan",
+          "icon": "",
+          "slug": "ach",
+          "role": "employee"
+      },
+      {
+          "url": "reimbursement/admin",
+          "name": "Dashboard",
+          "i18n": "Dashboard",
+          "class": "menulink waves-effect waves-cyan",
+          "icon": "",
+          "slug": "admin",
+          "role": "admin"
+      },
+      {
+          "url": "reimbursement/admin/users",
+          "name": "ACH User",
+          "i18n": "ACH User",
+          "class": "menulink waves-effect waves-cyan",
+          "icon": "",
+          "slug": "ACH User",
+          "role": "admin"
+      },
+      {
+          "url": "/",
+          "name": "Link 1",
+          "i18n": "Link 1",
+          "class": "menulink waves-effect waves-cyan",
+          "icon": "",
+          "slug": "Link 1",
+          "role": "2"
+      }
   ]
 }
