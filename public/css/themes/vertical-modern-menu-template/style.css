@@ -2,6 +2,63 @@
 /*-------------------------------------------------
 	Style file contain theme components style
 -------------------------------------------------*/
+
+.register_input_red{
+	border-bottom: 1px solid red !important;
+}
+.register_input_green{
+	border-bottom: 1px solid #2ED47A !important;
+}
+.pass-checking-text {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.3px;
+  color: #2d2d2d;
+  display: flex;
+}
+.pass-checklist ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0 6px;
+  font-size: 16px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.9;
+  letter-spacing: -0.3px;
+  text-align: left;
+  color: #6a707e;
+}
+.pass-checklist ul li{
+  padding-bottom: 2px;
+}
+.pass-checklist ul li.ccross:before {
+  content: url('../../../images/Close.svg');
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+}
+.pass-checklist ul li.ctick:before {
+  content: url('../../../images/green-tick.svg');
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+}
+.pass-checklist ul li.ctick {
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.9;
+  letter-spacing: -0.3px;
+  text-align: left;
+  color: #2ED47A;
+}
+.padding_kl{
+	padding-left: 10px !important;
+}
 .materialize-red {
   background-color: #e51c23 !important;
 }

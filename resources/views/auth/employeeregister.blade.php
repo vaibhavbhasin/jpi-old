@@ -14,7 +14,7 @@
 <div class="login-pattern"></div>
 <div id="register-page" class="row">
   <div class="col s12 m6 l4 z-depth-4 card-panel border-radius-6 register-card bg-opacity-1">
-    <form class="login-form" method="POST" action="{{ route('employeeregister') }}">
+    <form class="login-form" id="registerform" method="POST" action="{{ route('employeeregister') }}">
       @csrf
       <div class="row">
           <div class="input-field col s12">
@@ -24,7 +24,7 @@
         <div class="row margin employee_details_row">
             <div class="col s12">
                 <div class="row">
-                    <div class="input-field col m6 s12">
+                    <div class="input-field col m6 s12 padding_kl">
                         <i class="material-icons prefix pt-2">person_outline</i>
                         <input id="firstname" type="text" class="@error('firstname') is-invalid @enderror" name="firstname" value="{{ old('firstname') }}"
              autocomplete="firstname" >
@@ -35,7 +35,7 @@
           </small>
           @enderror
         </div>
-        <div class="input-field col m6 s12">
+        <div class="input-field col m6 s12 padding_kl">
         <i class="material-icons prefix pt-2">person_outline</i>
           <input id="lastname" type="text" class="@error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}"
              autocomplete="lastname" >
@@ -86,14 +86,16 @@
         <div class="row margin employee_details_row">
             <div class="col s12">
                 <div class="passw">
-                    <p> Password Requirements: </p>
+                    <h2 class="pass-checking-text"> Password Requirements: </h2>
+				  <div class="pass-checklist">
                     <ul>
-                        <li>Must contain at least 8 characters (12+ recommended )</li>
-                        <li>Must contain at least one uppercase letter</li>
-                        <li>Must contain at least one lowercase letter</li>
-                        <li>Must contain at least one number</li>
-                        <li>Must contain at least one special character</li>
+                        <li id="character_length" class="ccross">Must contain at least 8 characters (12+ recommended )</li>
+                        <li id="uppercase_latter" class="ccross">Must contain at least one uppercase letter</li>
+                        <li id="lowercase_latter" class="ccross">Must contain at least one lowercase letter</li>
+                        <li id="one_number" class="ccross">Must contain at least one number</li>
+                        <li id="special_character" class="ccross">Must contain at least one special character</li>
                     </ul>
+                </div>
                 </div>
             </div>
         </div>

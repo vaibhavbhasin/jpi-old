@@ -31,7 +31,7 @@
       <div class="row">
         <div class="input-field col s12">
           <h5 class="ml-4">Forgot Password</h5>
-          <p class="ml-4">You can reset your password</p>
+          <p class="ml-4">Enter your email address to reset your password.</p>
         </div>
       </div>
       <div class="row wmauto">
@@ -53,7 +53,7 @@
 			<button type="submit" class="defaultbtn login-btn">Reset Password</button>
 		  </div>
 		<div class='text-center mt-2'>
-            <a href="{{ route('password.request') }}" class="login-btn forgot-pasw-text">
+            <a href="{{ url('ach') }}" class="login-btn forgot-pasw-text">
             Back to Login
            </a>
 		  </div>
