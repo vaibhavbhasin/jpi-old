@@ -265,7 +265,7 @@ $(document).ready(function () {
             return false;
         }
 
-        let phone_number = $("#phone_number").val();
+        let phone_number = $("#phone_number_profile").val();
         if (!phone_number) {
             toastr.error("Enter Phone Number.");
             return false;
