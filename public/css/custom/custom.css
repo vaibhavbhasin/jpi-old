@@ -377,8 +377,18 @@ button[disabled] {
 #intro .modal-loader img,#jpiModal .modal-loader img,#user_funding_source_modal .modal-loader img{
     width: 20%;
 }
-#intro .modal-close,#jpiModal .modal-close, #jpiAddFundingSourceModal .modal-close, #user_funding_source_modal .modal-close {
+#intro .modal-close,#jpiModal .modal-close, #jpiAddFundingSourceModal .modal-close, #user_funding_source_modal .modal-close, #user_profile_modal .modal-close {
     margin-bottom: -10px;
+}
+#user_profile_modal
+{
+    max-height: 90%;
+}
+#user_profile_modal h5
+{
+    color: #0f0f0f;
+    font-weight: bold;
+    padding-left: 18px;
 }
 .select-wrapper.valid > input.select-dropdown, input:not([type]).valid, input:not([type]):focus.valid, input[type=text]:not(.browser-default).valid, input[type=text]:not(.browser-default):focus.valid, input[type=password]:not(.browser-default).valid, input[type=password]:not(.browser-default):focus.valid, input[type=email]:not(.browser-default).valid, input[type=email]:not(.browser-default):focus.valid, input[type=url]:not(.browser-default).valid, input[type=url]:not(.browser-default):focus.valid, input[type=time]:not(.browser-default).valid, input[type=time]:not(.browser-default):focus.valid, input[type=date]:not(.browser-default).valid, input[type=date]:not(.browser-default):focus.valid, input[type=datetime]:not(.browser-default).valid, input[type=datetime]:not(.browser-default):focus.valid, input[type=datetime-local]:not(.browser-default).valid, input[type=datetime-local]:not(.browser-default):focus.valid, input[type=tel]:not(.browser-default).valid, input[type=tel]:not(.browser-default):focus.valid, input[type=number]:not(.browser-default).valid, input[type=number]:not(.browser-default):focus.valid, input[type=search]:not(.browser-default).valid, input[type=search]:not(.browser-default):focus.valid, textarea.materialize-textarea.valid, textarea.materialize-textarea:focus.valid{
     border-bottom: 1px solid #005dab;
