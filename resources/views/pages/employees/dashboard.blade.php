@@ -469,6 +469,13 @@
                                 4 == $(".carousel-item.active").index() ? ($(".btn-prev").addClass("hide"), $(".btn-next").addClass("hide"), $(".btn-submit").addClass("hide"), $("ul.indicators li").addClass("hide")) : "";
                             }
                         });
+                        $(document).keydown(function(e) {
+                            if(e.keyCode == 38) { // left nav key pressed
+                                // code to load prev slide
+                            } else if(e.keyCode == 40) { // right nav key pressed
+                                // code to load next slide
+                            }
+                        });
                         intro_carousel =true;
                     }
 
@@ -576,7 +583,7 @@
 						$("#edit_details_cancel_btn").hide();
 					},
                     success: function () {
-						
+
                         toastr.success('Submitted successfully!');
 						$("#edit_details_save_btn").html('Save').prop('disabled',false);
                         $("#edit_details_cancel_btn").click();
