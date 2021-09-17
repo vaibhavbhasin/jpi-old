@@ -79,6 +79,17 @@ $configData = Helper::applClasses();
 
 
       <div class="row margin">
+          <div class="input-field col s6">
+              <i class="material-icons prefix pt-2">phone_outline</i>
+              <input id="phone_number" type="text" class="@error('phone_number') is-invalid @enderror"
+                     value="{{ old('phone_number',auth()->user()->phone_number) }}" autocomplete="phone_number" name="phone_number">
+              <label for="phone_number">Phone Number</label>
+              @error('phone_number')
+              <small class="red-text ml-7" role="alert">
+                  {{ $message }}
+              </small>
+              @enderror
+          </div>
         <div class="input-field col s6">
           <i class="material-icons prefix pt-2">mail_outline</i>
           <input id="email_profile" type="email" class="@error('email') is-invalid @enderror" name="email"
@@ -199,9 +210,9 @@ $configData = Helper::applClasses();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js" integrity="sha384-qlmct0AOBiA2VPZkMY3+2WqkHtIQ9lSdAsAn5RUJD/3vA5MKDgSGcdmIv4ycVxyn" crossorigin="anonymous"></script>
     @yield('customjs')
     {{-- <script>
-	
-	
-	
+
+
+
       $('#updateProfile').submit(function(e){
                 e.preventDefault();
                 var options = {

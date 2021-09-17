@@ -75,7 +75,7 @@ class EmployeeLoginController extends Controller
             }
         } else {
             $errors = new MessageBag(['password' => ['Invalid credentials']]);
-            return Redirect::back()->withErrors($errors);
+            return Redirect::back()->withErrors($errors)->withInput()->exceptInput('password');
         }
     }
 

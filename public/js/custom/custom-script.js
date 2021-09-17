@@ -253,6 +253,15 @@ $(document).ready(function () {
             return false;
         }
 
+        let phone_number = $("#phone_number").val();
+        if (!phone_number) {
+            toastr.error("Enter Phone Number.");
+            return false;
+        }
+        if (!isValidPhoneNumber(phone_number)) {
+            toastr.error("Please enter valid number.");
+            return false;
+        }
 
         var password_confirm = "";
         let password = $.trim($("#password_profile").val());
@@ -321,11 +330,7 @@ $(document).ready(function () {
             data: {
                 firstname: firstname,
                 lastname: lastname,
-                // address1:address1,
-                // address2:address2,
-                // city:city,
-                // state:state,
-                // zip:zip,
+                phone_number: phone_number,
                 password: password,
                 password_confirm: password_confirm,
                 _token: _token,
@@ -552,6 +557,7 @@ $(document).ready(function () {
         }
 
     }
+
     function isValidPhoneNumber(p) {
         var phoneRe = /^[2-9]\d{2}[2-9]\d{2}\d{4}$/;
         var digits = p.replace(/\D/g, "");
