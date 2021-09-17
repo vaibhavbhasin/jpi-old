@@ -557,8 +557,14 @@
                         '_token': "{{csrf_token()}}",
                         '_method': "PUT"
                     },
+					beforeSend:function (){
+						$("#edit_details_save_btn").html('<img src="/images/loading.gif" alt="" class="loader-btn">').prop('disabled',true);
+						$("#edit_details_cancel_btn").hide();
+					},
                     success: function () {
+						
                         toastr.success('Submitted successfully!');
+						$("#edit_details_save_btn").html('Save').prop('disabled',false);
                         $("#edit_details_cancel_btn").click();
                     },
                     error: function () {

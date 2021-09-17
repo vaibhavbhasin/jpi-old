@@ -335,6 +335,9 @@ $(document).ready(function () {
                 _method: 'PUT',
                 from: 'profile_update'
             },
+			beforeSend:function (){
+				$("#updateprofilebtn").html('<img src="/images/loading.gif" alt="" class="loader-btn">').prop('disabled',true);
+			},
             success: function (response) {
                 toastr.success("Updated Successfully.");
                 location.reload();
