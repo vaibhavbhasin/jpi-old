@@ -93,27 +93,22 @@ $(document).ready(function () {
 
 
 	$(document).on('focusin', '#updateProfile #lastname_profile', function () {
-        email_check();
         $("#lastname_profile").removeClass('register_input_red');
     });
 
 	$(document).on('focusin', '#updateProfile #firstname_profile', function () {
-        email_check();
         $("#firstname_profile").removeClass('register_input_red');
     });
 
 	$(document).on('focusin', '#updateProfile #password_profile', function () {
-        email_check();
         $("#password_profile").removeClass('register_input_red');
     });
 
 	$(document).on('focusin', '#updateProfile #password-confirm_profile', function () {
-        email_check();
         $("#password-confirm_profile").removeClass('register_input_red');
     });
 
 	$(document).on('focusin', '#updateProfile #phone_number_profile', function () {
-        email_check();
         $("#phone_number_profile").removeClass('register_input_red');
     });
 
@@ -687,33 +682,27 @@ $(document).ready(function () {
     });
 
 	$(document).on('focusin', '#registerform #email', function () {
-        email_check();
         $("#email").removeClass('register_input_red');
         $(".emailaddress-hint").removeClass('register_input_red');
     });
 
 	$(document).on('focusin', '#registerform #lastname', function () {
-        email_check();
         $("#lastname").removeClass('register_input_red');
     });
 
 	$(document).on('focusin', '#registerform #firstname', function () {
-        email_check();
         $("#firstname").removeClass('register_input_red');
     });
 
 	$(document).on('focusin', '#registerform #password', function () {
-        email_check();
         $("#password").removeClass('register_input_red');
     });
 
 	$(document).on('focusin', '#registerform #password-confirm', function () {
-        email_check();
         $("#password-confirm").removeClass('register_input_red');
     });
 
 	$(document).on('focusin', '#registerform #phone_number', function () {
-        email_check();
         $("#phone_number").removeClass('register_input_red');
     });
 
