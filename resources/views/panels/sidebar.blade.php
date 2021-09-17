@@ -28,7 +28,7 @@
           @if(!empty ($configData['templateTitle']) && isset($configData['templateTitle']))
           {{$configData['templateTitle']}}
           @else
-          
+
           @endif
         </span> -->
       </a>
@@ -58,7 +58,7 @@
             {{-- <a class="{{$custom_classes}} {{ (request()->is($menu->url.'*')) ? 'active '.$configData['activeMenuColor'] : ''}}" --}}
             <a class="{{$custom_classes}} {{ (request()->is($menu->url)) ? 'active '.$configData['activeMenuColor'] : ''}}"
               @if(!empty($configData['activeMenuColor'])) {{'style=background:none;box-shadow:none;'}} @endif
-              href="@if(($menu->url)==='javascript:void(0)'){{$menu->url}} @else{{url($menu->url)}} @endif"
+              href="@if(($menu->url)==='javascript:void(0)'){{$menu->url}} @else @if(isset($menu->href_type) && $menu->href_type=='route') {{route($menu->url)}} @else {{url($menu->url)}} @endif @endif"
               {{isset($menu->newTab) ? 'target="_blank"':''}}>
               <i class="material-icons">{{$menu->icon}}</i>
               <span class="menu-title">{{ $menu->name}}</span>
