@@ -27,7 +27,16 @@ $(document).ready(function () {
     if ($("#phone_number")){
         $("#phone_number").inputmask({"mask": "999-999-9999"});
     }
-
+    if ($("#phone_number_profile")){
+        $("#phone_number_profile").inputmask({"mask": "999-999-9999"});
+    }
+    if ($("#zip-pop")) {
+        $('#zip-pop').keydown(function (event) {
+            if (event.keyCode == 9) {
+                event.preventDefault();
+            }
+        });
+    }
     $("#userform").click(function () {
         if ($(this).hasClass('show')) {
             $(this).removeClass('show');
