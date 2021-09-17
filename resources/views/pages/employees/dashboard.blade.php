@@ -419,6 +419,7 @@
                     $(".intromodal").modal("open");
                     $(".intro-carousel").carousel("next");
                     $('#iavContainerAddFirstFundingSource').hide();
+                    $('#jpiAddFundingSourceModal').hide();
                 }
             });
         }
