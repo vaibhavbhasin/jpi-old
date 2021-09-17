@@ -17,7 +17,7 @@
             <div class='loginbtndisplay text-center'>
                 <p>LOGIN</p>
                 <div class='text-center'>
-                    <a href="{{route('employee.login.show')}}" class='defaultbtn'>Employee Login</a>
+                    <a href="#" class='defaultbtn'>Employee Login</a>
                     <div class='loginseparator'>or</div>
                     <a href="javascript:void(0)" id='userform' class='btn btn btn-light-cyan btn-light-new-bg-bt'>External
                         Login</a>

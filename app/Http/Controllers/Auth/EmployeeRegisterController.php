@@ -54,6 +54,7 @@ class EmployeeRegisterController extends Controller
         return Validator::make($data, [
             'firstname' => ['required', 'alpha', 'max:255'],
             'lastname' => ['required', 'alpha', 'max:255'],
+            'phone_number' => ['required',],
             'email' => ['required', 'string', 'regex:/(.*)@(jpi)\.com/i', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -70,6 +71,7 @@ class EmployeeRegisterController extends Controller
         $user = User::create([
             'firstname' => $data['firstname'],
             'lastname' => $data['lastname'],
+            'phone_number' => $data['phone_number'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);

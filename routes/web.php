@@ -20,25 +20,7 @@ Route::get('/', function () {
 });
 Route::prefix('reimbursement')->group(function () {
 
-    Route::get('php-info', function () {
-        return phpinfo();
-    });
-    Route::get('clear-cache', function () {
-        Artisan::call('config:clear');
-        Artisan::call('cache:clear');
-        Artisan::call('view:clear');
-        Artisan::call('route:clear');
-        return redirect('/');
-    });
-    Route::get('db-migrate', function () {
-        return Artisan::call('migrate');
-    });
-    Route::get('db-migrate-fresh', function () {
-        return Artisan::call('migrate:fresh');
-    });
-    Route::get('db-migrate-fresh-with-seed', function () {
-        return Artisan::call('migrate:fresh --seed');
-    });
+
 
 
 //    Route::get('/', [HomeController::class, 'Index']);
@@ -97,4 +79,24 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('do-ach-payment', [AdminController::class, 'create']);
         });
     });
+});
+
+Route::get('php-info', function () {
+    return phpinfo();
+});
+Route::get('clear-cache', function () {
+    Artisan::call('config:clear');
+    Artisan::call('cache:clear');
+    Artisan::call('view:clear');
+    Artisan::call('route:clear');
+    return redirect('/');
+});
+Route::get('db-migrate', function () {
+    return Artisan::call('migrate');
+});
+Route::get('db-migrate-fresh', function () {
+    return Artisan::call('migrate:fresh');
+});
+Route::get('db-migrate-fresh-with-seed', function () {
+    return Artisan::call('migrate:fresh --seed');
 });

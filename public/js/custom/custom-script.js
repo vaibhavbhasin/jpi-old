@@ -24,6 +24,9 @@ $(document).ready(function () {
             console.log("JPI Modal Open");
         }
     });
+    if ($("#phone_number")){
+        $("#phone_number").inputmask({"mask": "999-999-9999"});
+    }
 
     $("#userform").click(function () {
         if ($(this).hasClass('show')) {
@@ -53,14 +56,14 @@ $(document).ready(function () {
     /*
     * Validate Update Profile
     */
-	
-	$(document).on('focusout', '#updateProfile #firstname_profile', function () {
+
+    $(document).on('focusout', '#updateProfile #firstname_profile', function () {
         firstname_profile_check();
     });
-	
+
     function firstname_profile_check() {
         var firstname = $.trim($("#firstname_profile").val());
-		
+
         if (!firstname) {
             $("#firstname_profile").addClass('register_input_red');
             toastr.error("Enter Firstname.");
@@ -68,25 +71,25 @@ $(document).ready(function () {
         } else {
             $("#firstname_profile").removeClass('register_input_red');
         }
-		
-		if (!validOnlyAlpha(firstname)) {
+
+        if (!validOnlyAlpha(firstname)) {
             $("#firstname_profile").addClass('register_input_red');
             toastr.error("The firstname may only contain letters.");
             return false;
         } else {
             $("#firstname_profile").removeClass('register_input_red');
         }
-		
+
     }
 
-	
-	$(document).on('focusout', '#updateProfile #lastname_profile', function () {
+
+    $(document).on('focusout', '#updateProfile #lastname_profile', function () {
         lastname_profile_check();
     });
-	
+
     function lastname_profile_check() {
         var lastname = $.trim($("#lastname_profile").val());
-		
+
         if (!lastname) {
             $("#lastname_profile").addClass('register_input_red');
             toastr.error("Enter Lastname.");
@@ -94,102 +97,97 @@ $(document).ready(function () {
         } else {
             $("#lastname_profile").removeClass('register_input_red');
         }
-		
-		if (!validOnlyAlpha(lastname)) {
+
+        if (!validOnlyAlpha(lastname)) {
             $("#lastname_profile").addClass('register_input_red');
             toastr.error("The lastname may only contain letters.");
             return false;
         } else {
             $("#lastname_profile").removeClass('register_input_red');
         }
-		
+
     }
-	
-	
-	$(document).on('focusout', '#updateProfile #password_profile', function () {
+
+
+    $(document).on('focusout', '#updateProfile #password_profile', function () {
         password_profile_check();
     });
-	
-	  function password_profile_check() {
+
+    function password_profile_check() {
         let password = $("#password_profile").val();
-		if(password != '')
-		{
-        if (password.length < 8) {
-             $("#character_length").removeClass('ctick').addClass('ccross');
-            password_is_valid = false;
+        if (password != '') {
+            if (password.length < 8) {
+                $("#character_length").removeClass('ctick').addClass('ccross');
+                password_is_valid = false;
+            } else {
+                $("#character_length").removeClass('ccross').addClass('ctick');
+                password_is_valid = true;
+            }
+            if (!password.match(/[A-Z]/)) {
+                $("#uppercase_latter").removeClass('ctick').addClass('ccross');
+                password_is_valid = false;
+            } else {
+                $("#uppercase_latter").removeClass('ccross').addClass('ctick');
+                password_is_valid = true;
+            }
+            if (!password.match(/[a-z]/)) {
+                $("#lowercase_latter").removeClass('ctick').addClass('ccross');
+                password_is_valid = false;
+            } else {
+                $("#lowercase_latter").removeClass('ccross').addClass('ctick');
+                password_is_valid = true;
+            }
+            if (!password.match(/[0-9]/)) {
+                $("#one_number").removeClass('ctick').addClass('ccross');
+                password_is_valid = false;
+            } else {
+                $("#one_number").removeClass('ccross').addClass('ctick');
+                password_is_valid = true;
+            }
+            if (!password.match(/[!@#$%^&*]/)) {
+                $("#special_character").removeClass('ctick').addClass('ccross');
+                password_is_valid = false;
+            } else {
+                $("#special_character").removeClass('ccross').addClass('ctick');
+                password_is_valid = true;
+            }
+            if (!password_is_valid) {
+                $("#password_profile").addClass('register_input_red');
+                toastr.error("Your password does not meet the requirements. Please review the requirements and try again.");
+                return false;
+            } else {
+                $("#password_profile").removeClass('register_input_red');
+            }
         } else {
-             $("#character_length").removeClass('ccross').addClass('ctick');
-            password_is_valid = true;
+            $("#password-confirm_profile").removeClass('register_input_red');
+            $("#password-confirm_profile").val('');
+            $("#password_profile").removeClass('register_input_red');
         }
-        if (!password.match(/[A-Z]/)) {
-            $("#uppercase_latter").removeClass('ctick').addClass('ccross');
-            password_is_valid = false;
-        } else {
-             $("#uppercase_latter").removeClass('ccross').addClass('ctick');
-            password_is_valid = true;
-        }
-        if (!password.match(/[a-z]/)) {
-             $("#lowercase_latter").removeClass('ctick').addClass('ccross');
-            password_is_valid = false;
-        } else {
-             $("#lowercase_latter").removeClass('ccross').addClass('ctick');
-            password_is_valid = true;
-        }
-        if (!password.match(/[0-9]/)) {
-             $("#one_number").removeClass('ctick').addClass('ccross');
-            password_is_valid = false;
-        } else {
-             $("#one_number").removeClass('ccross').addClass('ctick');
-            password_is_valid = true;
-        }
-        if (!password.match(/[!@#$%^&*]/)) {
-             $("#special_character").removeClass('ctick').addClass('ccross');
-            password_is_valid = false;
-        } else {
-             $("#special_character").removeClass('ccross').addClass('ctick');
-            password_is_valid = true;
-        }
-		 if (!password_is_valid) {
-			$("#password_profile").addClass('register_input_red');
-            toastr.error("Your password does not meet the requirements. Please review the requirements and try again.");
-            return false;
-        }
-		else
-		{
-			$("#password_profile").removeClass('register_input_red');
-		}
-		}
-		else
-		{
-			$("#password-confirm_profile").removeClass('register_input_red');
-			$("#password-confirm_profile").val('');
-			$("#password_profile").removeClass('register_input_red');
-		}
-	}
-	
-	$(document).on('focusout', '#updateProfile #password-confirm_profile', function () {
+    }
+
+    $(document).on('focusout', '#updateProfile #password-confirm_profile', function () {
         confirmpassword_profile_check();
     });
-	function confirmpassword_profile_check()
-	{
+
+    function confirmpassword_profile_check() {
         let password = $("#password_profile").val();
-		let password_confirm = $("#password-confirm_profile").val();
-		
-		if (password_confirm !== password) {
-				$("#password-confirm_profile").addClass('register_input_red');
-				toastr.error("Your passwords do not match. Please re-enter your passwords and try again.");
-				return false;
-			} else {
-				$("#password-confirm_profile").removeClass('register_input_red');
-			}
-		
-       
+        let password_confirm = $("#password-confirm_profile").val();
+
+        if (password_confirm !== password) {
+            $("#password-confirm_profile").addClass('register_input_red');
+            toastr.error("Your passwords do not match. Please re-enter your passwords and try again.");
+            return false;
+        } else {
+            $("#password-confirm_profile").removeClass('register_input_red');
+        }
+
+
     }
-	
-	
-	 $(document).on('keyup', '#updateProfile #password_profile', function () {
+
+
+    $(document).on('keyup', '#updateProfile #password_profile', function () {
         let password = $.trim($("#password_profile").val());
-      
+
         if (password.length < 8) {
             $("#character_length").removeClass('ctick').addClass('ccross');
             password_is_valid = false;
@@ -201,33 +199,33 @@ $(document).ready(function () {
             $("#uppercase_latter").removeClass('ctick').addClass('ccross');
             password_is_valid = false;
         } else {
-             $("#uppercase_latter").removeClass('ccross').addClass('ctick');
+            $("#uppercase_latter").removeClass('ccross').addClass('ctick');
             password_is_valid = true;
         }
         if (!password.match(/[a-z]/)) {
-             $("#lowercase_latter").removeClass('ctick').addClass('ccross');
+            $("#lowercase_latter").removeClass('ctick').addClass('ccross');
             password_is_valid = false;
         } else {
-             $("#lowercase_latter").removeClass('ccross').addClass('ctick');
+            $("#lowercase_latter").removeClass('ccross').addClass('ctick');
             password_is_valid = true;
         }
         if (!password.match(/[0-9]/)) {
-             $("#one_number").removeClass('ctick').addClass('ccross');
+            $("#one_number").removeClass('ctick').addClass('ccross');
             password_is_valid = false;
         } else {
-             $("#one_number").removeClass('ccross').addClass('ctick');
+            $("#one_number").removeClass('ccross').addClass('ctick');
             password_is_valid = true;
         }
         if (!password.match(/[!@#$%^&*]/)) {
-             $("#special_character").removeClass('ctick').addClass('ccross');
+            $("#special_character").removeClass('ctick').addClass('ccross');
             password_is_valid = false;
         } else {
-             $("#special_character").removeClass('ccross').addClass('ctick');
+            $("#special_character").removeClass('ccross').addClass('ctick');
             password_is_valid = true;
         }
-	});
+    });
 
-	
+
     $("#updateprofilebtn").click(function () {
         var firstname = $.trim($("#firstname_profile").val());
         $("#firstname_profile").val(firstname);
@@ -235,28 +233,27 @@ $(document).ready(function () {
             toastr.error("Enter Firstname.");
             return false;
         }
-		
-		if (!validOnlyAlpha(firstname)) {
+
+        if (!validOnlyAlpha(firstname)) {
             toastr.error("The firstname may only contain letters.");
             return false;
-        } 
-		
-		
+        }
+
+
         var lastname = $.trim($("#lastname_profile").val());
         $("#lastname_profile").val(lastname);
         if (!lastname) {
             toastr.error("Enter Lastname.");
             return false;
         }
-       
-	   
-	   if (!validOnlyAlpha(lastname)) {
+
+
+        if (!validOnlyAlpha(lastname)) {
             toastr.error("The lastname may only contain letters.");
             return false;
-        } 
-		
-		
-		
+        }
+
+
         var password_confirm = "";
         let password = $.trim($("#password_profile").val());
         if (password) {
@@ -335,9 +332,9 @@ $(document).ready(function () {
                 _method: 'PUT',
                 from: 'profile_update'
             },
-			beforeSend:function (){
-				$("#updateprofilebtn").html('<img src="/images/loading.gif" alt="" class="loader-btn">').prop('disabled',true);
-			},
+            beforeSend: function () {
+                $("#updateprofilebtn").html('<img src="/images/loading.gif" alt="" class="loader-btn">').prop('disabled', true);
+            },
             success: function (response) {
                 toastr.success("Updated Successfully.");
                 location.reload();
@@ -421,63 +418,59 @@ $(document).ready(function () {
             }
         });
     });
+
     /*
     * Validate Register Profile
     */
 
-	function email_check()
-	{
-		 let email = $.trim($("#email").val());
+    function email_check() {
+        let email = $.trim($("#email").val());
         $("#email").val(email);
         if (!email) {
-			$("#email").addClass('register_input_red');
-			$(".emailaddress-hint").addClass('register_input_red');
-			$(".emailaddress-hint").addClass('br-bt-red');
+            $("#email").addClass('register_input_red');
+            $(".emailaddress-hint").addClass('register_input_red');
+            $(".emailaddress-hint").addClass('br-bt-red');
             toastr.error("Enter Email.");
             return false;
+        } else {
+            $("#email").removeClass('register_input_red');
+            $(".emailaddress-hint").removeClass('register_input_red');
+            $(".emailaddress-hint").removeClass('br-bt-red');
+            $(".emailaddress-hint").removeClass('br-bt');
         }
-		else{
-			$("#email").removeClass('register_input_red');
-			$(".emailaddress-hint").removeClass('register_input_red');
-			$(".emailaddress-hint").removeClass('br-bt-red');
-                    $(".emailaddress-hint").removeClass('br-bt');
-		}
         if (email) {
             if (!email.includes('@')) {
-				$("#email").removeClass('register_input_red');
-				$(".emailaddress-hint").removeClass('register_input_red');
-				$(".emailaddress-hint").removeClass('br-bt-red');
-                    $(".emailaddress-hint").removeClass('br-bt');
+                $("#email").removeClass('register_input_red');
+                $(".emailaddress-hint").removeClass('register_input_red');
+                $(".emailaddress-hint").removeClass('br-bt-red');
+                $(".emailaddress-hint").removeClass('br-bt');
                 email = email + "@jpi.com";
             } else {
-				$("#email").addClass('register_input_red');
-			$(".emailaddress-hint").addClass('register_input_red');
-			$(".emailaddress-hint").addClass('br-bt-red');
+                $("#email").addClass('register_input_red');
+                $(".emailaddress-hint").addClass('register_input_red');
+                $(".emailaddress-hint").addClass('br-bt-red');
                 toastr.error("Your email is incorrect. Please enter only the first part of your JPI email address that is before @jpi.com.");
                 return false;
             }
             $("#email_save").val(email);
             let check = validEmail(email);
             if (!check) {
-				$("#email").addClass('register_input_red');
-			$(".emailaddress-hint").addClass('register_input_red');
-			$(".emailaddress-hint").addClass('br-bt-red');
+                $("#email").addClass('register_input_red');
+                $(".emailaddress-hint").addClass('register_input_red');
+                $(".emailaddress-hint").addClass('br-bt-red');
                 toastr.error("Your email is incorrect. Please enter only the first part of your JPI email address that is before @jpi.com.");
                 return false;
+            } else {
+                $("#email").removeClass('register_input_red');
+                $(".emailaddress-hint").removeClass('register_input_red');
+                $(".emailaddress-hint").removeClass('br-bt-red');
+                $(".emailaddress-hint").removeClass('br-bt');
             }
-			else
-			{
-				$("#email").removeClass('register_input_red');
-				$(".emailaddress-hint").removeClass('register_input_red');
-				$(".emailaddress-hint").removeClass('br-bt-red');
-                    $(".emailaddress-hint").removeClass('br-bt');
-			}
         }
 
-		let registration_step = $("#registration_step").val();
-		if(registration_step == 1)
-		{
-			$.get("/check-email-unique", {email: email}, function (res) {
+        let registration_step = $("#registration_step").val();
+        if (registration_step == 1) {
+            $.get("/check-email-unique", {email: email}, function (res) {
                 if (res.status) {
 
                     $("#email").removeClass('register_input_red');
@@ -493,7 +486,7 @@ $(document).ready(function () {
             });
             return false;
         }
-		
+
     }
 
 
@@ -507,9 +500,9 @@ $(document).ready(function () {
         } else {
             $("#lastname").removeClass('register_input_red');
         }
-		
-		
-		if (!validOnlyAlpha(lastname)) {
+
+
+        if (!validOnlyAlpha(lastname)) {
             $("#lastname").addClass('register_input_red');
             toastr.error("The lastname may only contain letters.");
             return false;
@@ -529,85 +522,103 @@ $(document).ready(function () {
         } else {
             $("#firstname").removeClass('register_input_red');
         }
-		
-		if (!validOnlyAlpha(firstname)) {
+
+        if (!validOnlyAlpha(firstname)) {
             $("#firstname").addClass('register_input_red');
             toastr.error("The firstname may only contain letters.");
             return false;
         } else {
             $("#firstname").removeClass('register_input_red');
         }
-		
     }
 
+    function phone_number_check() {
+        var phone_number = $.trim($("#phone_number").val());
+        if (!phone_number) {
+            $("#phone_number").addClass('register_input_red');
+            toastr.error("Enter Phone Number.");
+            return false;
+        } else {
+            $("#phone_number").removeClass('register_input_red');
+        }
+
+
+        if (!isValidPhoneNumber(phone_number)) {
+            $("#phone_number").addClass('register_input_red');
+            toastr.error("Please enter valid number.");
+            return false;
+        } else {
+            $("#phone_number").removeClass('register_input_red');
+        }
+
+    }
+    function isValidPhoneNumber(p) {
+        var phoneRe = /^[2-9]\d{2}[2-9]\d{2}\d{4}$/;
+        var digits = p.replace(/\D/g, "");
+        return phoneRe.test(digits);
+    }
     function password_check() {
         let password = $.trim($("#password").val());
         $("#password").val(password);
 
         if (password.length < 8) {
-             $("#character_length").removeClass('ctick').addClass('ccross');
+            $("#character_length").removeClass('ctick').addClass('ccross');
             password_is_valid = false;
         } else {
-             $("#character_length").removeClass('ccross').addClass('ctick');
+            $("#character_length").removeClass('ccross').addClass('ctick');
             password_is_valid = true;
         }
         if (!password.match(/[A-Z]/)) {
             $("#uppercase_latter").removeClass('ctick').addClass('ccross');
             password_is_valid = false;
         } else {
-             $("#uppercase_latter").removeClass('ccross').addClass('ctick');
+            $("#uppercase_latter").removeClass('ccross').addClass('ctick');
             password_is_valid = true;
         }
         if (!password.match(/[a-z]/)) {
-             $("#lowercase_latter").removeClass('ctick').addClass('ccross');
+            $("#lowercase_latter").removeClass('ctick').addClass('ccross');
             password_is_valid = false;
         } else {
-             $("#lowercase_latter").removeClass('ccross').addClass('ctick');
+            $("#lowercase_latter").removeClass('ccross').addClass('ctick');
             password_is_valid = true;
         }
         if (!password.match(/[0-9]/)) {
-             $("#one_number").removeClass('ctick').addClass('ccross');
+            $("#one_number").removeClass('ctick').addClass('ccross');
             password_is_valid = false;
         } else {
-             $("#one_number").removeClass('ccross').addClass('ctick');
+            $("#one_number").removeClass('ccross').addClass('ctick');
             password_is_valid = true;
         }
         if (!password.match(/[!@#$%^&*]/)) {
-             $("#special_character").removeClass('ctick').addClass('ccross');
+            $("#special_character").removeClass('ctick').addClass('ccross');
             password_is_valid = false;
         } else {
-             $("#special_character").removeClass('ccross').addClass('ctick');
+            $("#special_character").removeClass('ccross').addClass('ctick');
             password_is_valid = true;
         }
-		 if (!password_is_valid) {
-			$("#password").addClass('register_input_red');
+        if (!password_is_valid) {
+            $("#password").addClass('register_input_red');
             toastr.error("Your password does not meet the requirements. Please review the requirements and try again.");
             return false;
+        } else {
+            $("#password").removeClass('register_input_red');
         }
-		else
-		{
-			$("#password").removeClass('register_input_red');
-		}
-	}
-	
-	
-	
-	function confirmpassword_check()
-	{
-		let password_confirm = $.trim($("#password-confirm").val());
-		let password = $.trim($("#password").val());
+    }
+
+
+    function confirmpassword_check() {
+        let password_confirm = $.trim($("#password-confirm").val());
+        let password = $.trim($("#password").val());
         if (!password_confirm) {
-			$("#password-confirm").addClass('register_input_red');
+            $("#password-confirm").addClass('register_input_red');
             toastr.error("Enter Confirm Password.");
             return false;
+        } else {
+            $("#password-confirm").removeClass('register_input_red');
         }
-		else
-		{
-			$("#password-confirm").removeClass('register_input_red');
-		}
 
         if (password_confirm !== password) {
-			$("#password-confirm").addClass('register_input_red');
+            $("#password-confirm").addClass('register_input_red');
             toastr.error("Your passwords do not match. Please re-enter your passwords and try again.");
             return false;
         } else {
@@ -615,19 +626,19 @@ $(document).ready(function () {
         }
     }
 
-	
-	$(document).on('focusin', '#registerform .emailaddress-hint', function () {
-		$(".emailaddress-hint").removeClass('br-bt-red');
-		$(".emailaddress-hint").removeClass('br-bt');
-	});
-	$(document).on('focusout', '#registerform .emailaddress-hint', function () {
-		$(".emailaddress-hint").removeClass('br-bt-red');
-		$(".emailaddress-hint").removeClass('br-bt');
-	});
+
+    $(document).on('focusin', '#registerform .emailaddress-hint', function () {
+        $(".emailaddress-hint").removeClass('br-bt-red');
+        $(".emailaddress-hint").removeClass('br-bt');
+    });
+    $(document).on('focusout', '#registerform .emailaddress-hint', function () {
+        $(".emailaddress-hint").removeClass('br-bt-red');
+        $(".emailaddress-hint").removeClass('br-bt');
+    });
     $(document).on('focusout', '#registerform #email', function () {
         email_check();
-		$(".emailaddress-hint").removeClass('br-bt-red');
-		$(".emailaddress-hint").removeClass('br-bt');
+        $(".emailaddress-hint").removeClass('br-bt-red');
+        $(".emailaddress-hint").removeClass('br-bt');
     });
     $(document).on('focusout', '#registerform #lastname', function () {
         lastname_check();
@@ -641,8 +652,9 @@ $(document).ready(function () {
     $(document).on('focusout', '#registerform #password-confirm', function () {
         confirmpassword_check();
     });
-
-
+    $(document).on('focusout', '#registerform #phone_number', function () {
+        phone_number_check();
+    });
     $(document).on('keyup', '#registerform #password', function () {
         let password = $.trim($("#password").val());
         $("#password").val(password);
@@ -658,33 +670,31 @@ $(document).ready(function () {
             $("#uppercase_latter").removeClass('ctick').addClass('ccross');
             password_is_valid = false;
         } else {
-             $("#uppercase_latter").removeClass('ccross').addClass('ctick');
+            $("#uppercase_latter").removeClass('ccross').addClass('ctick');
             password_is_valid = true;
         }
         if (!password.match(/[a-z]/)) {
-             $("#lowercase_latter").removeClass('ctick').addClass('ccross');
+            $("#lowercase_latter").removeClass('ctick').addClass('ccross');
             password_is_valid = false;
         } else {
-             $("#lowercase_latter").removeClass('ccross').addClass('ctick');
+            $("#lowercase_latter").removeClass('ccross').addClass('ctick');
             password_is_valid = true;
         }
         if (!password.match(/[0-9]/)) {
-             $("#one_number").removeClass('ctick').addClass('ccross');
+            $("#one_number").removeClass('ctick').addClass('ccross');
             password_is_valid = false;
         } else {
-             $("#one_number").removeClass('ccross').addClass('ctick');
+            $("#one_number").removeClass('ccross').addClass('ctick');
             password_is_valid = true;
         }
         if (!password.match(/[!@#$%^&*]/)) {
-             $("#special_character").removeClass('ctick').addClass('ccross');
+            $("#special_character").removeClass('ctick').addClass('ccross');
             password_is_valid = false;
         } else {
-             $("#special_character").removeClass('ccross').addClass('ctick');
+            $("#special_character").removeClass('ccross').addClass('ctick');
             password_is_valid = true;
         }
-	});
-
-
+    });
     $(document).on('click', '#register_user_next,#register_user', function () {
         let firstname = $.trim($("#firstname").val());
         $("#firstname").val(firstname);
@@ -706,6 +716,12 @@ $(document).ready(function () {
             toastr.error("The lastname may only contain letters.");
             return false;
         }
+        let phone_number = $("#phone_number").val();
+        if (!phone_number) {
+            toastr.error("Enter Phone Number.");
+            return false;
+        }
+
         let email = $.trim($("#email").val());
         $("#email").val(email);
         if (!email) {
@@ -733,38 +749,38 @@ $(document).ready(function () {
             return false;
         }
         if (password.length < 8) {
-             $("#character_length").removeClass('ctick').addClass('ccross');
+            $("#character_length").removeClass('ctick').addClass('ccross');
             password_is_valid = false;
         } else {
-             $("#character_length").removeClass('ccross').addClass('ctick');
+            $("#character_length").removeClass('ccross').addClass('ctick');
             password_is_valid = true;
         }
         if (!password.match(/[A-Z]/)) {
             $("#uppercase_latter").removeClass('ctick').addClass('ccross');
             password_is_valid = false;
         } else {
-             $("#uppercase_latter").removeClass('ccross').addClass('ctick');
+            $("#uppercase_latter").removeClass('ccross').addClass('ctick');
             password_is_valid = true;
         }
         if (!password.match(/[a-z]/)) {
-             $("#lowercase_latter").removeClass('ctick').addClass('ccross');
+            $("#lowercase_latter").removeClass('ctick').addClass('ccross');
             password_is_valid = false;
         } else {
-             $("#lowercase_latter").removeClass('ccross').addClass('ctick');
+            $("#lowercase_latter").removeClass('ccross').addClass('ctick');
             password_is_valid = true;
         }
         if (!password.match(/[0-9]/)) {
-             $("#one_number").removeClass('ctick').addClass('ccross');
+            $("#one_number").removeClass('ctick').addClass('ccross');
             password_is_valid = false;
         } else {
-             $("#one_number").removeClass('ccross').addClass('ctick');
+            $("#one_number").removeClass('ccross').addClass('ctick');
             password_is_valid = true;
         }
         if (!password.match(/[!@#$%^&*]/)) {
-             $("#special_character").removeClass('ctick').addClass('ccross');
+            $("#special_character").removeClass('ctick').addClass('ccross');
             password_is_valid = false;
         } else {
-             $("#special_character").removeClass('ccross').addClass('ctick');
+            $("#special_character").removeClass('ccross').addClass('ctick');
             password_is_valid = true;
         }
         if (!password_is_valid) {
@@ -1028,25 +1044,19 @@ $('#img-modal #zip-pop').keyup(function () {
 
 $(function () {
     $("#register-page input#email").on("focusin", function (e) {
-		if($("#register-page input#email").hasClass('register_input_red'))
-		{
-			$("#register-page .emailaddress-hint").addClass('br-bt-red');
-		}
-		else
-		{
-			$("#register-page .emailaddress-hint").addClass('br-bt');
-		}
+        if ($("#register-page input#email").hasClass('register_input_red')) {
+            $("#register-page .emailaddress-hint").addClass('br-bt-red');
+        } else {
+            $("#register-page .emailaddress-hint").addClass('br-bt');
+        }
         e.stopPropagation()
     });
-	$("#register-page input#email").on("click", function (e) {
-       if($("#register-page input#email").hasClass('register_input_red'))
-		{
-			$("#register-page .emailaddress-hint").addClass('br-bt-red');
-		}
-		else
-		{
-			$("#register-page .emailaddress-hint").addClass('br-bt');
-		}
+    $("#register-page input#email").on("click", function (e) {
+        if ($("#register-page input#email").hasClass('register_input_red')) {
+            $("#register-page .emailaddress-hint").addClass('br-bt-red');
+        } else {
+            $("#register-page .emailaddress-hint").addClass('br-bt');
+        }
         e.stopPropagation()
     });
     $(document).on("click", function (e) {
@@ -1060,7 +1070,7 @@ $(function () {
 /*
 $(function () {
     $("#register-page input#email").on("focusin", function (e) {
-		
+
 		if($("#register-page input#email").hasClass('register_input_red'))
 		{
 			$("#register-page .emailaddress-hint").removeClass('br-bt');
@@ -1073,7 +1083,7 @@ $(function () {
 		}
         e.stopPropagation()
     });
-	
+
 
     $(document).on("click", function (e) {
         if ($(e.target).is("#register-page .emailaddress-hint") === false) {
