@@ -25,13 +25,8 @@
 
             </div>
 
-            <form class="login-form" method="POST" action="{{ route('admin.login.submit') }}" style='display:none;'>
+            <form class="login-form" method="POST" action="{{ route('admin.login.submit') }}" style="display:@error('email') block @else none @enderror">
             @csrf
-            <!--<div class="row">
-        <div class="input-field col s12">
-          <h5 class="ml-4">{{ __('Sign in') }}</h5>
-        </div>
-      </div>-->
                 <div class="row margin">
                     <div class="input-field col s12">
                         <i class="material-icons prefix pt-2">person_outline</i>
@@ -59,19 +54,8 @@
                         @enderror
                     </div>
                 </div>
-            <!--<div class="row margin">
-        <div class="col s12 m12 l12 apj-ml-2p5 mt-1">
-          <p>
-            <label>
-              <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-              <span>Remember Me</span>
-            </label>
-          </p>
-        </div>
-      </div> -->
                 <div class="row">
                     <div class="input-field col s12 text-center">
-                        <!--<button type="submit" class="btn waves-effect waves-light border-round gradient-45deg-purple-deep-orange col s12">-->
                         <button type="submit" id='loginbtn' class="defaultbtn login-btn">
                             Login
                         </button>

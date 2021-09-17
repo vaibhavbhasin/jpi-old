@@ -18,13 +18,6 @@ class DatabaseSeeder extends Seeder
     {
         Role::firstOrCreate(['name' => 'admin']);
         Role::firstOrCreate(['name' => 'employee']);
-        $employee = User::create([
-            'firstname' => 'Test',
-            'lastname' => 'Employee',
-            'email' => 'testemp@jpi.com',
-            'password' => Hash::make('TestEmp@#2021!')
-        ]);
-        $employee->assignRole('employee');
         $admin = User::create([
             'firstname' => 'Super',
             'lastname' => 'Admin',
@@ -32,5 +25,12 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('SuperAdmin@#2021!')
         ]);
         $admin->assignRole('admin');
+        $employee = User::create([
+            'firstname' => 'Test',
+            'lastname' => 'Employee',
+            'email' => 'testemp@jpi.com',
+            'password' => Hash::make('TestEmp@#2021!')
+        ]);
+        $employee->assignRole('employee');
     }
 }

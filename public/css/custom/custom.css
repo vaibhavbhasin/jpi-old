@@ -454,6 +454,11 @@ button[disabled] {
 input:not([type]):focus.valid ~ label, input[type=text]:not(.browser-default):focus.valid ~ label, input[type=password]:not(.browser-default):focus.valid ~ label, input[type=email]:not(.browser-default):focus.valid ~ label, input[type=url]:not(.browser-default):focus.valid ~ label, input[type=time]:not(.browser-default):focus.valid ~ label, input[type=date]:not(.browser-default):focus.valid ~ label, input[type=datetime]:not(.browser-default):focus.valid ~ label, input[type=datetime-local]:not(.browser-default):focus.valid ~ label, input[type=tel]:not(.browser-default):focus.valid ~ label, input[type=number]:not(.browser-default):focus.valid ~ label, input[type=search]:not(.browser-default):focus.valid ~ label, textarea.materialize-textarea:focus.valid ~ label{
     color: #005dab;
 }
+
+img.loader-btn{
+    width: 40px;
+    vertical-align: middle;
+}
 @media only screen and (max-width: 1398px) {
 .md-width-adj{
     width: 100% !important;
