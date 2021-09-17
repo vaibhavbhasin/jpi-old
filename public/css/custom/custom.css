@@ -394,7 +394,7 @@ img.loader-btn{
 @media only screen and (max-width: 1398px) {
 .md-width-adj{
     width: 100% !important;
-}
+    }
 }
 @media only screen and (min-width: 993px) {
     .navbar .sideNav-lock .header-search-wrapper {
