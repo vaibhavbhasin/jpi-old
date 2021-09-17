@@ -179,7 +179,7 @@ $configData = Helper::applClasses();
             </p>
             <div class="row">
                 <div class="col s12" id="modalBody">
-                    <p class="text-center"> Please wait..</p>
+                    <p class="text-center"> <img src="/images/loading.gif" alt="" class="loader-btn"></p>
                 </div>
             </div>
         </div>

@@ -217,14 +217,9 @@
                                     </button>
                                 </div>
                                 <div class="right">
-                                    <button
-                                        class="moveNextCarousel middle-indicator-text btn btn-flat apj-blue-text waves-effect waves-light btn-next"
-                                        id="btn_next-form-submit">
+                                    <button class="moveNextCarousel middle-indicator-text btn btn-flat apj-blue-text waves-effect waves-light btn-next" id="btn_next-form-submit">
                                         <span class="hide-on-small-only">Next</span> <i class="material-icons">navigate_next</i>
                                     </button>
-                                    {{-- <button class="moveNextCarousel middle-indicator-text btn btn-flat apj-blue-text waves-effect waves-light btn-submit hide" id="btn_submit-form-submit">
-                                        <span class="hide-on-small-only">Submit</span>
-                                    </button> --}}
                                 </div>
                             </div>
                             <div class="carousel-item slide-1 active">
@@ -266,8 +261,6 @@
                                                     <label for="city-pop">City</label>
                                                 </div>
                                                 <div class="input-field col s6">
-                                                <!--  <input id="state-pop" type="text" class="validate" value="{{$employee_details['state'] ?? ''}}">
-                <label for="state-pop">State</label> -->
                                                     <select id="state-pop" class="select2 selectstate browser-default"
                                                             class="validate">
                                                         <option value="">Select State</option>
@@ -295,8 +288,7 @@
                                     receiving reimbursement's payments that are disbursed at the end of every
                                     month. </p>
                                 <p class="intro-step-text mt-5 animated fadeInUp">
-                                    <button type="button" class="waves-effect apj-intro-close-btn modal-close btn "
-                                            onclick="location.reload()">
+                                    <button type="button" class="waves-effect apj-intro-close-btn modal-close btn " onclick="location.reload()">
                                         Click to close
                                     </button>
                                 </p>
@@ -332,7 +324,7 @@
         src="https://pixinvent.com/materialize-material-design-admin-template/app-assets/vendors/select2/select2.full.min.js"></script>
     <script src="//cdn.dwolla.com/1/dwolla.js"></script>
     <script type="text/javascript">
-	
+
 	$(".modal-loader").hide();
         // Basic Select2 select
         $(".selectstate").select2({
@@ -379,8 +371,9 @@
                         'city': data.city,
                         'state': data.state,
                         'zip': data.zip,
+                    },beforeSend:function (){
+                        $("#btn_next-form-submit").html('<span class="hide-on-small-only">Next</span> <img src="/images/loading.gif" alt="" class="loader-btn">').prop('disabled',true);
                     },
-
                     success: function (data) {
                         if (data) {
                             $(".intromodal").modal("close");
@@ -388,7 +381,6 @@
                             toastr.success('Submitted successfully');
                         }
                     }
-
                 });
             }
         }
@@ -424,7 +416,7 @@
                 success: function (data) {
                     $(".intromodal").modal("open");
                     $(".intro-carousel").carousel("next");
-                    $('#iavContainer').hide();
+                    $('#iavContainerAddFirstFundingSource').hide();
                 }
             });
         }

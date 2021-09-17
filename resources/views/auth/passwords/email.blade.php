@@ -25,7 +25,7 @@
                     </button>
                 </div>
             @endif
-            <form class="login-form" method="POST" action="{{ route('admin.password.email') }}">
+            <form class="login-form" method="POST" action="{{ route('password.email') }}">
                 @csrf
 
                 <div class="row">
