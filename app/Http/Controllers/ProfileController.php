@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 class ProfileController extends Controller
 {
-    use RegistersUsers; 
+    use RegistersUsers;
 
     protected $redirectTo = RouteServiceProvider::HOME;
 
@@ -19,7 +19,7 @@ class ProfileController extends Controller
     }
 
     public function postUpdateProfile(Request $request){
-        
+
         if ($request->input('password') != '') {
             $requestData = $request->validate([
                 'firstname' => ['required', 'string', 'max:255'],
@@ -43,7 +43,7 @@ class ProfileController extends Controller
                 'zip' => ['required', 'integer'],
             ]);
         }
-        
+
         $data = array();
         $data['firstname']= $request->input('firstname');
         $data['lastname']= $request->input('lastname');
@@ -56,7 +56,7 @@ class ProfileController extends Controller
             $data['password']= Hash::make($request->input('password'));
         }
         \DB::table('users')->where('id', auth()->user()->id)->update($data);
-        return response()->json(['status' => true, 'msg' => 'Updated Successfully.']);
-            
+        return response()->json(['status' => true, 'msg' => 'Updated successfully']);
+
     }
 }

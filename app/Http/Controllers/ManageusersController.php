@@ -19,7 +19,7 @@ class ManageusersController extends Controller
     public function Adduser(){
        return view('/manageusers/adduser');
     }
-  
+
     public function postSaveUser(Request $request){
         // dd("OKKK");
         $validated  = $request->validate([
@@ -34,7 +34,7 @@ class ManageusersController extends Controller
             'password'=>['required', 'regex:/^(?=^.{8,}$)(?=.*\d)(?=.*[!”#$%&\'()*+,-.:;<=>?@[\]^_`{|}~])(?=.*[A-Z])(?=.*[a-z]).*$/i'],
             'password_confirmation'=>['required', 'regex:/^(?=^.{8,}$)(?=.*\d)(?=.*[!”#$%&\'()*+,-.:;<=>?@[\]^_`{|}~])(?=.*[A-Z])(?=.*[a-z]).*$/i'],
         ]);
-        
+
         $data = array();
         $data['firstname']= $request->input('firstname');
         $data['lastname']= $request->input('lastname');
@@ -65,9 +65,9 @@ class ManageusersController extends Controller
         ]);
         return redirect('/add-user')->with('success', 'User Added Successfully');
         // dd($data);
-       
+
         // \DB::table('users')->where('id', auth()->user()->id)->update($data);
-        // return response()->json(['status' => true, 'msg' => 'Updated Successfully.']);
-            
+        // return response()->json(['status' => true, 'msg' => 'Updated successfully']);
+
     }
 }
