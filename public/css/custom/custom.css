@@ -4,7 +4,6 @@
 	Author: PIXINVENT
 	Author URL: https://themeforest.net/user/pixinvent/portfolio
 ================================================================================
-
 NOTE:
 ------
 PLACE HERE YOUR OWN CSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
@@ -13,7 +12,6 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
     color: #fff !important;
     background-color: #002F6C !important;
 }
-
 .defaultbtn,
 .defaultbtn:hover,
 .defaultbtn:active,
@@ -34,82 +32,65 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
     /* text-transform: uppercase; */
     vertical-align: middle;
     -webkit-tap-highlight-color: transparent;
-
 }
-
 button:disabled,
 button[disabled] {
     border: 1px solid #999999;
     background-color: #cccccc;
     color: #666666;
 }
-
 .loginbtndisplay {
     position: relative;
 }
-
 #login-page .min-hig {
     padding: 20px 0 45px 0;
 }
-
 #login-page .login-form {
     margin-top: 4px;
     width: 66%;
     margin: auto;
     padding-top: 18px;
 }
-
 #login-page .apj-ml-2p5 {
     margin-left: 1% !important;
 }
-
 .loginseparator {
     margin: 6px;
 }
-
 #login-page .login-form .login-btn {
     width: 100%;
 }
-
 #login-page .login-form .mt--6 {
     margin-top: 0px;
     margin-bottom: -14px;
 }
-
 .loginbtndisplay p {
     margin: 15px;
     font-size: 22px;
     color: #0f0f0f;
     font-weight: bold;
 }
-
 .bg-opacity-1 {
     background-color: #fff;
 }
-
 #userform.btn-light-new-bg-bt {
     background-color: #cedbe7;
     box-shadow: 0 2px 2px 0 rgb(0 0 0 / 10%), 0 3px 1px -2px rgb(0 0 0 / 0%), 0 1px 5px 0 rgb(255 255 255 / 8%);
     color: #002F6C !important;
 }
-
 .defaultbtn:hover {
     background-color: #001b3e;
 }
-
 .wmauto {
     width: 96%;
     margin: auto !important;
 }
-
 .forgot-pasw-text {
     color: #616161;
 }
-
 #userform.btn-light-cyan:hover, #userform.btn-light-cyan:focus, #userform.btn-light-cyan.hover {
     color: #fff !important;
 }
-
 .btnlogout,
 .btnlogout:hover,
 .btnlogout:active,
@@ -118,60 +99,48 @@ button[disabled] {
     background: none;
     color: #fff !important;
 }
-
 .text-center {
     text-align: center;
 }
-
 .loginbtndisplay a {
     width: 66%;
 }
-
 .h-100 {
     height: 80%;
 }
-
 .passw p {
     margin: 0px;
     font-weight: bold;;
 }
-
 .passw ul li {
     font-size: 12px;
     padding-left: 15px;
 }
-
 .layout-min-height {
     min-height: 300px;
     margin-top: 15px;;
 }
-
 .text-right {
     text-align: right !important;
 }
-
 .menu-link-li {
     /*     background: #002F6C !important;
         margin: 0px 5px 10px 5px !important; */
 }
-
 .menu-link-li a {
     color: #0f0f0f;
 }
-
 .jpi-main-heading h2 {
     font-size: 1.25rem;
     color: #0f0f0f;
     font-weight: bold;
     margin-bottom: -4px;
 }
-
 .apj-get-started-btn,
 .apj-intro-close-btn,
 .apj-edit-btn,.update-funding-source {
     background: #005dab;
 }
-
 .update-funding-source, #edit_details_cancel_btn, #edit_details_save_btn, #edit_details_btn{
     margin-top: 10px;
 }
@@ -182,33 +151,26 @@ button[disabled] {
     height: 36px;
     line-height: 34px;
 }
-
 .apj-save-btn:hover,
 .apj-save-btn:focus {
     color: #ffffff;
     background: #005dab;
 }
-
 .apj-cancel-btn {
     background: #0f0f0f;
 }
-
 .apj-cancel-btn:hover {
     background: #000000;
 }
-
 #accsett {
     display: flex;
 }
-
 #accsett h4 {
     margin-right: 40px;
 }
-
 .registered-tag {
     margin-top: -1px;
 }
-
 .registered-tag span.registered {
     background: #e2e2e2;
     border-radius: 10px;
@@ -217,7 +179,6 @@ button[disabled] {
     color: #00ab34;
     font-size: 12px;
 }
-
 .registered-tag span.notregistered {
     background: #e2e2e2;
     border-radius: 10px;
@@ -226,7 +187,6 @@ button[disabled] {
     color: #ab0000;
     font-size: 12px;
 }
-
 .registered-tag span.notregistered img {
     -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
@@ -234,48 +194,38 @@ button[disabled] {
     -o-transform: rotate(180deg);
     transform: rotate(180deg);
 }
-
 .regit-icon {
     width: 18px;
     margin-right: 8px;
 }
-
 #apj-acctxt-border {
     border-top: 1px solid rgba(160, 160, 160, .2);
     margin: 20px -24px 20px -24px;
 }
-
 .jpi-main-heading {
     padding: 5px 0;
 }
-
 .account-settings-section h4,
 .transaction-settings-section h4 {
     font-weight: bold !important;
     color: #0f0f0f;
 }
-
 #data-table-simple tbody td {
     padding: 8px 16px;
 }
-
 #main .section-data-tables #data-table-starts .dataTables_wrapper .dataTables_info {
     margin-left: 15px;
 }
-
 #intro .carousel.carousel-slider .carousel-item p {
     font-size: 15px;
     color: #0f0f0f;
 }
-
 #intro .carousel.carousel-slider .select2-selection__rendered {
     text-align: left;
 }
-
 #intro .carousel.carousel-slider .select2-results__option {
     padding: 0.4rem 0.8rem;
 }
-
 /* #main .section-data-tables #data-table-starts .dataTables_wrapper .dataTables_paginate .paginate_button.current {
     color: #fff!important;
     border: 1px solid #3f51b5;
@@ -289,7 +239,6 @@ button[disabled] {
 #register-page input#email {
     width: calc(100% - 7.4rem);
 }
-
 #register-page .emailaddress-hint {
     background: 0 0;
     border: 1px solid transparent;
@@ -306,14 +255,11 @@ button[disabled] {
     right: 0;
     top: 0;
 }
-
 #register-page .emailaddress-hint.br-bt {
     border-bottom: 1px solid #002F6C;
     box-shadow: 0 1px 0 0 #002f6c;
     transition: box-shadow 0.3s, border 0.2s;
-
 }
-
 #regit-icon-new {
     background-color: #00ab34;
     /* height: 32px;
@@ -321,11 +267,9 @@ button[disabled] {
     padding: 0 1rem;
     pointer-events: none;
 }
-
 #regit-icon-new:hover {
     background-color: #00922d;
 }
-
 #non-regit-icon-new {
     background-color: #ab0000;
     /*     height: 32px;
@@ -333,41 +277,33 @@ button[disabled] {
     padding: 0 1rem;
     pointer-events: none;
 }
-
 #non-regit-icon-new:hover {
     background-color: #ab0000;
 }
-
 #data-table-starts .p0 {
     padding-right: 0;
     padding-left: 0;
 }
-
 .terms_and_condition {
     overflow-y: scroll;
     height: 400px;
     resize: none; /* Remove this if you want the user to resize the textarea */
 }
-
 .select2-container--default .select2-selection--single .select2-selection__arrow b {
     border-color: #888 transparent transparent !important;
     border-width: 6px 4px 0 4px !important;
 }
-
 .select2-container--default.select2-container--disabled .select2-selection--single {
     color: rgba(0, 0, 0, 0.42) !important;
     background-color: #fff !important;
     cursor: default;
 }
-
 .select2-container--default .select2-selection--single .select2-container--disabled .select2-selection__rendered {
     color: rgba(0, 0, 0, 0.42) !important;
 }
 .select2-container--default.select2-container--disabled .select2-selection--single .select2-selection__rendered{
     color: rgba(0, 0, 0, 0.42) !important;
-
 }
-
 .select2-container--disabled .select2-selection--single {
     border-bottom: 1px dotted rgba(0, 0, 0, 0.42) !important;
 }
@@ -438,15 +374,12 @@ button[disabled] {
     top: calc(50% - 24px);
     margin-bottom: -22px;
 }
-
 #intro .modal-loader img,#jpiModal .modal-loader img,#user_funding_source_modal .modal-loader img{
     width: 20%;
 }
-
 #intro .modal-close,#jpiModal .modal-close, #jpiAddFundingSourceModal .modal-close, #user_funding_source_modal .modal-close {
     margin-bottom: -10px;
 }
-
 .select-wrapper.valid > input.select-dropdown, input:not([type]).valid, input:not([type]):focus.valid, input[type=text]:not(.browser-default).valid, input[type=text]:not(.browser-default):focus.valid, input[type=password]:not(.browser-default).valid, input[type=password]:not(.browser-default):focus.valid, input[type=email]:not(.browser-default).valid, input[type=email]:not(.browser-default):focus.valid, input[type=url]:not(.browser-default).valid, input[type=url]:not(.browser-default):focus.valid, input[type=time]:not(.browser-default).valid, input[type=time]:not(.browser-default):focus.valid, input[type=date]:not(.browser-default).valid, input[type=date]:not(.browser-default):focus.valid, input[type=datetime]:not(.browser-default).valid, input[type=datetime]:not(.browser-default):focus.valid, input[type=datetime-local]:not(.browser-default).valid, input[type=datetime-local]:not(.browser-default):focus.valid, input[type=tel]:not(.browser-default).valid, input[type=tel]:not(.browser-default):focus.valid, input[type=number]:not(.browser-default).valid, input[type=number]:not(.browser-default):focus.valid, input[type=search]:not(.browser-default).valid, input[type=search]:not(.browser-default):focus.valid, textarea.materialize-textarea.valid, textarea.materialize-textarea:focus.valid{
     border-bottom: 1px solid #005dab;
     box-shadow: 0 1px 0 0 #005dab;
@@ -454,7 +387,6 @@ button[disabled] {
 input:not([type]):focus.valid ~ label, input[type=text]:not(.browser-default):focus.valid ~ label, input[type=password]:not(.browser-default):focus.valid ~ label, input[type=email]:not(.browser-default):focus.valid ~ label, input[type=url]:not(.browser-default):focus.valid ~ label, input[type=time]:not(.browser-default):focus.valid ~ label, input[type=date]:not(.browser-default):focus.valid ~ label, input[type=datetime]:not(.browser-default):focus.valid ~ label, input[type=datetime-local]:not(.browser-default):focus.valid ~ label, input[type=tel]:not(.browser-default):focus.valid ~ label, input[type=number]:not(.browser-default):focus.valid ~ label, input[type=search]:not(.browser-default):focus.valid ~ label, textarea.materialize-textarea:focus.valid ~ label{
     color: #005dab;
 }
-
 img.loader-btn{
     width: 40px;
     vertical-align: middle;
@@ -469,39 +401,32 @@ img.loader-btn{
         font-size: 1.375rem;
         line-height: 58px;
     }
-
     nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
         height: 80px;
         line-height: 80px;
     }
-
     .profile-button .avatar-status {
         line-height: 64px;
     }
 }
-
 @media only screen and (min-width: 991px) and (max-width: 1199px) {
     #register-page .emailaddress-hint {
         min-height: 44px;
     }
 }
-
 @media only screen and (min-width: 993px) and (max-width: 1199px) {
     .loginbtndisplay a {
         width: 80%;
     }
-
     #login-page .login-form {
         width: 80%;
     }
 }
-
 @media only screen and (min-width: 993px) {
     #main .jpi-main-heading {
         padding-top: 44px;
     }
 }
-
 @media only screen and (min-width: 320px) and (max-width: 992px) {
     #register-page .emailaddress-hint {
         min-height: 43px;
