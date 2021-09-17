@@ -66,22 +66,6 @@ Route::prefix('reimbursement')->group(function () {
         Route::match(['GET', 'PUT'], 'employee-update-funding-source/{employee}', [EmployeeController::class, 'UpdateFundingSource'])->name('employees.updateFunding');
     });
 
-//Admin Routes
-    Route::group(['prefix' => 'admin'], function () {
-        Route::name('admin.')->group(function () {
-            Route::get('/', [LoginController::class, 'showLoginForm'])->name('login');
-            Route::post('login', [LoginController::class, 'login'])->name('login.submit');
-            Route::post('logout', [LoginController::class, 'logout'])->name('logout');
-            Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
-            Route::post('register', [RegisterController::class, 'register'])->name('register.submit');
-            Route::middleware(['role:admin'])->group(function () {
-            Route::get('dashboard', [AdminController::class, 'index'])->name('dashboard');
-                Route::resource('users', UserController::class);
-                Route::get('do-ach-payment', [AdminController::class, 'create']);
-            });
-        });
-    });
-
     Route::get('password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
     Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
     Route::get('password/reset/{token}', [ForgotPasswordController::class, 'showResetForm'])->name('password.reset');
@@ -99,10 +83,18 @@ Route::prefix('reimbursement')->group(function () {
 });
 Route::get('check-email-unique', [EmployeeRegisterController::class, 'checkEmailUnique'])->name('checkEmailUnique');
 
-
-
-
-
-
-
-
+//Admin Routes
+Route::group(['prefix' => 'admin'], function () {
+    Route::name('admin.')->group(function () {
+        Route::get('/', [LoginController::class, 'showLoginForm'])->name('login');
+        Route::post('login', [LoginController::class, 'login'])->name('login.submit');
+        Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+        Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+        Route::post('register', [RegisterController::class, 'register'])->name('register.submit');
+        Route::middleware(['role:admin'])->group(function () {
+            Route::get('dashboard', [AdminController::class, 'index'])->name('dashboard');
+            Route::resource('users', UserController::class);
+            Route::get('do-ach-payment', [AdminController::class, 'create']);
+        });
+    });
+});

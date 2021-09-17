@@ -204,7 +204,8 @@
                 <div id="img-modal" class="intromodal modal white" tabindex="0" data-keyboard="false"
                      data-backdrop="static">
                     <div class="modal-content">
-                        <div class="modal-loader"><img src="{{asset('images/loading.gif')}}" alt="" class="regit-icon"></div>
+                        <div class="modal-loader"><img src="{{asset('images/loading.gif')}}" alt="" class="regit-icon">
+                        </div>
                         <p class="modal-header right modal-close">
                             <span class="right"><i class="material-icons right-align">clear</i></span>
                         </p>
@@ -217,7 +218,9 @@
                                     </button>
                                 </div>
                                 <div class="right">
-                                    <button class="moveNextCarousel middle-indicator-text btn btn-flat apj-blue-text waves-effect waves-light btn-next" id="btn_next-form-submit">
+                                    <button
+                                        class="moveNextCarousel middle-indicator-text btn btn-flat apj-blue-text waves-effect waves-light btn-next"
+                                        id="btn_next-form-submit">
                                         <span class="hide-on-small-only">Next</span> <i class="material-icons">navigate_next</i>
                                     </button>
                                 </div>
@@ -294,6 +297,8 @@
                                     </button>
                                 </p>
                             </div>
+                            <div class="carousel-item slide-4">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -308,7 +313,7 @@
             <div class="row">
                 <div class="col s12" id="modalBody">
                     <div id="iavContainerAddFirstFundingSource">
-                        <!--<img src="{{asset('images/loading.gif')}}" alt="" class="regit-icon">-->
+                    <!--<img src="{{asset('images/loading.gif')}}" alt="" class="regit-icon">-->
                     </div>
                 </div>
             </div>
@@ -327,7 +332,7 @@
     <script src="//cdn.dwolla.com/1/dwolla.js"></script>
     <script type="text/javascript">
 
-	$(".modal-loader").hide();
+        $(".modal-loader").hide();
         // Basic Select2 select
         $(".selectstate").select2({
             placeholder: "Select a state",
@@ -373,8 +378,8 @@
                         'city': data.city,
                         'state': data.state,
                         'zip': data.zip,
-                    },beforeSend:function (){
-                        $("#btn_next-form-submit").html('<img src="/images/loading.gif" alt="" class="loader-btn">').prop('disabled',true);
+                    }, beforeSend: function () {
+                        $("#btn_next-form-submit").html('<img src="/images/loading.gif" alt="" class="loader-btn">').prop('disabled', true);
                     },
                     success: function (data) {
                         if (data) {
@@ -416,10 +421,14 @@
                     'fundingSource': fundingSource,
                 },
                 success: function (data) {
+                    $('#jpiAddFundingSourceModal').hide();
+                    $('#iavContainerAddFirstFundingSource').hide();
                     $(".intromodal").modal("open");
                     $(".intro-carousel").carousel("next");
-                    $('#iavContainerAddFirstFundingSource').hide();
-                    $('#jpiAddFundingSourceModal').hide();
+                    setInterval(function () {
+                        $("body").find('.intro-carousel .btn-prev').addClass('hide');
+                    }, 100);
+
                 }
             });
         }
@@ -445,19 +454,24 @@
         $(window).on("load", function () {
             $(".btn-prev").addClass("hide");
             $(".btn-next").addClass("hide");
+            let intro_carousel = false;
             $(".intromodal").modal({
                 dismissible: false,
                 onOpenEnd: function () {
-                    $(".carousel.carousel-slider").carousel({
-                        fullWidth: !0,
-                        indicators: !0,
-                        onCycleTo: function () {
-                            1 == $(".carousel-item.active").index() ? ($(".btn-prev").addClass("disabled hide"), $(".btn-next").addClass("hide"), $("ul.indicators li:first-child").removeClass("done")) : 1 < $(".carousel-item.active").index() && ($(".btn-prev").removeClass("disabled"), $(".btn-next").removeClass("disabled"), 3 == $(".carousel-item.active").index() && ($(".btn-next").addClass("disabled"), $("ul.indicators li:nth-child(2)").addClass("done")));
-                            2 == $(".carousel-item.active").index() ? ($("ul.indicators li:first-child").addClass("done"), $("ul.indicators li:nth-child(2)").removeClass("done"), $(".btn-submit").addClass("hide"), $(".btn-prev").removeClass("hide"), $(".btn-next").removeClass("hide")) : "";
-                            3 == $(".carousel-item.active").index() ? ($(".btn-next").addClass("hide"), $(".btn-submit").removeClass("hide"), $(".btn-prev").removeClass("hide"), $("ul.indicators li").addClass("hide")) : "";
-                            4 == $(".carousel-item.active").index() ? ($(".btn-prev").addClass("hide"), $(".btn-next").addClass("hide"), $(".btn-submit").addClass("hide"), $("ul.indicators li").addClass("hide")) : "";
-                        }
-                    })
+                    if (intro_carousel === false) {
+                        $(".carousel.carousel-slider").carousel({
+                            fullWidth: !0,
+                            indicators: !0,
+                            onCycleTo: function () {
+                                1 == $(".carousel-item.active").index() ? ($(".btn-prev").addClass("disabled hide"), $(".btn-next").addClass("hide"), $("ul.indicators li:first-child").removeClass("done")) : 1 < $(".carousel-item.active").index() && ($(".btn-prev").removeClass("disabled"), $(".btn-next").removeClass("disabled"), 3 == $(".carousel-item.active").index() && ($(".btn-next").addClass("disabled"), $("ul.indicators li:nth-child(2)").addClass("done")));
+                                2 == $(".carousel-item.active").index() ? ($("ul.indicators li:first-child").addClass("done"), $("ul.indicators li:nth-child(2)").removeClass("done"), $(".btn-submit").addClass("hide"), $(".btn-prev").removeClass("hide"), $(".btn-next").removeClass("hide")) : "";
+                                3 == $(".carousel-item.active").index() ? ($(".btn-next").addClass("hide"), $(".btn-submit").removeClass("hide"), $(".btn-prev").removeClass("hide")) : "";
+                                4 == $(".carousel-item.active").index() ? ($(".btn-prev").addClass("hide"), $(".btn-next").addClass("hide"), $(".btn-submit").addClass("hide"), $("ul.indicators li").addClass("hide")) : "";
+                            }
+                        });
+                        intro_carousel =true;
+                    }
+
                 }
             }), setTimeout(function () {
                 $(".intromodal").modal("open");
