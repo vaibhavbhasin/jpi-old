@@ -86,6 +86,9 @@ $(document).ready(function () {
     $(document).on('focusout', '#updateProfile #lastname_profile', function () {
         lastname_profile_check();
     });
+    $(document).on('focusout', '#updateProfile #phone_number_profile', function () {
+        phone_number_check("phone_number_profile");
+    });
 
     function lastname_profile_check() {
         var lastname = $.trim($("#lastname_profile").val());
@@ -256,10 +259,6 @@ $(document).ready(function () {
         let phone_number = $("#phone_number").val();
         if (!phone_number) {
             toastr.error("Enter Phone Number.");
-            return false;
-        }
-        if (!isValidPhoneNumber(phone_number)) {
-            toastr.error("Please enter valid number.");
             return false;
         }
 
@@ -537,23 +536,23 @@ $(document).ready(function () {
         }
     }
 
-    function phone_number_check() {
-        var phone_number = $.trim($("#phone_number").val());
+    function phone_number_check(id) {
+        var phone_number = $.trim($(`#${id}`).val());
         if (!phone_number) {
-            $("#phone_number").addClass('register_input_red');
+            $(`#${id}`).addClass('register_input_red');
             toastr.error("Enter Phone Number.");
             return false;
         } else {
-            $("#phone_number").removeClass('register_input_red');
+            $(`#${id}`).removeClass('register_input_red');
         }
 
 
         if (!isValidPhoneNumber(phone_number)) {
-            $("#phone_number").addClass('register_input_red');
+            $(`#${id}`).addClass('register_input_red');
             toastr.error("Please enter valid number.");
             return false;
         } else {
-            $("#phone_number").removeClass('register_input_red');
+            $(`#${id}`).removeClass('register_input_red');
         }
 
     }
@@ -659,7 +658,7 @@ $(document).ready(function () {
         confirmpassword_check();
     });
     $(document).on('focusout', '#registerform #phone_number', function () {
-        phone_number_check();
+        phone_number_check("phone_number");
     });
     $(document).on('keyup', '#registerform #password', function () {
         let password = $.trim($("#password").val());
