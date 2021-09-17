@@ -114,14 +114,16 @@ $configData = Helper::applClasses();
       <div class="row margin">
         <div class="col s12">
         <div class="passw">
-            <p> Password Requirements: </p>
-            <ul>
-              <li>Must contain at least 8 characters (12+ recommended )</li>
-              <li>Must contain at least one uppercase letter</li>
-              <li>Must contain at least one lowercase letter</li>
-              <li>Must contain at least one number</li>
-              <li>Must contain at least one special character</li>
-            </ul>
+            <h2 class="pass-checking-text"> Password Requirements: </h2>
+				  <div class="pass-checklist">
+                    <ul>
+                        <li id="character_length" class="ccross">Must contain at least 8 characters (12+ recommended )</li>
+                        <li id="uppercase_latter" class="ccross">Must contain at least one uppercase letter</li>
+                        <li id="lowercase_latter" class="ccross">Must contain at least one lowercase letter</li>
+                        <li id="one_number" class="ccross">Must contain at least one number</li>
+                        <li id="special_character" class="ccross">Must contain at least one special character</li>
+                    </ul>
+                </div>
           </div>
         </div>
       </div>

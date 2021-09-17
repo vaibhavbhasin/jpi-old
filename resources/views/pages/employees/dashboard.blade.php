@@ -332,6 +332,8 @@
         src="https://pixinvent.com/materialize-material-design-admin-template/app-assets/vendors/select2/select2.full.min.js"></script>
     <script src="//cdn.dwolla.com/1/dwolla.js"></script>
     <script type="text/javascript">
+	
+	$(".modal-loader").hide();
         // Basic Select2 select
         $(".selectstate").select2({
             placeholder: "Select a state",
