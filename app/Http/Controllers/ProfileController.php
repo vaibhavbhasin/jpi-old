@@ -56,7 +56,7 @@ class ProfileController extends Controller
             $data['password']= Hash::make($request->input('password'));
         }
         \DB::table('users')->where('id', auth()->user()->id)->update($data);
-        return response()->json(['status' => true, 'msg' => 'Updated successfully.']);
+        return response()->json(['status' => true, 'msg' => 'Updated successfully']);
 
     }
 }

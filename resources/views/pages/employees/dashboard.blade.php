@@ -584,7 +584,7 @@
 					},
                     success: function () {
 
-                        toastr.success('Submitted successfully!');
+                        toastr.success('Submitted successfully');
 						$("#edit_details_save_btn").html('Save').prop('disabled',false);
                         $("#edit_details_cancel_btn").click();
                     },
