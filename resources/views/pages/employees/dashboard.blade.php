@@ -282,13 +282,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="carousel-item slide-4">
+                            <div class="carousel-item slide-3">
                                 <h5 class="intro-step-title mt-7 center animated fadeInUp">Congratulations</h5>
                                 <p class="intro-step-text mt-5 animated fadeInUp">You are now fully registered to start
                                     receiving reimbursement's payments that are disbursed at the end of every
                                     month. </p>
                                 <p class="intro-step-text mt-5 animated fadeInUp">
-                                    <button type="button" class="waves-effect apj-intro-close-btn modal-close btn " onclick="location.reload()">
+                                    <button type="button" class="waves-effect apj-intro-close-btn modal-close btn "
+                                            onclick="location.reload()">
                                         Click to close
                                     </button>
                                 </p>
@@ -301,13 +302,14 @@
     </div>
     <div id="jpiAddFundingSourceModal" class="modal" tabindex="0" data-keyboard="false" data-backdrop="static">
         <div class="white modal-content">
-            <div class="modal-loader"><img src="{{asset('images/loading.gif')}}" alt="" class="regit-icon"></div>
             <p class="modal-header right modal-close">
                 <span class="right"><i class="material-icons right-align">clear</i></span>
             </p>
             <div class="row">
                 <div class="col s12" id="modalBody">
-                    <div id="iavContainerAddFirstFundingSource"></div>
+                    <div id="iavContainerAddFirstFundingSource">
+                        <img src="{{asset('images/loading.gif')}}" alt="" class="regit-icon">
+                    </div>
                 </div>
             </div>
         </div>
@@ -451,7 +453,7 @@
                         onCycleTo: function () {
                             1 == $(".carousel-item.active").index() ? ($(".btn-prev").addClass("disabled hide"), $(".btn-next").addClass("hide"), $("ul.indicators li:first-child").removeClass("done")) : 1 < $(".carousel-item.active").index() && ($(".btn-prev").removeClass("disabled"), $(".btn-next").removeClass("disabled"), 3 == $(".carousel-item.active").index() && ($(".btn-next").addClass("disabled"), $("ul.indicators li:nth-child(2)").addClass("done")));
                             2 == $(".carousel-item.active").index() ? ($("ul.indicators li:first-child").addClass("done"), $("ul.indicators li:nth-child(2)").removeClass("done"), $(".btn-submit").addClass("hide"), $(".btn-prev").removeClass("hide"), $(".btn-next").removeClass("hide")) : "";
-                            3 == $(".carousel-item.active").index() ? ($(".btn-next").addClass("hide"), $(".btn-submit").removeClass("hide"), $(".btn-prev").removeClass("hide")) : "";
+                            3 == $(".carousel-item.active").index() ? ($(".btn-next").addClass("hide"), $(".btn-submit").removeClass("hide"), $(".btn-prev").removeClass("hide"), $("ul.indicators li").addClass("hide")) : "";
                             4 == $(".carousel-item.active").index() ? ($(".btn-prev").addClass("hide"), $(".btn-next").addClass("hide"), $(".btn-submit").addClass("hide"), $("ul.indicators li").addClass("hide")) : "";
                         }
                     })
@@ -469,7 +471,6 @@
                 $(".intro-carousel").carousel("next")
             }), $(".btn-submit").on("click", async function (e) {
                 var status = await submitBankDetails();
-//$(".intro-carousel").carousel("next")
             })
         });
         @endif
