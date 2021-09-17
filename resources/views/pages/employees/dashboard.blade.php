@@ -308,7 +308,7 @@
             <div class="row">
                 <div class="col s12" id="modalBody">
                     <div id="iavContainerAddFirstFundingSource">
-                        <img src="{{asset('images/loading.gif')}}" alt="" class="regit-icon">
+                        <!--<img src="{{asset('images/loading.gif')}}" alt="" class="regit-icon">-->
                     </div>
                 </div>
             </div>
@@ -374,7 +374,7 @@
                         'state': data.state,
                         'zip': data.zip,
                     },beforeSend:function (){
-                        $("#btn_next-form-submit").html('<span class="hide-on-small-only">Next</span> <img src="/images/loading.gif" alt="" class="loader-btn">').prop('disabled',true);
+                        $("#btn_next-form-submit").html('<img src="/images/loading.gif" alt="" class="loader-btn">').prop('disabled',true);
                     },
                     success: function (data) {
                         if (data) {
