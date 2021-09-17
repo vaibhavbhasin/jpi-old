@@ -209,7 +209,7 @@
                         <p class="modal-header right modal-close">
                             <span class="right"><i class="material-icons right-align">clear</i></span>
                         </p>
-                        <div class="carousel carousel-slider center intro-carousel" id="intro_carousel">
+                        <div class="carousel carousel-slider center intro-carousel">
                             <div class="carousel-fixed-item center middle-indicator with-indicators">
                                 <div class="left">
                                     <button
@@ -298,7 +298,6 @@
                                 </p>
                             </div>
                             <div class="carousel-item slide-4">
-
                             </div>
                         </div>
                     </div>
@@ -420,17 +419,16 @@
                     '_token': "{{ csrf_token() }}",
                     'from': 'bank_funding_source',
                     'fundingSource': fundingSource,
-                },beforeSend(){
-                    $(".btn-prev").addClass("hide");
                 },
-                success: function () {
+                success: function (data) {
+                    $('#jpiAddFundingSourceModal').hide();
+                    $('#iavContainerAddFirstFundingSource').hide();
                     $(".intromodal").modal("open");
-                    $("#intro_carousel").carousel("next");
-                    setTimeout(function () {
+                    $(".intro-carousel").carousel("next");
+                    setInterval(function () {
                         $("body").find('.intro-carousel .btn-prev').addClass('hide');
                     }, 100);
-                    $('#iavContainerAddFirstFundingSource').hide();
-                    $('#jpiAddFundingSourceModal').hide();
+
                 }
             });
         }
@@ -456,23 +454,24 @@
         $(window).on("load", function () {
             $(".btn-prev").addClass("hide");
             $(".btn-next").addClass("hide");
-            let intro_carousel_init = false;
+            let intro_carousel = false;
             $(".intromodal").modal({
                 dismissible: false,
                 onOpenEnd: function () {
-                    if (intro_carousel_init === false) {
-                        $("#intro_carousel").carousel({
+                    if (intro_carousel === false) {
+                        $(".carousel.carousel-slider").carousel({
                             fullWidth: !0,
                             indicators: !0,
                             onCycleTo: function () {
                                 1 == $(".carousel-item.active").index() ? ($(".btn-prev").addClass("disabled hide"), $(".btn-next").addClass("hide"), $("ul.indicators li:first-child").removeClass("done")) : 1 < $(".carousel-item.active").index() && ($(".btn-prev").removeClass("disabled"), $(".btn-next").removeClass("disabled"), 3 == $(".carousel-item.active").index() && ($(".btn-next").addClass("disabled"), $("ul.indicators li:nth-child(2)").addClass("done")));
                                 2 == $(".carousel-item.active").index() ? ($("ul.indicators li:first-child").addClass("done"), $("ul.indicators li:nth-child(2)").removeClass("done"), $(".btn-submit").addClass("hide"), $(".btn-prev").removeClass("hide"), $(".btn-next").removeClass("hide")) : "";
-                                3 == $(".carousel-item.active").index() ? ($(".btn-next").addClass("hide"), $(".btn-submit").removeClass("hide"), $(".btn-prev").removeClass("hide"), $("ul.indicators li").removeClass('active'), $("ul.indicators li:first-child").addClass("done"), $("ul.indicators li:nth-child(2)").addClass("done"), $("ul.indicators li:last").addClass("active")) : "";
+                                3 == $(".carousel-item.active").index() ? ($(".btn-next").addClass("hide"), $(".btn-submit").removeClass("hide"), $(".btn-prev").removeClass("hide")) : "";
                                 4 == $(".carousel-item.active").index() ? ($(".btn-prev").addClass("hide"), $(".btn-next").addClass("hide"), $(".btn-submit").addClass("hide"), $("ul.indicators li").addClass("hide")) : "";
                             }
                         });
-                        intro_carousel_init = true;
+                        intro_carousel =true;
                     }
+
                 }
             }), setTimeout(function () {
                 $(".intromodal").modal("open");
@@ -484,7 +483,7 @@
                 $(".btn-prev").removeClass("hide");
                 $(".btn-next").removeClass("hide");
             }), $(".apj-get-started-btn").on("click", function (e) {
-                $(".intro-carousel").carousel("next");
+                $(".intro-carousel").carousel("next")
             }), $(".btn-submit").on("click", async function (e) {
                 var status = await submitBankDetails();
             })
