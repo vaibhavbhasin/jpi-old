@@ -89,12 +89,14 @@ class EmployeeController extends Controller
             $this->validate($request, [
                 'firstname' => ['required', 'alpha', 'max:255'],
                 'lastname' => ['required', 'alpha', 'max:255'],
+                'phone_number' => ['required'],
                 'password_confirm' => ['same:password']
             ]);
 
             $data = [
                 'firstname' => $request['firstname'],
                 'lastname' => $request['lastname'],
+                'phone_number' => $request['phone_number'],
             ];
             if (@$request['password']) {
                 $data['password'] = Hash::make($request->password);

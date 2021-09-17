@@ -7,6 +7,8 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\MessageBag;
 
 class LoginController extends Controller
 {
@@ -48,7 +50,6 @@ class LoginController extends Controller
         ]);
 
         $credentials = $request->only('email', 'password');
-
         if (Auth::attempt($credentials)) {
             // Authentication passed...
             if (\Auth::user()->hasRole('admin')) {
@@ -57,9 +58,11 @@ class LoginController extends Controller
                 Auth::logout();
                 return redirect()->back();
             }
+        }else {
+            $errors = new MessageBag(['password' => ['Invalid credentials']]);
+            return Redirect::back()->withErrors($errors);
         }
 
-        return redirect()->back();
     }
 
     // Login

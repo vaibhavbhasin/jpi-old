@@ -1,7 +1,8 @@
 {
   "menu": [
       {
-          "url": "reimbursement/employee",
+          "href_type": "route",
+          "url": "employee.dashboard",
           "name": "Dashboard",
           "i18n": "Dashboard",
           "class": "menulink waves-effect waves-cyan",
@@ -10,7 +11,8 @@
           "role": "employee"
       },
       {
-          "url": "reimbursement/admin",
+          "href_type": "route",
+          "url": "admin.dashboard",
           "name": "Dashboard",
           "i18n": "Dashboard",
           "class": "menulink waves-effect waves-cyan",
@@ -19,7 +21,8 @@
           "role": "admin"
       },
       {
-          "url": "reimbursement/admin/users",
+          "href_type": "route",
+          "url": "admin.users.index",
           "name": "ACH User",
           "i18n": "ACH User",
           "class": "menulink waves-effect waves-cyan",

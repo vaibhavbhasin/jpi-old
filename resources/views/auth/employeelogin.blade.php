@@ -19,8 +19,10 @@
                 <div class='text-center'>
                     <a href="{{route('employee.register.show')}}" class='defaultbtn'>Register</a>
                     <div class='loginseparator'>or</div>
-                    <a href="javascript:void(0)" id='userform'
-                       class='btn btn btn-light-cyan btn-light-new-bg-bt'>Login</a>
+                    @error('password')
+                    @else
+                        <a href="javascript:void(0)" id='userform' class='btn btn btn-light-cyan btn-light-new-bg-bt'>Login</a>
+                    @enderror
                 </div>
             </div>
             <form class="login-form" method="POST" action="{{ route('employee.login') }}"
@@ -63,7 +65,7 @@
                 <div class="row">
                     <div class="input-field col s12 mt--6">
                         <p class="margin center-align medium-small">
-                            <a href="{{ route('admin.password.request') }}" class="login-btn forgot-pasw-text">
+                            <a href="{{ route('password.request') }}" class="login-btn forgot-pasw-text">
                                 Forgot password?
                             </a>
                         </p>

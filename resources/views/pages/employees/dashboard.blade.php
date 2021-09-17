@@ -204,6 +204,8 @@
                 <div id="img-modal" class="intromodal modal white" tabindex="0" data-keyboard="false"
                      data-backdrop="static">
                     <div class="modal-content">
+                        <div class="modal-loader"><img src="{{asset('images/loading.gif')}}" alt="" class="regit-icon">
+                        </div>
                         <p class="modal-header right modal-close">
                             <span class="right"><i class="material-icons right-align">clear</i></span>
                         </p>
@@ -221,9 +223,6 @@
                                         id="btn_next-form-submit">
                                         <span class="hide-on-small-only">Next</span> <i class="material-icons">navigate_next</i>
                                     </button>
-                                    {{-- <button class="moveNextCarousel middle-indicator-text btn btn-flat apj-blue-text waves-effect waves-light btn-submit hide" id="btn_submit-form-submit">
-                                        <span class="hide-on-small-only">Submit</span>
-                                    </button> --}}
                                 </div>
                             </div>
                             <div class="carousel-item slide-1 active">
@@ -265,8 +264,6 @@
                                                     <label for="city-pop">City</label>
                                                 </div>
                                                 <div class="input-field col s6">
-                                                <!--  <input id="state-pop" type="text" class="validate" value="{{$employee_details['state'] ?? ''}}">
-                <label for="state-pop">State</label> -->
                                                     <select id="state-pop" class="select2 selectstate browser-default"
                                                             class="validate">
                                                         <option value="">Select State</option>
@@ -288,7 +285,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="carousel-item slide-4">
+                            <div class="carousel-item slide-3">
                                 <h5 class="intro-step-title mt-7 center animated fadeInUp">Congratulations</h5>
                                 <p class="intro-step-text mt-5 animated fadeInUp">You are now fully registered to start
                                     receiving reimbursement's payments that are disbursed at the end of every
@@ -299,6 +296,8 @@
                                         Click to close
                                     </button>
                                 </p>
+                            </div>
+                            <div class="carousel-item slide-4">
                             </div>
                         </div>
                     </div>
@@ -313,7 +312,9 @@
             </p>
             <div class="row">
                 <div class="col s12" id="modalBody">
-                    <div id="iavContainerAddFirstFundingSource"></div>
+                    <div id="iavContainerAddFirstFundingSource">
+                    <!--<img src="{{asset('images/loading.gif')}}" alt="" class="regit-icon">-->
+                    </div>
                 </div>
             </div>
         </div>
@@ -330,6 +331,8 @@
         src="https://pixinvent.com/materialize-material-design-admin-template/app-assets/vendors/select2/select2.full.min.js"></script>
     <script src="//cdn.dwolla.com/1/dwolla.js"></script>
     <script type="text/javascript">
+
+        $(".modal-loader").hide();
         // Basic Select2 select
         $(".selectstate").select2({
             placeholder: "Select a state",
@@ -375,8 +378,9 @@
                         'city': data.city,
                         'state': data.state,
                         'zip': data.zip,
+                    }, beforeSend: function () {
+                        $("#btn_next-form-submit").html('<img src="/images/loading.gif" alt="" class="loader-btn">').prop('disabled', true);
                     },
-
                     success: function (data) {
                         if (data) {
                             $(".intromodal").modal("close");
@@ -384,7 +388,6 @@
                             toastr.success('Submitted successfully');
                         }
                     }
-
                 });
             }
         }
@@ -418,9 +421,14 @@
                     'fundingSource': fundingSource,
                 },
                 success: function (data) {
+                    $('#jpiAddFundingSourceModal').hide();
+                    $('#iavContainerAddFirstFundingSource').hide();
                     $(".intromodal").modal("open");
                     $(".intro-carousel").carousel("next");
-                    $('#iavContainer').hide();
+                    setInterval(function () {
+                        $("body").find('.intro-carousel .btn-prev').addClass('hide');
+                    }, 100);
+
                 }
             });
         }
@@ -446,19 +454,31 @@
         $(window).on("load", function () {
             $(".btn-prev").addClass("hide");
             $(".btn-next").addClass("hide");
+            let intro_carousel = false;
             $(".intromodal").modal({
                 dismissible: false,
                 onOpenEnd: function () {
-                    $(".carousel.carousel-slider").carousel({
-                        fullWidth: !0,
-                        indicators: !0,
-                        onCycleTo: function () {
-                            1 == $(".carousel-item.active").index() ? ($(".btn-prev").addClass("disabled hide"), $(".btn-next").addClass("hide"), $("ul.indicators li:first-child").removeClass("done")) : 1 < $(".carousel-item.active").index() && ($(".btn-prev").removeClass("disabled"), $(".btn-next").removeClass("disabled"), 3 == $(".carousel-item.active").index() && ($(".btn-next").addClass("disabled"), $("ul.indicators li:nth-child(2)").addClass("done")));
-                            2 == $(".carousel-item.active").index() ? ($("ul.indicators li:first-child").addClass("done"), $("ul.indicators li:nth-child(2)").removeClass("done"), $(".btn-submit").addClass("hide"), $(".btn-prev").removeClass("hide"), $(".btn-next").removeClass("hide")) : "";
-                            3 == $(".carousel-item.active").index() ? ($(".btn-next").addClass("hide"), $(".btn-submit").removeClass("hide"), $(".btn-prev").removeClass("hide")) : "";
-                            4 == $(".carousel-item.active").index() ? ($(".btn-prev").addClass("hide"), $(".btn-next").addClass("hide"), $(".btn-submit").addClass("hide"), $("ul.indicators li").addClass("hide")) : "";
-                        }
-                    })
+                    if (intro_carousel === false) {
+                        $(".carousel.carousel-slider").carousel({
+                            fullWidth: !0,
+                            indicators: !0,
+                            onCycleTo: function () {
+                                1 == $(".carousel-item.active").index() ? ($(".btn-prev").addClass("disabled hide"), $(".btn-next").addClass("hide"), $("ul.indicators li:first-child").removeClass("done")) : 1 < $(".carousel-item.active").index() && ($(".btn-prev").removeClass("disabled"), $(".btn-next").removeClass("disabled"), 3 == $(".carousel-item.active").index() && ($(".btn-next").addClass("disabled"), $("ul.indicators li:nth-child(2)").addClass("done")));
+                                2 == $(".carousel-item.active").index() ? ($("ul.indicators li:first-child").addClass("done"), $("ul.indicators li:nth-child(2)").removeClass("done"), $(".btn-submit").addClass("hide"), $(".btn-prev").removeClass("hide"), $(".btn-next").removeClass("hide")) : "";
+                                3 == $(".carousel-item.active").index() ? ($(".btn-next").addClass("hide"), $(".btn-submit").removeClass("hide"), $(".btn-prev").removeClass("hide")) : "";
+                                4 == $(".carousel-item.active").index() ? ($(".btn-prev").addClass("hide"), $(".btn-next").addClass("hide"), $(".btn-submit").addClass("hide"), $("ul.indicators li").addClass("hide")) : "";
+                            }
+                        });
+                        $(document).keydown(function(e) {
+                            if(e.keyCode == 38) { // left nav key pressed
+                                // code to load prev slide
+                            } else if(e.keyCode == 40) { // right nav key pressed
+                                // code to load next slide
+                            }
+                        });
+                        intro_carousel =true;
+                    }
+
                 }
             }), setTimeout(function () {
                 $(".intromodal").modal("open");
@@ -473,7 +493,6 @@
                 $(".intro-carousel").carousel("next")
             }), $(".btn-submit").on("click", async function (e) {
                 var status = await submitBankDetails();
-//$(".intro-carousel").carousel("next")
             })
         });
         @endif
@@ -559,8 +578,14 @@
                         '_token': "{{csrf_token()}}",
                         '_method': "PUT"
                     },
+					beforeSend:function (){
+						$("#edit_details_save_btn").html('<img src="/images/loading.gif" alt="" class="loader-btn">').prop('disabled',true);
+						$("#edit_details_cancel_btn").hide();
+					},
                     success: function () {
+
                         toastr.success('Submitted successfully!');
+						$("#edit_details_save_btn").html('Save').prop('disabled',false);
                         $("#edit_details_cancel_btn").click();
                     },
                     error: function () {

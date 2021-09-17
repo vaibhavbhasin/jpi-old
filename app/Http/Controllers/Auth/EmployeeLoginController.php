@@ -46,7 +46,6 @@ class EmployeeLoginController extends Controller
     public function showLoginForm()
     {
         $pageConfigs = ['bodyCustomClass' => 'login-bg', 'isCustomizer' => false];
-
         return view('/auth/employeelogin', [
             'pageConfigs' => $pageConfigs
         ]);
@@ -67,7 +66,6 @@ class EmployeeLoginController extends Controller
         ]);
 
         $credentials = $request->only('email', 'password');
-
         if (Auth::attempt($credentials)) {
             if (Auth::user()->hasRole('employee')) {
                 return redirect()->route('employee.dashboard');
@@ -77,7 +75,7 @@ class EmployeeLoginController extends Controller
             }
         } else {
             $errors = new MessageBag(['password' => ['Invalid credentials']]);
-            return Redirect::back()->withErrors($errors);
+            return Redirect::back()->withErrors($errors)->withInput()->exceptInput('password');
         }
     }
 

@@ -77,19 +77,10 @@ class RegisterController extends Controller
             'firstname' => $data['firstname'],
             'lastname' => $data['lastname'],
             'email' => $data['email'],
-            // 'address1' => $data['address1'],
-            // 'address2' => $data['address2'],
-            // 'city' => $data['city'],
-            // 'state' => $data['state'],
-            // 'zip' => $data['zip'],
-            // 'bank_account' => $data['bank_account'],
-            // 'bankname' => $data['bankname'],
             'password' => Hash::make($data['password']),
         ]);
-
         $user->assignRole('admin');
         Auth::login($user);
-
         return $user;
     }
 

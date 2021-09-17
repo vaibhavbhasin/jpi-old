@@ -79,6 +79,17 @@ $configData = Helper::applClasses();
 
 
       <div class="row margin">
+          <div class="input-field col s6">
+              <i class="material-icons prefix pt-2">phone_outline</i>
+              <input id="phone_number_profile" type="text" class="@error('phone_number') is-invalid @enderror"
+                     value="{{ old('phone_number',auth()->user()->phone_number) }}" autocomplete="phone_number" name="phone_number">
+              <label for="phone_number_profile">Phone Number</label>
+              @error('phone_number')
+              <small class="red-text ml-7" role="alert">
+                  {{ $message }}
+              </small>
+              @enderror
+          </div>
         <div class="input-field col s6">
           <i class="material-icons prefix pt-2">mail_outline</i>
           <input id="email_profile" type="email" class="@error('email') is-invalid @enderror" name="email"
@@ -114,14 +125,16 @@ $configData = Helper::applClasses();
       <div class="row margin">
         <div class="col s12">
         <div class="passw">
-            <p> Password Requirements: </p>
-            <ul>
-              <li>Must contain at least 8 characters (12+ recommended )</li>
-              <li>Must contain at least one uppercase letter</li>
-              <li>Must contain at least one lowercase letter</li>
-              <li>Must contain at least one number</li>
-              <li>Must contain at least one special character</li>
-            </ul>
+            <h2 class="pass-checking-text"> Password Requirements: </h2>
+				  <div class="pass-checklist">
+                    <ul>
+                        <li id="character_length" class="ccross">Must contain at least 8 characters (12+ recommended )</li>
+                        <li id="uppercase_latter" class="ccross">Must contain at least one uppercase letter</li>
+                        <li id="lowercase_latter" class="ccross">Must contain at least one lowercase letter</li>
+                        <li id="one_number" class="ccross">Must contain at least one number</li>
+                        <li id="special_character" class="ccross">Must contain at least one special character</li>
+                    </ul>
+                </div>
           </div>
         </div>
       </div>
@@ -177,7 +190,7 @@ $configData = Helper::applClasses();
             </p>
             <div class="row">
                 <div class="col s12" id="modalBody">
-                    <p class="text-center"> Please wait..</p>
+                    <p class="text-center"> <img src="/images/loading.gif" alt="" class="loader-btn"></p>
                 </div>
             </div>
         </div>
@@ -197,6 +210,9 @@ $configData = Helper::applClasses();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js" integrity="sha384-qlmct0AOBiA2VPZkMY3+2WqkHtIQ9lSdAsAn5RUJD/3vA5MKDgSGcdmIv4ycVxyn" crossorigin="anonymous"></script>
     @yield('customjs')
     {{-- <script>
+
+
+
       $('#updateProfile').submit(function(e){
                 e.preventDefault();
                 var options = {
