@@ -204,11 +204,12 @@
                 <div id="img-modal" class="intromodal modal white" tabindex="0" data-keyboard="false"
                      data-backdrop="static">
                     <div class="modal-content">
-                        <div class="modal-loader"><img src="{{asset('images/loading.gif')}}" alt="" class="regit-icon"></div>
+                        <div class="modal-loader"><img src="{{asset('images/loading.gif')}}" alt="" class="regit-icon">
+                        </div>
                         <p class="modal-header right modal-close">
                             <span class="right"><i class="material-icons right-align">clear</i></span>
                         </p>
-                        <div class="carousel carousel-slider center intro-carousel">
+                        <div class="carousel carousel-slider center intro-carousel" id="intro_carousel">
                             <div class="carousel-fixed-item center middle-indicator with-indicators">
                                 <div class="left">
                                     <button
@@ -217,7 +218,9 @@
                                     </button>
                                 </div>
                                 <div class="right">
-                                    <button class="moveNextCarousel middle-indicator-text btn btn-flat apj-blue-text waves-effect waves-light btn-next" id="btn_next-form-submit">
+                                    <button
+                                        class="moveNextCarousel middle-indicator-text btn btn-flat apj-blue-text waves-effect waves-light btn-next"
+                                        id="btn_next-form-submit">
                                         <span class="hide-on-small-only">Next</span> <i class="material-icons">navigate_next</i>
                                     </button>
                                 </div>
@@ -294,6 +297,9 @@
                                     </button>
                                 </p>
                             </div>
+                            <div class="carousel-item slide-4">
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -308,7 +314,7 @@
             <div class="row">
                 <div class="col s12" id="modalBody">
                     <div id="iavContainerAddFirstFundingSource">
-                        <!--<img src="{{asset('images/loading.gif')}}" alt="" class="regit-icon">-->
+                    <!--<img src="{{asset('images/loading.gif')}}" alt="" class="regit-icon">-->
                     </div>
                 </div>
             </div>
@@ -327,7 +333,7 @@
     <script src="//cdn.dwolla.com/1/dwolla.js"></script>
     <script type="text/javascript">
 
-	$(".modal-loader").hide();
+        $(".modal-loader").hide();
         // Basic Select2 select
         $(".selectstate").select2({
             placeholder: "Select a state",
@@ -373,8 +379,8 @@
                         'city': data.city,
                         'state': data.state,
                         'zip': data.zip,
-                    },beforeSend:function (){
-                        $("#btn_next-form-submit").html('<img src="/images/loading.gif" alt="" class="loader-btn">').prop('disabled',true);
+                    }, beforeSend: function () {
+                        $("#btn_next-form-submit").html('<img src="/images/loading.gif" alt="" class="loader-btn">').prop('disabled', true);
                     },
                     success: function (data) {
                         if (data) {
@@ -414,10 +420,15 @@
                     '_token': "{{ csrf_token() }}",
                     'from': 'bank_funding_source',
                     'fundingSource': fundingSource,
+                },beforeSend(){
+                    $(".btn-prev").addClass("hide");
                 },
-                success: function (data) {
+                success: function () {
                     $(".intromodal").modal("open");
-                    $(".intro-carousel").carousel("next");
+                    $("#intro_carousel").carousel("next");
+                    setTimeout(function () {
+                        $("body").find('.intro-carousel .btn-prev').addClass('hide');
+                    }, 100);
                     $('#iavContainerAddFirstFundingSource').hide();
                     $('#jpiAddFundingSourceModal').hide();
                 }
@@ -445,19 +456,23 @@
         $(window).on("load", function () {
             $(".btn-prev").addClass("hide");
             $(".btn-next").addClass("hide");
+            let intro_carousel_init = false;
             $(".intromodal").modal({
                 dismissible: false,
                 onOpenEnd: function () {
-                    $(".carousel.carousel-slider").carousel({
-                        fullWidth: !0,
-                        indicators: !0,
-                        onCycleTo: function () {
-                            1 == $(".carousel-item.active").index() ? ($(".btn-prev").addClass("disabled hide"), $(".btn-next").addClass("hide"), $("ul.indicators li:first-child").removeClass("done")) : 1 < $(".carousel-item.active").index() && ($(".btn-prev").removeClass("disabled"), $(".btn-next").removeClass("disabled"), 3 == $(".carousel-item.active").index() && ($(".btn-next").addClass("disabled"), $("ul.indicators li:nth-child(2)").addClass("done")));
-                            2 == $(".carousel-item.active").index() ? ($("ul.indicators li:first-child").addClass("done"), $("ul.indicators li:nth-child(2)").removeClass("done"), $(".btn-submit").addClass("hide"), $(".btn-prev").removeClass("hide"), $(".btn-next").removeClass("hide")) : "";
-                            3 == $(".carousel-item.active").index() ? ($(".btn-next").addClass("hide"), $(".btn-submit").removeClass("hide"), $(".btn-prev").removeClass("hide"), $("ul.indicators li").addClass("hide")) : "";
-                            4 == $(".carousel-item.active").index() ? ($(".btn-prev").addClass("hide"), $(".btn-next").addClass("hide"), $(".btn-submit").addClass("hide"), $("ul.indicators li").addClass("hide")) : "";
-                        }
-                    })
+                    if (intro_carousel_init === false) {
+                        $("#intro_carousel").carousel({
+                            fullWidth: !0,
+                            indicators: !0,
+                            onCycleTo: function () {
+                                1 == $(".carousel-item.active").index() ? ($(".btn-prev").addClass("disabled hide"), $(".btn-next").addClass("hide"), $("ul.indicators li:first-child").removeClass("done")) : 1 < $(".carousel-item.active").index() && ($(".btn-prev").removeClass("disabled"), $(".btn-next").removeClass("disabled"), 3 == $(".carousel-item.active").index() && ($(".btn-next").addClass("disabled"), $("ul.indicators li:nth-child(2)").addClass("done")));
+                                2 == $(".carousel-item.active").index() ? ($("ul.indicators li:first-child").addClass("done"), $("ul.indicators li:nth-child(2)").removeClass("done"), $(".btn-submit").addClass("hide"), $(".btn-prev").removeClass("hide"), $(".btn-next").removeClass("hide")) : "";
+                                3 == $(".carousel-item.active").index() ? ($(".btn-next").addClass("hide"), $(".btn-submit").removeClass("hide"), $(".btn-prev").removeClass("hide"), $("ul.indicators li").removeClass('active'), $("ul.indicators li:first-child").addClass("done"), $("ul.indicators li:nth-child(2)").addClass("done"), $("ul.indicators li:last").addClass("active")) : "";
+                                4 == $(".carousel-item.active").index() ? ($(".btn-prev").addClass("hide"), $(".btn-next").addClass("hide"), $(".btn-submit").addClass("hide"), $("ul.indicators li").addClass("hide")) : "";
+                            }
+                        });
+                        intro_carousel_init = true;
+                    }
                 }
             }), setTimeout(function () {
                 $(".intromodal").modal("open");
@@ -469,7 +484,7 @@
                 $(".btn-prev").removeClass("hide");
                 $(".btn-next").removeClass("hide");
             }), $(".apj-get-started-btn").on("click", function (e) {
-                $(".intro-carousel").carousel("next")
+                $(".intro-carousel").carousel("next");
             }), $(".btn-submit").on("click", async function (e) {
                 var status = await submitBankDetails();
             })
