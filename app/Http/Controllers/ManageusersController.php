@@ -67,7 +67,7 @@ class ManageusersController extends Controller
         // dd($data);
 
         // \DB::table('users')->where('id', auth()->user()->id)->update($data);
-        // return response()->json(['status' => true, 'msg' => 'Updated successfully.']);
+        // return response()->json(['status' => true, 'msg' => 'Updated successfully']);
 
     }
 }

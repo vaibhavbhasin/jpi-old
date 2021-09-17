@@ -371,7 +371,7 @@ $(document).ready(function () {
                 $("#updateprofilebtn").html('<img src="/images/loading.gif" alt="" class="loader-btn">').prop('disabled', true);
             },
             success: function (response) {
-                toastr.success("Updated successfully.");
+                toastr.success("Updated successfully");
                 location.reload();
             },
             error: function (response) {
@@ -432,7 +432,7 @@ $(document).ready(function () {
                 from: 'profile_update'
             },
             success: function (response) {
-                toastr.success("Updated successfully.");
+                toastr.success("Updated successfully");
                 location.reload();
             },
             error: function (response) {
