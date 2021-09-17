@@ -129,7 +129,7 @@
     }
 }
 @media (min-width: 1024px) and (max-width: 1419px) {
-    #intro .modal.open {
+    #intro .modal.open{
         max-height: 72%;
     }
 }
