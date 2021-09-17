@@ -48,8 +48,10 @@ $configData = Helper::applClasses();
     @include('panels.footer')
     <div id="user_profile_modal" class="modal">
       <div class="modal-content">
+      <p class="modal-header right modal-close">
+           <span class="right"><i class="material-icons right-align">clear</i></span>
+    </p>
       <h5>Update Profile</h5>
-      <hr>
       <form id="updateProfile" >
       @csrf
       <div class="row margin">
@@ -57,7 +59,7 @@ $configData = Helper::applClasses();
           <i class="material-icons prefix pt-2">person_outline</i>
           <input id="firstname_profile" type="text" class="@error('firstname') is-invalid @enderror" name="firstname" value="{{ auth()->user()->firstname; }}"
              autocomplete="firstname"  >
-          <label for="firstname" class="center-align">Firstname</label>
+          <label for="firstname_profile" class="center-align">Firstname</label>
           @error('firstname')
           <small class="red-text ml-7" role="alert">
             {{ $message }}
@@ -68,7 +70,7 @@ $configData = Helper::applClasses();
           <i class="material-icons prefix pt-2">person_outline</i>
           <input id="lastname_profile" type="text" class="@error('lastname') is-invalid @enderror" name="lastname" value="{{ auth()->user()->lastname; }}"
              autocomplete="lastname" >
-          <label for="lastname" class="center-align">Lastname</label>
+          <label for="lastname_profile" class="center-align">Lastname</label>
           @error('lastname')
           <small class="red-text ml-7" role="alert">
             {{ $message }}
@@ -94,7 +96,7 @@ $configData = Helper::applClasses();
           <i class="material-icons prefix pt-2">mail_outline</i>
           <input id="email_profile" type="email" class="@error('email') is-invalid @enderror" name="email"
             value="{{ auth()->user()->email; }}" disabled autocomplete="email">
-          <label for="email">Email</label>
+          <label for="email_profile">Email</label>
           @error('email')
           <small class="red-text ml-7" role="alert">
             {{ $message }}
@@ -108,7 +110,7 @@ $configData = Helper::applClasses();
           <i class="material-icons prefix pt-2">lock_outline</i>
           <input id="password_profile" type="password" class="@error('password') is-invalid @enderror" name="password"
             autocomplete="new-password">
-          <label for="password">Password</label>
+          <label for="password_profile">Password</label>
           @error('password')
           <small class="red-text ml-7" role="alert">
             {{ $message }}
@@ -119,7 +121,7 @@ $configData = Helper::applClasses();
           <i class="material-icons prefix pt-2">lock_outline</i>
           <input id="password-confirm_profile" type="password" name="password_confirmation"
             autocomplete="new-password">
-          <label for="password-confirm">Confirm Password</label>
+          <label for="password-confirm_profile">Confirm Password</label>
         </div>
       </div>
       <div class="row margin">
