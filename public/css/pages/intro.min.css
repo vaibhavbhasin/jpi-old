@@ -142,18 +142,24 @@
         max-height: 60%;
     }
 }
-@media (min-width: 1024px) and (max-width: 1500px) {
+@media (min-width: 1420px) and (max-width: 1500px) {
     #intro .modal.open {
         max-height: 65%;
     }
 }
-@media (min-width: 1024px) and (max-width: 1439px) {
+@media (min-width: 1420px) and (max-width: 1439px) {
     #intro .modal.open {
         width: 45% !important;
     }
 
     #intro .modal.open .modal-content .carousel .slide-3 .get-started {
         margin-top: -5px !important
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1419px) {
+    #intro .modal.open {
+        max-height: 72%;
     }
 }
 
