@@ -46,7 +46,6 @@ class EmployeeLoginController extends Controller
     public function showLoginForm()
     {
         $pageConfigs = ['bodyCustomClass' => 'login-bg', 'isCustomizer' => false];
-
         return view('/auth/employeelogin', [
             'pageConfigs' => $pageConfigs
         ]);

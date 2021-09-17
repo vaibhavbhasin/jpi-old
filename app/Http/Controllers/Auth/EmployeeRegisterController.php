@@ -54,13 +54,6 @@ class EmployeeRegisterController extends Controller
         return Validator::make($data, [
             'firstname' => ['required', 'alpha', 'max:255'],
             'lastname' => ['required', 'alpha', 'max:255'],
-            // 'address1' => ['required', 'string', 'max:255'],
-            // 'address2' => ['required', 'string', 'max:255'],
-            // 'city' => ['required', 'string', 'max:255'],
-            // 'state' => ['required', 'string', 'max:255'],
-            // 'zip' => ['required', 'integer'],
-            // 'bank_account' => ['required', 'integer'],
-            // 'bankname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'regex:/(.*)@(jpi)\.com/i', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -78,20 +71,10 @@ class EmployeeRegisterController extends Controller
             'firstname' => $data['firstname'],
             'lastname' => $data['lastname'],
             'email' => $data['email'],
-            // 'address1' => $data['address1'],
-            // 'address2' => $data['address2'],
-            // 'city' => $data['city'],
-            // 'state' => $data['state'],
-            // 'zip' => $data['zip'],
-            // 'bank_account' => $data['bank_account'],
-            // 'bankname' => $data['bankname'],
             'password' => Hash::make($data['password']),
         ]);
-
         $user->assignRole('employee');
         Auth::login($user);
-        //return redirect()->route('employee.dashboard');
-
         return $user;
     }
 
@@ -99,7 +82,6 @@ class EmployeeRegisterController extends Controller
     public function showRegistrationForm()
     {
         $pageConfigs = ['bodyCustomClass' => 'register-bg', 'isCustomizer' => false];
-
         return view('/auth/employeeregister', [
             'pageConfigs' => $pageConfigs
         ]);

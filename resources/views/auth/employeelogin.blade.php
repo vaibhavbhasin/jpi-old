@@ -63,7 +63,7 @@
                 <div class="row">
                     <div class="input-field col s12 mt--6">
                         <p class="margin center-align medium-small">
-                            <a href="{{ route('admin.password.request') }}" class="login-btn forgot-pasw-text">
+                            <a href="{{ route('password.request') }}" class="login-btn forgot-pasw-text">
                                 Forgot password?
                             </a>
                         </p>
