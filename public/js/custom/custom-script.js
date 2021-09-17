@@ -91,6 +91,33 @@ $(document).ready(function () {
 
     }
 
+	
+	$(document).on('focusin', '#updateProfile #lastname_profile', function () {
+        email_check();
+        $("#lastname_profile").removeClass('register_input_red');
+    });
+	
+	$(document).on('focusin', '#updateProfile #firstname_profile', function () {
+        email_check();
+        $("#firstname_profile").removeClass('register_input_red');
+    });
+	
+	$(document).on('focusin', '#updateProfile #password_profile', function () {
+        email_check();
+        $("#password_profile").removeClass('register_input_red');
+    });
+	
+	$(document).on('focusin', '#updateProfile #password-confirm_profile', function () {
+        email_check();
+        $("#password-confirm_profile").removeClass('register_input_red');
+    });
+	
+	$(document).on('focusin', '#updateProfile #phone_number_profile', function () {
+        email_check();
+        $("#phone_number_profile").removeClass('register_input_red');
+    });
+	
+	
 
     $(document).on('focusout', '#updateProfile #lastname_profile', function () {
         lastname_profile_check();
@@ -645,15 +672,51 @@ $(document).ready(function () {
         $(".emailaddress-hint").removeClass('br-bt-red');
         $(".emailaddress-hint").removeClass('br-bt');
     });
+	
+	
     $(document).on('focusout', '#registerform .emailaddress-hint', function () {
         $(".emailaddress-hint").removeClass('br-bt-red');
         $(".emailaddress-hint").removeClass('br-bt');
     });
+	
+	
     $(document).on('focusout', '#registerform #email', function () {
         email_check();
         $(".emailaddress-hint").removeClass('br-bt-red');
         $(".emailaddress-hint").removeClass('br-bt');
     });
+	
+	$(document).on('focusin', '#registerform #email', function () {
+        email_check();
+        $("#email").removeClass('register_input_red');
+        $(".emailaddress-hint").removeClass('register_input_red');
+    });
+	
+	$(document).on('focusin', '#registerform #lastname', function () {
+        email_check();
+        $("#lastname").removeClass('register_input_red');
+    });
+	
+	$(document).on('focusin', '#registerform #firstname', function () {
+        email_check();
+        $("#firstname").removeClass('register_input_red');
+    });
+	
+	$(document).on('focusin', '#registerform #password', function () {
+        email_check();
+        $("#password").removeClass('register_input_red');
+    });
+	
+	$(document).on('focusin', '#registerform #password-confirm', function () {
+        email_check();
+        $("#password-confirm").removeClass('register_input_red');
+    });
+	
+	$(document).on('focusin', '#registerform #phone_number', function () {
+        email_check();
+        $("#phone_number").removeClass('register_input_red');
+    });
+	
     $(document).on('focusout', '#registerform #lastname', function () {
         lastname_check();
     });
@@ -1058,23 +1121,24 @@ $('#img-modal #zip-pop').keyup(function () {
 
 $(function () {
     $("#register-page input#email").on("focusin", function (e) {
-        if ($("#register-page input#email").hasClass('register_input_red')) {
-            $("#register-page .emailaddress-hint").addClass('br-bt-red');
-        } else {
-            $("#register-page .emailaddress-hint").addClass('br-bt');
-        }
+		
+        $("#email").removeClass('register_input_red');
+		$("#register-page .emailaddress-hint").addClass('br-bt');
+            $("#register-page .emailaddress-hint").removeClass("br-bt-red");
+		$("#register-page .emailaddress-hint").removeClass("register_input_red");
         e.stopPropagation()
     });
     $("#register-page input#email").on("click", function (e) {
-        if ($("#register-page input#email").hasClass('register_input_red')) {
-            $("#register-page .emailaddress-hint").addClass('br-bt-red');
-        } else {
-            $("#register-page .emailaddress-hint").addClass('br-bt');
-        }
+        
+        $("#email").removeClass('register_input_red');
+		$("#register-page .emailaddress-hint").addClass('br-bt');
+		$("#register-page .emailaddress-hint").removeClass("br-bt-red");
+		$("#register-page .emailaddress-hint").removeClass("register_input_red");
         e.stopPropagation()
     });
     $(document).on("click", function (e) {
         if ($(e.target).is("#register-page .emailaddress-hint") === false) {
+			
             $("#register-page .emailaddress-hint").removeClass("br-bt");
             $("#register-page .emailaddress-hint").removeClass("br-bt-red");
         }
