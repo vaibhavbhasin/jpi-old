@@ -314,6 +314,15 @@ $(document).ready(function () {
         } else {
             $("#lastname").removeClass('register_input_red');
         }
+		
+		
+		if (!validOnlyAlpha(lastname)) {
+            $("#lastname").addClass('register_input_red');
+            toastr.error("The lastname may only contain letters.");
+            return false;
+        } else {
+            $("#lastname").removeClass('register_input_red');
+        }
     }
 
 
@@ -327,6 +336,15 @@ $(document).ready(function () {
         } else {
             $("#firstname").removeClass('register_input_red');
         }
+		
+		if (!validOnlyAlpha(firstname)) {
+            $("#firstname").addClass('register_input_red');
+            toastr.error("The firstname may only contain letters.");
+            return false;
+        } else {
+            $("#firstname").removeClass('register_input_red');
+        }
+		
     }
 
     function password_check() {
