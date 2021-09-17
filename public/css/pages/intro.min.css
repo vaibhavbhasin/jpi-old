@@ -5,32 +5,26 @@
     /* 	color: #fff!important;*/
     background-color: transparent;
 }
-
 #intro .modal.open {
     height: 100%;
     max-height: 55%
 }
-
 .apj-blue-text {
     color: #005dab;
 }
-
 .apj-black-text {
     color: #0f0f0f;
 }
-
 #intro .modal.open .modal-content {
     overflow: hidden;
     height: 100%
 }
-
 #intro .modal .modal-close span i.material-icons {
     font-size: 18px;
     position: relative;
     top: -26px;
     margin-right: -12px;
 }
-
 #jpiAddFundingSourceModal .modal-close span i.material-icons {
     font-size: 18px;
     position: relative;
@@ -40,145 +34,123 @@
 #iavContainerAddFirstFundingSource{
     margin-top: -50px;
 }
-
 #intro .modal .modal-content .carousel.carousel-slider {
     height: 100% !important
 }
-
 #select2-container .select2-results__option {
     padding: 0.4rem 0.8rem !important;
 }
-
 #intro .modal .modal-content .carousel.carousel-slider .carousel-fixed-item .middle-indicator-text {
     position: absolute
 }
-
 #intro .modal .modal-content .carousel.carousel-slider .carousel-fixed-item .middle-indicator-text.moveNextCarousel {
     top: -5px;
     right: 0;
     border-radius: 6px;
     padding: 0 1.7rem 0 2rem;
 }
-
 #intro .modal .modal-content .carousel.carousel-slider .carousel-fixed-item .middle-indicator-text.moveNextCarousel:hover {
     background: #005dab;
     color: #ffffff;
 }
-
 #intro .modal .modal-content .carousel.carousel-slider .carousel-fixed-item .middle-indicator-text.movePrevCarousel {
     top: -5px;
     left: 0;
     border-radius: 6px;
     padding: 0 2rem 0 1.7rem;
 }
-
 #intro .modal .modal-content .carousel.carousel-slider .carousel-fixed-item .middle-indicator-text.movePrevCarousel:hover {
     background: #0f0f0f;
     color: #ffffff;
 }
-
 #intro .modal .modal-content .carousel.carousel-slider .carousel-fixed-item i.material-icons {
     line-height: 1;
     position: relative;
     top: 4px
 }
-
 #intro .modal .modal-content .carousel.carousel-slider .carousel-item .slide-1-img,
 #intro .modal .modal-content .carousel.carousel-slider .carousel-item .slide3-img {
     width: 200px
 }
-
 #intro .modal .modal-content .carousel.carousel-slider .carousel-item .slide-2-img {
     width: 160px
 }
-
 #intro .modal .modal-content .carousel.carousel-slider .carousel-item .intro-step-title {
     color: #0f0f0f;
     font-weight: bold;
 }
-
 #intro .modal .modal-content .carousel.carousel-slider .carousel-item.slide-2 .select-wrapper input.select-dropdown {
     text-overflow: ellipsis
 }
-
 #intro .modal .modal-content .carousel.carousel-slider .carousel-item.slide-3 ul.feature-list li i.material-icons {
     position: relative;
     top: 7px;
     color: #8e24aa
 }
-
 #intro .modal .modal-content .carousel.carousel-slider .carousel-item.slide-3 .get-started {
     border-radius: 30px
 }
-
 #intro .modal .modal-content .carousel.carousel-slider ul.indicators {
     bottom: 20px
 }
-
 #intro .modal .modal-content .carousel.carousel-slider ul.indicators .indicator-item {
     background-color: #9e9e9e
 }
-
 #intro .modal .modal-content .carousel.carousel-slider ul.indicators .indicator-item.active {
     background-color: #005dab;
 }
-
 #intro .modal .modal-content .carousel.carousel-slider ul.indicators .indicator-item.done {
     background-color: #0f0f0f;
 }
-
 #intro ul.indicators li:nth-child(4) {
     display: none;
 }
-
 @media (min-width: 992px) {
     #intro .modal {
         width: 40%;
     }
 }
-
 @media (min-width: 1501px) and (max-width: 1600px) {
     #intro .modal.open {
         max-height: 60%;
     }
 }
-@media (min-width: 1024px) and (max-width: 1500px) {
+@media (min-width: 1420px) and (max-width: 1500px) {
     #intro .modal.open {
         max-height: 65%;
     }
 }
-@media (min-width: 1024px) and (max-width: 1439px) {
+@media (min-width: 1420px) and (max-width: 1439px) {
     #intro .modal.open {
         width: 45% !important;
     }
-
     #intro .modal.open .modal-content .carousel .slide-3 .get-started {
         margin-top: -5px !important
     }
 }
-
+@media (min-width: 1024px) and (max-width: 1419px) {
+    #intro .modal.open{
+        max-height: 72%;
+    }
+}
 @media (max-width: 768px) {
     #intro .modal.open {
         height: 60%
     }
 }
-
 @media (max-width: 540px) {
     #intro .modal {
         width: 80%;
         height: 100% !important;
         max-height: 70%
     }
-
     #intro .modal .modal-content .carousel.carousel-slider .carousel-item .intro-step-title {
         font-size: 1.25rem !important
     }
-
     #intro .modal .modal-content .carousel.carousel-slider .carousel-item.slide-3 ul.feature-list {
         margin: 0
     }
 }
-
 @media (width: 375px) and (height: 667px) {
     #intro .modal .modal-content .carousel.carousel-slider .carousel-item img.responsive-img {
         width: 100px
