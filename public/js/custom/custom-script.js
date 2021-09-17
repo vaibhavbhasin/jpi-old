@@ -66,36 +66,7 @@ $(document).ready(function () {
             toastr.error("Enter Lastname.");
             return false;
         }
-        // var address1= $.trim($("#address1_profile").val());
-        // $("#address1_profile").val(address1);
-        // if(!address1){
-        // 	toastr.error("Enter Address 1.");
-        // 	return false;
-        // }
-        // var address2= $.trim($("#address2_profile").val());
-        // $("#address2_profile").val(address2);
-        // if(!address2){
-        // 	toastr.error("Enter Address 2.");
-        // 	return false;
-        // }
-        // var city= $.trim($("#city_profile").val());
-        // $("#city_profile").val(city);
-        // if(!city){
-        // 	toastr.error("Enter City.");
-        // 	return false;
-        // }
-        // var state= $.trim($("#state_profile").val());
-        // $("#state_profile").val(state);
-        // if(!state){
-        // 	toastr.error("Enter State.");
-        // 	return false;
-        // }
-        // var zip= $.trim($("#zip_profile").val());
-        // $("#zip_profile").val(zip);
-        // if(!zip){
-        // 	toastr.error("Enter Zip.");
-        // 	return false;
-        // }
+       
         var password_confirm = "";
         let password = $.trim($("#password_profile").val());
         if (password) {
@@ -424,21 +395,21 @@ $(document).ready(function () {
     $(document).on('focusout', '#registerform #email', function () {
         email_check();
     });
-    $(document).on('focusout', '#lastname', function () {
+    $(document).on('focusout', '#registerform #lastname', function () {
         lastname_check();
     });
-    $(document).on('focusout', '#firstname', function () {
+    $(document).on('focusout', '#registerform #firstname', function () {
         firstname_check();
     });
-    $(document).on('focusout', '#password', function () {
+    $(document).on('focusout', '#registerform #password', function () {
         password_check();
     });
-    $(document).on('focusout', '#password-confirm', function () {
+    $(document).on('focusout', '#registerform #password-confirm', function () {
         confirmpassword_check();
     });
 
 
-    $(document).on('keyup', '#password', function () {
+    $(document).on('keyup', '#registerform #password', function () {
         let password = $.trim($("#password").val());
         $("#password").val(password);
 
