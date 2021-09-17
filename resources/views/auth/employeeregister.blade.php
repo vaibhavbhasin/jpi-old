@@ -61,9 +61,9 @@
                 <input id="email_save" type="hidden" name="email" value="{{ old('email') }}">
                 <input id="email" type="text" class="@error('email') is-invalid @enderror" value="{{ old('email') }}"
                        autocomplete="email">
-                <button type="button" class="button button-secondary emailaddress-hint">
+                <span class="button button-secondary emailaddress-hint">
                     @jpi.com
-                </button>
+                </span>
                 <label for="email">Email</label>
                 @error('email')
                 <small class="red-text ml-7" role="alert">

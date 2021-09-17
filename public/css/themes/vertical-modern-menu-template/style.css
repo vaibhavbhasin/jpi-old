@@ -2,9 +2,14 @@
 /*-------------------------------------------------
 	Style file contain theme components style
 -------------------------------------------------*/
-
+.br-bt-red{
+	 box-shadow: 0 1px 0 0 red !important;
+}
 .register_input_red{
 	border-bottom: 1px solid red !important;
+}
+.register_input_red:focus{
+	    box-shadow: 0 1px 0 0 red !important;
 }
 .register_input_green{
 	border-bottom: 1px solid #2ED47A !important;
