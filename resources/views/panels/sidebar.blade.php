@@ -54,9 +54,9 @@
           }
         @endphp
         @if((\Auth::user()->hasRole($menu->role)) OR $menu->role == '')
-          <li class="menu-link-li bold {{(request()->is($menu->url.'*')) ? 'active' : '' }}">
+          <li class="menu-link-li bold @if(isset($menu->href_type) && $menu->href_type=='route') {{ \Route::current()->getName() == $menu->url ? 'active' : '' }} @else {{(request()->is($menu->url.'*')) ? 'active' : '' }} @endif">
             {{-- <a class="{{$custom_classes}} {{ (request()->is($menu->url.'*')) ? 'active '.$configData['activeMenuColor'] : ''}}" --}}
-            <a class="{{$custom_classes}} {{ (request()->is($menu->url)) ? 'active '.$configData['activeMenuColor'] : ''}}"
+            <a class="{{$custom_classes}} @if(isset($menu->href_type) && $menu->href_type=='route') {{ \Route::current()->getName() == $menu->url ? 'active '.$configData['activeMenuColor'] : '' }} @else {{(request()->is($menu->url.'*')) ? 'active '.$configData['activeMenuColor'] : '' }} @endif"
               @if(!empty($configData['activeMenuColor'])) {{'style=background:none;box-shadow:none;'}} @endif
               href="@if(($menu->url)==='javascript:void(0)'){{$menu->url}} @else @if(isset($menu->href_type) && $menu->href_type=='route') {{route($menu->url)}} @else {{url($menu->url)}} @endif @endif"
               {{isset($menu->newTab) ? 'target="_blank"':''}}>
