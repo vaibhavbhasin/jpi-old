@@ -995,7 +995,7 @@ $(document).ready(function () {
         if (registration_step === '1') {
             $.get("/check-email-unique", {email: email}, function (res) {
                 if (res.status) {
-                    $("#top_heading").text('Please read through the privacy policy in order to complete registration');
+                    $("#top_heading").text('Please accept the privacy policy in order to complete registration');
                     $("#registration_step").val('2');
                     $("#register_user_next").hide();
                     $("#register_user").show();

@@ -911,7 +911,7 @@
                         <p>
                             <label>
                                 <input type="checkbox" id="term_checkbox" />
-                                <span>By clicking submit you agree to our Privacy Policy and Terms and Conditions.</span>
+                                <span>I accept the privacy policy.</span>
                             </label>
                         </p>
                     </div>
