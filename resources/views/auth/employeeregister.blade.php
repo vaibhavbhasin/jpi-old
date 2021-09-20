@@ -52,10 +52,6 @@
                     </div>
                 </div>
                 <div class="row margin employee_details_row">
-                    <div class="col s12">
-                    </div>
-                </div>
-                <div class="row margin employee_details_row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix pt-2">phone_outline</i>
                         <input id="phone_number" type="text" class="@error('phone_number') is-invalid @enderror"
@@ -910,17 +906,19 @@
                                 are
                                 repeat infringers.</p>
                         </div>
-                    </div>
-                </div>
-                <div class="row" id="terms_condition" style="display:none">
-                    <div class="input-field col s12">
+                   
+						 <div class="input-field col s12">
                         <p>
                             <label>
-                                <input type="checkbox" id="term_checkbox" checked/>
-                                <span>By clicking submit you agree to our Privacy Policy and Terms and Conditions.</span>
+                                <input type="checkbox" id="term_checkbox" />
+                                <span>I accept the privacy policy.</span>
                             </label>
                         </p>
                     </div>
+				   </div>
+                </div>
+                <div class="row" id="terms_condition" >
+                   
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
