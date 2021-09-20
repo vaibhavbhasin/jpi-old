@@ -13,7 +13,7 @@
 @section('content')
     <div class="login-pattern"></div>
     <div id="forgot-password" class="row">
-        <div class="col s12 m6 l4 z-depth-4 offset-m4 card-panel border-radius-6 forgot-card bg-opacity-8">
+        <div class="col s12 m6 l4 z-depth-4 offset-m4 card-panel border-radius-6 forgot-card bg-opacity-1">
             {{-- success status --}}
             @if (session('status'))
                 <div class="card-alert card green lighten-5">

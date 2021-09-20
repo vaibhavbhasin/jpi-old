@@ -401,6 +401,9 @@ img.loader-btn{
     width: 40px;
     vertical-align: middle;
 }
+.resetpwd-form{
+    padding-bottom: 10px;
+}
 @media only screen and (max-width: 1398px) {
 .md-width-adj{
     width: 100% !important;
