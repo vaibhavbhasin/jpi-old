@@ -43,8 +43,8 @@
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
         },
-        "files": [
-            "app/Helpers/helpers.php"
+        "classmap": [
+            "app/Helpers"
         ]
     },
     "autoload-dev": {
