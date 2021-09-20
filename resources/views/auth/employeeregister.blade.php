@@ -906,17 +906,19 @@
                                 are
                                 repeat infringers.</p>
                         </div>
-                    </div>
-                </div>
-                <div class="row" id="terms_condition" style="display:none">
-                    <div class="input-field col s12">
+                   
+						 <div class="input-field col s12">
                         <p>
                             <label>
-                                <input type="checkbox" id="term_checkbox" checked/>
+                                <input type="checkbox" id="term_checkbox" />
                                 <span>By clicking submit you agree to our Privacy Policy and Terms and Conditions.</span>
                             </label>
                         </p>
                     </div>
+				   </div>
+                </div>
+                <div class="row" id="terms_condition" >
+                   
                 </div>
                 <div class="row">
                     <div class="input-field col s12">

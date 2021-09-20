@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\{ConfirmPasswordController,
     EmployeeLoginController,
     EmployeeRegisterController,
     ForgotPasswordController,
+    ResetPasswordController,
     LoginController,
     RegisterController,
     VerificationController
@@ -50,8 +51,8 @@ Route::prefix('reimbursement')->group(function () {
 
     Route::get('password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
     Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
-    Route::get('password/reset/{token}', [ForgotPasswordController::class, 'showResetForm'])->name('password.reset');
-    Route::post('password/reset', [ForgotPasswordController::class, 'reset'])->name('password.update');
+    Route::get('password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+    Route::post('password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');
     Route::get('password/confirm', [ConfirmPasswordController::class, 'showConfirmForm'])->name('password.confirm');
     Route::post('password/confirm', [ConfirmPasswordController::class, 'confirm'])->name('password.confirm.submit');
     Route::get('email/verify', [VerificationController::class, 'show'])->name('verification.notice');
