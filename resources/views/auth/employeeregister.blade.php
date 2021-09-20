@@ -52,10 +52,6 @@
                     </div>
                 </div>
                 <div class="row margin employee_details_row">
-                    <div class="col s12">
-                    </div>
-                </div>
-                <div class="row margin employee_details_row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix pt-2">phone_outline</i>
                         <input id="phone_number" type="text" class="@error('phone_number') is-invalid @enderror"
