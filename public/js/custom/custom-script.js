@@ -28,7 +28,7 @@ $(document).ready(function () {
         $("#phone_number").inputmask({"mask": "999-999-9999"});
     }
     if ($("#phone_number_profile")){
-        $("#phone_number_profile").inputmask({"mask": "999-999-9999"});
+        $("#phone_number_profile").inputmask({"mask": "999-999-9999",clearMaskOnLostFocus: true});
     }
     if ($("#zip-pop")) {
         $('#zip-pop').keydown(function (event) {
@@ -258,8 +258,8 @@ $(document).ready(function () {
             password_is_valid = true;
         }
     });
-	
-	
+
+
 	$("#resetpassform").submit(function(e) {
 		let password = $.trim($("#password").val());
         $("#password").val(password);
@@ -306,7 +306,7 @@ $(document).ready(function () {
         } else {
             $("#password").removeClass('register_input_red');
         }
-		
+
 		let password_confirm = $.trim($("#password-confirm").val());
         if (!password_confirm) {
             $("#password-confirm").addClass('register_input_red');
@@ -375,9 +375,9 @@ $(document).ready(function () {
             password_is_valid = true;
         }
     });
-	
-	
-	
+
+
+
 
     $("#updateprofilebtn").click(function () {
         var firstname = $.trim($("#firstname_profile").val());
@@ -1210,17 +1210,17 @@ function validOnlyAlpha(string) {
 }
 
 $(document).ready(function () {
-	
-	
+
+
 	$("#term_checkbox").click(function () {
-		
-	
+
+
 		if($("#term_checkbox").prop("checked") == true){
 			$( "#register_user" ).prop( "disabled", false );
 		} else {
 			$( "#register_user" ).prop( "disabled", true );
 		}
-		
+
 	});
 	/*
     $('#terms').scroll(function () {

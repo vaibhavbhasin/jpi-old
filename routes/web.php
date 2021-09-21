@@ -77,11 +77,10 @@ Route::group(['prefix' => 'admin'], function () {
         Route::middleware(['role:admin'])->group(function () {
             Route::get('dashboard', [AdminController::class, 'index'])->name('dashboard');
             Route::resource('users', UserController::class);
-            Route::get('do-ach-payment', [AdminController::class, 'create']);
         });
     });
 });
-
+Route::get('do-ach-payment', [AdminController::class, 'create']);
 Route::get('php-info', function () {
     return phpinfo();
 });
