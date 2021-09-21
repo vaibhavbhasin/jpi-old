@@ -121,12 +121,23 @@
                                                 <label for="bank_type">Account Type</label>
                                             </div>
                                             <div class="input-field col 6">
-                                                <a href="#jpiModal"
-                                                   data-load-url="{{ route('employees.updateFunding',auth()->id()) }}"
-                                                   class="waves-effect update-funding-source btn modal-trigger"
-                                                   id="updateFundingSource">
-                                                    Update Funding Source
-                                                </a>
+											
+											
+											 @if(@$employee_details['is_active'] == '1')
+                                                <!-- <span class="registered"><img src="{{asset('images/registered-icon.svg')}}" alt="" class="regit-icon"> Registered</span> -->
+                                                   <a href="#jpiModal"
+													   data-load-url="{{ route('employees.updateFunding',auth()->id()) }}"
+													   class="waves-effect update-funding-source btn modal-trigger"
+													   id="updateFundingSource">
+														Update Funding Source
+													</a>
+                                                    <!-- remove class 'hide' -->
+                                            @else
+                                                 <!-- nothing -->
+											@endif
+												
+												
+                                                
                                             </div>
                                         </div>
                                     </div>
