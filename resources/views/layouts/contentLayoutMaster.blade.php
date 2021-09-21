@@ -78,11 +78,9 @@ $configData = Helper::applClasses();
           @enderror
         </div>
       </div>
-
-
       <div class="row margin">
           <div class="input-field col s6">
-              <i class="material-icons prefix pt-2">phone_outline</i>
+              <i class="material-icons prefix pt-2">local_phone</i>
               <input id="phone_number_profile" type="text" class="@error('phone_number') is-invalid @enderror"
                      value="{{ old('phone_number',auth()->user()->phone_number) }}" autocomplete="phone_number" name="phone_number">
               <label for="phone_number_profile">Phone Number</label>

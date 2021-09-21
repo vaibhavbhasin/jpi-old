@@ -53,10 +53,10 @@
                 </div>
                 <div class="row margin employee_details_row">
                     <div class="input-field col s12">
-                        <i class="material-icons prefix pt-2">phone_outline</i>
+                        <i class="material-icons prefix pt-2">local_phone</i>
                         <input id="phone_number" type="text" class="@error('phone_number') is-invalid @enderror"
                                value="{{ old('phone_number') }}" autocomplete="phone_number" name="phone_number">
-                        <label for="phone_number">Phone Number</label>
+                        <label for="phone_number" class="center-align">Phone Number</label>
                         @error('phone_number')
                         <small class="red-text ml-7" role="alert">
                             {{ $message }}
@@ -906,7 +906,7 @@
                                 are
                                 repeat infringers.</p>
                         </div>
-                   
+
 						 <div class="input-field col s12">
                         <p>
                             <label>
@@ -918,7 +918,7 @@
 				   </div>
                 </div>
                 <div class="row" id="terms_condition" >
-                   
+
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
