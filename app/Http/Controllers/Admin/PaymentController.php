@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\DwollaTransactionHistory;
 use App\Models\User;
-use Carbon\Carbon;
+//use Carbon\Carbon;
 use Illuminate\Http\Request;
 class PaymentController extends Controller
 {
@@ -22,8 +22,12 @@ class PaymentController extends Controller
 		
 		$query =DwollaTransactionHistory::with('user');
         if (!empty($request->from_date_filter) && !empty($request->to_date_filter)) {
-            $from = Carbon::make($request->from_date_filter)->format('Y-m-d');
-            $to = Carbon::make($request->to_date_filter)->format('Y-m-d');
+			
+            //$from = Carbon::make($request->from_date_filter)->format('Y-m-d');
+           // $to = Carbon::make($request->to_date_filter)->format('Y-m-d');
+			
+			$from = date('Y-m-d',strtotime($request->from_date_filter));
+			$to = date('Y-m-d',strtotime($request->to_date_filter));
             $query->whereBetween('created_at', [$from, $to])->get();
         }
         $this->page_data['payments'] = $query->latest()->paginate(config('jpi.per_page'));

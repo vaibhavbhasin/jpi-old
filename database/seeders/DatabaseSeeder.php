@@ -22,14 +22,16 @@ class DatabaseSeeder extends Seeder
             'firstname' => 'Super',
             'lastname' => 'Admin',
             'email' => 'super@jpi.com',
-            'password' => Hash::make('SuperAdmin@#2021!')
+            'password' => Hash::make('SuperAdmin@#2021!'),
+            'is_active'=>true
         ]);
         $admin->assignRole('admin');
         $employee = User::create([
             'firstname' => 'Test',
             'lastname' => 'Employee',
             'email' => 'testemp@jpi.com',
-            'password' => Hash::make('TestEmp@#2021!')
+            'password' => Hash::make('TestEmp@#2021!'),
+            'is_active'=>true
         ]);
         $employee->assignRole('employee');
     }
