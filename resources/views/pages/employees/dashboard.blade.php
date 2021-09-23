@@ -133,7 +133,10 @@
 													</a>
                                                     <!-- remove class 'hide' -->
                                             @else
-                                                 <!-- nothing -->
+                                                  <button disabled
+													   class="waves-effect update-funding-source btn modal-trigger">
+														Update Funding Source
+													</button>
 											@endif
 												
 												

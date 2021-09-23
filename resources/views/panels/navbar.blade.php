@@ -116,18 +116,12 @@
             <!-- profile-dropdown-->
             <ul class="dropdown-content" id="profile-dropdown">
 			
-			 @if(auth()->user()->is_active == '1')
-				<!-- <span class="registered"><img src="{{asset('images/registered-icon.svg')}}" alt="" class="regit-icon"> Registered</span> -->
-				 <li>
-                    <a class="grey-text text-darken-1  modal-trigger" href="#user_profile_modal">
-                        <i class="material-icons">person_outline</i>
-                        Profile
-                    </a>
-                </li>
-					<!-- remove class 'hide' -->
-			@else
-				 <!-- nothing -->
-			@endif
+			 <li>
+				<a class="grey-text text-darken-1  modal-trigger" href="#user_profile_modal">
+				<i class="material-icons">person_outline</i>
+				Profile
+				</a>
+			</li>
 			
 			
                 

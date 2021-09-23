@@ -142,7 +142,15 @@ $configData = Helper::applClasses();
       <div class="row">
         <div class="input-field col s12">
           <div class='text-center'>
-			<button type="button" class="defaultbtn" id='updateprofilebtn' data-url="{{route('employees.update',['employee'=> Auth::user()->id])}}">Update</button>
+		  
+		  	 @if(auth()->user()->is_active == '1')
+				<!-- <span class="registered"><img src="{{asset('images/registered-icon.svg')}}" alt="" class="regit-icon"> Registered</span> -->
+				<button type="button" class="defaultbtn" id='updateprofilebtn' data-url="{{route('employees.update',['employee'=> Auth::user()->id])}}">Update</button>
+					<!-- remove class 'hide' -->
+			@else
+				 <button  disabled type="button" class="defaultbtn">Update</button>
+			@endif
+			
 		  </div>
         </div>
       </div>
