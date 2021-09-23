@@ -1,4 +1,10 @@
 $(function () {
+	
+	$('.datepicker').datepicker({
+	format:'mm-dd-yyyy'
+	});
+  
+  
     $(document).on('change', '#check_all', function () {
         if (this.checked) {
             $('input:checkbox.check').prop('checked', true);

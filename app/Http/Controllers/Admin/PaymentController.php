@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\DwollaTransactionHistory;
 use App\Models\User;
-
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 class PaymentController extends Controller
 {
     private $page_data;
@@ -16,10 +17,17 @@ class PaymentController extends Controller
             'isAdmin' => true,
         ];
     }
-    public function index()
+    public function index(Request $request)
     {
-        $this->page_data['payments'] = DwollaTransactionHistory::with('user')->latest()->paginate(config('jpi.per_page'));
-//        dd($this->page_data['payments']);
+		
+		$query =DwollaTransactionHistory::with('user');
+        if (!empty($request->from_date_filter) && !empty($request->to_date_filter)) {
+            $from = Carbon::make($request->from_date_filter)->format('Y-m-d');
+            $to = Carbon::make($request->to_date_filter)->format('Y-m-d');
+            $query->whereBetween('created_at', [$from, $to])->get();
+        }
+        $this->page_data['payments'] = $query->latest()->paginate(config('jpi.per_page'));
+		
         return view('pages.admin.payments.index', $this->page_data);
     }
 }

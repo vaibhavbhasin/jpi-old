@@ -7,8 +7,7 @@
                 <div class='container'>
                     <div class="section">
                         <div class="jpi-main-heading">
-                            <h2>Welcome {{Auth::user()->firstname}} </h2>
-                            <p>This page contains list of ACH users</p>
+                            
                         </div>
                         <div class="card transaction-settings-section section-data-tables">
                             <div class="card-content">
@@ -32,8 +31,7 @@
                                                            id="table_action_active" data-for="users" data-status="1">Active</a>
                                                         <a href="javascript:void(0)"
                                                            class="waves-effect waves-light btn-small table_action_active_inactive"
-                                                           id="table_action_inactive" data-for="users" data-status="0">In
-                                                            Active</a>
+                                                           id="table_action_inactive" data-for="users" data-status="0">Inactive</a>
                                                     </div>
                                                     <div class="input-field inline col">
                                                         <input id="first_name" type="text" name="first_name" value="{{request('first_name')}}">
@@ -98,14 +96,13 @@
                                                     <td>
                                                         <div class="switch">
                                                             <label>
-                                                                Not Active
                                                                 <input type="checkbox"
                                                                        {{$user->is_active ? 'checked': ''}} class="switch_checkbox_update_status"
                                                                        id="switch_checkbox_update_status_{{$user->id}}"
                                                                        value="{{$user->id}}"
                                                                        data-route="{{route('admin.updateStatus','users')}}">
                                                                 <span class="lever"></span>
-                                                                Active
+                                                                
                                                             </label>
                                                         </div>
                                                     </td>

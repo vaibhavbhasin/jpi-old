@@ -7,8 +7,7 @@
                 <div class='container'>
                     <div class="section">
                         <div class="jpi-main-heading">
-                            <h2>Welcome {{Auth::user()->firstname}} </h2>
-                            <p>This page contains list of ACH Payments</p>
+                           
                         </div>
                         <div class="card transaction-settings-section section-data-tables">
                             <div class="card-content">
@@ -22,6 +21,35 @@
                                 </div>
                                 <!-- Page Length Options -->
                                 <div class="row" id="data-table-starts">
+								
+								
+								<div class="col s12 p0">
+                                        <div class="row no-pad">
+                                            <form class="form-inline" method="GET">
+                                                <div class="col s11 p0">
+                                                    <div class="input-field inline col">
+														<input id="from_date_filter" type="text" name="from_date_filter"  class="datepicker" value="{{request('from_date_filter')}}">
+                                                        <label for="from_date_filter">From Date</label>
+                                                    </div>
+                                                     <div class="input-field inline col">
+														<input id="to_date_filter" type="text" name="to_date_filter"  class="datepicker" value="{{request('to_date_filter')}}">
+                                                        <label for="to_date_filter">To Date</label>
+                                                    </div>
+                                                </div>
+												
+												
+												
+                                                <div class="col display-flex align-items-center show-btn p0">
+                                                    <button type="submit" class="btn btn-block waves-effect waves-light"
+                                                            style="bottom: -26px;">Filter
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+									
+									
+									
                                     <div class="col s12 p0">
                                         <table id="dwolla_transaction_histories_table" class="table-jpi striped responsive-table highlight">
                                             <thead>
@@ -45,8 +73,8 @@
                                                     <td>{{$payment->created_date}}</td>
                                                 </tr>
                                             @empty
-                                                <tr>
-                                                    <td>No Data Found</td>
+                                               <tr>
+                                                    <th colspan="6"><h6 class="center">No Data Found</h6></th>
                                                 </tr>
                                             @endforelse
                                             </tbody>
