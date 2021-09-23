@@ -59,6 +59,6 @@ class Dwolla extends Model
 
     public function getAccountStatusAttribute(): string
     {
-        return $this->is_verified ? 'Verified' : 'No Verified';
+        return $this->is_verified ? 'Verified' : 'Not Verified';
     }
 }

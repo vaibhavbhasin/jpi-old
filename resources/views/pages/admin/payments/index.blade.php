@@ -23,7 +23,7 @@
                                 <!-- Page Length Options -->
                                 <div class="row" id="data-table-starts">
                                     <div class="col s12 p0">
-                                        <table id="data-table-simple" class="striped responsive-table highlight">
+                                        <table id="dwolla_transaction_histories_table" class="table-jpi striped responsive-table highlight">
                                             <thead>
                                             <tr>
                                                 <th>User Name</th>
@@ -51,8 +51,9 @@
                                             @endforelse
                                             </tbody>
                                         </table>
-                                        {!! $payments->links() !!}
                                     </div>
+                                    <div class="col s6"></div>
+                                    <div class="col s6">{!! $payments->appends(request()->all())->render() !!}</div>
                                 </div>
                             </div>
                         </div>

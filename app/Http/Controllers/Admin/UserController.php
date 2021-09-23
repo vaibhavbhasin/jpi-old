@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use EloquentBuilder;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -18,9 +19,17 @@ class UserController extends Controller
         ];
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $this->page_data['users'] = User::with('dwolla')->role('employee')->latest()->paginate(config('jpi.per_page'));
+        $query = EloquentBuilder::to(User::class, $request->only('first_name', 'last_name', 'email', 'status', 'account_status'));
+//        $query->selectRaw('users.*,dwollas.is_verified')->join('dwollas', 'dwollas.user_id', '=', 'users.id','right');
+
+        if (!empty($request->account_status)) {
+            $query->selectRaw('users.*,dwollas.is_verified')->join('dwollas', 'dwollas.user_id', '=', 'users.id');
+        } else {
+            $query->with('dwolla');
+        }
+        $this->page_data['users'] = $query->role('employee')->latest()->paginate(config('jpi.per_page'));
         return view('pages.admin.users', $this->page_data);
     }
 
