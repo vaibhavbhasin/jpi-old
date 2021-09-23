@@ -35,15 +35,19 @@
 														<input id="to_date_filter" type="text" name="to_date_filter"  class="datepicker" value="{{request('to_date_filter')}}">
                                                         <label for="to_date_filter">To Date</label>
                                                     </div>
+													
+													<div class="input-field inline col">
+														 <button type="submit" class="btn btn-block waves-effect waves-light"
+																	style="bottom: -8px;">Filter
+															</button>
+                                                    </div>
+													
+													
                                                 </div>
 												
 												
 												
-                                                <div class="col display-flex align-items-center show-btn p0">
-                                                    <button type="submit" class="btn btn-block waves-effect waves-light"
-                                                            style="bottom: -26px;">Filter
-                                                    </button>
-                                                </div>
+                                               
                                             </form>
                                         </div>
                                     </div>
