@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -32,8 +32,6 @@ class User extends Authenticatable implements MustVerifyEmail
         'state',
         'zip',
         'is_active'
-        // 'bank_account',
-        // 'bankname'
     ];
 
     /**
@@ -52,11 +50,31 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        'email_verified_at' => 'datetime', 'is_active' => 'boolean'
     ];
+
+    public function getFullNameAttribute()
+    {
+        return "{$this->firstname} {$this->lastname}";
+    }
+
+    public function payments(): HasMany
+    {
+        return $this->hasMany(DwollaTransactionHistory::class, 'user_id', 'id');
+    }
+
+    public function getAccountAddedAttribute(): bool
+    {
+        return $this->dwolla()->exists();
+    }
 
     public function dwolla(): hasOne
     {
         return $this->hasOne(Dwolla::class, 'user_id', 'id');
+    }
+
+    public function getAccountVerifiedAttribute(): bool
+    {
+        return $this->dwolla()->exists() ? $this->dwolla->is_verified : false;
     }
 }

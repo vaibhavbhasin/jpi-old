@@ -26,15 +26,22 @@ class DwollaHelpers
         $this->apiSecret = config('services.dwolla.secret');
         $this->apiUrl = config('services.dwolla.env_url');
         $this->apiFundingSourceId = config('services.dwolla.fund_id');
-
     }
 
+    public static function apiUrl()
+    {
+        $self = new static;
+        return $self->apiUrl;
+    }
 
-    public static function apiClient(): ApiClient
+    public static function apiClient($tokenRegenerate = false): ApiClient
     {
         $self = new static;
         Configuration::$username = $self->apiKey;
         Configuration::$password = $self->apiSecret;
+        if ($tokenRegenerate) {
+            self::token();
+        }
         return new ApiClient($self->apiUrl);
     }
 
@@ -75,4 +82,15 @@ class DwollaHelpers
         return false;
     }
 
+    public static function getLastString($string, $separator = '/', $index = 'end')
+    {
+        $string_to_array = explode($separator, $string);
+        if ($index === 'end') {
+            return end($string_to_array);
+        } else {
+            return $string_to_array[$index] ?? false;
+        }
+    }
+
 }
+

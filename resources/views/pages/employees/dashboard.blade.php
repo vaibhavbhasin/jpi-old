@@ -9,7 +9,7 @@
                 <div class='container'>
                     <div class="section">
                         <div class="jpi-main-heading">
-                            <h2>Welcome {{Auth::user()->firstname}} </h2>
+                            <h2>Welcome {{auth()->user()->firstname}} </h2>
                             <p>This system is to help manage your registration and banking info for cellular
                                 reimbursement payments.</p>
                         </div>
@@ -20,14 +20,11 @@
                                         <div class="col s12 m6 l8" id="accsett">
                                             <h4 class="card-title">Account Settings</h4>
                                             <div class="registered-tag">
-                                            @if(@$employee_details['is_active'] == '1')
-                                                <!-- <span class="registered"><img src="{{asset('images/registered-icon.svg')}}" alt="" class="regit-icon"> Registered</span> -->
+                                                @if(auth()->user()->account_verified)
                                                     <button type="button" class="waves-effect apj-edit-btn btn "
                                                             id="regit-icon-new">Complete
                                                     </button>
-                                                    <!-- remove class 'hide' -->
-                                            @else
-                                                <!-- <span class="notregistered"><img src="{{asset('images/not-registered.svg')}}" alt="" class="regit-icon"> No Registered</span> -->
+                                                @else
                                                     <button type="button" class="waves-effect apj-edit-btn btn "
                                                             id="non-regit-icon-new">Incomplete
                                                     </button>
@@ -62,8 +59,6 @@
                                                     <label for="city">City</label>
                                                 </div>
                                                 <div class="input-field col s6">
-                                                    {{--                                                    <input id="state" name="state" type="text" class="validate"--}}
-                                                    {{--                                                           value="{{$employee_details['state'] ?? ''}}" disabled>--}}
                                                     <select id="state-pop-update"
                                                             class="select2 selectstate browser-default" class="validate"
                                                             name="state" disabled>
@@ -121,26 +116,14 @@
                                                 <label for="bank_type">Account Type</label>
                                             </div>
                                             <div class="input-field col 6">
-											
-											
-											 @if(@$employee_details['is_active'] == '1')
-                                                <!-- <span class="registered"><img src="{{asset('images/registered-icon.svg')}}" alt="" class="regit-icon"> Registered</span> -->
-                                                   <a href="#jpiModal"
-													   data-load-url="{{ route('employees.updateFunding',auth()->id()) }}"
-													   class="waves-effect update-funding-source btn modal-trigger"
-													   id="updateFundingSource">
-														Update Funding Source
-													</a>
-                                                    <!-- remove class 'hide' -->
-                                            @else
-                                                  <button disabled
-													   class="waves-effect update-funding-source btn modal-trigger">
-														Update Funding Source
-													</button>
-											@endif
-												
-												
-                                                
+                                                @if(auth()->user()->account_added)
+                                                    <a href="#jpiModal"
+                                                       data-load-url="{{ route('employees.updateFunding',auth()->id()) }}"
+                                                       class="waves-effect update-funding-source btn modal-trigger"
+                                                       id="updateFundingSource">
+                                                        Update Funding Source
+                                                    </a>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -165,7 +148,7 @@
                                             <tr>
                                                 <th>Date</th>
                                                 <th>Amount</th>
-                                                <th>Transcation ID</th>
+                                                <th>Transactions ID</th>
                                                 <th>Status</th>
                                             </tr>
                                             </thead>
@@ -179,33 +162,16 @@
                                                 </tr>
                                             @empty
                                                 <tr>
-                                                    <td colspan="4" style="padding-left: 20px;text-align: center">-- No
-                                                        Data --
-                                                    </td>
+                                                    <td colspan="4" style="padding-left: 20px;text-align: center">-- No Data --</td>
                                                 </tr>
                                             @endforelse
-                                            </tfoot>
+                                            </tbody>
                                         </table>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class='container'>
-        <div class='row'>
-            <div class='col s3'></div>
-            <div class='col s9'>
-                <div class='layout-min-height'>
-                    @if (session('success'))
-                        <div class="alert alert-success">
-                            {{ session('success') }}
-                        </div>
-                    @endif
-                    @yield('content')
                 </div>
             </div>
         </div>
@@ -241,7 +207,7 @@
                             </div>
                             <div class="carousel-item slide-1 active">
                                 <h5 class="intro-step-title mt-7 center animated fadeInUp">
-                                    Welcome {{Auth::user()->firstname}}</h5>
+                                    Welcome {{auth()->user()->firstname}}</h5>
                                 <p class="intro-step-text mt-5 animated fadeInUp">This system is to help manage your
                                     registration and banking info for cellular reimbursement payments. All you need to
                                     do to get started is to add your address and banking information to be fully
@@ -464,7 +430,7 @@
                 },
             });
         });
-        @if($employee_details['is_active']==0)
+        @if(!auth()->user()->account_verified)
         $(window).on("load", function () {
             $(".btn-prev").addClass("hide");
             $(".btn-next").addClass("hide");
@@ -483,14 +449,14 @@
                                 4 == $(".carousel-item.active").index() ? ($(".btn-prev").addClass("hide"), $(".btn-next").addClass("hide"), $(".btn-submit").addClass("hide"), $("ul.indicators li").addClass("hide")) : "";
                             }
                         });
-                        $(document).keydown(function(e) {
-                            if(e.keyCode == 38) { // left nav key pressed
+                        $(document).keydown(function (e) {
+                            if (e.keyCode == 38) { // left nav key pressed
                                 // code to load prev slide
-                            } else if(e.keyCode == 40) { // right nav key pressed
+                            } else if (e.keyCode == 40) { // right nav key pressed
                                 // code to load next slide
                             }
                         });
-                        intro_carousel =true;
+                        intro_carousel = true;
                     }
 
                 }
@@ -592,14 +558,14 @@
                         '_token': "{{csrf_token()}}",
                         '_method': "PUT"
                     },
-					beforeSend:function (){
-						$("#edit_details_save_btn").html('<img src="/images/loading.gif" alt="" class="loader-btn">').prop('disabled',true);
-						$("#edit_details_cancel_btn").hide();
-					},
+                    beforeSend: function () {
+                        $("#edit_details_save_btn").html('<img src="/images/loading.gif" alt="" class="loader-btn">').prop('disabled', true);
+                        $("#edit_details_cancel_btn").hide();
+                    },
                     success: function () {
 
                         toastr.success('Submitted successfully');
-						$("#edit_details_save_btn").html('Save').prop('disabled',false);
+                        $("#edit_details_save_btn").html('Save').prop('disabled', false);
                         $("#edit_details_cancel_btn").click();
                     },
                     error: function () {

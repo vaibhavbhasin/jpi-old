@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\{AdminController, EmployeeController, ProfileController, UserController,};
+use App\Http\Controllers\Admin\{AdminController, AjaxController, PaymentController, UserController};
+use App\Http\Controllers\{EmployeeController, ProfileController, };
 use App\Http\Controllers\Auth\{ConfirmPasswordController,
     EmployeeLoginController,
     EmployeeRegisterController,
@@ -22,8 +23,6 @@ Route::get('/', function () {
 Route::prefix('reimbursement')->group(function () {
 
 
-
-
 //    Route::get('/', [HomeController::class, 'Index']);
     Route::get('test', [TestController::class, 'Index']);
 
@@ -40,10 +39,7 @@ Route::prefix('reimbursement')->group(function () {
         Route::get('dashboard', [EmployeeController::class, 'index'])->middleware(['checkemployee'])->name('dashboard');
         Route::post('profile', [ProfileController::class, 'postUpdateProfile'])->name('profile');
     });
-
-
     //Employee Routes
-
     Route::middleware(['role:employee'])->group(function () {
         Route::resource('employees', EmployeeController::class);
         Route::match(['GET', 'PUT'], 'employee-update-funding-source/{employee}', [EmployeeController::class, 'UpdateFundingSource'])->name('employees.updateFunding');
@@ -77,7 +73,10 @@ Route::group(['prefix' => 'admin'], function () {
         Route::middleware(['role:admin'])->group(function () {
             Route::get('dashboard', [AdminController::class, 'index'])->name('dashboard');
             Route::resource('users', UserController::class);
+            Route::resource('payments', PaymentController::class);
         });
+        Route::post('bulk-active-inactive',[AjaxController::class,'bulkUpdateStatus'])->name('bulk_active_inactive');
+        Route::put('update-status/{table}', [AjaxController::class,'updateStatus'])->name('updateStatus');
     });
 });
 Route::get('do-ach-payment', [AdminController::class, 'create']);
@@ -93,6 +92,9 @@ Route::get('clear-cache', function () {
 });
 Route::get('db-migrate', function () {
     return Artisan::call('migrate');
+});
+Route::get('db-seed', function () {
+    return Artisan::call('db:seed');
 });
 Route::get('db-migrate-fresh', function () {
     return Artisan::call('migrate:fresh');

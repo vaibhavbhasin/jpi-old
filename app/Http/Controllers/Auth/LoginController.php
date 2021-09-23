@@ -51,18 +51,16 @@ class LoginController extends Controller
 
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            // Authentication passed...
             if (\Auth::user()->hasRole('admin')) {
                 return redirect()->route('admin.dashboard');
             } else {
                 Auth::logout();
                 return redirect()->back();
             }
-        }else {
+        } else {
             $errors = new MessageBag(['password' => ['Invalid credentials']]);
             return Redirect::back()->withErrors($errors);
         }
-
     }
 
     // Login
@@ -75,7 +73,8 @@ class LoginController extends Controller
         ]);
     }
 
-    public function logout() {
+    public function logout()
+    {
         Auth::logout();
         return redirect()->route('admin.login');
     }

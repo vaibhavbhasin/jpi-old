@@ -115,16 +115,14 @@
             </ul> -->
             <!-- profile-dropdown-->
             <ul class="dropdown-content" id="profile-dropdown">
-			
-			 <li>
-				<a class="grey-text text-darken-1  modal-trigger" href="#user_profile_modal">
-				<i class="material-icons">person_outline</i>
-				Profile
-				</a>
-			</li>
-			
-			
-                
+                @if(auth()->user()->account_verified)
+                    <li>
+                        <a class="grey-text text-darken-1  modal-trigger" href="#user_profile_modal">
+                            <i class="material-icons">person_outline</i>
+                            Profile
+                        </a>
+                    </li>
+                @endif
                 <li>
                     <a class="grey-text text-darken-1 logoutactive" href="#">
                         <i class="material-icons"><img src="{{asset('images/icon/logout_black_24dp.svg')}}" alt=""></i>

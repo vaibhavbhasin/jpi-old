@@ -31,6 +31,16 @@
           "role": "admin"
       },
       {
+          "href_type": "route",
+          "url": "admin.payments.index",
+          "name": "Payments",
+          "i18n": "Payments",
+          "class": "menulink waves-effect waves-cyan",
+          "icon": "",
+          "slug": "Payments",
+          "role": "admin"
+      },
+      {
           "url": "/",
           "name": "Link 1",
           "i18n": "Link 1",
