@@ -80,8 +80,8 @@
                                                 <th>First Name</th>
                                                 <th>Last Name</th>
                                                 <th>Email</th>
-                                                <th>Status</th>
                                                 <th>Account Status</th>
+                                                <th>Status</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -93,7 +93,10 @@
                                                     <td>{{$user->firstname}}</td>
                                                     <td>{{$user->lastname}}</td>
                                                     <td>{{$user->email}}</td>
-                                                    <td>
+                                                    
+                                                    <td>{{@$user->dwolla ? $user->dwolla->account_status : 'Not Added'}}</td>
+													
+													<td>
                                                         <div class="switch">
                                                             <label>
                                                                 <input type="checkbox"
@@ -106,7 +109,8 @@
                                                             </label>
                                                         </div>
                                                     </td>
-                                                    <td>{{@$user->dwolla ? $user->dwolla->account_status : 'Not Added'}}</td>
+													
+													
                                                 </tr>
                                             @empty
                                                 <tr>
