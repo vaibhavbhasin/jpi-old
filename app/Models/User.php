@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Helpers\DwollaHelpers;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -52,6 +53,18 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime', 'is_active' => 'boolean'
     ];
+
+    protected static function booted()
+    {
+        static::updated(function ($user) {
+            if ($user->wasChanged('is_active')) {
+                if ($user->account_added) {
+                    DwollaHelpers::updateCoustomerActiveInactive($user);
+                }
+            }
+        });
+        parent::boot();
+    }
 
     public function getFullNameAttribute()
     {

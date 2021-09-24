@@ -3,12 +3,12 @@
 namespace App\Models;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class DwollaTransactionHistory extends Model
 {
-    use HasFactory;
+    use SoftDeletes;
 
     protected $table = 'dwolla_transaction_histories';
     protected $fillable = [
@@ -23,6 +23,7 @@ class DwollaTransactionHistory extends Model
         'status',
     ];
     protected $with = ['user'];
+
     public function getCreatedDateAttribute($key)
     {
         return Carbon::parse($this->created_at)->format(config('jpi.date_format'));

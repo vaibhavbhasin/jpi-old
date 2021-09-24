@@ -64,24 +64,17 @@ class EmployeeLoginController extends Controller
             'email' => 'required|email',
             'password' => 'required|string',
         ]);
-
         $credentials = $request->only('email', 'password');
-        if (Auth::attempt($credentials)) {
+        $msg = 'Invalid credentials';
+        if (Auth::attempt($credentials) && Auth::user()->hasRole('employee')) {
             if (!auth()->user()->is_active) {
-                Auth::logout();
-                $errors = new MessageBag(['password' => ['Inactive account']]);
-                return Redirect::back()->withErrors($errors)->withInput()->exceptInput('password');
-            }
-            if (Auth::user()->hasRole('employee')) {
                 return redirect()->route('employee.dashboard');
-            } else {
-                Auth::logout();
-                return redirect()->back();
             }
-        } else {
-            $errors = new MessageBag(['password' => ['Invalid credentials']]);
-            return Redirect::back()->withErrors($errors)->withInput()->exceptInput('password');
+            $msg = 'Inactive account';
         }
+        $errors = new MessageBag(['password' => [$msg]]);
+        Auth::logout();
+        return Redirect::back()->withErrors($errors)->withInput()->exceptInput('password');
     }
 
     public function logout()

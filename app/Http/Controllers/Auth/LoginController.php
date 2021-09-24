@@ -48,19 +48,13 @@ class LoginController extends Controller
             'email' => 'required|email',
             'password' => 'required|string',
         ]);
-
         $credentials = $request->only('email', 'password');
-        if (Auth::attempt($credentials)) {
-            if (\Auth::user()->hasRole('admin')) {
-                return redirect()->route('admin.dashboard');
-            } else {
-                Auth::logout();
-                return redirect()->back();
-            }
-        } else {
-            $errors = new MessageBag(['password' => ['Invalid credentials']]);
-            return Redirect::back()->withErrors($errors);
+        if (Auth::attempt($credentials) && \Auth::user()->hasRole('admin')) {
+            return redirect()->route('admin.dashboard');
         }
+        Auth::logout();
+        $errors = new MessageBag(['password' => ['Invalid credentials']]);
+        return Redirect::back()->withErrors($errors);
     }
 
     // Login

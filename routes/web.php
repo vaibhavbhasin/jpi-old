@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\{AdminController, AjaxController, PaymentController, UserController};
-use App\Http\Controllers\{EmployeeController, ProfileController, };
+use App\Http\Controllers\{DwollaWebhookEventsController, EmployeeController, ProfileController};
 use App\Http\Controllers\Auth\{ConfirmPasswordController,
     EmployeeLoginController,
     EmployeeRegisterController,
@@ -80,6 +80,12 @@ Route::group(['prefix' => 'admin'], function () {
     });
 });
 Route::get('do-ach-payment', [AdminController::class, 'create']);
+Route::match(['GET','POST'],'dwolla-webhooks', [DwollaWebhookEventsController::class,'index'])->name('dwolla.webhooks');
+Route::group(['prefix' => 'dwolla-webhooks'], function () {
+    Route::get('subscribe', [DwollaWebhookEventsController::class,'subscribe']);
+    Route::get('subscribe-retrieve/{id}', [DwollaWebhookEventsController::class,'retrieveSubscribe']);
+});
+
 Route::get('php-info', function () {
     return phpinfo();
 });
