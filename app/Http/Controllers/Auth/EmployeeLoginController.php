@@ -67,7 +67,7 @@ class EmployeeLoginController extends Controller
         $credentials = $request->only('email', 'password');
         $msg = 'Invalid credentials';
         if (Auth::attempt($credentials) && Auth::user()->hasRole('employee')) {
-            if (!auth()->user()->is_active) {
+            if (auth()->user()->is_active) {
                 return redirect()->route('employee.dashboard');
             }
             $msg = 'Inactive account';
