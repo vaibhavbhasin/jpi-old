@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\{AdminController, AjaxController, PaymentController, UserController};
+use App\Http\Controllers\Admin\{AdminController, AjaxController, PaymentController, UserController, PhoneReimbursementController};
 use App\Http\Controllers\{DwollaWebhookEventsController, EmployeeController, ProfileController};
 use App\Http\Controllers\Auth\{ConfirmPasswordController,
     EmployeeLoginController,
@@ -74,6 +74,7 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('dashboard', [AdminController::class, 'index'])->name('dashboard');
             Route::resource('users', UserController::class);
             Route::resource('payments', PaymentController::class);
+            Route::resource('phonereimbursement', PhoneReimbursementController::class);
         });
         Route::post('bulk-active-inactive',[AjaxController::class,'bulkUpdateStatus'])->name('bulk_active_inactive');
         Route::put('update-status/{table}', [AjaxController::class,'updateStatus'])->name('updateStatus');

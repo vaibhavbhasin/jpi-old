@@ -44,6 +44,17 @@ $(function () {
                         table: table,
                         _token: $('meta[name="csrf-token"]').attr('content')
                     },
+					beforeSend: function () {
+						if(status == 1)
+						{
+							$("#table_action_active").html('<img src="/images/loading.gif" alt="" class="loader-btn">').prop('disabled', true);
+						}
+						else
+						{
+							$("#table_action_inactive").html('<img src="/images/loading.gif" alt="" class="loader-btn">').prop('disabled', true);
+						}
+						
+					},
                     success: function () {
                         window.location.reload();
                     }
