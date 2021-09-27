@@ -329,6 +329,9 @@ button[disabled] {
     box-shadow: none;
 }
 */
+#multi-select .paddingadj{
+    padding-left: 10px !important;
+}
 #header-search .header-search-wrapper {
     width: calc(100% - 560px);
     margin: 10px auto 0 270px;

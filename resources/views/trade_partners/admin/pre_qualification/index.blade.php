@@ -71,7 +71,7 @@
                                 <table id="multi-select" class="display">
                                     <thead>
                                         <tr>
-                                            <th>
+                                            <th class="paddingadj">
                                                 <label>
                                                     <input type="checkbox" class="select-all" />
                                                     <span></span>
