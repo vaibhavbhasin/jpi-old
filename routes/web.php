@@ -1,14 +1,20 @@
 <?php
 
-use App\Http\Controllers\Admin\{AdminController, AjaxController, PaymentController, UserController, PhoneReimbursementController};
 use App\Http\Controllers\{DwollaWebhookEventsController, EmployeeController, ProfileController};
+use App\Http\Controllers\Admin\{AdminController,
+    AjaxController,
+    PaymentController,
+    PhoneReimbursementController,
+    PreQualificationController,
+    UserController
+};
 use App\Http\Controllers\Auth\{ConfirmPasswordController,
     EmployeeLoginController,
     EmployeeRegisterController,
     ForgotPasswordController,
-    ResetPasswordController,
     LoginController,
     RegisterController,
+    ResetPasswordController,
     VerificationController
 };
 use App\Http\Controllers\LanguageController;
@@ -76,15 +82,19 @@ Route::group(['prefix' => 'admin'], function () {
             Route::resource('payments', PaymentController::class);
             Route::resource('phonereimbursement', PhoneReimbursementController::class);
         });
-        Route::post('bulk-active-inactive',[AjaxController::class,'bulkUpdateStatus'])->name('bulk_active_inactive');
-        Route::put('update-status/{table}', [AjaxController::class,'updateStatus'])->name('updateStatus');
+        Route::post('bulk-active-inactive', [AjaxController::class, 'bulkUpdateStatus'])->name('bulk_active_inactive');
+        Route::put('update-status/{table}', [AjaxController::class, 'updateStatus'])->name('updateStatus');
     });
 });
+Route::group(['prefix' => 'trade-partner', 'middleware' => 'role:admin'], function () {
+//    Route::resource('prequalifications', PreQualificationController::class)->name('preQualification');
+    Route::get('pre-qualifications', [PreQualificationController::class,'index'])->name('preQualification.index');
+});
 Route::get('do-ach-payment', [AdminController::class, 'create']);
-Route::match(['GET','POST'],'dwolla-webhooks', [DwollaWebhookEventsController::class,'index'])->name('dwolla.webhooks');
+Route::match(['GET', 'POST'], 'dwolla-webhooks', [DwollaWebhookEventsController::class, 'index'])->name('dwolla.webhooks');
 Route::group(['prefix' => 'dwolla-webhooks'], function () {
-    Route::get('subscribe', [DwollaWebhookEventsController::class,'subscribe']);
-    Route::get('subscribe-retrieve/{id}', [DwollaWebhookEventsController::class,'retrieveSubscribe']);
+    Route::get('subscribe', [DwollaWebhookEventsController::class, 'subscribe']);
+    Route::get('subscribe-retrieve/{id}', [DwollaWebhookEventsController::class, 'retrieveSubscribe']);
 });
 
 Route::get('php-info', function () {
