@@ -142,7 +142,7 @@ $configData = Helper::applClasses();
       <div class="row">
         <div class="input-field col s12">
           <div class='text-center'>
-		  
+
 			@if(auth()->user()->account_added)
 				<!-- <span class="registered"><img src="{{asset('images/registered-icon.svg')}}" alt="" class="regit-icon"> Registered</span> -->
 				<button type="button" class="defaultbtn" id='updateprofilebtn' data-url="{{route('employees.update',['employee'=> Auth::user()->id])}}">Update</button>
@@ -150,7 +150,7 @@ $configData = Helper::applClasses();
 			@else
 				 <button  disabled type="button" class="defaultbtn">Update</button>
 			@endif
-			
+
 		  </div>
         </div>
       </div>
@@ -214,6 +214,7 @@ $configData = Helper::applClasses();
     <!-- datatable js -->
     <script src="{{asset('js/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('js/dataTables.responsive.min.js')}}"></script>
+    <script src="{{asset('js/dataTables.select.min.js')}}"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js" integrity="sha384-qlmct0AOBiA2VPZkMY3+2WqkHtIQ9lSdAsAn5RUJD/3vA5MKDgSGcdmIv4ycVxyn" crossorigin="anonymous"></script>
     @yield('customjs')
@@ -244,7 +245,52 @@ $configData = Helper::applClasses();
 
             });
     </script> --}}
+<script>
+        $(function () {
+            $("#data-table-simple").DataTable({
+                responsive: !0,
+                "ordering": false,
+                drawCallback: function () {
+                    $(".paginate_button").addClass("waves-effect");
+                },
+                "language": {
+                    "paginate": {
+                        "previous": "<i class=\"material-icons\">chevron_left</i>",
+                        "next": "<i class=\"material-icons\">chevron_right</i>",
+                    }
+                },
+            });
 
+$("#multi-select").DataTable({
+responsive: !0,
+"aaSorting": [],
+'columnDefs': [{
+"targets": [0],
+"orderable": false
+}],
+drawCallback: function () {
+$(".paginate_button").addClass("waves-effect");
+},
+"language": {
+"paginate": {
+    "previous": "<i class=\"material-icons\">chevron_left</i>",
+    "next": "<i class=\"material-icons\">chevron_right</i>",
+}
+},
+})
+});
+var checkbox = $("#multi-select tbody tr th input"),
+    selectAll = $("#multi-select .select-all");
+$(document).ready(function() {
+    checkbox.on("click", function() {
+        $(this).parent().parent().parent().toggleClass("selected")
+    }), checkbox.on("click", function() {
+        $(this).attr("checked") ? $(this).attr("checked", !1) : $(this).attr("checked", !0)
+    }), selectAll.on("click", function() {
+        $(this).toggleClass("clicked"), selectAll.hasClass("clicked") ? $("#multi-select tbody tr").addClass("selected") : $("#multi-select tbody tr").removeClass("selected"), $("#multi-select tbody tr").hasClass("selected") ? checkbox.prop("checked", !0) : checkbox.prop("checked", !1)
+    })
+});
+</script>
   </body>
   @endif
 @else
