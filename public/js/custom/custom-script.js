@@ -37,8 +37,8 @@ $(document).ready(function () {
             }
         });
     }
-	
-	
+
+
 	if ($(".apj-get-started-btn")) {
         $('.apj-get-started-btn').keydown(function (event) {
             if (event.keyCode == 9) {
@@ -46,8 +46,8 @@ $(document).ready(function () {
             }
         });
     }
-	
-	
+
+
     $("#userform").click(function () {
         if ($(this).hasClass('show')) {
             $(this).removeClass('show');
