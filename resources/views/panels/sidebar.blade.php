@@ -1,15 +1,11 @@
-<aside
-<?php //echo "<pre>"; print_r($configData); die;?>
-  class="{{$configData['sidenavMain']}} @if(!empty($configData['activeMenuType'])) {{$configData['activeMenuType']}} @else {{$configData['activeMenuTypeClass']}}@endif @if(($configData['isMenuDark']) === true) {{'sidenav-dark'}} @elseif(($configData['isMenuDark']) === false){{'sidenav-light'}}  @else {{$configData['sidenavMainColor']}}@endif">
+<aside class="{{$configData['sidenavMain']}} @if(!empty($configData['activeMenuType'])) {{$configData['activeMenuType']}} @else {{$configData['activeMenuTypeClass']}}@endif @if(($configData['isMenuDark']) === true) {{'sidenav-dark'}} @elseif(($configData['isMenuDark']) === false){{'sidenav-light'}}  @else {{$configData['sidenavMainColor']}}@endif">
   <div class="brand-sidebar">
     <h1 class="logo-wrapper">
       <a class="brand-logo darken-1" href="{{asset('/')}}">
         @if(!empty($configData['mainLayoutType']) && isset($configData['mainLayoutType']))
           @if($configData['mainLayoutType']=== 'vertical-modern-menu')
           <img class="hide-on-med-and-down" src="{{asset($configData['largeScreenLogo'])}}" alt="materialize logo" />
-          <img class="show-on-medium-and-down hide-on-med-and-up" src="{{asset($configData['smallScreenLogo'])}}"
-            alt="materialize logo" />
-
+          <img class="show-on-medium-and-down hide-on-med-and-up" src="{{asset($configData['smallScreenLogo'])}}" alt="materialize logo" />
           @elseif($configData['mainLayoutType']=== 'vertical-menu-nav-dark')
           <img src="{{asset($configData['smallScreenLogo'])}}" alt="materialize logo" />
 
@@ -34,7 +30,6 @@
       </a>
       <!-- <a class="navbar-toggler" href="javascript:void(0)"><i class="material-icons">radio_button_checked</i></a> --></h1>
   </div>
-  <?php ///echo "";($menuData); ?>
   <ul class="sidenav sidenav-collapsible leftside-navigation collapsible sidenav-fixed menu-shadow" id="slide-out"
     data-menu="menu-navigation" data-collapsible="menu-accordion">
     {{-- Foreach menu item starts --}}
@@ -46,19 +41,11 @@
           <i class="navigation-header-icon material-icons">{{$menu->icon }}</i>
         </li>
         @else
-        @php
-          $custom_classes="";
-          if(isset($menu->class))
-          {
-          $custom_classes = $menu->class;
-          }
-        @endphp
-        @if((\Auth::user()->hasRole($menu->role)) OR $menu->role == '')
-          <li class="menu-link-li bold @if(isset($menu->href_type) && $menu->href_type=='route') {{ \Route::current()->getName() == $menu->url ? 'active' : '' }} @else {{(request()->is($menu->url.'*')) ? 'active' : '' }} @endif">
-            {{-- <a class="{{$custom_classes}} {{ (request()->is($menu->url.'*')) ? 'active '.$configData['activeMenuColor'] : ''}}" --}}
-            <a class="{{$custom_classes}} @if(isset($menu->href_type) && $menu->href_type=='route') {{ \Route::current()->getName() == $menu->url ? 'active '.$configData['activeMenuColor'] : '' }} @else {{(request()->is($menu->url.'*')) ? 'active '.$configData['activeMenuColor'] : '' }} @endif"
+        @if((\Auth::user()->hasRole($menu->role)) OR $menu->role === '')
+          <li class="menu-link-li bold @if(isset($menu->href_type) && $menu->href_type==='route') {{ \Route::current()->getName() === $menu->url ? 'active' : '' }} @else {{(request()->is($menu->url.'*')) ? 'active' : '' }} @endif @if(isset($menu->submenu)) submenu-open @endif">
+            <a class="{{@$menu->class}} @if(isset($menu->href_type) && $menu->href_type==='route') {{ \Route::current()->getName() === $menu->url ? 'active '.$configData['activeMenuColor'] : '' }} @else {{(request()->is($menu->url.'*') && $menu->url !=='') ? 'active '.$configData['activeMenuColor'] : '' }} @endif"
               @if(!empty($configData['activeMenuColor'])) {{'style=background:none;box-shadow:none;'}} @endif
-              href="@if(($menu->url)==='javascript:void(0)'){{$menu->url}} @else @if(isset($menu->href_type) && $menu->href_type=='route') {{route($menu->url)}} @else {{url($menu->url)}} @endif @endif"
+              href="@if(($menu->url)==='javascript:void(0)'){{$menu->url}} @else @if(isset($menu->href_type) && $menu->href_type==='route') {{route($menu->url)}} @else {{url($menu->url)}} @endif @endif"
               {{isset($menu->newTab) ? 'target="_blank"':''}}>
               <i class="material-icons">{{$menu->icon}}</i>
               <span class="menu-title">{{ $menu->name}}</span>

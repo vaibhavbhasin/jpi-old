@@ -10,6 +10,9 @@
 <script src="{{asset('js/toastr.min.js')}}"></script>
 <script src="{{asset('js/jquery.inputmask.min.js')}}"></script>
 <script src="{{asset('js/custom/custom-script.js')}}"></script>
+@if(!empty('isAdmin'))
+    <script src="{{asset('js/custom/admin.js')}}"></script>
+@endif
 <!-- END THEME  JS-->
 <!-- BEGIN PAGE LEVEL JS-->
 @yield('page-script')

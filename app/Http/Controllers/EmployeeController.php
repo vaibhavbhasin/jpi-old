@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\DwollaHelpers;
 use App\Models\Dwolla;
 use App\Models\User;
 use Auth;
@@ -22,7 +23,6 @@ class EmployeeController extends Controller
         $breadcrumbs = [
             ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Employee"], ['name' => "Dashboard"],
         ];
-        //Pageheader set true for breadcrumbsqq
         $pageConfigs = ['pageHeader' => true];
         $employee_details = User::with('dwolla')->findOrFail(Auth::user()->id);
         $ach = new AchPayment;
@@ -31,49 +31,6 @@ class EmployeeController extends Controller
             'pageConfigs' => $pageConfigs,
             'employee_details' => $employee_details,
             'achTransfers' => $achTransfers->_embedded->transfers ?? []], ['breadcrumbs' => $breadcrumbs]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param Request $request
-     * @return Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param int $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
     }
 
     /**
@@ -92,7 +49,6 @@ class EmployeeController extends Controller
                 'phone_number' => ['required'],
                 'password_confirm' => ['same:password']
             ]);
-
             $data = [
                 'firstname' => $request['firstname'],
                 'lastname' => $request['lastname'],
@@ -145,11 +101,8 @@ class EmployeeController extends Controller
                 'city' => $request['city'],
             ];
         }
-
         $user = User::findOrFail($id);
-
         $user->update($data);
-
         $ach = new AchPayment;
         $achrequest = new Request();
         $achrequest->request->add([
@@ -157,45 +110,19 @@ class EmployeeController extends Controller
             'achLastName' => $user['lastname'],
             'achEmail' => $user['email']
         ]);
-
         $achout = $ach->processAchCustomer($achrequest);
-
         if ($request->ajax()) {
             return response()->json(['msg' => 'success', 'achout' => $achout]);
         }
-
         return redirect()->back();
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param int $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 
     public function UpdateFundingSource(Request $request, User $employee)
     {
         $customer_id = $employee->dwolla->ach_customer_id;
-        $ach = new AchPayment;
-        $ach->generateAchAPIToken();
-        $dwolla_api_env_url = config('services.dwolla.env_url');
-        $apiClient = new DwollaSwagger\ApiClient($dwolla_api_env_url);
-        /*if ($request->isMethod('PUT')){
-            $fundingSourceApi =new DwollaSwagger\FundingsourcesApi($apiClient);
-            $fundingSource = $fundingSourceApi->createCustomerFundingSource([
-                "routingNumber" => $request->input('routingNumber'),
-                "accountNumber" => $request->input('accountNumber'),
-                "bankAccountType" => $request->input('bankAccountType'),
-                "name" => $request->input('name')
-            ], "https://api-sandbox.dwolla.com/customers/".$customer_id);
-        }*/
+        $dwolla_api_env_url = DwollaHelpers::apiUrl();
+        $apiClient = DwollaHelpers::apiClient(true);
         $customersApi = new DwollaSwagger\CustomersApi($apiClient);
-//        $fsToken = $customersApi->createFundingSourcesTokenForCustomer("{$dwolla_api_env_url}/customers/{$customer_id}");
         $fsToken = $customersApi->getCustomerIavToken("{$dwolla_api_env_url}/customers/{$customer_id}");
         if ($fsToken->token && !empty($employee->dwolla->funding_source_id)) {
             $fundingSourceApi = new DwollaSwagger\FundingsourcesApi($apiClient);

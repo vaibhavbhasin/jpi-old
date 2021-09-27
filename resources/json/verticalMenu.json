@@ -6,7 +6,7 @@
           "name": "Dashboard",
           "i18n": "Dashboard",
           "class": "menulink waves-effect waves-cyan",
-          "icon": "",
+          "icon": "settings_input_svideo",
           "slug": "ach",
           "role": "employee"
       },
@@ -16,19 +16,36 @@
           "name": "Dashboard",
           "i18n": "Dashboard",
           "class": "menulink waves-effect waves-cyan",
-          "icon": "",
+          "icon": "settings_input_svideo",
           "slug": "admin",
           "role": "admin"
       },
       {
           "href_type": "route",
-          "url": "admin.users.index",
-          "name": "ACH User",
-          "i18n": "ACH User",
+          "url": "admin.phonereimbursement.index",
+          "name": "Phone Reimbursement",
+          "i18n": "Phone Reimbursement",
           "class": "menulink waves-effect waves-cyan",
-          "icon": "",
-          "slug": "ACH User",
+          "icon": "local_phone",
+          "slug": "Phone Reimbursement",
           "role": "admin"
+      },
+      {
+          "href_type": "url",
+          "url": "javascript:void(0)",
+          "name": "Trade Partner Portal",
+          "class": "collapsible-header waves-effect waves-cyan",
+          "icon": "local_phone",
+          "slug": "Trade Partner Portal",
+          "role": "admin",
+          "submenu": [{
+              "href_type": "route",
+              "url": "preQualification.index",
+              "name": "Pre Qualification",
+              "class": "",
+              "slug": "Pre-Qualification",
+              "role": "admin"
+          }]
       },
       {
           "url": "/",

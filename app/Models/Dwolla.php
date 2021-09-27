@@ -3,10 +3,12 @@
 namespace App\Models;
 
 use App\Helpers\DwollaHelpers;
+use App\Mail\DwollaFundTransferExceptionOccur;
+use DwollaSwagger\ApiException;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use PhpParser\Node\Expr\Cast\Double;
+use Illuminate\Support\Facades\Mail;
 
 /**
  * @method static whereHas(string $string, \Closure $param)
@@ -28,21 +30,51 @@ class Dwolla extends Model
     ];
     protected $casts = ['is_verified' => 'boolean', 'is_active' => 'boolean'];
 
-    public static function transferMoneyAllActiveUsers($amount)
+    public static function transferMoneyAllActiveUsers($amount): bool
     {
         DwollaHelpers::token();
         $users = self::whereHas('user', function ($query) {
             $query->where('is_active', true);
         })->whereNotNull('funding_source_id')->where(['is_verified' => true, 'is_active' => true])->get();
-        $transfer=[];
+        $totalTransfer=0;
         foreach ($users as $user) {
-            $transfer[] = DwollaHelpers::transfer($user,$amount);
+            try {
+                $response = DwollaHelpers::transfer($user, $amount);
+                if (!empty($response->_links)) {
+                    $links = $response->_links;
+                    $transfer = [
+                        'user_id' => $user->user_id,
+                        'source_user_id' => DwollaHelpers::getLastString($links['source']->href), // Admin ID
+                        'destination_user_id' => DwollaHelpers::getLastString($links['destination']->href),// ACH Employee id
+                        'funding_source_id' => DwollaHelpers::getLastString($links['source-funding-source']->href),
+                        'funding_destination_id' => DwollaHelpers::getLastString($links['destination-funding-source']->href),
+                        'transaction_id' => $response->id,
+                        'amount' => $response->amount->value,
+                        'currency' => $response->amount->currency,
+                        'status' => ucfirst($response->status),
+                    ];
+                    DwollaTransactionHistory::create($transfer);
+                    $totalTransfer++;
+                }
+            } catch (ApiException $exception) {
+                $dwolla = DwollaFundTransferException::create([
+                    'code' => $exception->getCode(),
+                    'response_body' => $exception->getResponseBody(),
+                    'message' => $exception->getMessage()
+                ]);
+                Mail::to(config('jpi.admin_mail'))->send(new DwollaFundTransferExceptionOccur($dwolla));
+            }
         }
-        return count($transfer);
+        return $totalTransfer;
     }
 
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function getAccountStatusAttribute(): string
+    {
+        return $this->is_verified ? 'Verified' : 'Not Verified';
     }
 }

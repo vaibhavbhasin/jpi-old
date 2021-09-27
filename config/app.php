@@ -177,6 +177,7 @@ return [
         App\Providers\MenuServiceProvider::class,
 
         Spatie\Permission\PermissionServiceProvider::class,
+        Fouladgar\EloquentBuilder\ServiceProvider::class,
     ],
 
     /*
@@ -229,6 +230,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Helper' => App\Helpers\Helper::class,
+
+        'EloquentBuilder' => Fouladgar\EloquentBuilder\Facade::class,
 
     ],
 

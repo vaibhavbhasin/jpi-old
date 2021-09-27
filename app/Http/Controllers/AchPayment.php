@@ -21,13 +21,11 @@ class AchPayment extends Controller
 
     public function processAchCustomer(Request $request)
     {
-
         $rules = array(
             'achFirstName' => 'required|regex:/^[a-zA-Z\s]+$/',
             'achLastName' => 'required|regex:/^[a-zA-Z\s]+$/',
             'achEmail' => 'required|email',
         );
-
         $validatorMesssages = array(
             'achFirstName.required' => 'First name is required.',
             'achLastName.required' => 'Last name is required.',
@@ -35,28 +33,22 @@ class AchPayment extends Controller
             'achEmail.email' => 'Enter valid email address.',
         );
         $data = $request->request->all();
-        // dd($data['achFirstName']);
         $validator = Validator::make([
             'achFirstName' => $data['achFirstName'],
             'achLastName' => $data['achLastName'],
             'achEmail' => $data['achEmail'],
         ], $rules, $validatorMesssages);
-
-        //  dd($data);
         if ($validator->fails()) {
-            // dd($validator->errors() , $request->all());
             return ['errors' => $validator->errors()];
             return redirect('add-ach-customer')
                 ->withErrors($validator)
                 ->withInput();
         } else {
-            // generate Dwolla API access token.
             $this->generateAchAPIToken();
             $dwolla_api_env_url = config('services.dwolla.env_url');
             $apiClient = new DwollaSwagger\ApiClient($dwolla_api_env_url);
             $customersApi = new DwollaSwagger\CustomersApi($apiClient);
             $customers = $customersApi->_list(1, 0, null, null, null, $data['achEmail']);
-            //  dd($customers);
             if ($customers->total) {
                 $ach_customer_id = $customers->_embedded->{'customers'}[0]->id;
                 $customers->_embedded->{'customers'}[0]->email;
@@ -73,27 +65,15 @@ class AchPayment extends Controller
                     'type' => "receive-only",
                     'ipAddress' => $_SERVER['REMOTE_ADDR']
                 ]);
-
                 $customers = $customersApi->_list(1, 0, null, null, null, $data['achEmail']);
                 $ach_customer_id = $customers->_embedded->{'customers'}[0]->id;
             }
-            //print_r($customers);
-
-            // save returned $ach_customer_id to database for future access.
-            //echo $ach_customer_id;
-
             $dwolla = Dwolla::updateOrCreate([
                 'user_id' => Auth::user()->id,
-            ],
-                [
-                    'ach_customer_id' => $ach_customer_id
-                ]);
-
-            // dd($ach_customer_id);
+            ], [
+                'ach_customer_id' => $ach_customer_id
+            ]);
             return ['msg' => 'success'];
-            Session::flash('success', "ACH customer account added. Now verify your bank.");
-            return Redirect::to('ach-verify-bank');
-
         }
     }
 
@@ -232,15 +212,10 @@ class AchPayment extends Controller
 
     public function getCustomerTransfers($id)
     {
-
         $dwolla = Dwolla::where('user_id', $id)->first();
-
         if ($dwolla) {
-            // generate Dwolla API access token.
             $this->generateAchAPIToken();
-
             $dwolla_api_env_url = config('services.dwolla.env_url');
-
             $apiClient = new DwollaSwagger\ApiClient($dwolla_api_env_url);
 
             $customerUrl = 'http://api-sandbox.dwolla.com/customers/' . $dwolla['ach_customer_id'];

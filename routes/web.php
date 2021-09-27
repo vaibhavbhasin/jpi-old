@@ -1,13 +1,20 @@
 <?php
 
-use App\Http\Controllers\{AdminController, EmployeeController, ProfileController, UserController,};
+use App\Http\Controllers\{DwollaWebhookEventsController, EmployeeController, ProfileController};
+use App\Http\Controllers\Admin\{AdminController,
+    AjaxController,
+    PaymentController,
+    PhoneReimbursementController,
+    PreQualificationController,
+    UserController
+};
 use App\Http\Controllers\Auth\{ConfirmPasswordController,
     EmployeeLoginController,
     EmployeeRegisterController,
     ForgotPasswordController,
-    ResetPasswordController,
     LoginController,
     RegisterController,
+    ResetPasswordController,
     VerificationController
 };
 use App\Http\Controllers\LanguageController;
@@ -20,8 +27,6 @@ Route::get('/', function () {
     return redirect('/reimbursement');
 });
 Route::prefix('reimbursement')->group(function () {
-
-
 
 
 //    Route::get('/', [HomeController::class, 'Index']);
@@ -40,10 +45,7 @@ Route::prefix('reimbursement')->group(function () {
         Route::get('dashboard', [EmployeeController::class, 'index'])->middleware(['checkemployee'])->name('dashboard');
         Route::post('profile', [ProfileController::class, 'postUpdateProfile'])->name('profile');
     });
-
-
     //Employee Routes
-
     Route::middleware(['role:employee'])->group(function () {
         Route::resource('employees', EmployeeController::class);
         Route::match(['GET', 'PUT'], 'employee-update-funding-source/{employee}', [EmployeeController::class, 'UpdateFundingSource'])->name('employees.updateFunding');
@@ -77,10 +79,24 @@ Route::group(['prefix' => 'admin'], function () {
         Route::middleware(['role:admin'])->group(function () {
             Route::get('dashboard', [AdminController::class, 'index'])->name('dashboard');
             Route::resource('users', UserController::class);
+            Route::resource('payments', PaymentController::class);
+            Route::resource('phonereimbursement', PhoneReimbursementController::class);
         });
+        Route::post('bulk-active-inactive', [AjaxController::class, 'bulkUpdateStatus'])->name('bulk_active_inactive');
+        Route::put('update-status/{table}', [AjaxController::class, 'updateStatus'])->name('updateStatus');
     });
 });
+Route::group(['prefix' => 'trade-partner', 'middleware' => 'role:admin'], function () {
+//    Route::resource('prequalifications', PreQualificationController::class)->name('preQualification');
+    Route::get('pre-qualifications', [PreQualificationController::class,'index'])->name('preQualification.index');
+});
 Route::get('do-ach-payment', [AdminController::class, 'create']);
+Route::match(['GET', 'POST'], 'dwolla-webhooks', [DwollaWebhookEventsController::class, 'index'])->name('dwolla.webhooks');
+Route::group(['prefix' => 'dwolla-webhooks'], function () {
+    Route::get('subscribe', [DwollaWebhookEventsController::class, 'subscribe']);
+    Route::get('subscribe-retrieve/{id}', [DwollaWebhookEventsController::class, 'retrieveSubscribe']);
+});
+
 Route::get('php-info', function () {
     return phpinfo();
 });
@@ -93,6 +109,9 @@ Route::get('clear-cache', function () {
 });
 Route::get('db-migrate', function () {
     return Artisan::call('migrate');
+});
+Route::get('db-seed', function () {
+    return Artisan::call('db:seed');
 });
 Route::get('db-migrate-fresh', function () {
     return Artisan::call('migrate:fresh');
