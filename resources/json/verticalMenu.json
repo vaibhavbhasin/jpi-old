@@ -32,7 +32,7 @@
       },
       {
           "href_type": "url",
-          "url": "javascript:void(0)",
+          "url": "trade-partner",
           "name": "Trade Partner Portal",
           "class": "collapsible-header waves-effect waves-cyan",
           "icon": "local_phone",
