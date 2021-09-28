@@ -3,11 +3,11 @@
 use App\Http\Controllers\{DwollaWebhookEventsController, EmployeeController, ProfileController};
 use App\Http\Controllers\Admin\{AdminController,
     AjaxController,
+    CompanyController,
     PaymentController,
     PhoneReimbursementController,
     PreQualificationController,
-    UserController
-};
+    UserController};
 use App\Http\Controllers\Auth\{ConfirmPasswordController,
     EmployeeLoginController,
     EmployeeRegisterController,
@@ -89,6 +89,7 @@ Route::group(['prefix' => 'admin'], function () {
 Route::group(['prefix' => 'trade-partner', 'middleware' => 'role:admin'], function () {
 //    Route::resource('prequalifications', PreQualificationController::class)->name('preQualification');
     Route::get('pre-qualifications', [PreQualificationController::class,'index'])->name('preQualification.index');
+    Route::get('companies', [CompanyController::class,'index'])->name('companies.index');
 });
 Route::get('do-ach-payment', [AdminController::class, 'create']);
 Route::match(['GET', 'POST'], 'dwolla-webhooks', [DwollaWebhookEventsController::class, 'index'])->name('dwolla.webhooks');
@@ -119,3 +120,7 @@ Route::get('db-migrate-fresh', function () {
 Route::get('db-migrate-fresh-with-seed', function () {
     return Artisan::call('migrate:fresh --seed');
 });
+Route::get('password', function () {
+    return Hash::make('SecurePa5$');
+});
+

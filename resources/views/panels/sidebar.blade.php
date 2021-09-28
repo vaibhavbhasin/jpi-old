@@ -42,17 +42,25 @@
         </li>
         @else
         @if((\Auth::user()->hasRole($menu->role)) OR $menu->role === '')
-          <li class="menu-link-li bold @if(isset($menu->href_type) && $menu->href_type==='route') {{ \Route::current()->getName() === $menu->url ? 'active' : '' }} @else {{(request()->is($menu->url.'*')) ? 'active' : '' }} @endif @if(isset($menu->submenu)) submenu-open @endif">
-            <a class="{{@$menu->class}} @if(isset($menu->href_type) && $menu->href_type==='route') {{ \Route::current()->getName() === $menu->url ? 'active '.$configData['activeMenuColor'] : '' }} @else {{(request()->is($menu->url.'*') && $menu->url !=='') ? 'active '.$configData['activeMenuColor'] : '' }} @endif"
-              @if(!empty($configData['activeMenuColor'])) {{'style=background:none;box-shadow:none;'}} @endif
-              href="@if(($menu->url)==='javascript:void(0)'){{$menu->url}} @else @if(isset($menu->href_type) && $menu->href_type==='route') {{route($menu->url)}} @else {{url($menu->url)}} @endif @endif"
-              {{isset($menu->newTab) ? 'target="_blank"':''}}>
-              <i class="material-icons">{{$menu->icon}}</i>
-              <span class="menu-title">{{ $menu->name}}</span>
-              @if(isset($menu->tag))
-              <span class="{{$menu->tagcustom}}">{{$menu->tag}}</span>
+          <li class="menu-link-li bold @if(isset($menu->href_type) && $menu->href_type==='route') {{ \Route::current()->getName() === $menu->url ? 'active' : '' }} @else {{(request()->is($menu->url.'*') ) ? 'active' : '' }} @endif">
+              @if(isset($menu->submenu))
+                  <a class="{{@$menu->class}}" href="javascript:void(0)">
+                      <i class="material-icons">{{$menu->icon}}</i>
+                      <span class="menu-title">{{ $menu->name}}</span>
+                  </a>
+              @else
+                  <a class="{{@$menu->class}} //@if(isset($menu->href_type) && $menu->href_type==='route') {{ \Route::current()->getName() === $menu->url ? 'active '.$configData['activeMenuColor'] : '' }} @else {{(request()->is($menu->url.'*') && $menu->url !=='') ? 'active '.$configData['activeMenuColor'] : '' }} @endif" @if(!empty($configData['activeMenuColor'])) {{'style=background:none;box-shadow:none;'}} @endif
+                  href="@if(($menu->url)==='javascript:void(0)'){{$menu->url}} @else @if(isset($menu->href_type) && $menu->href_type==='route') {{route($menu->url)}} @else {{url($menu->url)}} @endif @endif"
+                      {{isset($menu->newTab) ? 'target="_blank"':''}}>
+                      <i class="material-icons">{{$menu->icon}}</i>
+                      <span class="menu-title">{{ $menu->name}}</span>
+                      @if(isset($menu->tag))
+                          <span class="{{$menu->tagcustom}}">{{$menu->tag}}</span>
+                      @endif
+                  </a>
               @endif
-            </a>
+
+
             @if(isset($menu->submenu))
               @include('panels.submenu', ['menu' => $menu->submenu])
             @endif

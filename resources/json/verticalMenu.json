@@ -1,60 +1,70 @@
 {
-  "menu": [
-      {
-          "href_type": "route",
-          "url": "employee.dashboard",
-          "name": "Dashboard",
-          "i18n": "Dashboard",
-          "class": "menulink waves-effect waves-cyan",
-          "icon": "settings_input_svideo",
-          "slug": "ach",
-          "role": "employee"
-      },
-      {
-          "href_type": "route",
-          "url": "admin.dashboard",
-          "name": "Dashboard",
-          "i18n": "Dashboard",
-          "class": "menulink waves-effect waves-cyan",
-          "icon": "settings_input_svideo",
-          "slug": "admin",
-          "role": "admin"
-      },
-      {
-          "href_type": "route",
-          "url": "admin.phonereimbursement.index",
-          "name": "Phone Reimbursement",
-          "i18n": "Phone Reimbursement",
-          "class": "menulink waves-effect waves-cyan",
-          "icon": "local_phone",
-          "slug": "Phone Reimbursement",
-          "role": "admin"
-      },
-      {
-          "href_type": "url",
-          "url": "javascript:void(0)",
-          "name": "Trade Partner Portal",
-          "class": "collapsible-header waves-effect waves-cyan",
-          "icon": "local_phone",
-          "slug": "Trade Partner Portal",
-          "role": "admin",
-          "submenu": [{
-              "href_type": "route",
-              "url": "preQualification.index",
-              "name": "Pre Qualification",
-              "class": "",
-              "slug": "Pre-Qualification",
-              "role": "admin"
-          }]
-      },
-      {
-          "url": "/",
-          "name": "Link 1",
-          "i18n": "Link 1",
-          "class": "menulink waves-effect waves-cyan",
-          "icon": "",
-          "slug": "Link 1",
-          "role": "2"
-      }
-  ]
+    "menu": [
+        {
+            "href_type": "route",
+            "url": "employee.dashboard",
+            "name": "Dashboard",
+            "i18n": "Dashboard",
+            "class": "menulink waves-effect waves-cyan",
+            "icon": "settings_input_svideo",
+            "slug": "ach",
+            "role": "employee"
+        },
+        {
+            "href_type": "route",
+            "url": "admin.dashboard",
+            "name": "Dashboard",
+            "i18n": "Dashboard",
+            "class": "menulink waves-effect waves-cyan",
+            "icon": "settings_input_svideo",
+            "slug": "admin",
+            "role": "admin"
+        },
+        {
+            "href_type": "route",
+            "url": "admin.phonereimbursement.index",
+            "name": "Phone Reimbursement",
+            "i18n": "Phone Reimbursement",
+            "class": "menulink waves-effect waves-cyan",
+            "icon": "local_phone",
+            "slug": "Phone Reimbursement",
+            "role": "admin"
+        },
+        {
+            "href_type": "url",
+            "url": "trade-partner",
+            "name": "Trade Partner Portal",
+            "class": "collapsible-header waves-effect waves-cyan",
+            "icon": "thumbs_up_down",
+            "slug": "Trade Partner Portal",
+            "role": "admin",
+            "submenu": [
+                {
+                    "href_type": "route",
+                    "url": "preQualification.index",
+                    "name": "Pre Qualification",
+                    "class": "",
+                    "slug": "Pre-Qualification",
+                    "role": "admin"
+                },
+                {
+                    "href_type": "route",
+                    "url": "companies.index",
+                    "name": "Companies",
+                    "class": "",
+                    "slug": "companies",
+                    "role": "admin"
+                }
+            ]
+        },
+        {
+            "url": "/",
+            "name": "Link 1",
+            "i18n": "Link 1",
+            "class": "menulink waves-effect waves-cyan",
+            "icon": "",
+            "slug": "Link 1",
+            "role": "2"
+        }
+    ]
 }

@@ -247,7 +247,7 @@ $configData = Helper::applClasses();
     </script> --}}
 <script>
         $(function () {
-            $("#data-table-simple").DataTable({
+            $("#data-table-simple-tradepartner").DataTable({
                 responsive: !0,
                 "ordering": false,
                 drawCallback: function () {
