@@ -21,15 +21,18 @@ class UserController extends Controller
 
     public function index(Request $request)
     {
-        $query = EloquentBuilder::to(User::class, $request->only('first_name', 'last_name', 'email', 'status', 'account_status'));
-//        $query->selectRaw('users.*,dwollas.is_verified')->join('dwollas', 'dwollas.user_id', '=', 'users.id','right');
-
+        $query = EloquentBuilder::to(User::class, $request->only('first_name', 'last_name', 'email', 'status'));
         if (!empty($request->account_status)) {
-            $query->selectRaw('users.*,dwollas.is_verified')->join('dwollas', 'dwollas.user_id', '=', 'users.id');
+            $account_status = $request->account_status === '3';
+            $query->selectRaw('users.*,dwollas.is_verified as is_verified')->join('dwollas', function ($join) use ($account_status) {
+                $join->on('dwollas.user_id', '=','users.id')->where('dwollas.is_verified', $account_status);
+            });
         } else {
-            $query->with('dwolla');
+            $query->selectRaw('users.*,dwollas.is_verified as is_verified')->join('dwollas', function ($join) {
+                $join->on('dwollas.user_id', '=','users.id' );
+            });
         }
-        $this->page_data['users'] = $query->role('employee')->latest()->paginate(config('jpi.per_page'));
+        $this->page_data['users'] = $query->role('employee')->latest('users.id')->paginate(config('jpi.per_page'));
         return view('pages.admin.users', $this->page_data);
     }
 

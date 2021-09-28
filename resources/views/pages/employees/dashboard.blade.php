@@ -436,7 +436,7 @@
                 },
             });
         });
-        @if(!auth()->user()->account_verified)
+        @if(!auth()->user()->account_added)
         $(window).on("load", function () {
             $(".btn-prev").addClass("hide");
             $(".btn-next").addClass("hide");

@@ -26,7 +26,6 @@
                                 <div class="row" id="data-table-starts">
                                     <div class="col s12 p0">
                                         <div class="row no-pad">
-
                                                 <div class="col s11 p0">
                                                     <div class="input-field inline col">
                                                         <a href="javascript:void(0)"
@@ -91,14 +90,14 @@
                                                 <tr>
                                                     <td>
                                                         <label>
-                                                            <input type="checkbox" name="ids" id="user_id" class="check filled-in" value="{{$user->id}}" {{ (!$user->account_verified) ? 'disabled' : ''}}>
+                                                            <input type="checkbox" name="ids" id="user_id" class="check filled-in" value="{{$user->id}}" {{ (!$user->is_verified) ? 'disabled' : ''}}>
                                                             <span></span>
                                                         </label>
                                                     </td>
                                                     <td>{{$user->firstname}}</td>
                                                     <td>{{$user->lastname}}</td>
                                                     <td>{{$user->email}}</td>
-                                                    <td>{{@$user->dwolla ? $user->dwolla->account_status : 'Not Added'}}</td>
+                                                    <td>{{@$user->is_verified ? 'Verified' : 'Not Verified'}}</td>
 													<td>
                                                         <div class="switch">
                                                             <label>
@@ -106,7 +105,7 @@
                                                                        {{$user->is_active ? 'checked': ''}} class="switch_checkbox_update_status"
                                                                        id="switch_checkbox_update_status_{{$user->id}}"
                                                                        value="{{$user->id}}"
-                                                                       data-route="{{route('admin.updateStatus','users')}}" {{ (!$user->account_verified) ? 'disabled' : ''}}>
+                                                                       data-route="{{route('admin.updateStatus','users')}}" {{ (!$user->is_verified) ? 'disabled' : ''}}>
                                                                 <span class="lever"></span>
                                                             </label>
                                                         </div>

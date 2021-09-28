@@ -21,6 +21,7 @@ $configData = Helper::applClasses();
   <link rel="shortcut icon" type="image/x-icon" href="../../images/jpi_logo.png">
   {{-- Include core + vendor Styles --}}
   @include('panels.styles')
+    @livewireStyles
 </head>
 <!-- END: Head-->
 <!-- User Profile Modal  -->
@@ -218,34 +219,7 @@ $configData = Helper::applClasses();
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js" integrity="sha384-qlmct0AOBiA2VPZkMY3+2WqkHtIQ9lSdAsAn5RUJD/3vA5MKDgSGcdmIv4ycVxyn" crossorigin="anonymous"></script>
     @yield('customjs')
-    {{-- <script>
-
-
-
-      $('#updateProfile').submit(function(e){
-                e.preventDefault();
-                var options = {
-                    url: "{{route('employees.index')}}/{{\Auth::user()->id}}",
-                    type: "PUT",
-                    data: {
-                        '_token': "{{csrf_token()}}",
-                        '_method': "PUT"
-                    },
-                    success: function(){
-                        toastr.success('Your details has been successfully updated!');
-                    },
-                    error: function(){
-                        toastr.error('Some Error occured! Please enter all the details carefully!');
-                    }
-                };
-
-
-                $(this).ajaxSubmit(options);
-
-
-            });
-    </script> --}}
-<script>
+    <script>
         $(function () {
             $("#data-table-simple-tradepartner").DataTable({
                 responsive: !0,
@@ -291,6 +265,7 @@ $(document).ready(function() {
     })
 });
 </script>
+    @livewireScripts
   </body>
   @endif
 @else
