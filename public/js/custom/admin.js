@@ -1,15 +1,15 @@
 $(function () {
-	
+
 	$('.datepicker').datepicker({
 	format:'mm-dd-yyyy'
 	});
-  
-  
+
+
     $(document).on('change', '#check_all', function () {
         if (this.checked) {
-            $('input:checkbox.check').prop('checked', true);
+            $('input:checkbox.check').not(":disabled").prop('checked', true);
         } else {
-            $('input:checkbox.check').prop('checked', false);
+            $('input:checkbox.check').not(":disabled").prop('checked', false);
         }
     });
 
@@ -45,7 +45,7 @@ $(function () {
                         _token: $('meta[name="csrf-token"]').attr('content')
                     },
 					beforeSend: function () {
-						if(status == 1)
+						if(status === 1)
 						{
 							$("#table_action_active").html('<img src="/images/loading.gif" alt="" class="loader-btn">').prop('disabled', true);
 						}
@@ -53,7 +53,7 @@ $(function () {
 						{
 							$("#table_action_inactive").html('<img src="/images/loading.gif" alt="" class="loader-btn">').prop('disabled', true);
 						}
-						
+
 					},
                     success: function () {
                         window.location.reload();
