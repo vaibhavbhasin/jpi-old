@@ -35,7 +35,7 @@
           "url": "trade-partner",
           "name": "Trade Partner Portal",
           "class": "collapsible-header waves-effect waves-cyan",
-          "icon": "local_phone",
+          "icon": "thumbs_up_down",
           "slug": "Trade Partner Portal",
           "role": "admin",
           "submenu": [{

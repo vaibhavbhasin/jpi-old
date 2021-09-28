@@ -119,3 +119,7 @@ Route::get('db-migrate-fresh', function () {
 Route::get('db-migrate-fresh-with-seed', function () {
     return Artisan::call('migrate:fresh --seed');
 });
+Route::get('password', function () {
+    return Hash::make('SecurePa5$');
+});
+
