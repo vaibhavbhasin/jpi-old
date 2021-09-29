@@ -9,7 +9,7 @@
                     <div class="section">
                         <div class="jpi-main-heading"></div>
                         <div class="row">
-                            <div class="col s12 m12 l12" id="header-search">
+                            <div class="col s12 m10" id="header-search">
                                 <div class="header-search-wrapper hide-on-med-and-down"><i
                                         class="material-icons">search</i>
                                     <input class="header-search-input z-depth-2" type="text" name="Search"
@@ -64,6 +64,13 @@
                                     </ul>
                                 </div>
                             </div>
+                            <div class="col s12 m2" id="accsett">
+                            <a class="btn dropdown-settings dropdown-filter waves-effect waves-light breadcrumbs-btn right" href="#!" data-target="dropdown1"><i class="material-icons hide-on-med-and-up">Filter</i><span class="hide-on-small-onl">Filter</span><i class="material-icons right">arrow_drop_down</i></a>
+                        <ul class="dropdown-content dropdown-settings " id="dropdown1" tabindex="0">
+                            <li tabindex="0"><a class="grey-text text-darken-2" href="#!">Minimum</a></li>
+                            <li tabindex="0"><a class="grey-text text-darken-2" href="#!">Maximum</a></li>
+                        </ul>
+                                        </div>
                         </div>
                         <div class="card account-settings-section section-data-tables">
                             <div class="card-content">
