@@ -217,7 +217,7 @@ button[disabled] {
     padding: 8px 16px;
 }
 #main .section-data-tables #data-table-starts .dataTables_wrapper .dataTables_info {
-    margin-left: 15px;
+    margin-left: 10px;
 }
 #intro .carousel.carousel-slider .carousel-item p {
     font-size: 15px;
@@ -403,7 +403,7 @@ button[disabled] {
 }
 .appstatusbutton{
     pointer-events: none;
-    min-width: 76px;
+    min-width: 90px;
 }
 .appstatusbutton.submitted{
     background-color: #b41225;
@@ -675,7 +675,7 @@ ul.state-functions li a {
     visibility: hidden;
 }
 .attach_drop_list{
-    margin-top: 12px;
+    margin-top: 15px;
     margin-left: -4px !important;
 }
 .m-4{
@@ -684,6 +684,66 @@ ul.state-functions li a {
 #generalinfo .card-title{
     padding-top: 16px;
     padding-bottom: 16px;
+}
+.assignto{
+    margin-bottom: -26px;
+}
+.dropdown-generaldrop{
+    margin-bottom: -10px;
+}
+#data-table-starts .tableone thead th {
+    color: #616161;
+    font-weight: 300;
+}
+#data-table-starts .tableone td {
+    color: #0f0f0f;
+    font-weight: 300;
+}
+#data-table-starts .tableone tr.odd{
+    background-color: #f9f9f9;
+}
+.functions_sec a{
+    display: block;
+}
+.attach_drop_list_label{
+    margin-top: 28px;
+    margin-left: -4px !important;
+}
+.subfont{
+    color: #616161;
+    font-weight: 300;
+}
+#tabletwo tr td {
+    height: 10px;
+}
+body #main .section-data-tables .dataTables_wrapper table.dataTable tbody {
+    height: auto;
+}
+body #main .section-data-tables .dataTables_wrapper table.dataTable th {
+    padding: 17px 10px;
+}
+.jpi_companytype_div .inline{
+    display: inline-flex;
+}
+.jpi_companytype_div .inline [type=radio]:not(:checked) + span, .jpi_companytype_div .inline [type=radio]:checked + span {
+    padding-left: 30px;
+    padding-right: 20px;
+    color: #0f0f0f;
+}
+.pl0{
+    padding-left: 0 !important;
+}
+.certification_table{
+    margin-top: 25px;
+}
+.apj_last_fms{
+    margin-top: 25px;
+}
+.attach_drop_list_label0{
+    margin-top: 28px;
+}
+.inviteuser i{
+    padding-right: 6px;
 }
 @media only screen and (max-width: 1398px) {
 .md-width-adj{

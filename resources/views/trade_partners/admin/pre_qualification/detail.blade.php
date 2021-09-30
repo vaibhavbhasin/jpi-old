@@ -9,22 +9,21 @@
                 <div class="section">
                     <div class="jpi-main-heading">
                         <h2>Test Comapny</h2>
-                        <p>EIN: 78-9456123</p>
                     </div>
                 </div>
             </div>
             <div class="col s6">
                 <div class="section">
-                    <div class="jpi-main-heading">
+                    <div class="jpi-main-heading dropdown-generaldrop">
                         <a class="btn dropdown-settings waves-effect waves-light breadcrumbs-btn right" href="#!" data-target="dropdown1"><i class="material-icons hide-on-med-and-up">General Info</i><span class="hide-on-small-onl">General Info</span><i class="material-icons right">arrow_drop_down</i></a>
                         <ul class="dropdown-content dropdown-settings" id="dropdown1" tabindex="0">
-                            <li tabindex="0"><a class="grey-text text-darken-2" href="#!">3rd Party Info</a></li>
                             <li tabindex="0"><a class="grey-text text-darken-2" href="#!">View App</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="col s6">
+            <p>EIN: 78-9456123</p>
             </div>
             <div class="col s6 ">
                 <div class="right assignto">
@@ -36,7 +35,7 @@
                             <option value="0">Auditor</option>
                         </select>
                     </div>
-                </div><!-- /.right -->
+                </div>
             </div>
         </div>
         <div class="row">
@@ -50,8 +49,7 @@
                                 </div>
                                 <div class="col s12 m2 text-right">
                                     <select id="" name="">
-                                        <option value="1">Year</option>
-                                        <option value="0">2021</option>
+                                        <option value="1">2021</option>
                                     </select>
                                 </div>
                             </div>
@@ -84,7 +82,7 @@
                                 </form>
                                 <div class="row" id="data-table-starts">
                                     <div class="col s12 p0 binfopad">
-                                        <table id="tableone" class="display table-jpi">
+                                        <table id="tableone" class="display table-jpi tableone">
                                             <thead>
                                                 <tr>
                                                     <th>EIN #</th>
@@ -94,43 +92,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>78-9456123</td>
-                                                    <td>Edinburgh</td>
-                                                    <td>Tyler Barton</td>
-                                                    <td>Tyler Barton</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>78-9456123</td>
-                                                    <td>Edinburgh</td>
-                                                    <td>Tyler Barton</td>
-                                                    <td>Tyler Barton</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>78-9456123</td>
-                                                    <td>Edinburgh</td>
-                                                    <td>Tyler Barton</td>
-                                                    <td>Tyler Barton</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>78-9456123</td>
-                                                    <td>Edinburgh</td>
-                                                    <td>Tyler Barton</td>
-                                                    <td>Tyler Barton</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>78-9456123</td>
-                                                    <td>Edinburgh</td>
-                                                    <td>Tyler Barton</td>
-                                                    <td>Tyler Barton</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>78-9456123</td>
-                                                    <td>Edinburgh</td>
-                                                    <td>Tyler Barton</td>
-                                                    <td>Tyler Barton</td>
-                                                </tr>
-                                                <tr>
+                                                <tr class="odd">
                                                     <td>78-9456123</td>
                                                     <td>Edinburgh</td>
                                                     <td>Tyler Barton</td>
@@ -156,39 +118,25 @@
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td>78-9456123</td>
+                                                        <td>1</td>
                                                         <td>Edinburgh</td>
                                                         <td>Insurance</td>
                                                         <td><a href="javascript:void(0);" class="waves-effect waves-light btn-small delete-btn">Delete</a></td>
                                                     </tr>
                                                     <tr>
-                                                        <td>78-9456123</td>
+                                                        <td>2</td>
                                                         <td>Edinburgh</td>
                                                         <td>Insurance</td>
                                                         <td><a href="javascript:void(0);" class="waves-effect waves-light btn-small delete-btn">Delete</a></td>
                                                     </tr>
-                                                    <tr>
-                                                        <td>78-9456123</td>
-                                                        <td>Edinburgh</td>
-                                                        <td>Tyler Barton</td>
-                                                        <td><a href="javascript:void(0);" class="waves-effect waves-light btn-small delete-btn">Delete</a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>78-9456123</td>
-                                                        <td>Edinburgh</td>
-                                                        <td>Insurance</td>
-                                                        <td><a href="javascript:void(0);" class="waves-effect waves-light btn-small delete-btn">Delete</a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>78-9456123</td>
-                                                        <td>Edinburgh</td>
-                                                        <td>Insurance</td>
-                                                        <td><a href="javascript:void(0);" class="waves-effect waves-light btn-small delete-btn">Delete</a></td>
-                                                    </tr>
+
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <div class="col s8 attach_drop_list">
+                                        <div class="col s2 attach_drop_list_label">
+                                            <span class="subfont">Upload File: </span>
+                                        </div>
+                                        <div class="col s4 attach_drop_list">
                                             <select id="attach_drop_list" name="attach_drop_list">
                                                 <option value="">Please Select Type</option>
                                                 <option value="1">Project</option>
@@ -198,7 +146,7 @@
                                         </div>
                                         <div class="col s4">
                                             <div class="file-field input-field">
-                                                <div class="btn right">
+                                                <div class="btn">
                                                     <span>Choose file</span>
                                                     <input type="file">
                                                 </div>
@@ -206,6 +154,8 @@
                                                     <input class="file-path validate" type="text">
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="col s2">
                                         </div>
                                     </div>
                                 </div>
@@ -333,13 +283,16 @@
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <div class="col s12 m-4">
+                                        <div class="col s2 m-4 attach_drop_list_label">
+                                        <span class="subfont">Upload File: </span>
+                                        </div>
+                                        <div class="col s10 m-4">
                                             <div class="file-field input-field">
                                                 <div class="btn left">
                                                     <span>Choose file</span>
                                                     <input type="file">
                                                 </div>
-                                                <div class="file-path-wrapper ">
+                                                <div class="file-path-wrapper hidden">
                                                     <input class="file-path validate" type="text">
                                                 </div>
                                             </div>

@@ -1304,3 +1304,19 @@ $(function () {
     });
 });
 */
+
+$(function () {
+    $("#tabletwo,#tablethree,#tablefour,#tablesix").DataTable({
+        responsive: !0,
+        "ordering": false,
+        drawCallback: function () {
+            $(".paginate_button").addClass("waves-effect");
+        },
+        "language": {
+            "paginate": {
+                "previous": "<i class=\"material-icons\">chevron_left</i>",
+                "next": "<i class=\"material-icons\">chevron_right</i>",
+            }
+        },
+    });
+});
