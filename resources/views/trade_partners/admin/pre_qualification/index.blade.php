@@ -10,10 +10,8 @@
                         <div class="jpi-main-heading"></div>
                         <div class="row">
                             <div class="col s12 m10" id="header-search">
-                                <div class="header-search-wrapper hide-on-med-and-down"><i
-                                        class="material-icons">search</i>
-                                    <input class="header-search-input z-depth-2" type="text" name="Search"
-                                           placeholder="Explore Materialize" data-search="template-list">
+                                <div class="header-search-wrapper hide-on-med-and-down"><i class="material-icons">search</i>
+                                    <input class="header-search-input z-depth-2" type="text" name="Search" >
                                     <ul class="search-list collection ps ps--active-y display-none">
                                         <li class="auto-suggestion-title"><a class="collection-item" href="#">
                                                 <h6 class="search-title">PAGES</h6>
@@ -91,7 +89,7 @@
                                 <!-- Page Length Options -->
                                 <div class="row" id="data-table-starts">
                                     <div class="col s12 p0">
-                                        <table id="multi-select" class="display">
+                                        <table id="preQualTable" class="display">
                                             <thead>
                                             <tr>
                                                 <th>
@@ -111,258 +109,28 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr>
-                                                <td>
-                                                    <label>
-                                                        <input type="checkbox"/>
-                                                        <span></span>
-                                                    </label>
-                                                </td>
-                                                <td>09-21-2021</td>
-                                                <td>78-9456123</td>
-                                                <td>Edinburgh</td>
-                                                <td>Tyler Barton</td>
-                                                <td>DJ</td>
-                                                <td>$320,800</td>
-                                                <td>$320,800</td>
-                                                <td><a href="javascript:void(0)"
-                                                       class="waves-effect waves-light btn-small appstatusbutton" id="">Active</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <label>
-                                                        <input type="checkbox"/>
-                                                        <span></span>
-                                                    </label>
-                                                </td>
-                                                <td>09-21-2021</td>
-                                                <td>78-9456124</td>
-                                                <td>Edinburgh</td>
-                                                <td>Tyler Barton</td>
-                                                <td>DJ</td>
-                                                <td>$320,800</td>
-                                                <td>$320,800</td>
-                                                <td><a href="javascript:void(0)"
-                                                       class="waves-effect waves-light btn-small appstatusbutton" id="">Active</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <label>
-                                                        <input type="checkbox"/>
-                                                        <span></span>
-                                                    </label>
-                                                </td>
-                                                <td>09-21-2021</td>
-                                                <td>78-9456125</td>
-                                                <td>Edinburgh I</td>
-                                                <td>Tyler Barton</td>
-                                                <td>DJ</td>
-                                                <td>$320,800</td>
-                                                <td>$320,800</td>
-                                                <td><a href="javascript:void(0)"
-                                                       class="waves-effect waves-light btn-small appstatusbutton" id="">Active</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <label>
-                                                        <input type="checkbox"/>
-                                                        <span></span>
-                                                    </label>
-                                                </td>
-                                                <td>09-21-2021</td>
-                                                <td>78-9456120</td>
-                                                <td>Edinburgh</td>
-                                                <td>Tyler Barton</td>
-                                                <td>DJ</td>
-                                                <td>$320,800</td>
-                                                <td>$320,800</td>
-                                                <td><a href="javascript:void(0)"
-                                                       class="waves-effect waves-light btn-small appstatusbutton" id="">Active</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <label>
-                                                        <input type="checkbox"/>
-                                                        <span></span>
-                                                    </label>
-                                                </td>
-                                                <td>09-21-2021</td>
-                                                <td>78-9456189</td>
-                                                <td>Edinburgh</td>
-                                                <td>Tyler Barton</td>
-                                                <td>DJ</td>
-                                                <td>$320,800</td>
-                                                <td>$320,800</td>
-                                                <td><a href="javascript:void(0)"
-                                                       class="waves-effect waves-light btn-small appstatusbutton" id="">Active</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <label>
-                                                        <input type="checkbox"/>
-                                                        <span></span>
-                                                    </label>
-                                                </td>
-                                                <td>09-21-2021</td>
-                                                <td>78-9456123</td>
-                                                <td>Edinburgh</td>
-                                                <td>Tyler Barton</td>
-                                                <td>DJ</td>
-                                                <td>$320,800</td>
-                                                <td>$320,800</td>
-                                                <td><a href="javascript:void(0)"
-                                                       class="waves-effect waves-light btn-small appstatusbutton submitted"
-                                                       id="">Submitted</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <label>
-                                                        <input type="checkbox"/>
-                                                        <span></span>
-                                                    </label>
-                                                </td>
-                                                <td>09-21-2021</td>
-                                                <td>78-9456123</td>
-                                                <td>Edinburgh</td>
-                                                <td>Tyler Barton</td>
-                                                <td>DJ</td>
-                                                <td>$320,800</td>
-                                                <td>$320,800</td>
-                                                <td><a href="javascript:void(0)"
-                                                       class="waves-effect waves-light btn-small appstatusbutton approved"
-                                                       id="">Approved</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <label>
-                                                        <input type="checkbox"/>
-                                                        <span></span>
-                                                    </label>
-                                                </td>
-                                                <td>09-21-2021</td>
-                                                <td>78-9456123</td>
-                                                <td>Edinburgh</td>
-                                                <td>Tyler Barton</td>
-                                                <td>DJ</td>
-                                                <td>$320,800</td>
-                                                <td>$320,800</td>
-                                                <td><a href="javascript:void(0)"
-                                                       class="waves-effect waves-light btn-small appstatusbutton" id="">Active</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <label>
-                                                        <input type="checkbox"/>
-                                                        <span></span>
-                                                    </label>
-                                                </td>
-                                                <td>09-21-2021</td>
-                                                <td>78-9456123</td>
-                                                <td>Edinburgh</td>
-                                                <td>Tyler Barton</td>
-                                                <td>DJ</td>
-                                                <td>$320,800</td>
-                                                <td>$320,800</td>
-                                                <td><a href="javascript:void(0)"
-                                                       class="waves-effect waves-light btn-small appstatusbutton" id="">Active</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <label>
-                                                        <input type="checkbox"/>
-                                                        <span></span>
-                                                    </label>
-                                                </td>
-                                                <td>09-21-2021</td>
-                                                <td>78-9456123</td>
-                                                <td>Edinburgh</td>
-                                                <td>Tyler Barton</td>
-                                                <td>DJ</td>
-                                                <td>$320,800</td>
-                                                <td>$320,800</td>
-                                                <td><a href="javascript:void(0)"
-                                                       class="waves-effect waves-light btn-small appstatusbutton" id="">Active</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <label>
-                                                        <input type="checkbox"/>
-                                                        <span></span>
-                                                    </label>
-                                                </td>
-                                                <td>09-21-2021</td>
-                                                <td>78-9456123</td>
-                                                <td>Edinburgh</td>
-                                                <td>Tyler Barton</td>
-                                                <td>DJ</td>
-                                                <td>$320,800</td>
-                                                <td>$320,800</td>
-                                                <td><a href="javascript:void(0)"
-                                                       class="waves-effect waves-light btn-small appstatusbutton" id="">Active</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <label>
-                                                        <input type="checkbox"/>
-                                                        <span></span>
-                                                    </label>
-                                                </td>
-                                                <td>09-21-2021</td>
-                                                <td>78-9456123</td>
-                                                <td>Edinburgh</td>
-                                                <td>Tyler Barton</td>
-                                                <td>DJ</td>
-                                                <td>$320,800</td>
-                                                <td>$320,800</td>
-                                                <td><a href="javascript:void(0)"
-                                                       class="waves-effect waves-light btn-small appstatusbutton" id="">Active</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <label>
-                                                        <input type="checkbox"/>
-                                                        <span></span>
-                                                    </label>
-                                                </td>
-                                                <td>09-21-2021</td>
-                                                <td>78-9456123</td>
-                                                <td>Edinburgh</td>
-                                                <td>Tyler Barton</td>
-                                                <td>DJ</td>
-                                                <td>$320,800</td>
-                                                <td>$320,800</td>
-                                                <td><a href="javascript:void(0)"
-                                                       class="waves-effect waves-light btn-small appstatusbutton" id="">Active</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <label>
-                                                        <input type="checkbox"/>
-                                                        <span></span>
-                                                    </label>
-                                                </td>
-                                                <td>09-21-2021</td>
-                                                <td>78-9456123</td>
-                                                <td>Edinburgh</td>
-                                                <td>Tyler Barton</td>
-                                                <td>DJ</td>
-                                                <td>$320,800</td>
-                                                <td>$320,800</td>
-                                                <td><a href="javascript:void(0)"
-                                                       class="waves-effect waves-light btn-small appstatusbutton" id="">Active</a>
-                                                </td>
-                                            </tr>
+                                            @forelse($tableData as $row)
+                                                <tr>
+                                                    <td>
+                                                        <label>
+                                                            <input type="checkbox"/>
+                                                            <span></span>
+                                                        </label>
+                                                    </td>
+                                                    <td>{{$row->date}}</td>
+                                                    <td>{{$row->ein_number}}</td>
+                                                    <td>{{$row->company}}</td>
+                                                    <td>{{$row->contact}}</td>
+                                                    <td>{{$row->project}}</td>
+                                                    <td>{{price($row->single)}}</td>
+                                                    <td>{{price($row->aggregate)}}</td>
+                                                    <td>
+                                                        <a href="javascript:void(0)" class="waves-effect waves-light btn-small appstatusbutton {{strtolower(preQuailStatus($row->status))}}" id="">{{preQuailStatus($row->status)}}</a>
+                                                    </td>
+                                                </tr>
+                                            @empty
+                                                <tr><th colspan="9"><h6 class="center">No Data Found</h6></th></tr>
+                                            @endforelse
                                             </tbody>
                                         </table>
                                     </div>
@@ -376,5 +144,11 @@
         </div>
     </div>
     <!-- END: Page Main-->
-
+@endsection
+@section('customjs')
+    <script>
+        $(document).on('click','#preQualTable tbody tr',function (){
+           window.location.href="{{route('preQualification.show')}}"
+        });
+    </script>
 @endsection

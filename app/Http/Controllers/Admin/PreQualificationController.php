@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\PreQualification;
 
 class PreQualificationController extends Controller
 {
@@ -17,6 +18,11 @@ class PreQualificationController extends Controller
     }
     public function index()
     {
+        $this->page_data['tableData'] = PreQualification::latest()->paginate(config('jpi.per_page'));
         return view('trade_partners.admin.pre_qualification.index',$this->page_data);
+    }
+    public function show()
+    {
+        return view('trade_partners.admin.pre_qualification.detail',$this->page_data);
     }
 }

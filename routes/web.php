@@ -89,6 +89,7 @@ Route::group(['prefix' => 'admin'], function () {
 Route::group(['prefix' => 'trade-partner', 'middleware' => 'role:admin'], function () {
 //    Route::resource('prequalifications', PreQualificationController::class)->name('preQualification');
     Route::get('pre-qualifications', [PreQualificationController::class,'index'])->name('preQualification.index');
+    Route::get('pre-qualifications/application/{id?}', [PreQualificationController::class,'show'])->name('preQualification.show');
     Route::get('companies', [CompanyController::class,'index'])->name('companies.index');
 });
 Route::get('do-ach-payment', [AdminController::class, 'create']);
