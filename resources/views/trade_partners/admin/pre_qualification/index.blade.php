@@ -9,7 +9,7 @@
                     <div class="section">
                         <div class="jpi-main-heading"></div>
                         <div class="row">
-                            <div class="col s12 m10" id="header-search">
+                            <div class="col s12 m4" id="header-search">
                                 <div class="header-search-wrapper hide-on-med-and-down"><i class="material-icons">search</i>
                                     <input class="header-search-input z-depth-2" type="text" name="Search" >
                                     <ul class="search-list collection ps ps--active-y display-none">
@@ -62,13 +62,29 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="col s12 m2" id="accsett">
-                            <a class="btn dropdown-settings dropdown-filter waves-effect waves-light breadcrumbs-btn right" href="#!" data-target="dropdown1"><i class="material-icons hide-on-med-and-up">Filter</i><span class="hide-on-small-onl">Filter</span><i class="material-icons right">arrow_drop_down</i></a>
-                        <ul class="dropdown-content dropdown-settings " id="dropdown1" tabindex="0">
-                            <li tabindex="0"><a class="grey-text text-darken-2" href="#!">Minimum</a></li>
-                            <li tabindex="0"><a class="grey-text text-darken-2" href="#!">Maximum</a></li>
-                        </ul>
-                                        </div>
+                            <div class="col s12 m8" id="accsett" style="    margin-top: -7px;">
+							
+							<div class="input-field inline col">
+								<select id="limitdd" name="limitdd">
+									<option value="">Select Limit</option>
+									<option value="Single" {{request('limitdd') ==='Single' ? 'selected' : ''}}>Single</option>
+									<option value="Aggregate" {{request('limitdd') ==='Aggregate' ? 'selected' : ''}}>Aggregate</option>
+								</select>
+							</div>
+                           <div class="input-field inline col">
+								<input id="min_limit" type="text" name="min_limit" value="{{request('min_limit')}}">
+								<label for="min_limit">Min</label>
+							</div>
+							
+							<div class="input-field inline col">
+								<input id="max_limit" type="text" name="max_limit" value="{{request('max_limit')}}">
+								<label for="max_limit">Max</label>
+							</div>
+							 <div class="col display-flex align-items-center show-btn p0">
+									<button type="submit" class="btn btn-block waves-effect waves-light">Filter
+									</button>
+								</div>						
+							</div>
                         </div>
                         <div class="card account-settings-section section-data-tables">
                             <div class="card-content">
