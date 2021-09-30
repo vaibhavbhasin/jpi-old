@@ -128,5 +128,5 @@ Route::get('cron-test', function () {
     return Artisan::call('schedule:run');
 });
 Route::get('company-details', function () {
-    return view('trade_partners.admin.pre_qualification.detail');
+    return view('trade_partners.admin.companies.detail');
 });
