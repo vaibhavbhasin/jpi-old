@@ -17,7 +17,6 @@
                     <div class="jpi-main-heading dropdown-generaldrop">
                         <a class="btn dropdown-settings waves-effect waves-light breadcrumbs-btn right" href="#!" data-target="dropdown1"><i class="material-icons hide-on-med-and-up">General Info</i><span class="hide-on-small-onl">General Info</span><i class="material-icons right">arrow_drop_down</i></a>
                         <ul class="dropdown-content dropdown-settings" id="dropdown1" tabindex="0">
-                            <li tabindex="0"><a class="grey-text text-darken-2" href="#!">3rd Party Info</a></li>
                             <li tabindex="0"><a class="grey-text text-darken-2" href="#!">View App</a></li>
                         </ul>
                     </div>
