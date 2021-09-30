@@ -675,7 +675,7 @@ ul.state-functions li a {
     visibility: hidden;
 }
 .attach_drop_list{
-    margin-top: 12px;
+    margin-top: 15px;
     margin-left: -4px !important;
 }
 .m-4{
@@ -684,6 +684,40 @@ ul.state-functions li a {
 #generalinfo .card-title{
     padding-top: 16px;
     padding-bottom: 16px;
+}
+.assignto{
+    margin-bottom: -26px;
+}
+.dropdown-generaldrop{
+    margin-bottom: -10px;
+}
+#tableone thead th {
+    color: #616161;
+    font-weight: 300;
+}
+#tableone td {
+    color: #0f0f0f;
+    font-weight: 300;
+}
+#tableone tr.odd{
+    background-color: #f9f9f9;
+}
+.functions_sec a{
+    display: block;
+}
+.attach_drop_list_label{
+    margin-top: 28px;
+    margin-left: -4px !important;
+}
+.subfont{
+    color: #616161;
+    font-weight: 300;
+}
+#tabletwo tr td {
+    height: 10px;
+}
+body #main .section-data-tables .dataTables_wrapper table.dataTable tbody {
+    height: auto;
 }
 @media only screen and (max-width: 1398px) {
 .md-width-adj{
