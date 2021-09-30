@@ -82,7 +82,7 @@
                                 </form>
                                 <div class="row" id="data-table-starts">
                                     <div class="col s12 p0 binfopad">
-                                        <table id="tableone" class="display table-jpi">
+                                        <table id="tableone" class="display table-jpi tableone">
                                             <thead>
                                                 <tr>
                                                     <th>EIN #</th>
