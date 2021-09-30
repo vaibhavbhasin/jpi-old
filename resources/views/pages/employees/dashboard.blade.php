@@ -124,11 +124,11 @@
                                                         Update Funding Source
                                                     </a>
 												@else
-													<button
+													<a href="#img-modal"
                                                        class="waves-effect update-funding-source btn modal-trigger"
-                                                      disabled>
+                                                       id="updateFundingSourcedisable">
                                                         Update Funding Source
-                                                    </button>
+                                                    </a>
                                                 @endif
                                             </div>
                                         </div>
@@ -370,6 +370,7 @@
                     success: function (data) {
                         if (data) {
                             $(".intromodal").modal("close");
+							$("#btn_next-form-submit").html(' <span class="hide-on-small-only">Next</span> <i class="material-icons">navigate_next</i>').prop('disabled', false);
                             submitBankDetails();
                             toastr.success('Submitted successfully');
                         }
@@ -436,7 +437,7 @@
                 },
             });
         });
-        @if(!auth()->user()->account_verified)
+        @if(!auth()->user()->account_added)
         $(window).on("load", function () {
             $(".btn-prev").addClass("hide");
             $(".btn-next").addClass("hide");
@@ -569,13 +570,21 @@
                         $("#edit_details_cancel_btn").hide();
                     },
                     success: function () {
-
-                        toastr.success('Submitted successfully');
-                        $("#edit_details_save_btn").html('Save').prop('disabled', false);
-                        $("#edit_details_cancel_btn").click();
+					
+                       toastr.success('Submitted successfully');
+						$("#edit_details_save_btn").html('Save').prop('disabled', false);
+						$("#edit_details_cancel_btn").click();
+						
+					    @if(!auth()->user()->account_added)
+							window.location.reload();
+						@endif
                     },
-                    error: function () {
-                        toastr.error('Some Error occurred! Please enter all the details carefully!');
+                    error: function (data) {
+						
+						$("#edit_details_save_btn").html('Save').prop('disabled', false);
+						$("#edit_details_cancel_btn").show();
+						
+                        toastr.error('All fields are mandatory. Please enter all the details carefully!');
                     }
                 };
 

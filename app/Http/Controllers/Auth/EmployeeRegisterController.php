@@ -74,7 +74,7 @@ class EmployeeRegisterController extends Controller
             'phone_number' => $data['phone_number'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'is_active' => true,
+            'is_active' => false,
         ]);
         $user->assignRole('employee');
         Auth::login($user);

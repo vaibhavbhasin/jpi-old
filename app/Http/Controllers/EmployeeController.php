@@ -82,7 +82,9 @@ class EmployeeController extends Controller
                     'account_name' => $account->name,
                     'is_verified' => $is_verified
                 ]);
-                User::where('id', auth()->id())->update(['is_active' => 1]);
+                if ($is_verified){
+                    User::where('id', auth()->id())->update(['is_active' => 1]);
+                }
             }
             return response()->json(['msg' => 'success']);
         } else {

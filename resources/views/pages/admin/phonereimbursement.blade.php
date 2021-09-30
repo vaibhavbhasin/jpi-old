@@ -7,11 +7,11 @@
                 <div class='container'>
                     <div class="section">
                         <div class="jpi-main-heading">
-                            
+
                         </div>
-						
+
 						<form class="form-inline" method="GET">
-						
+
                         <div class="card transaction-settings-section section-data-tables">
                             <div class="card-content">
                                 <div class="card-title">
@@ -26,7 +26,6 @@
                                 <div class="row" id="data-table-starts">
                                     <div class="col s12 p0">
                                         <div class="row no-pad">
-                                            
                                                 <div class="col s11 p0">
                                                     <div class="input-field inline col">
                                                         <a href="javascript:void(0)"
@@ -90,14 +89,15 @@
                                             @forelse($users as $user)
                                                 <tr>
                                                     <td>
-                                                        <label><input type="checkbox" name="ids" id="user_id" class="check filled-in" value="{{$user->id}}"><span></span></label>
+                                                        <label>
+                                                            <input type="checkbox" name="ids" id="user_id" class="check filled-in" value="{{$user->id}}" {{ (!$user->is_verified) ? 'disabled' : ''}}>
+                                                            <span></span>
+                                                        </label>
                                                     </td>
                                                     <td>{{$user->firstname}}</td>
                                                     <td>{{$user->lastname}}</td>
                                                     <td>{{$user->email}}</td>
-                                                    
-                                                    <td>{{@$user->dwolla ? $user->dwolla->account_status : 'Not Added'}}</td>
-													
+                                                    <td>{{@$user->is_verified ? 'Verified' : 'Not Verified'}}</td>
 													<td>
                                                         <div class="switch">
                                                             <label>
@@ -105,14 +105,11 @@
                                                                        {{$user->is_active ? 'checked': ''}} class="switch_checkbox_update_status"
                                                                        id="switch_checkbox_update_status_{{$user->id}}"
                                                                        value="{{$user->id}}"
-                                                                       data-route="{{route('admin.updateStatus','users')}}">
+                                                                       data-route="{{route('admin.updateStatus','users')}}" {{ (!$user->is_verified) ? 'disabled' : ''}}>
                                                                 <span class="lever"></span>
-                                                                
                                                             </label>
                                                         </div>
                                                     </td>
-													
-													
                                                 </tr>
                                             @empty
                                                 <tr>
@@ -127,9 +124,9 @@
                                 </div>
                             </div>
                         </div>
-                    
-					
-					
+
+
+
 					    <div class="card transaction-settings-section section-data-tables">
                             <div class="card-content">
                                 <div class="card-title">
@@ -142,8 +139,8 @@
                                 </div>
                                 <!-- Page Length Options -->
                                 <div class="row" id="data-table-starts">
-								
-								
+
+
 								<div class="col s12 p0">
                                         <div class="row no-pad">
                                                 <div class="col s11 p0">
@@ -155,24 +152,24 @@
 														<input id="to_date_filter" type="text" name="to_date_filter"  class="datepicker" value="{{request('to_date_filter')}}">
                                                         <label for="to_date_filter">To Date</label>
                                                     </div>
-													
+
 													<div class="input-field inline col">
 														 <button type="submit" class="btn btn-block waves-effect waves-light"
 																	style="bottom: -8px;">Filter
 															</button>
                                                     </div>
-													
-													
+
+
                                                 </div>
-												
-												
-												
-                                               
+
+
+
+
                                         </div>
                                     </div>
-									
-									
-									
+
+
+
                                     <div class="col s12 p0">
                                         <table id="dwolla_transaction_histories_table" class="table-jpi striped responsive-table highlight">
                                             <thead>
@@ -208,8 +205,8 @@
                                 </div>
                             </div>
                         </div>
-                    
-					
+
+
                                             </form>
 					</div>
                 </div>

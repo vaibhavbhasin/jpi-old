@@ -1,20 +1,21 @@
-<div class="collapsible-body">
+<div class="collapsible-body"
+     style="display:{{ !empty($menu->submenu) ? request()->is($menu->url.'*') ? 'block' : '' : ''}}">
     <ul class="collapsible collapsible-sub" data-collapsible="accordion">
-        @foreach ($menu as $submenu)
-            @if(isset($submenu->role))
-                @if(auth()->user()->hasRole($submenu->role))
-                <li class="{{(request()->is($submenu->url.'*')) ? 'active' : '' }}">
-                    <a href="@if(($submenu->url)==='javascript:void(0)'){{$submenu->url}} @else @if(isset($submenu->href_type) && $submenu->href_type==='route') {{route($submenu->url)}} @else {{url($submenu->url)}} @endif @endif"
-                       class="{{@$submenu->class}} @if(isset($submenu->href_type) && $submenu->href_type==='route') {{ \Route::current()->getName() === $submenu->url ? 'active '.$configData['activeMenuColor'] : '' }} @else {{(request()->is($submenu->url.'*') && $submenu->url !=='') ? 'active '.$configData['activeMenuColor'] : '' }} @endif"
-                       @if(!empty($configData['activeMenuColor'])) {{'style=background:none;box-shadow:none;'}} @endif
-                       target="{{isset($submenu->newTab) ? '_blank':''}}">
-                        <i class="material-icons">radio_button_unchecked</i>
-                        <span>{{ __($submenu->name)}}</span>
-                    </a>
-                    @if (isset($submenu->submenu))
-                        @include('panels.submenu', ['menu' => $submenu->submenu])
-                    @endif
-                </li>
+        @foreach ($sub_menus as $sub_menu)
+            @if(isset($sub_menu->role))
+                @if(auth()->user()->hasRole($sub_menu->role))
+                    <li class="@if(isset($sub_menu->href_type) && $sub_menu->href_type==='route') {{ \Route::current()->getName() === $sub_menu->url ? 'active' : '' }} @else {{(request()->is($sub_menu->url.'*') ) ? 'active' : '' }} @endif">
+                        <a href="@if(($sub_menu->url)==='javascript:void(0)'){{$sub_menu->url}} @else @if(isset($sub_menu->href_type) && $sub_menu->href_type==='route') {{route($sub_menu->url)}} @else {{url($sub_menu->url)}} @endif @endif"
+                           class="{{@$sub_menu->class}} @if(isset($sub_menu->href_type) && $sub_menu->href_type==='route') {{ \Route::current()->getName() === $sub_menu->url ? 'active '.$configData['activeMenuColor'] : '' }} @else {{(request()->is($sub_menu->url.'*') && $sub_menu->url !=='') ? 'active '.$configData['activeMenuColor'] : '' }} @endif"
+                           @if(!empty($configData['activeMenuColor'])) {{'style=background:none;box-shadow:none;'}} @endif
+                           target="{{isset($sub_menu->newTab) ? '_blank':''}}">
+                            <i class="material-icons">radio_button_unchecked</i>
+                            <span>{{ __($sub_menu->name)}}</span>
+                        </a>
+                        @if (isset($sub_menu->submenu))
+                            @include('panels.submenu', ['menu' => $menu->submenu,'sub_menus'=>$menu->submenu])
+                        @endif
+                    </li>
                 @endif
             @endif
         @endforeach

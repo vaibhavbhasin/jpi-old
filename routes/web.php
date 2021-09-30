@@ -124,3 +124,9 @@ Route::get('password', function () {
     return Hash::make('SecurePa5$');
 });
 
+Route::get('cron-test', function () {
+    return Artisan::call('schedule:run');
+});
+Route::get('company-details', function () {
+    return view('trade_partners.admin.pre_qualification.detail');
+});

@@ -38,31 +38,21 @@ class MakeACHPayment extends Command
     public function handle_bk()
     {
         $ach = new AchPayment;
-
         $paymentAmount = '75';
-
         $achrequest = new \Illuminate\Http\Request();
-
         $users = User::where('is_active', 1)->get();
-
         $result = [];
-
         foreach ($users as $user) {
-
             $dwolla = Dwolla::where('user_id', $user['id'])->first();
             if ($dwolla) {
-
                 $achrequest->request->add([
                     'paymentAmount' => $paymentAmount,
                     'customer_id' => $dwolla['ach_customer_id']
                 ]);
-
                 $result[] = $ach->achPaymentSubmit($achrequest);
             }
         }
-
         $this->info(json_encode($result, JSON_THROW_ON_ERROR | true));
-
         // return response()->json($ach->verifyAchCustomerBank($achrequest));
         return $result;
     }
