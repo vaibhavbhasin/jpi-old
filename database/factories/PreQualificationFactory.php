@@ -13,9 +13,9 @@ class PreQualificationFactory extends Factory
     {
         return [
             'submitted_date' => $this->faker->dateTimeBetween('-2 Years'),
-            'ein_number' => '75-2544554',
+            'ein_number' => $this->faker->randomElement(['75-2544554','']),
             'company' => $this->faker->company,
-            'contact' => $this->faker->tollFreePhoneNumber,
+            'contact' => $this->faker->phoneNumber,
             'project' => $this->faker->text(20,),
             'single' => $this->faker->randomFloat(2, 100, 99999),
             'aggregate' => $this->faker->randomFloat(2, 100, 99999),

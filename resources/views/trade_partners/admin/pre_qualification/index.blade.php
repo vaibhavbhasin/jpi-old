@@ -134,6 +134,8 @@
                                             </tbody>
                                         </table>
                                     </div>
+                                    <div class="col s6"></div>
+                                    <div class="col s6">{!! $tableData->appends(request()->all())->render() !!}</div>
                                 </div>
                             </div>
                         </div>

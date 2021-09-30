@@ -30,128 +30,31 @@
                                 <!-- Page Length Options -->
                                 <div class="row" id="data-table-starts">
                                     <div class="col s12 p0">
-                                        <table id="multi-select" class="display">
+                                        <table id="companyTable" class="display">
                                             <thead>
                                             <tr>
-                                                
                                                 <th>Company Name</th>
                                                 <th>Company Type</th>
-                                                <th>Opertaing Region</th>
+                                                <th>Operating Region</th>
                                                 <th>Created Date</th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr>
-                                                <td>Robles 1,LLC</td>
-                                                <td>L.L.C.</td>
-                                                <td>San Antonio</td>
-                                                <td>08-25-2020</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Robles 1,LLC</td>
-                                                <td>L.L.C.</td>
-                                                <td>San Antonio</td>
-                                                <td>08-25-2020</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Robles 1,LLC</td>
-                                                <td>L.L.C.</td>
-                                                <td>San Antonio</td>
-                                                <td>08-25-2020</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Robles 1,LLC</td>
-                                                <td>L.L.C.</td>
-                                                <td>San Antonio</td>
-                                                <td>08-25-2020</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Robles 1,LLC</td>
-                                                <td>L.L.C.</td>
-                                                <td>San Antonio</td>
-                                                <td>08-25-2020</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Robles 1,LLC</td>
-                                                <td>L.L.C.</td>
-                                                <td>San Antonio</td>
-                                                <td>08-25-2020</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Robles 1,LLC</td>
-                                                <td>L.L.C.</td>
-                                                <td>San Antonio</td>
-                                                <td>08-25-2020</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Robles 1,LLC</td>
-                                                <td>L.L.C.</td>
-                                                <td>San Antonio</td>
-                                                <td>08-25-2020</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Robles 1,LLC</td>
-                                                <td>L.L.C.</td>
-                                                <td>San Antonio</td>
-                                                <td>08-25-2020</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Robles 1,LLC</td>
-                                                <td>L.L.C.</td>
-                                                <td>San Antonio</td>
-                                                <td>08-25-2020</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Robles 1,LLC</td>
-                                                <td>L.L.C.</td>
-                                                <td>San Antonio</td>
-                                                <td>08-25-2020</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Robles 1,LLC</td>
-                                                <td>L.L.C.</td>
-                                                <td>San Antonio</td>
-                                                <td>08-25-2020</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Robles 1,LLC</td>
-                                                <td>L.L.C.</td>
-                                                <td>San Antonio</td>
-                                                <td>08-25-2020</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Robles 1,LLC</td>
-                                                <td>L.L.C.</td>
-                                                <td>San Antonio</td>
-                                                <td>08-25-2020</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Robles 1,LLC</td>
-                                                <td>L.L.C.</td>
-                                                <td>San Antonio</td>
-                                                <td>08-25-2020</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Robles 1,LLC</td>
-                                                <td>L.L.C.</td>
-                                                <td>San Antonio</td>
-                                                <td>08-25-2020</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Robles 1,LLC</td>
-                                                <td>L.L.C.</td>
-                                                <td>San Antonio</td>
-                                                <td>08-25-2020</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Robles 1,LLC</td>
-                                                <td>L.L.C.</td>
-                                                <td>San Antonio</td>
-                                                <td>08-25-2020</td>
-                                            </tr>
+                                            @forelse($tableData as $row)
+                                                <tr>
+                                                    <td>{{$row->company_name}}</td>
+                                                    <td>{{$row->company_type}}</td>
+                                                    <td>{{$row->region}}</td>
+                                                    <td>{{$row->date}}</td>
+                                                </tr>
+                                            @empty
+                                                <tr><th colspan="4"><h6 class="center">No Data Found</h6></th></tr>
+                                            @endforelse
                                             </tbody>
                                         </table>
                                     </div>
+                                    <div class="col s6"></div>
+                                    <div class="col s6">{!! $tableData->appends(request()->all())->render() !!}</div>
                                 </div>
                             </div>
                         </div>
@@ -162,4 +65,11 @@
         </div>
     </div>
     <!-- END: Page Main-->
+@endsection
+@section('customjs')
+    <script>
+        $(document).on('click','#companyTable tbody tr',function (){
+            window.location.href="{{route('companies.show')}}"
+        });
+    </script>
 @endsection
