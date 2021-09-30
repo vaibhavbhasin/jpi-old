@@ -130,3 +130,9 @@ Route::get('cron-test', function () {
 Route::get('company-details', function () {
     return view('trade_partners.admin.companies.detail');
 });
+
+
+
+Route::get('app-details', function () {
+    return view('trade_partners.admin.pre_qualification.detail');
+});
