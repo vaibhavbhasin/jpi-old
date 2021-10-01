@@ -146,7 +146,7 @@
                                         <div id="apj-acctxt-border"></div>
                                         <div class="row">
                                             <div class="col s3">
-                                                <a href="javascript:void(0)" class="waves-effect waves-light btn-small inviteuser" id="" style="display: inline-flex;"><i class="material-icons">face</i> Invite Users</a>
+                                                <a href="javascript:void(0)" class="waves-effect waves-light btn-small inviteuser" id="" style="display: inline-flex;"><i class="material-icons">person_outline</i> Invite Users</a>
                                             </div>
                                         </div>
                                         <div class="row" style="display: none;">

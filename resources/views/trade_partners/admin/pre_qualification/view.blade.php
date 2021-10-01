@@ -77,11 +77,11 @@
                                             </div>
                                             <div class="row">
                                                 <div class="input-field col m6 s12">
-                                                    <label for="rop">RO Project Name, or enter N/A: <span class="red-text">*</span></label>
+                                                    <label for="rop">Project Name, or enter N/A: <span class="red-text">*</span></label>
                                                     <input type="text" class="validate" name="Email" id="rop" required>
                                                 </div>
                                                 <div class="input-field col m6 s12">
-                                                    <label for="rcoe">RO Contact, or enter N/A: <span class="red-text">*</span></label>
+                                                    <label for="rcoe">Contact, or enter N/A: <span class="red-text">*</span></label>
                                                     <input type="text" class="validate" name="contactNum" id="rcoe" required>
                                                 </div>
                                             </div>
@@ -238,7 +238,6 @@
                                                     <table id="tablewo" class="display table-jpi tableone">
                                                         <thead>
                                                             <tr>
-                                                                <th>Action</th>
                                                                 <th>Company Name</th>
                                                                 <th>Contact</th>
                                                                 <th>Address</th>
@@ -246,16 +245,11 @@
                                                                 <th>City</th>
                                                                 <th>State</th>
                                                                 <th>Zip</th>
+                                                                <th>Edit</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
                                                             <tr>
-                                                                <td><a class="btn dropdown-settings table-action-dropdown waves-effect waves-light breadcrumbs-btn right dropdown2" href="#!" data-target="dropdown2"><i class="material-icons">settings</i><i class="material-icons right">arrow_drop_down</i></a>
-                                                                    <ul class="dropdown-content" id="dropdown2" tabindex="0">
-                                                                        <li tabindex="0"><a class="grey-text text-darken-2" href="#!"><i class="material-icons dp48">edit</i> Edit</a></li>
-                                                                        <li tabindex="0"><a class="grey-text text-darken-2" href="#!"><i class="material-icons dp48">delete</i> Delete</a></li>
-                                                                    </ul>
-                                                                </td>
                                                                 <td>Christian Harris Traders</td>
                                                                 <td>Eveniet quia ex ut</td>
                                                                 <td>Iure ut sunt facere</td>
@@ -263,6 +257,7 @@
                                                                 <td>Ut ut dolor obcaecat</td>
                                                                 <td>Alaska</td>
                                                                 <td>86681</td>
+																 <td><a class="btn dropdown-settings table-action-dropdown waves-effect waves-light breadcrumbs-btn right dropdown2" href="#!" data-target="dropdown2"><i class="material-icons">edit</i></a></td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -341,29 +336,25 @@
                                                     <table id="tablewo" class="display table-jpi tableone">
                                                         <thead>
                                                             <tr>
-                                                                <th>Action</th>
                                                                 <th>Project Name</th>
                                                                 <th>Contractor</th>
                                                                 <th>Contact Person</th>
                                                                 <th>Date</th>
                                                                 <th>Value</th>
                                                                 <th>Phone</th>
+                                                                <th>Edit</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
                                                             <tr>
-                                                                <td><a class="btn dropdown-settings table-action-dropdown waves-effect waves-light breadcrumbs-btn right dropdown2" href="#!" data-target="dropdown2"><i class="material-icons">settings</i><i class="material-icons right">arrow_drop_down</i></a>
-                                                                    <ul class="dropdown-content" id="dropdown2" tabindex="0">
-                                                                        <li tabindex="0"><a class="grey-text text-darken-2" href="#!"><i class="material-icons dp48">edit</i> Edit</a></li>
-                                                                        <li tabindex="0"><a class="grey-text text-darken-2" href="#!"><i class="material-icons dp48">delete</i> Delete</a></li>
-                                                                    </ul>
-                                                                </td>
+                                                               
                                                                 <td>Claudia Weber</td>
                                                                 <td>A enim consequuntur</td>
                                                                 <td>Aut nostrum lorem co</td>
                                                                 <td>09-30-2021</td>
                                                                 <td>$933.00</td>
                                                                 <td>128-173-1181</td>
+																 <td><a class="btn dropdown-settings table-action-dropdown waves-effect waves-light breadcrumbs-btn right dropdown2" href="#!" data-target="dropdown2"><i class="material-icons">edit</i></a></td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -371,10 +362,10 @@
                                             </div>
                                             <div class="row">
                                                 <p class="plr14">* Current work in progress or lists of jobs in progress with Contract Values must be attached</p>
-                                                <div class="col s2 m-4 attach_drop_list_label">
+                                                <div class="col s1 m-4 attach_drop_list_label">
                                                     <span class="subfont">Upload File: </span>
                                                 </div>
-                                                <div class="col s10 m-4">
+                                                <div class="col s11 m-4">
                                                     <div class="file-field input-field">
                                                         <div class="btn left">
                                                             <span>Choose file</span>
@@ -464,7 +455,7 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col s3 m-4 attach_drop_list_label">
+                                                <div class="col s2 m-4 attach_drop_list_label">
                                                     <span class="subfont">Attach bonding letter: <span class="red-text">*</span></span>
                                                 </div>
                                                 <div class="col s6 m-4">
@@ -588,23 +579,19 @@
                                                     <table id="tablewo" class="display table-jpi tableone">
                                                         <thead>
                                                             <tr>
-                                                                <th>Action</th>
                                                                 <th>Company Name</th>
                                                                 <th>Phone no</th>
                                                                 <th>Contact</th>
+                                                                <th>Edit</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
                                                             <tr>
-                                                                <td><a class="btn dropdown-settings table-action-dropdown waves-effect waves-light breadcrumbs-btn right dropdown2" href="#!" data-target="dropdown2"><i class="material-icons">settings</i><i class="material-icons right">arrow_drop_down</i></a>
-                                                                    <ul class="dropdown-content" id="dropdown2" tabindex="0">
-                                                                        <li tabindex="0"><a class="grey-text text-darken-2" href="#!"><i class="material-icons dp48">edit</i> Edit</a></li>
-                                                                        <li tabindex="0"><a class="grey-text text-darken-2" href="#!"><i class="material-icons dp48">delete</i> Delete</a></li>
-                                                                    </ul>
-                                                                </td>
+                                                                <td><a class="btn dropdown-settings table-action-dropdown waves-effect waves-light breadcrumbs-btn right dropdown2" 
                                                                 <td>Christian Harris Traders</td>
                                                                 <td>Eveniet quia ex ut</td>
                                                                 <td>Iure ut sunt facere</td>
+																<td><a class="btn dropdown-settings table-action-dropdown waves-effect waves-light breadcrumbs-btn right dropdown2" href="#!" data-target="dropdown2"><i class="material-icons">edit</i></a></td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -709,7 +696,7 @@
 
                                             <div class="row">
 
-                                                <div class="col s4 m-4 attach_drop_list_label">
+                                                <div class="col s3 m-4 attach_drop_list_label">
                                                     <span class="subfont">Most Recent Fiscal Year End Statements: <span class="red-text">*</span></span>
                                                 </div>
                                                 <div class="col s8 m-4">
@@ -1081,7 +1068,7 @@
                                             </div>
                                             <div class="row">
                                                 <p class="plr14"><span class="red-text">*</span> Current Insurance Certificate showing your limits must be attached</p>
-                                                <div class="col s2 m-4 attach_drop_list_label">
+                                                <div class="col s1 m-4 attach_drop_list_label">
                                                     <span class="subfont">Upload File: </span>
                                                 </div>
                                                 <div class="col s10 m-4">
@@ -1185,7 +1172,7 @@
                                             <div class="row">
                                                 <div class="col s12 p0 binfopad">
 
-                                                <div class="col s2 m-4 attach_drop_list_label">
+                                                <div class="col s1 m-4 attach_drop_list_label">
                                                     <span class="subfont">Upload File: </span>
                                                 </div>
                                                 <div class="col s10 m-4">

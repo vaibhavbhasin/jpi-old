@@ -11,7 +11,7 @@
                         <div class="row">
                             <div class="col s12 m4" id="header-search">
                                 <div class="header-search-wrapper hide-on-med-and-down"><i class="material-icons">search</i>
-                                    <input class="header-search-input z-depth-2" type="text" name="Search" >
+                                    <input class="header-search-input z-depth-2" placeholder="Search Applications" type="text" name="Search" >
                                     <ul class="search-list collection ps ps--active-y display-none">
                                         <li class="auto-suggestion-title"><a class="collection-item" href="#">
                                                 <h6 class="search-title">PAGES</h6>
