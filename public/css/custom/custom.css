@@ -493,6 +493,9 @@ img.loader-btn{
 .dropdown-content.dropdown-settings{
     min-width: 168px;
 }
+.dropdown-content.dropdown-viewapp{
+    min-width: 152px;
+}
 .assignto .input-field.inline {
     vertical-align: baseline;
 }
@@ -686,7 +689,7 @@ ul.state-functions li a {
     padding-bottom: 16px;
 }
 .assignto{
-    margin-bottom: -26px;
+    margin-bottom: -30px;
 }
 .dropdown-generaldrop{
     margin-bottom: -10px;
@@ -745,6 +748,110 @@ body #main .section-data-tables .dataTables_wrapper table.dataTable th {
 .inviteuser i{
     padding-right: 6px;
 }
+.progress {
+    display: flex;
+    height: 1rem;
+    overflow: hidden;
+    font-size: .75rem;
+    background-color: #e9ecef;
+    border-radius: .25rem;
+    margin-top: 16px;
+}
+.progress .progress-bar{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    background-color: #002f6c;
+    transition: width .6s ease;
+    display: flex;
+    height: 1rem;
+    overflow: hidden;
+    font-size: .75rem;
+    border-radius: .25rem;
+}
+.progress-bar-striped {
+    background-image: linear-gradient(
+45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+    background-size: 1rem 1rem;
+}
+.pl8{
+    padding-left: 8px;
+}
+.step-actions .dark,.cancelbtn  {
+    background-color: #0f0f0f !important;
+    border-color: #0f0f0f !important;
+}
+.step-actions .dark:hover,.cancelbtn:hover {
+    background-color: #000000 !important;
+}
+#main .section-data-tables #secondstep #data-table-starts .dataTables_wrapper i.material-icons, #main .section-data-tables #secondstep #data-table-starts .dataTables_wrapper #dropdown2 i.material-icons,
+#main .section-data-tables #thirdstep #data-table-starts .dataTables_wrapper i.material-icons, #main .section-data-tables #thirdstep #data-table-starts .dataTables_wrapper #dropdown2 i.material-icons{
+    font-size: 1.3rem;
+    line-height: inherit;
+    padding-top: 0;
+}
+#thirdstep #data-table-starts .dropdown2,
+#secondstep #data-table-starts .dropdown2{
+    margin-top: 0px;
+    padding: 0 0.8rem;
+    float: left !important;
+}
+.dropdown-content#dropdown2{
+    min-width: 70px;
+}
+#secondstep .card-title,
+#thirdstep .card-title{
+    margin-top: 35px;
+}
+.apjmb-3{
+    margin-bottom: -82px;
+}
+.apjmt-3{
+    margin-top: -22px;
+}
+#secondstep>p{
+    padding-bottom: 15px;
+}
+.plr14{
+    padding: 14px 0;
+}
+.pl10 {
+    padding-left: 10px;
+}
+#thirdstep .radiobtn span{
+    font-size: 18px;
+    padding-right: 6px;
+}
+#thirdstep .pb20{
+    padding-bottom: 20px;
+}
+#thirdstep .pt15{
+    padding-top: 15px;
+}
+#thirdstep .pl15{
+    padding-left: 15px;
+}
+#thirdstep .cap h4{
+    font-size: 14px;
+    font-weight: normal;
+}
+#thirdstep .cap ul{
+    font-size: 12px;
+    font-weight: normal;
+}
+.einnumber{
+    padding-top: 10px !important;
+    margin-bottom: -10px !important;
+}
 @media only screen and (max-width: 1398px) {
 .md-width-adj{
     width: 100% !important;
@@ -785,7 +892,7 @@ body #main .section-data-tables .dataTables_wrapper table.dataTable th {
 }
 @media only screen and (min-width: 993px) {
     #main .jpi-main-heading {
-        padding-top: 44px;
+        padding-top: 22px;
     }
     .dropdown-settings {
         margin-top: 22px;

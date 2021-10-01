@@ -22,7 +22,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col s6">
+            <div class="col s6 einnumber">
             <p>EIN: 78-9456123</p>
             </div>
             <div class="col s6 ">
