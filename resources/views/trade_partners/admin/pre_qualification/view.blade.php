@@ -8,7 +8,7 @@
             <div class="col s6">
                 <div class="section">
                     <div class="jpi-main-heading">
-                        <h2>Test Comapny</h2>
+                        <h2>{{$data->company}}</h2>
                     </div>
                 </div>
             </div>
@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="col s6 einnumber">
-                <p>EIN: 78-9456123</p>
+                <p>EIN: {{$data->ein_number}}</p>
             </div>
             <div class="col s6 ">
                 <div class="right assignto">
@@ -48,7 +48,7 @@
                                     <h4 class="card-title">Application</h4>
                                 </div>
                                 <div class="col s12 m4 text-right">
-                                    <a href="#!" class="waves-effect waves-red btn white black-text secondary-content viewapp_status_btn">Status: <span>Submitted</span></a>
+                                    <a href="#!" class="waves-effect waves-red btn white black-text secondary-content viewapp_status_btn">Status: <span>{{strtolower(preQuailStatus($data->status))}}</span></a>
                                 </div>
                                 <div class="col s12 m2 text-right">
                                     <div class="progress">

@@ -126,7 +126,8 @@
                                             </thead>
                                             <tbody>
                                             @forelse($tableData as $row)
-                                                <tr>
+											
+                                                <tr data-route="{{route('preQualification.show',$row->id)}}">
                                                     <td>
                                                         <label>
                                                             <input type="checkbox"/>
@@ -144,6 +145,8 @@
                                                         <a href="javascript:void(0)" class="waves-effect waves-light btn-small appstatusbutton {{strtolower(preQuailStatus($row->status))}}" id="">{{preQuailStatus($row->status)}}</a>
                                                     </td>
                                                 </tr>
+												
+												
                                             @empty
                                                 <tr><th colspan="9"><h6 class="center">No Data Found</h6></th></tr>
                                             @endforelse
@@ -166,7 +169,9 @@
 @section('customjs')
     <script>
         $(document).on('click','#preQualTable tbody tr',function (){
-           window.location.href="{{route('preQualification.show')}}"
+			
+			
+           window.location.href=$(this).data('route');
         });
     </script>
 @endsection

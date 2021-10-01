@@ -403,14 +403,31 @@ button[disabled] {
 }
 .appstatusbutton{
     pointer-events: none;
-    min-width: 90px;
+    min-width: 140px;
+}
+
+
+.appstatusbutton.rejected{
+    background-color: #A21021;
 }
 .appstatusbutton.submitted{
-    background-color: #b41225;
+    background-color: #A21021;
 }
 .appstatusbutton.approved{
-    background-color: #04a535;
+    background-color: #049430;
 }
+
+.appstatusbutton.pending{
+    background-color: #C49B0B;
+}
+
+.appstatusbutton.started{
+    background-color: #C49B0B;
+}
+
+
+
+
 #main .section-data-tables #data-table-starts .dataTables_wrapper #page-length-option_paginate .paginate_button.current, #main .section-data-tables #data-table-starts .dataTables_wrapper #page-length-option_paginate .paginate_button.current:hover, #main .section-data-tables #data-table-starts .dataTables_wrapper #page-length-option_paginate .paginate_button:hover, #main .section-data-tables #data-table-starts .dataTables_wrapper .dataTables_paginate .paginate_button.current, #main .section-data-tables #data-table-starts .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
     color: #fff!important;
     border: 1px solid #005dab;

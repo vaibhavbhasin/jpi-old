@@ -21,8 +21,15 @@ class PreQualificationController extends Controller
         $this->page_data['tableData'] = PreQualification::latest()->paginate(config('jpi.per_page'));
         return view('trade_partners.admin.pre_qualification.index',$this->page_data);
     }
-    public function show()
+    public function show(PreQualification $id)
     {
+		$this->page_data['data']=$id;
         return view('trade_partners.admin.pre_qualification.detail',$this->page_data);
+    }
+	
+	public function showviewapp(PreQualification $id)
+    {
+		$this->page_data['data']=$id;
+        return view('trade_partners.admin.pre_qualification.view',$this->page_data);
     }
 }
