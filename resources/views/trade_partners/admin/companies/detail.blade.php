@@ -63,7 +63,6 @@
                                                             <span>Joint Venture</span>
                                                         </label>
                                                     </p>
-
                                                 </div>
                                             </div>
                                             <div class="col s2 attach_drop_list_label0">
@@ -78,11 +77,8 @@
                                                 </select>
                                             </div>
                                         </div>
-
                                 </div>
-
                                 </form>
-
                             </div>
                             <div id="apj-acctxt-border"></div>
                             <div class="row">
@@ -128,19 +124,15 @@
                                                             <td>Edinburgh</td>
                                                             <td>Edinburgh</td>
                                                         </tr>
-
                                                     </tbody>
                                                 </table>
                                             </div>
                                         </div>
-
-
                                         <div class="row apj_last_fms">
                                             <div class="col s11">
-                                                <a href="javascript:void(0)" class="waves-effect waves-light btn-small " id="">Apply Change(s)</a>
-                                                <a href="javascript:void(0)" class="waves-effect waves-light btn-small " id="">Save</a>
+                                                <a href="javascript:void(0)" class="waves-effect waves-light btn-small jpi-btn" id="">Apply Change(s)</a>
+                                                <a href="javascript:void(0)" class="waves-effect waves-light btn-small jpi-save-btn" id="">Save</a>
                                                 <a href="javascript:void(0)" class="waves-effect waves-light btn-small  apj-cancel-btn" id="">Cancel</a>
-
                                             </div>
                                         </div>
                                         <div id="apj-acctxt-border"></div>
@@ -155,12 +147,8 @@
                                                     <input id="first_name1" type="text">
                                                     <label for="first_name1">Enter email address</label>
                                                 </div>
-
                                             </div>
                                             <div class="col s4">
-
-
-
                                                 <a href="javascript:void(0)" class="waves-effect waves-light btn-small inviteuser" id="" style="display: inline-flex;">Send</a>
                                                 <a href="javascript:void(0)" class="waves-effect waves-light btn-small  apj-cancel-btn" id="">Cancel</a>
                                             </div>
@@ -229,12 +217,10 @@
                                                                 </div>
                                                             </td>
                                                         </tr>
-
                                                     </tbody>
                                                 </table>
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>

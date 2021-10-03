@@ -48,7 +48,7 @@
                                     <h4 class="card-title">Application</h4>
                                 </div>
                                 <div class="col s12 m4 text-right">
-                                    <a href="#!" class="waves-effect waves-red btn white black-text secondary-content viewapp_status_btn">Status: <span>{{strtolower(preQuailStatus($data->status))}}</span></a>
+                                    <a href="#!" class="waves-effect waves-light btn black-text secondary-content viewapp_status_btn">Status: <span>{{strtolower(preQuailStatus($data->status))}}</span></a>
                                 </div>
                                 <div class="col s12 m2 text-right">
                                     <div class="progress">
@@ -90,21 +90,21 @@
                                                     <label for="cbwa">Certified by which agency: <span class="red-text">*</span></label>
                                                     <input type="text" class="validate" name="Email" id="cbwa" required>
                                                 </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="input-field col m3 s12">
+                                                <div class="input-field col m6 s12">
                                                     <label for="mail">Mailing Address: <span class="red-text">*</span></label>
                                                     <input type="email" class="validate" name="Email" id="mail" required>
                                                 </div>
-                                                <div class="input-field col m3 s12">
+                                            </div>
+                                            <div class="row">
+                                                <div class="input-field col m4 s12">
                                                     <label for="acity">City: <span class="red-text">*</span></label>
                                                     <input type="text" class="validate" name="Email" id="acity" required>
                                                 </div>
-                                                <div class="input-field col m3 s12">
+                                                <div class="input-field col m4 s12">
                                                     <label for="state">State: <span class="red-text">*</span></label>
                                                     <input type="text" class="validate" name="Email" id="state" required>
                                                 </div>
-                                                <div class="input-field col m3 s12">
+                                                <div class="input-field col m4 s12">
                                                     <label for="zip">Zip: <span class="red-text">*</span></label>
                                                     <input type="text" class="validate" name="contactNum" id="zip" required>
                                                 </div>
@@ -215,10 +215,10 @@
                                             <div class="step-actions">
                                                 <div class="row">
                                                     <div class="col m12 s12 mb-3">
-                                                        <button class="waves-effect waves btn btn-primary">
+                                                        <button class="waves-effect waves btn btn-primary jpi-save-btn">
                                                             Save
                                                         </button>
-                                                        <button class="btn btn-light next-step">
+                                                        <button class="btn btn-light next-step jpi-btn">
                                                             Save & Next
                                                         </button>
                                                         <button class="waves-effect waves dark btn btn-primary cancelbtn">
@@ -257,7 +257,7 @@
                                                                 <td>Ut ut dolor obcaecat</td>
                                                                 <td>Alaska</td>
                                                                 <td>86681</td>
-																 <td><a class="btn dropdown-settings table-action-dropdown waves-effect waves-light breadcrumbs-btn right dropdown2" href="#!" data-target="dropdown2"><i class="material-icons">edit</i></a></td>
+                                                                <td><a class="btn dropdown-settings table-action-dropdown waves-effect waves-light breadcrumbs-btn right dropdown2" href="#!" data-target="dropdown2"><i class="material-icons">edit</i></a></td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -314,7 +314,7 @@
                                             <div class="step-actions">
                                                 <div class="row">
                                                     <div class="col m12 s12 mb-3 apjmt-3">
-                                                        <button class="waves-effect waves btn btn-primary">
+                                                        <button class="waves-effect waves btn btn-primary jpi-save-btn">
                                                             Save
                                                         </button>
                                                         <button class="btn btn-light next-step">
@@ -347,14 +347,13 @@
                                                         </thead>
                                                         <tbody>
                                                             <tr>
-                                                               
                                                                 <td>Claudia Weber</td>
                                                                 <td>A enim consequuntur</td>
                                                                 <td>Aut nostrum lorem co</td>
                                                                 <td>09-30-2021</td>
                                                                 <td>$933.00</td>
                                                                 <td>128-173-1181</td>
-																 <td><a class="btn dropdown-settings table-action-dropdown waves-effect waves-light breadcrumbs-btn right dropdown2" href="#!" data-target="dropdown2"><i class="material-icons">edit</i></a></td>
+                                                                <td><a class="btn dropdown-settings table-action-dropdown waves-effect waves-light breadcrumbs-btn right dropdown2" href="#!" data-target="dropdown2"><i class="material-icons">edit</i></a></td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -390,10 +389,10 @@
                                             <div class="step-actions">
                                                 <div class="row">
                                                     <div class="col m12 s12 mb-3">
-                                                        <button class="waves-effect waves btn btn-primary">
+                                                        <button class="waves-effect waves btn btn-primary jpi-save-btn">
                                                             Save
                                                         </button>
-                                                        <button class="btn btn-light next-step">
+                                                        <button class="btn btn-light next-step jpi-btn">
                                                             Save & Next
                                                         </button>
                                                         <button class="waves-effect waves dark btn btn-primary cancelbtn">
@@ -407,7 +406,6 @@
                                     <li class="step">
                                         <div class="step-title waves-effect">Bonding Information</div>
                                         <div class="step-content" id="thirdstep">
-
                                             <div class="row">
                                                 <div class="col s2 attach_drop_list_label">
                                                     <span class="subfont">Are you bonded? <span class="red-text">*</span></span>
@@ -473,10 +471,10 @@
                                             <div class="step-actions">
                                                 <div class="row">
                                                     <div class="col m12 s12 mb-3">
-                                                        <button class="waves-effect waves btn btn-primary">
+                                                        <button class="waves-effect waves btn btn-primary jpi-save-btn">
                                                             Save
                                                         </button>
-                                                        <button class="btn btn-light next-step">
+                                                        <button class="btn btn-light next-step jpi-btn">
                                                             Save & Next
                                                         </button>
                                                         <button class="waves-effect waves dark btn btn-primary cancelbtn">
@@ -487,13 +485,10 @@
                                             </div>
                                         </div>
                                     </li>
-
                                     <li class="step">
                                         <div class="step-title waves-effect">Banking</div>
                                         <div class="step-content" id="thirdstep">
-
                                             <div class="row">
-
                                                 <div class="input-field col m6 s12">
                                                     <label for="proposal12">Bank Name:</label>
                                                     <input type="text" class="validate" id="proposal12" name="proposal1" required>
@@ -541,14 +536,13 @@
                                                     <label for="psd">Renewal Date</label>
                                                 </div>
                                             </div>
-
                                             <div class="step-actions">
                                                 <div class="row">
                                                     <div class="col m12 s12 mb-3">
-                                                        <button class="waves-effect waves btn btn-primary">
+                                                        <button class="waves-effect waves btn btn-primary jpi-save-btn">
                                                             Save
                                                         </button>
-                                                        <button class="btn btn-light next-step">
+                                                        <button class="btn btn-light next-step jpi-btn">
                                                             Save & Next
                                                         </button>
                                                         <button class="waves-effect waves dark btn btn-primary cancelbtn">
@@ -559,20 +553,15 @@
                                             </div>
                                         </div>
                                     </li>
-
                                     <li class="step">
                                         <div class="step-title waves-effect">Financials</div>
                                         <div class="step-content" id="thirdstep">
-
                                             <div class="row">
-
                                                 <div class="input-field col m12 s12">
                                                     <label for="proposal12">Value of Current Backlog: <span class="red-text">*</span></label>
                                                     <input type="text" class="validate" id="proposal12" name="proposal1" required>
                                                 </div>
                                             </div>
-
-
                                             <div class="row" id="data-table-starts">
                                                 <h4 class="card-title">Credit Vendors</h4>
                                                 <div class="col s12 p0 binfopad">
@@ -587,17 +576,15 @@
                                                         </thead>
                                                         <tbody>
                                                             <tr>
-                                                                <td><a class="btn dropdown-settings table-action-dropdown waves-effect waves-light breadcrumbs-btn right dropdown2" 
-                                                                <td>Christian Harris Traders</td>
+                                                                <td><a class="btn dropdown-settings table-action-dropdown waves-effect waves-light breadcrumbs-btn right dropdown2" <td>Christian Harris Traders</td>
                                                                 <td>Eveniet quia ex ut</td>
                                                                 <td>Iure ut sunt facere</td>
-																<td><a class="btn dropdown-settings table-action-dropdown waves-effect waves-light breadcrumbs-btn right dropdown2" href="#!" data-target="dropdown2"><i class="material-icons">edit</i></a></td>
+                                                                <td><a class="btn dropdown-settings table-action-dropdown waves-effect waves-light breadcrumbs-btn right dropdown2" href="#!" data-target="dropdown2"><i class="material-icons">edit</i></a></td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
                                                 </div>
                                             </div>
-
                                             <div class="row">
                                                 <h4 class="card-title">New Credit Vendor</h4>
                                                 <div class="input-field col m4 s12">
@@ -624,7 +611,6 @@
                                                     <button class="waves-effect waves dark btn btn-primary cancelbtn">
                                                         Cancel
                                                     </button>
-
                                                     <label class="pl10">
                                                         <input type="checkbox">
                                                         <span>by checking this box I authorize Rogers-Obrien to contact the above vendors.</span>
@@ -645,17 +631,14 @@
                                                     <label for="job12">Cash & Marketable Securities: <span class="red-text">*</span></label>
                                                     <input type="text" class="validate" id="job12" name="job1" required>
                                                 </div>
-
                                                 <div class="input-field col m6 s12">
                                                     <label for="job12">Total Current Assets: <span class="red-text">*</span></label>
                                                     <input type="text" class="validate" id="job12" name="job1" required>
                                                 </div>
-
                                                 <div class="input-field col m12 s12">
                                                     <label for="job12">Fixed Assets: Property Plant & Equipment (net of depreciation): <span class="red-text">*</span></label>
                                                     <input type="text" class="validate" id="job12" name="job1" required>
                                                 </div>
-
                                                 <div class="input-field col m6 s12">
                                                     <label for="job12">Other Assets: <span class="red-text">*</span></label>
                                                     <input type="text" class="validate" id="job12" name="job1" required>
@@ -664,17 +647,14 @@
                                                     <label for="job12">Total Assets: <span class="red-text">*</span></label>
                                                     <input type="text" class="validate" id="job12" name="job1" required>
                                                 </div>
-
                                                 <div class="input-field col m4 s12">
                                                     <label for="job12">Total Current Liabilities: <span class="red-text">*</span></label>
                                                     <input type="text" class="validate" id="job12" name="job1" required>
                                                 </div>
-
                                                 <div class="input-field col m4 s12">
                                                     <label for="job12">Long Term Liabilities: <span class="red-text">*</span></label>
                                                     <input type="text" class="validate" id="job12" name="job1" required>
                                                 </div>
-
                                                 <div class="input-field col m4 s12">
                                                     <label for="job12">Total Liabilities: <span class="red-text">*</span></label>
                                                     <input type="text" class="validate" id="job12" name="job1" required>
@@ -692,10 +672,7 @@
                                                     <input type="text" class="validate" id="job12" name="job1" required>
                                                 </div>
                                             </div>
-
-
                                             <div class="row">
-
                                                 <div class="col s3 m-4 attach_drop_list_label">
                                                     <span class="subfont">Most Recent Fiscal Year End Statements: <span class="red-text">*</span></span>
                                                 </div>
@@ -711,7 +688,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <div class="row">
                                                 <h4 class="card-title">Financials: Current Year To Date (Interim)</h4>
                                                 <div class="input-field col m6 s12">
@@ -726,17 +702,14 @@
                                                     <label for="job12">Cash & Marketable Securities (Interim): </label>
                                                     <input type="text" class="validate" id="job12" name="job1" required>
                                                 </div>
-
                                                 <div class="input-field col m6 s12">
                                                     <label for="job12">Total Current Assets (Interim): </label>
                                                     <input type="text" class="validate" id="job12" name="job1" required>
                                                 </div>
-
                                                 <div class="input-field col m12 s12">
                                                     <label for="job12">Fixed Assets: Property Plant & Equipment (net of depreciation) (Interim): </label>
                                                     <input type="text" class="validate" id="job12" name="job1" required>
                                                 </div>
-
                                                 <div class="input-field col m6 s12">
                                                     <label for="job12">Other Assets (Interim):</label>
                                                     <input type="text" class="validate" id="job12" name="job1" required>
@@ -745,17 +718,14 @@
                                                     <label for="job12">Total Assets (Interim):</label>
                                                     <input type="text" class="validate" id="job12" name="job1" required>
                                                 </div>
-
                                                 <div class="input-field col m4 s12">
                                                     <label for="job12">Total Current Liabilities (Interim):</label>
                                                     <input type="text" class="validate" id="job12" name="job1" required>
                                                 </div>
-
                                                 <div class="input-field col m4 s12">
                                                     <label for="job12">Long Term Liabilities (Interim):</label>
                                                     <input type="text" class="validate" id="job12" name="job1" required>
                                                 </div>
-
                                                 <div class="input-field col m4 s12">
                                                     <label for="job12">Total Liabilities (Interim):</label>
                                                     <input type="text" class="validate" id="job12" name="job1" required>
@@ -773,9 +743,7 @@
                                                     <input type="text" class="validate" id="job12" name="job1" required>
                                                 </div>
                                             </div>
-
                                             <div class="row">
-
                                                 <div class="col s4 m-4 attach_drop_list_label">
                                                     <span class="subfont">Current Interim Income Statement / Balance Sheet: <span class="red-text">*</span></span>
                                                 </div>
@@ -794,10 +762,10 @@
                                             <div class="step-actions">
                                                 <div class="row">
                                                     <div class="col m12 s12 mb-3">
-                                                        <button class="waves-effect waves btn btn-primary">
+                                                        <button class="waves-effect waves btn btn-primary jpi-save-btn">
                                                             Save
                                                         </button>
-                                                        <button class="btn btn-light next-step">
+                                                        <button class="btn btn-light next-step jpi-btn">
                                                             Save & Next
                                                         </button>
                                                         <button class="waves-effect waves dark btn btn-primary cancelbtn">
@@ -808,160 +776,144 @@
                                             </div>
                                         </div>
                                     </li>
-
                                     <li class="step">
                                         <div class="step-title waves-effect">Insurance and Safety</div>
                                         <div class="step-content" id="thirdstep">
-
                                             <div class="row cap">
-
-                                            <h4> Must meet the following requirements: </h4>
-                                            <ul>
-				<li>   General Aggregate per project </li>
-				<li>   Certificate issued on standard ACORD form </li>
-				<li>   Coverage supplied on a primary and non-contributory basis (GL &amp; Auto) </li>
-				<li>   Waiver of subrogation in favor of additional insureds (GL, Auto &amp; W/C) </li>
-				<li>   Rogers-O’Brien shown as Certificate holder </li>
-				<li>   Rogers-O’Brien, project owner (and lender if required) shown as additional insured </li>
-				<li>   Cancellation requires 30 days written notice </li>
-				</ul>
+                                                <h4> Must meet the following requirements: </h4>
+                                                <ul>
+                                                    <li> General Aggregate per project </li>
+                                                    <li> Certificate issued on standard ACORD form </li>
+                                                    <li> Coverage supplied on a primary and non-contributory basis (GL &amp; Auto) </li>
+                                                    <li> Waiver of subrogation in favor of additional insureds (GL, Auto &amp; W/C) </li>
+                                                    <li> Rogers-O’Brien shown as Certificate holder </li>
+                                                    <li> Rogers-O’Brien, project owner (and lender if required) shown as additional insured </li>
+                                                    <li> Cancellation requires 30 days written notice </li>
+                                                </ul>
                                             </div>
-
-
                                             <div class="row">
                                                 <h4 class="card-title pb20">General Liability coverage minimums:</h4>
                                                 <div class="col m4 s12">
-                                                <p for="GenralAggregate" class="control-label text-left">General Aggregate <span class="width-dollar input-group-addon">$1,000,000</span></p>
-                                                <div class="input-field radiobtn">
-                                                    <p>
-                                                        <label>
-                                                            <input name="group1" type="radio" />
-                                                            <span>Yes</span>
-                                                        </label>
-                                                        <label>
-                                                            <input name="group1" type="radio" />
-                                                            <span>No</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
+                                                    <p for="GenralAggregate" class="control-label text-left">General Aggregate <span class="width-dollar input-group-addon">$1,000,000</span></p>
+                                                    <div class="input-field radiobtn">
+                                                        <p>
+                                                            <label>
+                                                                <input name="group1" type="radio" />
+                                                                <span>Yes</span>
+                                                            </label>
+                                                            <label>
+                                                                <input name="group1" type="radio" />
+                                                                <span>No</span>
+                                                            </label>
+                                                        </p>
+                                                    </div>
                                                     <div class="input-field">
-                                                    <label for="desc123">$</label>
-                                                    <input type="text" class="validate" id="desc123" name="job1" required>
-                                                </div>
-
+                                                        <label for="desc123">$</label>
+                                                        <input type="text" class="validate" id="desc123" name="job1" required>
+                                                    </div>
                                                 </div>
                                                 <div class="col m4 s12">
-                                                <p for="GenralAggregate" class="control-label text-left">Products-Comp/Op Agg. <span class="width-dollar input-group-addon">$1,000,000</span></p>
-                                                <div class="input-field radiobtn">
-                                                    <p>
-                                                        <label>
-                                                            <input name="group1" type="radio" />
-                                                            <span>Yes</span>
-                                                        </label>
-                                                        <label>
-                                                            <input name="group1" type="radio" />
-                                                            <span>No</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
+                                                    <p for="GenralAggregate" class="control-label text-left">Products-Comp/Op Agg. <span class="width-dollar input-group-addon">$1,000,000</span></p>
+                                                    <div class="input-field radiobtn">
+                                                        <p>
+                                                            <label>
+                                                                <input name="group1" type="radio" />
+                                                                <span>Yes</span>
+                                                            </label>
+                                                            <label>
+                                                                <input name="group1" type="radio" />
+                                                                <span>No</span>
+                                                            </label>
+                                                        </p>
+                                                    </div>
                                                     <div class="input-field">
-                                                    <label for="desc123">$</label>
-                                                    <input type="text" class="validate" id="desc123" name="job1" required>
-                                                </div>
-
+                                                        <label for="desc123">$</label>
+                                                        <input type="text" class="validate" id="desc123" name="job1" required>
+                                                    </div>
                                                 </div>
                                                 <div class="col m4 s12">
-                                                <p for="GenralAggregate" class="control-label text-left">Personal & Adv Injury <span class="width-dollar input-group-addon">$1,000,000</span></p>
-                                                <div class="input-field radiobtn">
-                                                    <p>
-                                                        <label>
-                                                            <input name="group1" type="radio" />
-                                                            <span>Yes</span>
-                                                        </label>
-                                                        <label>
-                                                            <input name="group1" type="radio" />
-                                                            <span>No</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
+                                                    <p for="GenralAggregate" class="control-label text-left">Personal & Adv Injury <span class="width-dollar input-group-addon">$1,000,000</span></p>
+                                                    <div class="input-field radiobtn">
+                                                        <p>
+                                                            <label>
+                                                                <input name="group1" type="radio" />
+                                                                <span>Yes</span>
+                                                            </label>
+                                                            <label>
+                                                                <input name="group1" type="radio" />
+                                                                <span>No</span>
+                                                            </label>
+                                                        </p>
+                                                    </div>
                                                     <div class="input-field">
-                                                    <label for="desc123">$</label>
-                                                    <input type="text" class="validate" id="desc123" name="job1" required>
-                                                </div>
-
-                                                </div>
-
-                                                <div class="col m4 s12">
-                                                <p for="GenralAggregate" class="control-label text-left ">Each Occurrence <span class="width-dollar input-group-addon">$1,000,000</span></p>
-                                                <div class="input-field radiobtn">
-                                                    <p>
-                                                        <label>
-                                                            <input name="group1" type="radio" />
-                                                            <span>Yes</span>
-                                                        </label>
-                                                        <label>
-                                                            <input name="group1" type="radio" />
-                                                            <span>No</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
-                                                    <div class="input-field">
-                                                    <label for="desc123">$</label>
-                                                    <input type="text" class="validate" id="desc123" name="job1" required>
-                                                </div>
-
+                                                        <label for="desc123">$</label>
+                                                        <input type="text" class="validate" id="desc123" name="job1" required>
+                                                    </div>
                                                 </div>
                                                 <div class="col m4 s12">
-                                                <p for="GenralAggregate" class="control-label text-left">Fire Damage <span class="width-dollar input-group-addon">$1,000,000</span></p>
-                                                <div class="input-field radiobtn">
-                                                    <p>
-                                                        <label>
-                                                            <input name="group1" type="radio" />
-                                                            <span>Yes</span>
-                                                        </label>
-                                                        <label>
-                                                            <input name="group1" type="radio" />
-                                                            <span>No</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
+                                                    <p for="GenralAggregate" class="control-label text-left ">Each Occurrence <span class="width-dollar input-group-addon">$1,000,000</span></p>
+                                                    <div class="input-field radiobtn">
+                                                        <p>
+                                                            <label>
+                                                                <input name="group1" type="radio" />
+                                                                <span>Yes</span>
+                                                            </label>
+                                                            <label>
+                                                                <input name="group1" type="radio" />
+                                                                <span>No</span>
+                                                            </label>
+                                                        </p>
+                                                    </div>
                                                     <div class="input-field">
-                                                    <label for="desc123">$</label>
-                                                    <input type="text" class="validate" id="desc123" name="job1" required>
-                                                </div>
-
+                                                        <label for="desc123">$</label>
+                                                        <input type="text" class="validate" id="desc123" name="job1" required>
+                                                    </div>
                                                 </div>
                                                 <div class="col m4 s12">
-                                                <p for="GenralAggregate" class="control-label text-left">Medical Expense <span class="width-dollar input-group-addon">$1,000,000</span></p>
-                                                <div class="input-field radiobtn">
-                                                    <p>
-                                                        <label>
-                                                            <input name="group1" type="radio" />
-                                                            <span>Yes</span>
-                                                        </label>
-                                                        <label>
-                                                            <input name="group1" type="radio" />
-                                                            <span>No</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
+                                                    <p for="GenralAggregate" class="control-label text-left">Fire Damage <span class="width-dollar input-group-addon">$1,000,000</span></p>
+                                                    <div class="input-field radiobtn">
+                                                        <p>
+                                                            <label>
+                                                                <input name="group1" type="radio" />
+                                                                <span>Yes</span>
+                                                            </label>
+                                                            <label>
+                                                                <input name="group1" type="radio" />
+                                                                <span>No</span>
+                                                            </label>
+                                                        </p>
+                                                    </div>
                                                     <div class="input-field">
-                                                    <label for="desc123">$</label>
-                                                    <input type="text" class="validate" id="desc123" name="job1" required>
+                                                        <label for="desc123">$</label>
+                                                        <input type="text" class="validate" id="desc123" name="job1" required>
+                                                    </div>
                                                 </div>
-
+                                                <div class="col m4 s12">
+                                                    <p for="GenralAggregate" class="control-label text-left">Medical Expense <span class="width-dollar input-group-addon">$1,000,000</span></p>
+                                                    <div class="input-field radiobtn">
+                                                        <p>
+                                                            <label>
+                                                                <input name="group1" type="radio" />
+                                                                <span>Yes</span>
+                                                            </label>
+                                                            <label>
+                                                                <input name="group1" type="radio" />
+                                                                <span>No</span>
+                                                            </label>
+                                                        </p>
+                                                    </div>
+                                                    <div class="input-field">
+                                                        <label for="desc123">$</label>
+                                                        <input type="text" class="validate" id="desc123" name="job1" required>
+                                                    </div>
                                                 </div>
-
-
                                             </div>
-
-
                                             <div class="row">
                                                 <h4 class="card-title pb20">Automobile Liability coverage minimums:</h4>
                                             </div>
                                             <div class="row">
                                                 <p for="GenralAggregate" class="control-label text-left">Combined single limit <span class="width-dollar input-group-addon">$1,000,000</span></p>
-                                            <div class="input-field col m2 s12 pt15">
+                                                <div class="input-field col m2 s12 pt15">
                                                     <p>
                                                         <label>
                                                             <input name="group1" type="radio" />
@@ -983,7 +935,7 @@
                                             </div>
                                             <div class="row">
                                                 <p for="GenralAggregate" class="control-label text-left pl15">Each occurrence <span class="width-dollar input-group-addon">$1,000,000</span></p>
-                                            <div class="input-field col m2 s12 pt15">
+                                                <div class="input-field col m2 s12 pt15">
                                                     <p>
                                                         <label>
                                                             <input name="group1" type="radio" />
@@ -1000,71 +952,65 @@
                                                     <input type="text" id="lastName12" class="validate" name="lastName1" required>
                                                 </div>
                                             </div>
-
-
                                             <div class="row">
                                                 <h4 class="card-title pb20">Workers' Compensation minimums:</h4>
                                                 <div class="col m4 s12">
-                                                <p for="GenralAggregate" class="control-label text-left"><span class="width-dollar input-group-addon">$1,000,000</span> Each accident</p>
-                                                <div class="input-field radiobtn">
-                                                    <p>
-                                                        <label>
-                                                            <input name="group1" type="radio" />
-                                                            <span>Yes</span>
-                                                        </label>
-                                                        <label>
-                                                            <input name="group1" type="radio" />
-                                                            <span>No</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
+                                                    <p for="GenralAggregate" class="control-label text-left"><span class="width-dollar input-group-addon">$1,000,000</span> Each accident</p>
+                                                    <div class="input-field radiobtn">
+                                                        <p>
+                                                            <label>
+                                                                <input name="group1" type="radio" />
+                                                                <span>Yes</span>
+                                                            </label>
+                                                            <label>
+                                                                <input name="group1" type="radio" />
+                                                                <span>No</span>
+                                                            </label>
+                                                        </p>
+                                                    </div>
                                                     <div class="input-field">
-                                                    <label for="desc123">$</label>
-                                                    <input type="text" class="validate" id="desc123" name="job1" required>
-                                                </div>
-
+                                                        <label for="desc123">$</label>
+                                                        <input type="text" class="validate" id="desc123" name="job1" required>
+                                                    </div>
                                                 </div>
                                                 <div class="col m4 s12">
-                                                <p for="GenralAggregate" class="control-label text-left"><span class="width-dollar input-group-addon">$1,000,000</span> Disease policy limit</p>
-                                                <div class="input-field radiobtn">
-                                                    <p>
-                                                        <label>
-                                                            <input name="group1" type="radio" />
-                                                            <span>Yes</span>
-                                                        </label>
-                                                        <label>
-                                                            <input name="group1" type="radio" />
-                                                            <span>No</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
+                                                    <p for="GenralAggregate" class="control-label text-left"><span class="width-dollar input-group-addon">$1,000,000</span> Disease policy limit</p>
+                                                    <div class="input-field radiobtn">
+                                                        <p>
+                                                            <label>
+                                                                <input name="group1" type="radio" />
+                                                                <span>Yes</span>
+                                                            </label>
+                                                            <label>
+                                                                <input name="group1" type="radio" />
+                                                                <span>No</span>
+                                                            </label>
+                                                        </p>
+                                                    </div>
                                                     <div class="input-field">
-                                                    <label for="desc123">$</label>
-                                                    <input type="text" class="validate" id="desc123" name="job1" required>
-                                                </div>
-
+                                                        <label for="desc123">$</label>
+                                                        <input type="text" class="validate" id="desc123" name="job1" required>
+                                                    </div>
                                                 </div>
                                                 <div class="col m4 s12">
-                                                <p for="GenralAggregate" class="control-label text-left"><span class="width-dollar input-group-addon">$1,000,000</span> Disease-each employee</p>
-                                                <div class="input-field radiobtn">
-                                                    <p>
-                                                        <label>
-                                                            <input name="group1" type="radio" />
-                                                            <span>Yes</span>
-                                                        </label>
-                                                        <label>
-                                                            <input name="group1" type="radio" />
-                                                            <span>No</span>
-                                                        </label>
-                                                    </p>
-                                                </div>
+                                                    <p for="GenralAggregate" class="control-label text-left"><span class="width-dollar input-group-addon">$1,000,000</span> Disease-each employee</p>
+                                                    <div class="input-field radiobtn">
+                                                        <p>
+                                                            <label>
+                                                                <input name="group1" type="radio" />
+                                                                <span>Yes</span>
+                                                            </label>
+                                                            <label>
+                                                                <input name="group1" type="radio" />
+                                                                <span>No</span>
+                                                            </label>
+                                                        </p>
+                                                    </div>
                                                     <div class="input-field">
-                                                    <label for="desc123">$</label>
-                                                    <input type="text" class="validate" id="desc123" name="job1" required>
+                                                        <label for="desc123">$</label>
+                                                        <input type="text" class="validate" id="desc123" name="job1" required>
+                                                    </div>
                                                 </div>
-
-                                                </div>
-
                                             </div>
                                             <div class="row">
                                                 <p class="plr14"><span class="red-text">*</span> Current Insurance Certificate showing your limits must be attached</p>
@@ -1083,32 +1029,24 @@
                                                     </div>
                                                 </div>
                                             </div>
-
-
-
                                             <div class="row">
                                                 <h4 class="card-title">Safety Experience Modifier Rate</h4>
-
                                                 <div class="input-field col m4 s12">
                                                     <label for="job12">Current Year: <span class="red-text">*</span></label>
                                                     <input type="text" class="validate" id="job12" name="job1" required>
                                                 </div>
-
                                                 <div class="input-field col m4 s12">
                                                     <label for="job12">Last Year: <span class="red-text">*</span></label>
                                                     <input type="text" class="validate" id="job12" name="job1" required>
                                                 </div>
-
                                                 <div class="input-field col m4 s12">
                                                     <label for="job12">Two Years Ago: <span class="red-text">*</span></label>
                                                     <input type="text" class="validate" id="job12" name="job1" required>
                                                 </div>
-
                                             </div>
-
                                             <div class="row">
-                                            <div class="input-field col m6 s12">
-                                            Is your firm a party to any labor agreements?<span class="red-text">*</span>
+                                                <div class="input-field col m6 s12">
+                                                    Is your firm a party to any labor agreements?<span class="red-text">*</span>
                                                     <p class="pt15">
                                                         <label>
                                                             <input name="group1" type="radio" />
@@ -1120,8 +1058,8 @@
                                                         </label>
                                                     </p>
                                                 </div>
-                                            <div class="input-field col m6 s12">
-                                            Is your firm currently involved in any lawsuits?<span class="red-text">*</span>
+                                                <div class="input-field col m6 s12">
+                                                    Is your firm currently involved in any lawsuits?<span class="red-text">*</span>
                                                     <p class="pt15">
                                                         <label>
                                                             <input name="group1" type="radio" />
@@ -1135,23 +1073,22 @@
                                                 </div>
                                             </div><!-- /.row -->
                                             <div class="row">
-                                            <div class="input-field col m6 s12">
+                                                <div class="input-field col m6 s12">
                                                     <label for="nofe">What unions do you have agreements with? </label>
-                                                    <input type="text" class="validate" name="Email" id="nofe" >
+                                                    <input type="text" class="validate" name="Email" id="nofe">
                                                 </div>
                                                 <div class="input-field col m6 s12">
                                                     <label for="plelar">Please list each lawsuit and related details</label>
-                                                    <input type="text" class="validate" name="Email" id="plelar" >
+                                                    <input type="text" class="validate" name="Email" id="plelar">
                                                 </div>
                                             </div><!-- /.row -->
-
                                             <div class="step-actions">
                                                 <div class="row">
                                                     <div class="col m12 s12 mb-3">
-                                                        <button class="waves-effect waves btn btn-primary">
+                                                        <button class="waves-effect waves btn btn-primary jpi-save-btn">
                                                             Save
                                                         </button>
-                                                        <button class="btn btn-light next-step">
+                                                        <button class="btn btn-light next-step jpi-btn">
                                                             Save & Next
                                                         </button>
                                                         <button class="waves-effect waves dark btn btn-primary cancelbtn">
@@ -1162,40 +1099,35 @@
                                             </div>
                                         </div>
                                     </li>
-
-
-
                                     <li class="step">
                                         <div class="step-title waves-effect">W-9 TIN Information</div>
                                         <div class="step-content" id="thirdstep">
                                             <p><span class="red-text">*</span> Please upload your completed W-9. If you do not have a copy of your W-9, please visit the IRS website at <a href="https://www.irs.gov/pub/irs-pdf/fw9.pdf" target="_blank">https://www.irs.gov/pub/irs-pdf/fw9.pdf</a></p>
                                             <div class="row">
                                                 <div class="col s12 p0 binfopad">
-
-                                                <div class="col s1 m-4 attach_drop_list_label">
-                                                    <span class="subfont">Upload File: </span>
-                                                </div>
-                                                <div class="col s10 m-4">
-                                                    <div class="file-field input-field">
-                                                        <div class="btn left">
-                                                            <span>Choose file</span>
-                                                            <input type="file">
-                                                        </div>
-                                                        <div class="file-path-wrapper hidden">
-                                                            <input class="file-path validate" type="text">
+                                                    <div class="col s1 m-4 attach_drop_list_label">
+                                                        <span class="subfont">Upload File: </span>
+                                                    </div>
+                                                    <div class="col s10 m-4">
+                                                        <div class="file-field input-field">
+                                                            <div class="btn left">
+                                                                <span>Choose file</span>
+                                                                <input type="file">
+                                                            </div>
+                                                            <div class="file-path-wrapper hidden">
+                                                                <input class="file-path validate" type="text">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-
-                                                </div>
-                                                </div>
-                                                <div class="step-actions">
+                                            </div>
+                                            <div class="step-actions">
                                                 <div class="row">
                                                     <div class="col m12 s12 mb-3">
-                                                        <button class="waves-effect waves btn btn-primary">
+                                                        <button class="waves-effect waves btn btn-primary jpi-save-btn">
                                                             Save
                                                         </button>
-                                                        <button class="btn btn-light next-step">
+                                                        <button class="btn btn-light next-step jpi-btn">
                                                             Save & Next
                                                         </button>
                                                         <button class="waves-effect waves dark btn btn-primary cancelbtn">
@@ -1204,9 +1136,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                                </div>
+                                        </div>
                                     </li>
-
                                     <li class="step">
                                         <div class="step-title waves-effect">Complete </div>
                                         <div class="step-content" id="thirdstep">
@@ -1221,20 +1152,20 @@
                                                     <input type="text" class="validate" id="exp123" name="exp1">
                                                 </div>
                                                 <div class="input-field col m4 s12">
-                                                <input id="psd" type="date">
+                                                    <input id="psd" type="date">
                                                     <label for="psd">Date: <span class="red-text">*</span></label>
                                                 </div>
                                             </div>
-                                                <div class="step-actions">
+                                            <div class="step-actions">
                                                 <div class="row">
                                                     <div class="col m12 s12 mb-3">
-                                                        <button class="waves-effect waves btn btn-primary">
+                                                        <button class="waves-effect waves btn btn-primary jpi-btn">
                                                             Submit
                                                         </button>
                                                     </div>
                                                 </div>
                                             </div>
-                                                </div>
+                                        </div>
                                     </li>
                                 </ul>
                             </div>
