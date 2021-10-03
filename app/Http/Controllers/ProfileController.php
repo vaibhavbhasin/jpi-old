@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 use App\Providers\RouteServiceProvider;
-use Illuminate\Http\Request;
-use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
+
 class ProfileController extends Controller
 {
     use RegistersUsers;

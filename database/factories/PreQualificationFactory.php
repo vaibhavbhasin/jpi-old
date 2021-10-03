@@ -12,39 +12,14 @@ class PreQualificationFactory extends Factory
     public function definition(): array
     {
         return [
-            'submitted_date' => $this->faker->date,
-            'ein_number' => $this->faker->unique()->safeEmail,
+            'submitted_date' => $this->faker->dateTimeBetween('-2 Years'),
+            'ein_number' => $this->faker->randomElement(['75-2544554','']),
             'company' => $this->faker->company,
-            'contact' => $this->faker->tollFreePhoneNumber,
-            'project' => $this->faker->text(10),
-            'single' => $this->faker->randomFloat(2,100,99999),
-            'aggregate' => $this->faker->randomFloat(2,100,99999),
-            'status' => $this->faker->randomFloat(2,100,99999),
+            'contact' => $this->faker->phoneNumber,
+            'project' => $this->faker->text(20,),
+            'single' => $this->faker->randomFloat(2, 100, 99999),
+            'aggregate' => $this->faker->randomFloat(2, 100, 99999),
+            'status' => $this->faker->numberBetween(1, 5),
         ];
-    }
-
-    public function active()
-    {
-        return $this->state(function (array $attributes) {
-            return [
-                'status' => '1',
-            ];
-        });
-    }
-    public function submitted()
-    {
-        return $this->state(function (array $attributes) {
-            return [
-                'status' => '2',
-            ];
-        });
-    }
-    public function appreoved()
-    {
-        return $this->state(function (array $attributes) {
-            return [
-                'status' => '3',
-            ];
-        });
     }
 }

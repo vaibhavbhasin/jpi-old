@@ -2,11 +2,10 @@
 
 namespace App\Console\Commands;
 
-use Illuminate\Console\Command;
-
 use App\Http\Controllers\AchPayment;
-use App\Models\User;
 use App\Models\Dwolla;
+use App\Models\User;
+use Illuminate\Console\Command;
 
 class MakeACHPayment extends Command
 {

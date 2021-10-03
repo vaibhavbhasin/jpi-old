@@ -6,7 +6,7 @@
 <!-- END PAGE VENDOR JS-->
 <!-- BEGIN THEME  JS-->
 <script src="{{asset('js/plugins.js')}}"></script>
-<script src="{{asset('js/search.js')}}"></script>
+{{--<script src="{{asset('js/search.js')}}"></script>--}}
 <script src="{{asset('js/toastr.min.js')}}"></script>
 <script src="{{asset('js/jquery.inputmask.min.js')}}"></script>
 <script src="{{asset('js/custom/custom-script.js')}}"></script>

@@ -8,7 +8,7 @@
             <div class="col s6">
                 <div class="section">
                     <div class="jpi-main-heading">
-                        <h2>Test Comapny</h2>
+                        <h2>{{$data->company}}</h2>
                     </div>
                 </div>
             </div>
@@ -17,13 +17,13 @@
                     <div class="jpi-main-heading dropdown-generaldrop">
                         <a class="btn dropdown-settings waves-effect waves-light breadcrumbs-btn right" href="#!" data-target="dropdown1"><i class="material-icons hide-on-med-and-up">General Info</i><span class="hide-on-small-onl">General Info</span><i class="material-icons right">arrow_drop_down</i></a>
                         <ul class="dropdown-content dropdown-settings" id="dropdown1" tabindex="0">
-                            <li tabindex="0"><a class="grey-text text-darken-2" href="#!">View App</a></li>
+                            <li tabindex="0"><a class="grey-text text-darken-2" href="{{route('preQualification.showview',$data->id)}} ">View App</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="col s6 einnumber">
-            <p>EIN: 78-9456123</p>
+            <p>EIN: {{$data->ein_number}}</p>
             </div>
             <div class="col s6 ">
                 <div class="right assignto">
@@ -93,10 +93,10 @@
                                             </thead>
                                             <tbody>
                                                 <tr class="odd">
-                                                    <td>78-9456123</td>
-                                                    <td>Edinburgh</td>
-                                                    <td>Tyler Barton</td>
-                                                    <td>Tyler Barton</td>
+                                                    <td>{{$data->ein_number}}</td>
+                                                    <td>{{$data->company}}</td>
+                                                    <td>{{$data->contact}}</td>
+                                                    <td>{{$data->project}}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -110,7 +110,6 @@
                                             <table id="tabletwo" class="display table-jpi">
                                                 <thead>
                                                     <tr>
-                                                        <th>SL#</th>
                                                         <th>Attached File (View File)</th>
                                                         <th>Attached</th>
                                                         <th>Action</th>
@@ -118,14 +117,12 @@
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td>1</td>
-                                                        <td>Edinburgh</td>
-                                                        <td>Insurance</td>
+                                                       <td><a href="javascript:void(0);" target="_blank">Project History.pdf</a></td>
+                                                        <td>Project</td>
                                                         <td><a href="javascript:void(0);" class="waves-effect waves-light btn-small delete-btn">Delete</a></td>
                                                     </tr>
                                                     <tr>
-                                                        <td>2</td>
-                                                        <td>Edinburgh</td>
+													 <td><a href="javascript:void(0);" target="_blank">COI.pdf</a></td>
                                                         <td>Insurance</td>
                                                         <td><a href="javascript:void(0);" class="waves-effect waves-light btn-small delete-btn">Delete</a></td>
                                                     </tr>
@@ -134,9 +131,9 @@
                                             </table>
                                         </div>
                                         <div class="col s2 attach_drop_list_label">
-                                            <span class="subfont">Upload File: </span>
+                                            <span class="subfont" style="font-weight:800">Upload File:</span>
                                         </div>
-                                        <div class="col s4 attach_drop_list">
+                                        <div class="col s6 attach_drop_list">
                                             <select id="attach_drop_list" name="attach_drop_list">
                                                 <option value="">Please Select Type</option>
                                                 <option value="1">Project</option>
@@ -172,25 +169,10 @@
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td>test<br>Root Admin | 09-29-2021 7:59 AM</td>
+                                                        <td>This is a test comment<br>Root Admin | 09-29-2021 7:59 AM</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>test 2<br>Root Admin | 09-29-2021 7:59 AM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>test 3<br>Root Admin | 09-29-2021 7:59 AM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>test 4<br>Root Admin | 09-29-2021 7:59 AM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>test 4<br>Root Admin | 09-29-2021 7:59 AM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>test 4<br>Root Admin | 09-29-2021 7:59 AM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>test 4<br>Root Admin | 09-29-2021 7:59 AM</td>
+                                                        <td>All files are ready<br>Perry  | 10-30-2021 5:59 AM</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -210,25 +192,10 @@
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td>test<br>Root Admin | 09-29-2021 7:59 AM</td>
+                                                        <td>All files are verified.<br>Jhon | 04-14-2021 7:59 AM</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>test 2<br>Root Admin | 09-29-2021 7:59 AM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>test 3<br>Root Admin | 09-29-2021 7:59 AM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>test 4<br>Root Admin | 09-29-2021 7:59 AM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>test 4<br>Root Admin | 09-29-2021 7:59 AM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>test 4<br>Root Admin | 09-29-2021 7:59 AM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>test 4<br>Root Admin | 09-29-2021 7:59 AM</td>
+                                                        <td>Verification started<br>Andrew | 05-15-2021 9:59 AM</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -252,25 +219,25 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>1</td>
-                                                        <td><a href="javascript:void(0);" target="_blank">gamer-theme-lawn-sign.jpg</a></td>
+                                                        <td><a href="javascript:void(0);" target="_blank">certificate.pdf</a></td>
                                                         <td>3rd party</td>
                                                         <td><a href="javascript:void(0);" class="waves-effect waves-light btn-small delete-btn">Delete</a></td>
                                                     </tr>
                                                     <tr>
                                                         <td>2</td>
-                                                        <td><a href="javascript:void(0);" target="_blank">gamer-theme-lawn-sign.jpg</a></td>
+                                                        <td><a href="javascript:void(0);" target="_blank">wip log oct 2020.xlsx</a></td>
                                                         <td>3rd party</td>
                                                         <td><a href="javascript:void(0);" class="waves-effect waves-light btn-small delete-btn">Delete</a></td>
                                                     </tr>
                                                     <tr>
                                                         <td>3</td>
-                                                        <td><a href="javascript:void(0);" target="_blank">gamer-theme-lawn-sign.jpg</a></td>
+                                                        <td><a href="javascript:void(0);" target="_blank">BOND LETTER 7-24-2020.pdf</a></td>
                                                         <td>3rd party</td>
                                                         <td><a href="javascript:void(0);" class="waves-effect waves-light btn-small delete-btn">Delete</a></td>
                                                     </tr>
                                                     <tr>
                                                         <td>4</td>
-                                                        <td><a href="javascript:void(0);" target="_blank">gamer-theme-lawn-sign.jpg</a></td>
+                                                        <td><a href="javascript:void(0);" target="_blank">20201209103855584.pdf</a></td>
                                                         <td>3rd party</td>
                                                         <td><a href="javascript:void(0);" class="waves-effect waves-light btn-small delete-btn">Delete</a></td>
                                                     </tr>
@@ -284,7 +251,7 @@
                                             </table>
                                         </div>
                                         <div class="col s2 m-4 attach_drop_list_label">
-                                        <span class="subfont">Upload File: </span>
+                                        <span class="subfont"  style="font-weight:800">Upload File: </span>
                                         </div>
                                         <div class="col s10 m-4">
                                             <div class="file-field input-field">
@@ -292,7 +259,7 @@
                                                     <span>Choose file</span>
                                                     <input type="file">
                                                 </div>
-                                                <div class="file-path-wrapper hidden">
+                                                <div class="file-path-wrapper ">
                                                     <input class="file-path validate" type="text">
                                                 </div>
                                             </div>

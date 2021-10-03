@@ -178,7 +178,7 @@ $(function () {
          searchList.scrollTop(0);
          searchList.scrollTop($('.search-list .current_item:first').offset().top - searchList.height());
       }
-      // for small screen search list 
+      // for small screen search list
       if ($(".search-input-sm .current_item").length) {
          searchListSm.scrollTop(0);
          searchListSm.scrollTop($('.search-list-sm .current_item:first').offset().top - searchListSm.height());
