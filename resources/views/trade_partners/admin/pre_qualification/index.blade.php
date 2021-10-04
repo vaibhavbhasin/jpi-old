@@ -63,7 +63,7 @@
                                 </div>
                             </div>
                             <div class="col s12 m8" id="accsett" style="    margin-top: -7px;">
-							
+
 							<div class="input-field inline col">
 								<select id="limitdd" name="limitdd">
 									<option value="">Select Limit</option>
@@ -75,15 +75,15 @@
 								<input id="min_limit" type="text" name="min_limit" value="{{request('min_limit')}}">
 								<label for="min_limit">Min</label>
 							</div>
-							
+
 							<div class="input-field inline col">
 								<input id="max_limit" type="text" name="max_limit" value="{{request('max_limit')}}">
 								<label for="max_limit">Max</label>
 							</div>
 							 <div class="col display-flex align-items-center show-btn p0">
-									<button type="submit" class="btn btn-block waves-effect waves-light">Filter
+									<button type="submit" class="btn btn-block waves-effect waves-light jpi-btn">Filter
 									</button>
-								</div>						
+								</div>
 							</div>
                         </div>
                         <div class="card account-settings-section section-data-tables">
@@ -126,7 +126,7 @@
                                             </thead>
                                             <tbody>
                                             @forelse($tableData as $row)
-											
+
                                                 <tr data-route="{{route('preQualification.show',$row->id)}}">
                                                     <td>
                                                         <label>
@@ -145,8 +145,8 @@
                                                         <a href="javascript:void(0)" class="waves-effect waves-light btn-small appstatusbutton {{strtolower(preQuailStatus($row->status))}}" id="">{{preQuailStatus($row->status)}}</a>
                                                     </td>
                                                 </tr>
-												
-												
+
+
                                             @empty
                                                 <tr><th colspan="9"><h6 class="center">No Data Found</h6></th></tr>
                                             @endforelse
@@ -169,8 +169,8 @@
 @section('customjs')
     <script>
         $(document).on('click','#preQualTable tbody tr',function (){
-			
-			
+
+
            window.location.href=$(this).data('route');
         });
     </script>

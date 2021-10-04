@@ -10,7 +10,10 @@ PLACE HERE YOUR OWN CSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER 
 WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
 .logoutactive {
     color: #fff !important;
-    background-color: #002F6C !important;
+    background-color: #005dab !important;
+}
+.logoutactive img {
+    filter: brightness(0) invert(1);
 }
 #terms strong{
 	font-weight:800 !important;
@@ -149,7 +152,7 @@ button[disabled] {
 }
 .apj-save-btn {
     background: #ffffff;
-    color: #0f0f0f;
+    color: #005dab;
     border: 2px solid #005dab;
     height: 36px;
     line-height: 34px;
@@ -590,7 +593,7 @@ img.loader-btn{
 #proced-next a[disabled]{
     padding: 0;
     color: #fff !important;
-    background-color: #0c5792c7 !important;
+    background-color: #005dabb3 !important;
 }
 .four_btns .state-opt ul.state-list li ul.confirm-state li p {
     font-size: 13px;
@@ -844,7 +847,7 @@ body #main .section-data-tables .dataTables_wrapper table.dataTable th {
 .pl10 {
     padding-left: 10px;
 }
-#thirdstep .radiobtn span{
+#thirdstep .radiobtn span,#nonLinearStepper .radiobtn span{
     font-size: 18px;
     padding-right: 6px;
 }
@@ -868,6 +871,37 @@ body #main .section-data-tables .dataTables_wrapper table.dataTable th {
 .einnumber{
     padding-top: 10px !important;
     margin-bottom: -10px !important;
+}
+.jpi-btn,.inviteuser,.file-field .btn{
+    background: #005dab !important;
+}
+.jpi-btn:hover,.inviteuser:hover,.file-field .btn:hover{
+    background-color: #002F6C !important;
+}
+.jpi-save-btn {
+    background: #ffffff;
+    color: #005dab;
+    border: 2px solid #005dab;
+    line-height: 28px;
+}
+.jpi-save-btn:hover{
+    color: #ffffff;
+    background: #005dab;
+}
+.viewapp_status_btn{
+    background: #ffffff;
+    border: 2px solid #005dab;
+    line-height: 33px;
+    cursor: default;
+}
+.viewapp_status_btn span{
+    font-weight: bold;
+}
+.btn, .btn-small, .btn-large {
+    background-color: #005dab;
+}
+ul.stepper .step.active::before, ul.stepper .step.done::before {
+    background-color: #005dab;
 }
 @media only screen and (max-width: 1398px) {
 .md-width-adj{
