@@ -33,7 +33,7 @@ if (!function_exists('amount')) {
 if (!function_exists('menuIcon')) {
     function menuIcon($icon): string
     {
-        $icon_array = explode('.',$icon);
+        $icon_array = explode('.', $icon);
         if (count($icon_array) === 2) {
             return sprintf("<img src='%s' class='sidebar-icon-svg'/>", asset('menu-icon/' . $icon));
         } else {
@@ -46,10 +46,17 @@ if (!function_exists('menuIcon')) {
 if (!function_exists('is_active')) {
     function is_active($value, $segment = 1)
     {
-        if (isset($value->href_type) && $value->href_type==='route'){
-//            ray(Route::current());
-            return (Route::current()->getName() === $value->url) ? 'active' : '';
-        }else{
+        if (isset($value->href_type) && $value->href_type === 'route') {
+            $all_segments = explode('/', Route::current()->uri());
+            $route = str_replace(URL::to('/') . '/', '', route($value->url));
+            if (isset($all_segments[$segment])) {
+                ray(Str::singular($route. '*'));
+                return (request()->is($route . '*')) ? 'active' : '';
+            } else {
+                return (Route::current()->getName() === $value->url) ? 'active' : '';
+            }
+        } else {
+            ray($value->url);
             return (request()->is($value->url . '*')) ? 'active' : '';
         }
 

@@ -10,9 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Mail;
 
-/**
- * @method static whereHas(string $string, \Closure $param)
- */
+
 class Dwolla extends Model
 {
     use HasFactory;
@@ -35,8 +33,8 @@ class Dwolla extends Model
         DwollaHelpers::token();
         $users = self::whereHas('user', function ($query) {
             $query->where('is_active', true);
-        })->whereNotNull('funding_source_id')->where(['is_verified' => true, 'is_active' => true])->get();
-        $totalTransfer=0;
+        })->doesnthave('history')->whereNotNull('funding_source_id')->where(['is_verified' => true, 'is_active' => true])->get();
+        $totalTransfer = 0;
         foreach ($users as $user) {
             try {
                 $response = DwollaHelpers::transfer($user, $amount);
@@ -71,6 +69,11 @@ class Dwolla extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function history(): BelongsTo
+    {
+        return $this->belongsTo(DwollaTransactionHistory::class, 'user_id', 'user_id');
     }
 
     public function getAccountStatusAttribute(): string
