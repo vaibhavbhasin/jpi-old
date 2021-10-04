@@ -7256,6 +7256,7 @@ nav.display-none.search-sm .nav-wrapper form .input-field i {
   padding: 0 0px 0px 21px !important;
   margin-right: 1.15rem;
   transition: none;
+  display: flex;
 }
 .sidenav-active-square .sidenav .collapsible-header:after {
   right: 4px;
@@ -8893,5 +8894,5 @@ tr.group:hover {
   top: 40%;
   right: -2px;
   z-index: 99;
-  
+
 }

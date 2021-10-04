@@ -903,6 +903,11 @@ body #main .section-data-tables .dataTables_wrapper table.dataTable th {
 ul.stepper .step.active::before, ul.stepper .step.done::before {
     background-color: #005dab;
 }
+.sidebar-icon-svg{
+    width: 24px;
+    height: 44px;
+    margin: 0 20px 0 0;
+}
 @media only screen and (max-width: 1398px) {
 .md-width-adj{
     width: 100% !important;
