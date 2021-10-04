@@ -4,7 +4,7 @@
         @foreach ($sub_menus as $sub_menu)
             @if(isset($sub_menu->role))
                 @if(auth()->user()->hasRole($sub_menu->role))
-                    <li class="{!! is_active($sub_menu,2) !!}">
+                    <li class="{!! is_active($sub_menu,1) !!}">
                         <a href="@if(($sub_menu->url)==='javascript:void(0)'){{$sub_menu->url}} @else @if(isset($sub_menu->href_type) && $sub_menu->href_type==='route') {{route($sub_menu->url)}} @else {{url($sub_menu->url)}} @endif @endif"
                            class="{{@$sub_menu->class}} {{is_active($sub_menu,2)}} {{$configData['activeMenuColor']}}"
                            @if(!empty($configData['activeMenuColor'])) {{'style=background:none;box-shadow:none;'}} @endif

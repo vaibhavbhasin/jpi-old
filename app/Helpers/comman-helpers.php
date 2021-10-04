@@ -39,28 +39,28 @@ if (!function_exists('menuIcon')) {
         } else {
             return "<i class='material-icons'>{$icon}</i>";
         }
+        return '';
     }
 }
 
 if (!function_exists('is_active')) {
     function is_active($value, $segment = 1)
     {
+        if (isset($value->href_type) && $value->href_type==='route'){
+//            ray(Route::current());
+            return (Route::current()->getName() === $value->url) ? 'active' : '';
+        }else{
+            return (request()->is($value->url . '*')) ? 'active' : '';
+        }
+
+
+        /*
         if (!is_array($value)) {
-            return Request::segment($segment) == $value ? 'active' : '';
+            return request()->segment($segment) == $value ? 'active' : '';
         }
         foreach ($value as $v) {
             if (Request::segment($segment) == $v) return 'active';
-        }
-        //return '';
-
-        if (isset($sub_menu->href_type) && $sub_menu->href_type === 'route') {
-            \Route::current()->getName() === $sub_menu->url ? 'active' : '';
-        } else {
-            (request()->is($sub_menu->url . '*')) ? 'active' : '';
-        }
-//@if(isset($sub_menu->href_type) && $sub_menu->href_type==='route') {{ \Route::current()->getName() === $sub_menu->url ? 'active '.$configData['activeMenuColor'] : '' }} @else {{(request()->is($sub_menu->url.'*') && $sub_menu->url !=='') ? 'active '.$configData['activeMenuColor'] : '' }} @endif
-
-
+        }*/
     }
 }
 
