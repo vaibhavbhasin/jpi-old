@@ -53,7 +53,7 @@
                         <li class="menu-link-li bold {{ !empty($menu->submenu) ? request()->is($menu->url.'*') ? 'active open' : '' : ''}}">
                             @if(isset($menu->submenu))
                                 <a class="{{@$menu->class}}" href="javascript:void(0)">
-                                    <i class="material-icons">{{$menu->icon}}</i>
+                                    {!! menuIcon($menu->icon) !!}
                                     <span class="menu-title">{{ $menu->name}}</span>
                                 </a>
                             @else
