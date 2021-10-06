@@ -73,7 +73,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('logout', [LoginController::class, 'logout'])->name('logout');
         Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
         Route::post('register', [RegisterController::class, 'register'])->name('register.submit');
-        Route::middleware(['role:admin'])->group(function () {
+        Route::middleware(['admin_role'])->group(function () {
             Route::get('dashboard', [AdminController::class, 'index'])->name('dashboard');
             Route::resource('users', UserController::class);
             Route::resource('payments', PaymentController::class);
