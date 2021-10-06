@@ -3,6 +3,8 @@
 /*--------------------------------------------------------------
 	Materialize file contain extended material ui based on theme
 ---------------------------------------------------------------*/
+.material-icons { opacity: 0 }
+.collapsible-header:after{opacity: 0}
 .materialize-red {
   background-color: #e51c23 !important;
 }

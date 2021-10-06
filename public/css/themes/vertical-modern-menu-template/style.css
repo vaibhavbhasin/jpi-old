@@ -1,7 +1,9 @@
-@import url(https://fonts.googleapis.com/css?family=Muli:300,300i,400,400i,500,600);
+/* @import url(https://fonts.googleapis.com/css?family=Muli:300,300i,400,400i,500,600); */
 /*-------------------------------------------------
 	Style file contain theme components style
 -------------------------------------------------*/
+.material-icons { opacity: 0 }
+.collapsible-header:after{opacity: 0}
 .br-bt-red{
 	 box-shadow: 0 1px 0 0 red !important;
 }
