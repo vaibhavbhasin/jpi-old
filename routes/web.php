@@ -146,12 +146,6 @@ Route::get('company-details', function () {
     return view('trade_partners.admin.companies.detail');
 });
 
-Route::get('cleartransactiondata', function () {
-	 $userudArr = array(74,112,150,47,104,78,146,87);
-    return DB::table('dwolla_transaction_histories')->whereNotIn('user_id',$userudArr)->delete();
-});
-
-
 
 Route::get('app-details', function () {
     return view('trade_partners.admin.pre_qualification.detail');
