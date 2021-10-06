@@ -86,16 +86,25 @@ Route::group(['prefix' => 'admin'], function () {
         Route::put('update-status/{table}', [AjaxController::class, 'updateStatus'])->name('updateStatus');
     });
 });
+
+
+
+Route::group(['prefix' => 'tpportal'], function () {
+    Route::get('/', [LoginController::class, 'showLoginForm'])->name('login');
+
+});
+
+
 Route::group(['prefix' => 'trade-partner', 'middleware' => 'role:admin'], function () {
 //    Route::resource('prequalifications', PreQualificationController::class)->name('preQualification');
     Route::get('pre-qualifications', [PreQualificationController::class,'index'])->name('preQualification.index');
     Route::get('pre-qualifications/application/view/{id?}', [PreQualificationController::class,'showviewapp'])->name('preQualification.showview');
     Route::get('pre-qualifications/application/{id?}', [PreQualificationController::class,'show'])->name('preQualification.show');
-	
-	
-	
+
+
+
     Route::get('companies', [CompanyController::class,'index'])->name('companies.index');
-    Route::get('company/{id?}', [CompanyController::class,'show'])->name('companies.show');
+    Route::get('companies/{id?}', [CompanyController::class,'show'])->name('companies.show');
 });
 Route::get('do-ach-payment', [AdminController::class, 'create']);
 Route::match(['GET', 'POST'], 'dwolla-webhooks', [DwollaWebhookEventsController::class, 'index'])->name('dwolla.webhooks');
@@ -136,7 +145,6 @@ Route::get('cron-test', function () {
 Route::get('company-details', function () {
     return view('trade_partners.admin.companies.detail');
 });
-
 
 
 Route::get('app-details', function () {

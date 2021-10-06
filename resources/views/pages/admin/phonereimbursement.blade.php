@@ -62,11 +62,11 @@
                                                             <option value="2" {{request('account_status') ==='2' ? 'selected' : ''}}>Not Verified</option>
                                                         </select>
                                                     </div>
-                                                    <div class="col display-flex align-items-center show-btn p0">
-                                                        <button type="submit" class="btn btn-block waves-effect waves-light"
-                                                                style="bottom: -26px;">Filter
-                                                        </button>
-                                                    </div>
+                                                      </div>
+                                                <div class="col display-flex align-items-center show-btn p0">
+                                                    <button type="submit" class="btn btn-block waves-effect waves-light"
+                                                            style="bottom: -26px;">Filter
+                                                    </button>
                                                 </div>
                                         </div>
                                     </div>

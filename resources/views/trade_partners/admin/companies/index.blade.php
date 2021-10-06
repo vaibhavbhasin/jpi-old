@@ -69,7 +69,7 @@
 @section('customjs')
     <script>
         $(document).on('click','#companyTable tbody tr',function (){
-            window.location.href="{{route('companies.show')}}"
+            window.location.href="{{route('companies.show',1)}}"
         });
     </script>
 @endsection

@@ -16,7 +16,7 @@ class CheckEmployee
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->check() !== null) {
+        if (!empty(auth()->check())) {
             if (auth()->user()->hasRole('employee')) {
                 return $next($request);
             } else {
