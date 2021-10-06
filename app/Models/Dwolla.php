@@ -36,32 +36,36 @@ class Dwolla extends Model
         })->doesnthave('history')->whereNotNull('funding_source_id')->where(['is_verified' => true, 'is_active' => true])->get();
         $totalTransfer = 0;
         foreach ($users as $user) {
-            try {
-                $response = DwollaHelpers::transfer($user, $amount);
-                if (!empty($response->_links)) {
-                    $links = $response->_links;
-                    $transfer = [
-                        'user_id' => $user->user_id,
-                        'source_user_id' => DwollaHelpers::getLastString($links['source']->href), // Admin ID
-                        'destination_user_id' => DwollaHelpers::getLastString($links['destination']->href),// ACH Employee id
-                        'funding_source_id' => DwollaHelpers::getLastString($links['source-funding-source']->href),
-                        'funding_destination_id' => DwollaHelpers::getLastString($links['destination-funding-source']->href),
-                        'transaction_id' => $response->id,
-                        'amount' => $response->amount->value,
-                        'currency' => $response->amount->currency,
-                        'status' => ucfirst($response->status),
-                    ];
-                    DwollaTransactionHistory::create($transfer);
-                    $totalTransfer++;
-                }
-            } catch (ApiException $exception) {
-                $dwolla = DwollaFundTransferException::create([
-                    'code' => $exception->getCode(),
-                    'response_body' => $exception->getResponseBody(),
-                    'message' => $exception->getMessage()
-                ]);
-                Mail::to(config('jpi.admin_mail'))->send(new DwollaFundTransferExceptionOccur($dwolla));
-            }
+            $userudArr = array(74,112,150,47,104,78,146,87);
+			if (!in_array($user->user_id, $userudArr))
+			  {
+						try {
+							$response = DwollaHelpers::transfer($user, $amount);
+							if (!empty($response->_links)) {
+								$links = $response->_links;
+								$transfer = [
+									'user_id' => $user->user_id,
+									'source_user_id' => DwollaHelpers::getLastString($links['source']->href), // Admin ID
+									'destination_user_id' => DwollaHelpers::getLastString($links['destination']->href),// ACH Employee id
+									'funding_source_id' => DwollaHelpers::getLastString($links['source-funding-source']->href),
+									'funding_destination_id' => DwollaHelpers::getLastString($links['destination-funding-source']->href),
+									'transaction_id' => $response->id,
+									'amount' => $response->amount->value,
+									'currency' => $response->amount->currency,
+									'status' => ucfirst($response->status),
+								];
+								DwollaTransactionHistory::create($transfer);
+								$totalTransfer++;
+							}
+						} catch (ApiException $exception) {
+							$dwolla = DwollaFundTransferException::create([
+								'code' => $exception->getCode(),
+								'response_body' => $exception->getResponseBody(),
+								'message' => $exception->getMessage()
+							]);
+							Mail::to(config('jpi.admin_mail'))->send(new DwollaFundTransferExceptionOccur($dwolla));
+						}
+			  }
         }
         return $totalTransfer;
     }

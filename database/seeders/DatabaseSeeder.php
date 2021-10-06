@@ -18,6 +18,11 @@ class DatabaseSeeder extends Seeder
     {
         Role::firstOrCreate(['name' => 'admin']);
         Role::firstOrCreate(['name' => 'employee']);
+        Role::firstOrCreate(['name' => 'PreQual - Processor']);
+        Role::firstOrCreate(['name' => 'PreQual - Suretec']);
+        Role::firstOrCreate(['name' => 'PreQual - Approver']);
+        Role::firstOrCreate(['name' => 'PreQual - contractor']);
+		
         $admin = User::create([
             'firstname' => 'Super',
             'lastname' => 'Admin',
@@ -26,6 +31,7 @@ class DatabaseSeeder extends Seeder
             'is_active'=>true
         ]);
         $admin->assignRole('admin');
+		
         $employee = User::create([
             'firstname' => 'Test',
             'lastname' => 'Employee',

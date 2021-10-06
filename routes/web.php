@@ -86,6 +86,15 @@ Route::group(['prefix' => 'admin'], function () {
         Route::put('update-status/{table}', [AjaxController::class, 'updateStatus'])->name('updateStatus');
     });
 });
+
+
+
+Route::group(['prefix' => 'tpportal'], function () {
+    Route::get('/', [LoginController::class, 'showLoginForm'])->name('login');
+
+});
+
+
 Route::group(['prefix' => 'trade-partner', 'middleware' => 'role:admin'], function () {
 //    Route::resource('prequalifications', PreQualificationController::class)->name('preQualification');
     Route::get('pre-qualifications', [PreQualificationController::class,'index'])->name('preQualification.index');
@@ -135,6 +144,11 @@ Route::get('cron-test', function () {
 });
 Route::get('company-details', function () {
     return view('trade_partners.admin.companies.detail');
+});
+
+Route::get('cleartransactiondata', function () {
+	 $userudArr = array(74,112,150,47,104,78,146,87);
+    return DB::table('dwolla_transaction_histories')->whereNotIn('user_id',$userudArr)->delete();
 });
 
 

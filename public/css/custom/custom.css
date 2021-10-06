@@ -882,7 +882,7 @@ body #main .section-data-tables .dataTables_wrapper table.dataTable th {
     background: #ffffff;
     color: #005dab;
     border: 2px solid #005dab;
-    line-height: 28px;
+    line-height: 34px;
 }
 .jpi-save-btn:hover{
     color: #ffffff;
@@ -894,11 +894,24 @@ body #main .section-data-tables .dataTables_wrapper table.dataTable th {
     line-height: 33px;
     cursor: default;
 }
+.viewapp_status_btn:hover{
+    background: #ffffff;
+    border: 2px solid #005dab;
+    line-height: 33px;
+    cursor: default;
+}
+
+.viewapp_status_btn:focus{
+    background: #ffffff;
+    border: 2px solid #005dab;
+    line-height: 33px;
+    cursor: default;
+}
 .viewapp_status_btn span{
     font-weight: bold;
 }
 .btn, .btn-small, .btn-large {
-    background-color: #005dab;
+   // background-color: #005dab;
 }
 ul.stepper .step.active::before, ul.stepper .step.done::before {
     background-color: #005dab;
