@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\MessageBag;
+use Spatie\Permission\Models\Role;
 
 class LoginController extends Controller
 {
@@ -63,6 +64,19 @@ class LoginController extends Controller
         $pageConfigs = ['bodyCustomClass' => 'login-bg', 'isCustomizer' => false];
 
         return view('/auth/login', [
+            'pageConfigs' => $pageConfigs
+        ]);
+    }
+
+    public function showTpLoginForm()
+    {
+        Role::firstOrCreate(['guard_name'=>'PreQual Portal Module','name' => 'PreQual - Processor']);
+        Role::firstOrCreate(['guard_name'=>'PreQual Portal Module','name' => 'PreQual - Suretec']);
+        Role::firstOrCreate(['guard_name'=>'PreQual Portal Module','name' => 'PreQual - Approver']);
+        Role::firstOrCreate(['guard_name'=>'PreQual Portal Module','name' => 'PreQual - contractor']);
+
+        $pageConfigs = ['bodyCustomClass' => 'login-bg', 'isCustomizer' => false];
+        return view('/trade_partners/auth/login', [
             'pageConfigs' => $pageConfigs
         ]);
     }

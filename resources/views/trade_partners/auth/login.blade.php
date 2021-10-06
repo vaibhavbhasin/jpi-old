@@ -26,7 +26,7 @@
             </div>
 
             <form class="login-form" method="POST" action="{{ route('admin.login.submit') }}" style="display:@error('email') block @else none @enderror">
-            @csrf
+                @csrf
                 <div class="row margin">
                     <div class="input-field col s12">
                         <i class="material-icons prefix pt-2">person_outline</i>
@@ -64,7 +64,7 @@
                 <div class="row">
                     <div class="input-field col s12 mt--6">
                         <p class="margin center-align medium-small">
-                            <a href="{{ route('admin.password.request') }}" class="login-btn forgot-pasw-text">
+                            <a href="{{ route('password.request') }}" class="login-btn forgot-pasw-text">
                                 Forgot password?
                             </a>
                         </p>
