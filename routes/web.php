@@ -9,6 +9,10 @@ use App\Http\Controllers\Admin\{AdminController,
     PreQualificationController,
     UserController
 };
+
+
+use App\Http\Controllers\TP\{TPController};
+
 use App\Http\Controllers\Auth\{ConfirmPasswordController,
     EmployeeLoginController,
     EmployeeRegisterController,
@@ -94,12 +98,14 @@ Route::group(['prefix' => 'tpportal'], function () {
 });
 
 
-Route::group(['prefix' => 'tp'], function () {
-    Route::name('tp.')->group(function () {
+Route::group(['prefix' => 'tpportal'], function () {
+    Route::name('tpportal.')->group(function () {
         Route::get('/', [LoginController::class, 'showTpLoginForm'])->name('login');
-        Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
-        Route::get('/register', [RegisterController::class, 'showTpRegistrationForm'])->name('register');
-        Route::post('/register', [RegisterController::class, 'tpRegister'])->name('register.submit');
+        Route::post('login', [LoginController::class, 'tpAuthenticate'])->name('login.submit');
+        Route::get('register', [RegisterController::class, 'showTpRegistrationForm'])->name('register.show');
+        Route::post('register', [RegisterController::class, 'tpRegister'])->name('register.submit');
+		
+		Route::get('dashboard', [TPController::class, 'index'])->name('dashboard');
     });
     Route::group(['middleware' => 'role:admin', 'prefix' => 'admin'], function () {
         Route::get('pre-qualifications', [PreQualificationController::class, 'index'])->name('preQualification.index');

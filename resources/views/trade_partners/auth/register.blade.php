@@ -117,7 +117,7 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12 mt--6">
-                        <p class="margin center-align medium-small"><a href="{{ route('admin.login')}}">Already have an
+                        <p class="margin center-align medium-small"><a href="{{ route('tpportal.login')}}">Already have an
                                 account? Login</a></p>
                     </div>
                 </div>

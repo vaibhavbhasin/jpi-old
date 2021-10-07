@@ -1,5 +1,15 @@
 {
     "menu": [
+		{
+            "href_type": "route",
+            "url": "tpportal.dashboard",
+            "name": "Dashboard",
+            "i18n": "Dashboard",
+            "class": "menulink waves-effect waves-cyan",
+            "icon": "settings_input_svideo",
+            "slug": "contractor",
+            "role": "Contractor"
+        },
         {
             "href_type": "route",
             "url": "employee.dashboard",

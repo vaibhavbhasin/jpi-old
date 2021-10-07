@@ -70,19 +70,35 @@ class LoginController extends Controller
 
     public function showTpLoginForm()
     {
-        Role::firstOrCreate(['guard_name'=>'PreQual Portal Module','name' => 'PreQual - Processor']);
-        Role::firstOrCreate(['guard_name'=>'PreQual Portal Module','name' => 'PreQual - Suretec']);
-        Role::firstOrCreate(['guard_name'=>'PreQual Portal Module','name' => 'PreQual - Approver']);
-        Role::firstOrCreate(['guard_name'=>'PreQual Portal Module','name' => 'PreQual - contractor']);
-
         $pageConfigs = ['bodyCustomClass' => 'login-bg', 'isCustomizer' => false];
         return view('/trade_partners/auth/login', [
             'pageConfigs' => $pageConfigs
         ]);
     }
 
+	
+	public function tpAuthenticate(Request $request)
+    {
+        $validatedData = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|string',
+        ]);
+        $credentials = $request->only('email', 'password');
+        if (Auth::attempt($credentials) && \Auth::user()->hasRole('Contractor')) {
+            return redirect()->route('tpportal.dashboard');
+        }
+        Auth::logout();
+        $errors = new MessageBag(['password' => ['Invalid credentials']]);
+        return Redirect::back()->withErrors($errors);
+    }
+
     public function logout()
     {
+		if(\Auth::user()->hasRole('Contractor'))
+		{
+			 Auth::logout();
+			return redirect()->route('tpportal.login');
+		}
         Auth::logout();
         return redirect()->route('admin.login');
     }
