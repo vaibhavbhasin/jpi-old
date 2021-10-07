@@ -15,18 +15,17 @@
     <div id="login-page" class="row">
         <div class="col s12 m6 l4 z-depth-4 card-panel border-radius-6 login-card bg-opacity-1 min-hig">
             <div class='loginbtndisplay text-center'>
-                <p>LOGIN</p>
+                <p>Trade Partner Portal</p>
                 <div class='text-center'>
-                    <a href="#" class='defaultbtn'>Employee Login</a>
+                    <a href="{{route('tpportal.register.show')}}" class='defaultbtn'>Register</a>
                     <div class='loginseparator'>or</div>
-                    <a href="javascript:void(0)" id='userform' class='btn btn btn-light-cyan btn-light-new-bg-bt'>External
-                        Login</a>
+                    <a href="javascript:void(0)" id='userform' class='btn btn btn-light-cyan btn-light-new-bg-bt'>Login</a>
                 </div>
 
             </div>
 
-            <form class="login-form" method="POST" action="{{ route('admin.login.submit') }}" style="display:@error('email') block @else none @enderror">
-            @csrf
+            <form class="login-form" method="POST" action="{{ route('tpportal.login.submit') }}" style="display:@error('email') block @else none @enderror">
+                @csrf
                 <div class="row margin">
                     <div class="input-field col s12">
                         <i class="material-icons prefix pt-2">person_outline</i>
@@ -64,7 +63,7 @@
                 <div class="row">
                     <div class="input-field col s12 mt--6">
                         <p class="margin center-align medium-small">
-                            <a href="{{ route('admin.password.request') }}" class="login-btn forgot-pasw-text">
+                            <a href="{{ route('password.request') }}" class="login-btn forgot-pasw-text">
                                 Forgot password?
                             </a>
                         </p>

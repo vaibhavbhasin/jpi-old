@@ -18,11 +18,11 @@ class DatabaseSeeder extends Seeder
     {
         Role::firstOrCreate(['name' => 'admin']);
         Role::firstOrCreate(['name' => 'employee']);
-        Role::firstOrCreate(['name' => 'PreQual - Processor']);
-        Role::firstOrCreate(['name' => 'PreQual - Suretec']);
-        Role::firstOrCreate(['name' => 'PreQual - Approver']);
-        Role::firstOrCreate(['name' => 'PreQual - contractor']);
-		
+        Role::firstOrCreate(['name' => 'Processor']);
+        Role::firstOrCreate(['name' => 'Suretec']);
+        Role::firstOrCreate(['name' => 'Approver']);
+        Role::firstOrCreate(['name' => 'Contractor']);
+
         $admin = User::create([
             'firstname' => 'Super',
             'lastname' => 'Admin',
@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
             'is_active'=>true
         ]);
         $admin->assignRole('admin');
-		
+
         $employee = User::create([
             'firstname' => 'Test',
             'lastname' => 'Employee',
@@ -40,5 +40,15 @@ class DatabaseSeeder extends Seeder
             'is_active'=>true
         ]);
         $employee->assignRole('employee');
+		
+		
+		$employee = User::create([
+            'firstname' => 'Test',
+            'lastname' => 'Contractor',
+            'email' => 'testcontractor@jpi.com',
+            'password' => Hash::make('TestEmp@#2021!'),
+            'is_active'=>true
+        ]);
+        $employee->assignRole('Contractor');
     }
 }

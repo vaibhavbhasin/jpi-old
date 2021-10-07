@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\MessageBag;
+use Spatie\Permission\Models\Role;
 
 class LoginController extends Controller
 {
@@ -67,8 +68,37 @@ class LoginController extends Controller
         ]);
     }
 
+    public function showTpLoginForm()
+    {
+        $pageConfigs = ['bodyCustomClass' => 'login-bg', 'isCustomizer' => false];
+        return view('/trade_partners/auth/login', [
+            'pageConfigs' => $pageConfigs
+        ]);
+    }
+
+	
+	public function tpAuthenticate(Request $request)
+    {
+        $validatedData = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|string',
+        ]);
+        $credentials = $request->only('email', 'password');
+        if (Auth::attempt($credentials) && \Auth::user()->hasRole('Contractor')) {
+            return redirect()->route('tpportal.dashboard');
+        }
+        Auth::logout();
+        $errors = new MessageBag(['password' => ['Invalid credentials']]);
+        return Redirect::back()->withErrors($errors);
+    }
+
     public function logout()
     {
+		if(\Auth::user()->hasRole('Contractor'))
+		{
+			 Auth::logout();
+			return redirect()->route('tpportal.login');
+		}
         Auth::logout();
         return redirect()->route('admin.login');
     }

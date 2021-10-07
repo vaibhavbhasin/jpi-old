@@ -50,24 +50,13 @@ if (!function_exists('is_active')) {
             $all_segments = explode('/', Route::current()->uri());
             $route = str_replace(URL::to('/') . '/', '', route($value->url));
             if (isset($all_segments[$segment])) {
-                ray(Str::singular($route. '*'));
                 return (request()->is($route . '*')) ? 'active' : '';
             } else {
                 return (Route::current()->getName() === $value->url) ? 'active' : '';
             }
         } else {
-            ray($value->url);
             return (request()->is($value->url . '*')) ? 'active' : '';
         }
-
-
-        /*
-        if (!is_array($value)) {
-            return request()->segment($segment) == $value ? 'active' : '';
-        }
-        foreach ($value as $v) {
-            if (Request::segment($segment) == $v) return 'active';
-        }*/
     }
 }
 

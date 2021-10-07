@@ -54,7 +54,8 @@
                             <button type="submit" class="defaultbtn login-btn">Reset Password</button>
                         </div>
                         <div class='text-center mt-2'>
-                            <a href="{{ route('employee.login.show') }}" class="login-btn forgot-pasw-text">
+
+                            <a href="{{url(request()->segment(1))}}" class="login-btn forgot-pasw-text">
                                 Back to Login
                             </a>
                         </div>

@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Auth;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -88,9 +89,20 @@ class RegisterController extends Controller
     public function showRegistrationForm()
     {
         $pageConfigs = ['bodyCustomClass' => 'register-bg', 'isCustomizer' => false];
-
         return view('/auth/register', [
             'pageConfigs' => $pageConfigs
         ]);
+    }
+
+    public function showTpRegistrationForm()
+    {
+        $pageConfigs = ['bodyCustomClass' => 'register-bg', 'isCustomizer' => false];
+        return view('/trade_partners/auth/register', [
+            'pageConfigs' => $pageConfigs
+        ]);
+    }
+    public function tpRegister(Request  $request)
+    {
+        ray($request->all());
     }
 }
