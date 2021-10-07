@@ -37,3 +37,7 @@
 #register-page .login-form .passw {
     margin-left: 5px;
 }
+
+#register-page #register-inner-page input#email {
+    width: calc(100% - 3rem);
+}

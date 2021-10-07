@@ -1,5 +1,16 @@
 $(function () {
 
+
+    $(".faq--modal").on("click", function () {
+        $("#faq_modal").modal();
+        $("#faq_modal").modal("open");
+    });
+    $(".needhelp--modal").on("click", function () {
+        $("#needhelp_modal").modal();
+        $("#needhelp_modal").modal("open");
+    });
+
+
 	$('.datepicker').datepicker({
 	format:'mm-dd-yyyy'
 	});

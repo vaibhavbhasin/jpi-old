@@ -38,3 +38,79 @@
 {
  -webkit-box-shadow: 0 0 0 30px #ffffff inset !important;
 }
+
+#login-page .tp-small-size{
+    font-size: 11px;
+    margin: -15px 0 20px 0;
+}
+.newm-dps{
+    width: 100%;
+    margin: auto;
+    padding-top: 75px;
+    text-align: center;
+    position: relative;
+}
+.faq-icons{
+    margin-right: 12px;
+}
+.lg-btm-icon{
+    margin-right: 8px;
+    width: 26px;
+
+}
+.login-btm-icons{
+    display: inline-flex;
+    align-items: center;
+}
+.faq_modal p strong{
+    font-weight: 800;
+}
+.faq_modal{
+    overflow-y: hidden;
+}
+.faq_modal .sub_models{
+padding-bottom: 50px;
+padding-right: 6px;
+}
+.faq_modal .slimScrollDiv{
+    margin-right: -20px;
+}
+.apj-reg-btn {
+    width: 66%;
+}
+.slimScrollDiv::-webkit-scrollbar {
+	/* -webkit-border-radius: 100px; */
+	background-color: rgba(0, 0, 0, 0);
+	width: 9px;
+}
+
+.slimScrollDiv::-webkit-scrollbar-thumb {
+	/* -webkit-border-radius: 100px; */
+	background: rgba(7, 46, 76, 0.8);
+}
+
+.slimScrollDiv::-webkit-scrollbar-thumb:hover {
+	/* -webkit-border-radius: 100px; */
+	background: rgba(7, 46, 76, 0.9);
+}
+
+.slimScrollDiv::-webkit-scrollbar-thumb:active {
+	/* -webkit-border-radius: 4px; */
+	background: rgba(7, 46, 76, 1);
+}
+.login-innerpage .forgot-pasw-text{
+    position: relative;
+    z-index: 9999;
+    display: block;
+}
+textarea.materialize-textarea.message-text-area {
+    box-sizing: unset;
+}
+@media only screen and (min-width: 992px){
+.faq_modal{
+        top: 15% !important;
+    }
+    .modal.faq_modal,.modal.needhelp_modal {
+        width: 50%;
+    }
+}
