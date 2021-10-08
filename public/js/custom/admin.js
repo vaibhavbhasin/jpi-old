@@ -9,6 +9,14 @@ $(function () {
         $("#needhelp_modal").modal();
         $("#needhelp_modal").modal("open");
     });
+    $("#edit_company_btn").on("click", function () {
+        $("#edit_company_modal").modal();
+        $("#edit_company_modal").modal("open");
+    });
+    $("#add_company_btn").on("click", function () {
+        $("#add_company_modal").modal();
+        $("#add_company_modal").modal("open");
+    });
 
 
 	$('.datepicker').datepicker({

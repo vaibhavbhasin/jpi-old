@@ -76,6 +76,11 @@
                 @endif
             @endforeach
         @endif
+
+        <li class="bold inviteusersidebar"><a href="javascript:void(0)" class="waves-effect waves-light btn-small " id="inviteuser" style="display: inline-flex;"><i class="material-icons">person_outline</i> Invite Users</a>
+        </li>
+        <li class="bold needhelp--modal-li"><a class="waves-effect waves-cyan needhelp--modal" href="javascript:void(0);" data-toggle="modal" href="#needhelp_modal"><i class="material-icons">help_outline</i><span class="menu-title" data-i18n="Support">Need help?</span></a>
+        </li>
     </ul>
     <div class="navigation-background"></div>
     <a class="sidenav-trigger btn-sidenav-toggle btn-floating btn-medium waves-effect waves-light hide-on-large-only"

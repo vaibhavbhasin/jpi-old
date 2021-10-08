@@ -147,7 +147,7 @@ button[disabled] {
 .apj-edit-btn,.update-funding-source {
     background: #005dab;
 }
-.update-funding-source, #edit_details_cancel_btn, #edit_details_save_btn, #edit_details_btn{
+.update-funding-source, #edit_details_cancel_btn, #edit_details_save_btn, #edit_details_btn,#add_company_btn,#edit_company_btn{
     margin-top: 10px;
 }
 .apj-save-btn {
@@ -921,19 +921,70 @@ ul.stepper .step.active::before, ul.stepper .step.done::before {
     height: 44px;
     margin: 0 20px 0 0;
 }
+#accsett2{
+    display: flex;
+    align-items: center;
+}
+.sub-company-dropdown{
+    padding-left: 30px;
+}
+.isyfaoc{
+    color: #9e9e9e;
+}
+.isyfaoc [type=radio]:not(:checked) + span, .isyfaoc [type=radio]:checked + span {
+    padding-left: 28px;
+    padding-right: 20px;
+    color: #0f0f0f;
+}
+.input-field.col label{
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.input-field.col p label {
+    display: inline-block;
+}
+.inviteusersidebar{
+    margin-right: 2.15rem;
+}
+#inviteuser{
+    width: 100%;
+}
+#inviteuser i{
+    color: #ffffff;
+}
+#inviteuser{
+    background: #005dab;
+}
+#inviteuser:hover{
+    background: #002F6C !important;
+}
+#edit_company_btn,#add_company_btn{
+    min-width: 150px;
+    padding: 0 0.05rem;
+}
+#add_company_btn i.left {
+    /* margin-right: 5px; */
+    margin-right: -8px;
+    margin-left: 8px;
+}
 @media only screen and (max-width: 1398px) {
 .md-width-adj{
     width: 100% !important;
     }
 }
 @media only screen and (min-width: 993px) {
+    .needhelp--modal-li{
+        padding-top: 150px !important;
+    }
     .valigh{
         display: flex !important;
     align-items: center !important;
     margin-top: -6px !important;
     margin-bottom: -6px !important;
 }
-    }
     .navbar .sideNav-lock .header-search-wrapper {
         font-size: 1.375rem;
         line-height: 58px;
@@ -944,6 +995,9 @@ ul.stepper .step.active::before, ul.stepper .step.done::before {
     }
     .profile-button .avatar-status {
         line-height: 64px;
+    }
+    .modal.edit_company_modal,.modal.add_company_modal,.modal.needhelp_modal {
+        width: 50%;
     }
 }
 @media only screen and (min-width: 991px) and (max-width: 1199px) {
