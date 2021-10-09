@@ -1372,6 +1372,9 @@ ul.stepper .step.done::before {
     #register-page .emailaddress-hint {
         min-height: 44px;
     }
+    #card-with-analytics .btn {
+        padding: 0 1rem;
+    }
 }
 
 @media only screen and (min-width: 993px) and (max-width: 1199px) {
