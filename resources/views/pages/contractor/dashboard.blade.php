@@ -12,7 +12,7 @@
                         <p>This portal is to help manage your pre-qualification application and status along with job limits. </p>
                     </div>
                     <div class="card account-settings-section">
-                        <div class="card-content">
+                        <div class="card-content" id="card-content-id">
                             <div class="card-title">
                                 <div class="row">
                                     <div class="col s12 m6" id="accsett2">
@@ -31,30 +31,139 @@
                                 </div>
                                 <div id="apj-acctxt-border"></div>
                             </div>
-                            <div class="row">
+                            <div id="card-with-analytics" class="section">
+                                <div class="row">
+                                    <!-- card -->
+                                    <div class="col s12 m6 l3 card-width">
+                                        <div class="card border-radius-6">
+                                            <div class="card-content center-align">
+                                                <div class="inner">
+                                                    <h4 class="m-0  mb-2 headtxtapp"><b>Company Name</b></h4>
+                                                    <p class="sdate mb-5">Submitted: <span>1-1-2021</span></p>
+                                                    <p class="status">Status:</p>
+                                                    <p class="statusbtn"><a class="mb-10 mt-2 btn waves-effect waves-light application-submitted">Submitted</a></p>
+                                                    <p class="clicktobtn"><a href="#!">Click to review</a></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- card -->
+                                    <div class="col s12 m6 l3 card-width">
+                                        <div class="card border-radius-6">
+                                            <div class="card-content center-align">
+                                                <div class="inner">
+                                                    <h4 class="m-0  mb-2 headtxtapp"><b>Company Name 2</b></h4>
+                                                    <p class="sdate mb-5">Expires: <span>1-1-2021</span></p>
+                                                    <p class="status">Status:</p>
+                                                    <p class="statusbtn"><a class="mb-10 mt-2 btn waves-effect waves-light application-approved">Approved</a></p>
+                                                    <p class="clicktobtn"><a href="#!">Click to review</a></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- card -->
+                                    <div class="col s12 m6 l3 card-width">
+                                        <div class="card border-radius-6">
+                                            <div class="card-content center-align">
+                                                <div class="inner">
+                                                    <h4 class="m-0  mb-2 headtxtapp"><b>Company Name</b></h4>
+                                                    <p class="sdate mb-5">Started: <span>1-1-2021</span></p>
+                                                    <p class="status">Status:</p>
+                                                    <p class="statusbtn"><a class="mb-10 mt-2 btn waves-effect waves-light application-pending">Pending</a></p>
+                                                    <p class="clicktobtn"><a href="#!">Click to review</a></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- card -->
+                                    <div class="col s12 m6 l3 card-width">
+                                        <div class="card border-radius-6">
+                                            <div class="card-content center-align">
+                                                <div class="inner">
+                                                    <h4 class="m-0  mb-2 headtxtapp"><b>Company Name</b></h4>
+                                                    <p class="sdate mb-5">Submitted: <span>1-1-2021</span></p>
+                                                    <p class="status">Status:</p>
+                                                    <p class="statusbtn"><a class="mb-10 mt-2 btn waves-effect waves-light application-submitted">Submitted</a></p>
+                                                    <p class="clicktobtn"><a href="#!">Click to review</a></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- card -->
+                                    <!-- Submit an Application card -->
+                                    <div class="col s12 m6 l3 card-width">
+                                        <div class="card border-radius-6">
+                                            <div class="card-content center-align subappsec">
+                                                <div class="inner">
+                                                    <h4 class="m-0 mb-4 headtxt"><b>Submit an Application</b></h4>
+                                                    <p class="subtxt">Click to get started</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- card -->
+                                    <!-- Ready to Requalify card -->
+                                    <div class="col s12 m6 l3 card-width">
+                                        <div class="card border-radius-6">
+                                            <div class="card-content center-align subappsec">
+                                                <div class="inner">
+                                                    <h4 class="m-0 mb-4 headtxt"><b>Ready to Requalify?</b></h4>
+                                                    <p class="subtxt">Click to get started</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- card -->
+                                </div>
                             </div>
                         </div>
                     </div>
-
-
                     <div class="card account-settings-section">
                         <div class="card-content">
                             <div class="card-title">
                                 <div class="row">
                                     <div class="col s12 m6 l8" id="accsett2">
                                         <h4 class="card-title">Expired Applications</h4>
-
                                     </div>
-
                                 </div>
                                 <div id="apj-acctxt-border"></div>
                             </div>
-                            <div class="row">
-
+                            <div id="card-with-analytics" class="section">
+                                <div class="row">
+                                    <!-- card -->
+                                    <div class="col s12 m6 l3 card-width">
+                                        <div class="card border-radius-6">
+                                            <div class="card-content center-align">
+                                                <div class="inner">
+                                                    <h4 class="m-0  mb-2 headtxtapp"><b>Company Name</b></h4>
+                                                    <p class="sdate mb-5 expired">Expired: <span>1-1-2021</span></p>
+                                                    <p class="status">Status:</p>
+                                                    <p class="statusbtn"><a class="mb-10 mt-2 btn waves-effect waves-light application-approved">Approved</a></p>
+                                                    <p class="clicktobtn"><a href="#!">Click to review</a></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- card -->
+                                    <!-- card -->
+                                    <div class="col s12 m6 l3 card-width">
+                                        <div class="card border-radius-6">
+                                            <div class="card-content center-align">
+                                                <div class="inner">
+                                                    <h4 class="m-0  mb-2 headtxtapp"><b>Company Name</b></h4>
+                                                    <p class="sdate mb-5 expired">Expired: <span>1-1-2021</span></p>
+                                                    <p class="status">Status:</p>
+                                                    <p class="statusbtn"><a class="mb-10 mt-2 btn waves-effect waves-light application-approved">Approved</a></p>
+                                                    <p class="clicktobtn"><a href="#!">Click to review</a></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- card -->
+                                </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -229,7 +338,6 @@
         </div>
     </div>
 </div>
-
 <div id="needhelp_modal" class="modal needhelp_modal">
     <div class="modal-content">
         <p class="modal-header right modal-close">
