@@ -87,8 +87,6 @@ Route::group(['prefix' => 'admin'], function () {
         Route::put('update-status/{table}', [AjaxController::class, 'updateStatus'])->name('updateStatus');
         Route::get('password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
     });
-
-
 });
 
 
@@ -104,7 +102,7 @@ Route::group(['prefix' => 'tpportal'], function () {
         Route::post('login', [LoginController::class, 'tpAuthenticate'])->name('login.submit');
         Route::get('register', [RegisterController::class, 'showTpRegistrationForm'])->name('register.show');
         Route::post('register', [RegisterController::class, 'tpRegister'])->name('register.submit');
-		
+        Route::get('password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
 		Route::get('dashboard', [TPController::class, 'index'])->name('dashboard');
     });
     Route::group(['middleware' => 'role:admin', 'prefix' => 'admin'], function () {
@@ -153,6 +151,17 @@ Route::get('password', function () {
 Route::get('cron-test', function () {
     return Artisan::call('schedule:run');
 });
+
+
+Route::get('companySeeder', function () {
+    return Artisan::call('db:seed --class=companySeeder');
+});
+
+
+Route::get('tempPrequelSeeder', function () {
+    return Artisan::call('db:seed --class=tempPrequelSeeder');
+});
+
 Route::get('company-details', function () {
     return view('trade_partners.admin.companies.detail');
 });
