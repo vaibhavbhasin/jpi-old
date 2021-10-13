@@ -1,5 +1,4 @@
-<div class="collapsible-body"
-     style="display:{{ !empty($menu->submenu) ? request()->is($menu->url.'*') ? 'block' : '' : ''}}">
+<div class="collapsible-body" style="display:{{ !empty($menu->submenu) ? request()->is($menu->url.'*') ? 'block' : 'block' : ''}}">
     <ul class="collapsible collapsible-sub" data-collapsible="accordion">
         @foreach ($sub_menus as $sub_menu)
             @if(isset($sub_menu->role))

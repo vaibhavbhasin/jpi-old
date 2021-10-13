@@ -107,6 +107,8 @@ Route::group(['prefix' => 'tpportal'], function () {
     });
     Route::group(['middleware' => 'role:admin', 'prefix' => 'admin'], function () {
         Route::get('pre-qualifications', [PreQualificationController::class, 'index'])->name('preQualification.index');
+    });
+    Route::group(['middleware' => 'role:admin', 'prefix' => 'admin'], function () {
         Route::get('pre-qualifications/application/view/{id?}', [PreQualificationController::class, 'showviewapp'])->name('preQualification.showview');
         Route::get('pre-qualifications/application/{id?}', [PreQualificationController::class, 'show'])->name('preQualification.show');
 

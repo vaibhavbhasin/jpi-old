@@ -35,8 +35,6 @@
                             </div>
                         </div>
                     </div>
-
-
                     <div class="card account-settings-section">
                         <div class="card-content">
                             <div class="card-title">
@@ -54,7 +52,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
